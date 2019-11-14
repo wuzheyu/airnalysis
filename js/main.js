@@ -1,6 +1,8 @@
 var textTypeInterval = 40;
 var basePause = 1000;
-var airbnbIntroText = "Airbnb is an online platform for offering lodging and tourism experiences. Its recent announcement of planning to go public in 2020, as well as its market value of over $31 billion have made the public wonder its exact business model and the path to success. Over the years, there is an abundance of Airbnb’s data online, and visualizing them is one of the most efficient ways for the public to fully and quickly appreciate Airbnb’s business model. "
+var airbnbIntroText = "Airbnb is an online platform for offering lodging and tourism experiences.  "
+var ericAndEmilyP1 = "Eric is a hotel manager in New York and he recently got married to Emily. "
+var ericAndEmilyP2 = "They would like to travel to Boston for a short trip. They would like to try out Airbnb as one of their friends recommended it."
 
 $(document).ready(function() {
     $('#fullPage').fullpage({
@@ -10,16 +12,23 @@ $(document).ready(function() {
         verticalCentered: false,
         afterLoad: function(origin, destination, direction) {
             // currentIndex records the page index starting from 0.
+            console.log(direction)
             var currentIndex = destination.index;
-            if (currentIndex == 1) {
+            if ((currentIndex == 1) && (direction == "down")) {
                 var timeDelay = basePause;
                 setTimeout(function(){generateText(airbnbIntroText, 'airbnb-description')}, timeDelay);
 
                 timeDelay += 500;
                 setTimeout(function(){generateProgressBar("airbnb-logo", "bt")}, timeDelay);
             }
-            else if (currentIndex == 2) {
+            else if ((currentIndex == 2) && (direction == "down")) {
+                var timeDelay = basePause;
+                setTimeout(function(){generateText(ericAndEmilyP1, 'eric-emily-p1')}, timeDelay);
 
+                timeDelay += 500;
+                setTimeout(function(){generateText(ericAndEmilyP2, 'eric-emily-p2')}, timeDelay);
+
+                
             }
             else if (currentIndex == 3) {
 
@@ -42,7 +51,6 @@ $(document).ready(function() {
 
 })
 function generateText(text, elementID) {
-    console.log("run")
     document.getElementById(elementID).innerHTML = text;
     var textWrapper = document.querySelector('#' + elementID);
     textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
