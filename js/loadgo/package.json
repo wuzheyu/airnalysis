@@ -29,7 +29,7 @@
     "url": "https://github.com/franverona/loadgo.git"
   },
   "dependencies": {
-    "jquery": ">=1.11.3"
+    "jquery": ">=3.4.0"
   },
   "devDependencies": {
     "grunt": "1.0.1",
