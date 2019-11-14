@@ -21,6 +21,10 @@
     padding: 0;
 }
 
+.story-line { 
+    font-family: 'Montserrat', sans-serif;
+}
+
 .section-header {
     font-family: 'Montserrat', sans-serif;
     opacity:.8;
@@ -33,3 +37,14 @@
     padding-right: 15px;
 }
 
+.ml12 {
+    font-weight: 200;
+    font-size: 1.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+  }
+  
+.ml12 .letter {
+    display: inline-block;
+    line-height: 1em;
+}
