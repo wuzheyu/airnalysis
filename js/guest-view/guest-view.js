@@ -1,12 +1,13 @@
 queue()
     .defer(d3.csv, "data/bos-listings.csv")
+    .defer(d3.csv, "data/bos-hotel-price.csv")
     // .defer(d3.csv, "data/data-guest/boston_listing_for_vis.csv")
     // .defer(d3.csv, "data/data-guest/boston_review.csv")
     // .defer(d3.csv, "data/data-guest/bos_review_detail.csv")
     // .defer(d3.csv, "data/data-guest/airbnb-ratings.csv")
     .await(createVisualization);
 
-function createVisualization(error, bos_listing) {
+function createVisualization(error, bos_listing, bos_hotel_prices) {
 // function createVisualization(error, bos_listing, bos_listing_for_vis, boston_review, boston_review_detail, boston_rating) {
 
     /* multiple coordinated views */
@@ -14,16 +15,37 @@ function createVisualization(error, bos_listing) {
     // data cleaning for count-vis
     var listing_by_neighborhood = get_count_by_neighbor(bos_listing);
     var listing_by_neighborhood = reorg_to_array_by_neightbor(listing_by_neighborhood)
+    var bos_hotel_prices_by_neighborhood = clean_hotel_prices(bos_hotel_prices)
 
     // data cleaning for room-type-vis
     var all_room_types = get_room_types(listing_by_neighborhood);
     var listing_by_neigh_types = listing_types(listing_by_neighborhood, all_room_types);
 
-    // console.log(listing_by_neigh_types)
-    var countVis = new CountVis("count-vis", listing_by_neighborhood);
+    var countVis = new CountVis("count-vis", listing_by_neighborhood, bos_hotel_prices_by_neighborhood);
     // var roomTypeVis = new RoomTypeVis("room-type-vis", listing_by_neigh_types);
 
+}
 
+function clean_hotel_prices(bos_hotel_prices) {
+    var hotel_prices_by_neighborhood = [];
+    bos_hotel_prices.forEach(function(d) {
+        var prices = 0;
+        var counts = 0;
+        d3.range(1, 5).forEach(function(i) {
+            if (d["price" + i] != undefined) {
+                prices += +(d["price"+i]);
+                counts += 1;
+            }
+        })
+
+        var new_object = {
+            "nei": d.neighborhood,
+            "ave_price": prices / counts
+        }
+        hotel_prices_by_neighborhood.push(new_object)
+    })
+
+    return hotel_prices_by_neighborhood;
 }
 
 function listing_types(listing_by_neighborhood, all_room_types) {

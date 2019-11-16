@@ -1,10 +1,26 @@
 
-CountVis = function(_parentElement, _data, _eventHandler ){
+CountVis = function(_parentElement, _data, _hotel_data){
     this.parentElement = _parentElement;
     this.data = _data;
-    this.eventHandler = _eventHandler;
+    // this.eventHandler = _eventHandler;
+    this.hotel_data = _hotel_data;
 
+    this.clean_data();
     this.initVis();
+}
+
+CountVis.prototype.clean_data = function() {
+    var vis = this;
+
+    let rm_dp = (names) => names.filter((v,i) => names.indexOf(v) === i)
+    vis.unique_neighborhoods = rm_dp(vis.hotel_data.map(function(d){ return d["nei"]; }));
+
+    vis.displayData = [];
+    vis.data.forEach(function(d) {
+        if  (vis.unique_neighborhoods.includes(d.neightborhood)) {
+            vis.displayData.push(d)
+        }
+    })
 }
 
 CountVis.prototype.initVis = function() {
@@ -34,14 +50,15 @@ CountVis.prototype.initVis = function() {
     vis.yAxis = d3.axisLeft()
         .scale(vis.y)
 
-
     var minMaxY= [0, d3.max(vis.data.map(function(d){ return d.count; }))];
     vis.y.domain(minMaxY);
 
     let rm_dp = (names) => names.filter((v,i) => names.indexOf(v) === i)
-    var neighbors_uniq = rm_dp(vis.data.map(function(d){ return d["neightborhood"]; }));
+    console.log(vis.displayData)
+    var domain_arr =  rm_dp(vis.displayData.map(function(d){ return d["neightborhood"]; }));
 
-    vis.x.domain(neighbors_uniq);
+    console.log(domain_arr)
+    vis.x.domain(domain_arr);
 
     vis.svg.append("g")
         .attr("class", "x-axis axis")
@@ -49,12 +66,6 @@ CountVis.prototype.initVis = function() {
 
     vis.svg.append("g")
         .attr("class", "y-axis axis");
-
-    // console.log(vis.x.domain())
-    // console.log(vis.height)
-    // console.log(vis.x.range())
-    // console.log(vis.y.range())
-
 
     vis.area = d3.area()
         .curve(d3.curveStep)
@@ -64,6 +75,17 @@ CountVis.prototype.initVis = function() {
         .y0(vis.height)
         .y1(function(d) {
             return vis.y(d.count);
+        });
+
+    console.log(vis.hotel_data)
+    vis.area_hotel = d3.area()
+        .curve(d3.curveStep)
+        .x(function(d) {
+            return vis.x(d.nei)
+        })
+        .y0(vis.height)
+        .y1(function(d) {
+            return vis.y(d.ave_price);
         });
 
     vis.timePath = vis.svg.append("path")
@@ -86,6 +108,9 @@ CountVis.prototype.initVis = function() {
         vis.brushGroup = vis.svg.append("g")
             .attr("class", "brush")
 
+
+    // bar graphs
+
     vis.wrangleData();
 
 }
@@ -93,7 +118,7 @@ CountVis.prototype.initVis = function() {
 CountVis.prototype.wrangleData = function(){
     var vis = this;
 
-    this.displayData = this.data;
+    this.displayData = this.displayData;
 
     // Update the visualization
     vis.updateVis();
@@ -103,11 +128,34 @@ CountVis.prototype.wrangleData = function(){
 CountVis.prototype.updateVis = function() {
     var vis = this;
 
-    vis.timePath
-        .datum(vis.displayData)
-        .attr("d", vis.area)
-        .attr("fill", "darkred")
-        // .attr("clip-path", "url(#clip)");
+    console.log("drawing")
+    vis.svg.selectAll(".airbnb_pbyn")
+        .data(vis.displayData)
+        .enter()
+        .append("rect")
+        .attr("class", "airbnb_pbyn")
+        .attr("x", function(d) {
+            return vis.x(d.neightborhood)
+        })
+        .attr("y", function(d) {
+            console.log(vis.y(d.count))
+            return vis.y(d.count)
+        })
+        .attr("height", function(d) {
+            return vis.height - vis.y(d.count)
+        })
+        .attr("fill", "black")
+
+    // vis.timePath
+    //     .datum(vis.displayData)
+    //     .attr("d", vis.area)
+    //     .attr("fill", "darkred")
+    //     // .attr("clip-path", "url(#clip)");
+
+    // vis.timePath
+    //     .datum(vis.hotel_data)
+    //     .attr("d", vis.area_hotel)
+    //     .attr("fill", "darkred")
 
     vis.svg.select(".x-axis").call(vis.xAxis);
     vis.svg.select(".y-axis").call(vis.yAxis);
