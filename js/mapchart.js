@@ -50,7 +50,7 @@ MapChart.prototype.initVis = function(){
     //         .center([-71.06,42.32]);
 
     var path = d3.geoPath()
-        .projection(projection);
+        .projection(projectiond);
 
     // Render the map by using the path generator
     vis.svg.selectAll("path")
