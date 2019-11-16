@@ -19,8 +19,10 @@ function createVisualization(error, bos_listing, bos_listing_for_vis, boston_rev
     //     console.log(typeof(d["count"]))
     // })
 
+    /* multiple coordinated views */
     // total count of airbnb homes
-    var countVis = new CountVis("room-type-vis", listing_by_time);
+    var countVis = new CountVis("count-vis", listing_by_time);
+    // var roomTypeVis = new RoomTypeVis("room-type-vis", listing_by_time);
 
 
 }
