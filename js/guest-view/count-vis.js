@@ -50,10 +50,10 @@ CountVis.prototype.initVis = function() {
     vis.svg.append("g")
         .attr("class", "y-axis axis");
 
-    console.log(vis.x.domain())
-    console.log(vis.height)
-    console.log(vis.x.range())
-    console.log(vis.y.range())
+    // console.log(vis.x.domain())
+    // console.log(vis.height)
+    // console.log(vis.x.range())
+    // console.log(vis.y.range())
 
 
     vis.area = d3.area()
@@ -112,7 +112,7 @@ CountVis.prototype.updateVis = function() {
     vis.svg.select(".x-axis").call(vis.xAxis);
     vis.svg.select(".y-axis").call(vis.yAxis);
 
-    console.log("finished rendering count-vis")
+    // console.log("finished rendering count-vis")
 
     // brush
     vis.brushGroup.call(vis.brush);

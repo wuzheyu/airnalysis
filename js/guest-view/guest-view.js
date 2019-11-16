@@ -7,24 +7,52 @@ queue()
     .await(createVisualization);
 
 function createVisualization(error, bos_listing) {
-
 // function createVisualization(error, bos_listing, bos_listing_for_vis, boston_review, boston_review_detail, boston_rating) {
-    // console.log(bos_listing)
-    // console.log(bos_listing_for_vis)
-    // console.log(boston_rating)
-
-
-    // data cleaning
-    var listing_by_neighborhood = get_count_by_neighbor(bos_listing);
-    var listing_by_neighborhood = reorg_to_array_by_neightbor(listing_by_neighborhood)
-    console.log(listing_by_neighborhood)
 
     /* multiple coordinated views */
-    // total count of airbnb homes
+
+    // data cleaning for count-vis
+    var listing_by_neighborhood = get_count_by_neighbor(bos_listing);
+    var listing_by_neighborhood = reorg_to_array_by_neightbor(listing_by_neighborhood)
+
+    // data cleaning for room-type-vis
+    var all_room_types = get_room_types(listing_by_neighborhood);
+    var listing_by_neigh_types = listing_types(listing_by_neighborhood, all_room_types);
+
+    // console.log(listing_by_neigh_types)
     var countVis = new CountVis("count-vis", listing_by_neighborhood);
-    // var roomTypeVis = new RoomTypeVis("room-type-vis", listing_by_time);
+    // var roomTypeVis = new RoomTypeVis("room-type-vis", listing_by_neigh_types);
 
 
+}
+
+function listing_types(listing_by_neighborhood, all_room_types) {
+    listing_by_neighborhood.forEach(function(d) {
+        var new_object = {};
+        d3.range(0, 4).forEach(function (i) {
+            new_object[all_room_types[i]] = 0;
+        })
+        d.room_type.forEach(function(d2) {
+            new_object[d2] += 1;
+        })
+        d.room_type = new_object;
+    })
+
+    return listing_by_neighborhood;
+}
+
+function get_room_types(listing_by_neighborhood) {
+    // get all room types
+    var all_room_types = [];
+    listing_by_neighborhood.forEach(function(d) {
+        d.room_type.forEach(function(d2) {
+            if (!all_room_types.includes(d2)) {
+                all_room_types.push(d2)
+            }
+        })
+    })
+
+    return all_room_types;
 }
 
 function reorg_to_array_by_neightbor(listing_by_neighborhood) {

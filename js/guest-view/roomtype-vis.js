@@ -1,15 +1,14 @@
 //
 // /*
-//  * CountVis - Object constructor function
+//  * RoomTypeVis - Object constructor function
 //  * @param _parentElement 	-- the HTML element in which to draw the visualization
-//  * @param _data						-- the actual data: perDayData
+//  * @param _data						-- the actual data
 //  */
 //
-// console.log("hey!!!!!!!!!!!!!!!!!!!!!!!!")
-// CountVis = function(_parentElement, _data, _eventHandler ){
+// RoomTypeVis = function(_parentElement, _data){
 //     this.parentElement = _parentElement;
 //     this.data = _data;
-//     this.eventHandler = _eventHandler;
+//     this.filteredData = this.data;
 //
 //     this.initVis();
 // }
@@ -19,13 +18,13 @@
 //  * Initialize visualization (static content, e.g. SVG area or axes)
 //  */
 //
-// CountVis.prototype.initVis = function(){
+// RoomTypeVis.prototype.initVis = function(){
 //     var vis = this;
 //
-//     vis.margin = { top: 40, right: 0, bottom: 60, left: 60 };
+//     vis.margin = { top: 20, right: 20, bottom: 200, left: 60 };
 //
 //     vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
-//         vis.height = 300 - vis.margin.top - vis.margin.bottom;
+//         vis.height = 500 - vis.margin.top - vis.margin.bottom;
 //
 //     // SVG drawing area
 //     vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -34,19 +33,8 @@
 //         .append("g")
 //         .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 //
-//
-//     // SVG clipping path
-//     // ***TO-DO***
-//     // vis.svg.append("defs")
-//     //     .append("clipPath")
-//     //     .attr("id", "clip")
-//     //     .append("rect")
-//     //     .attr("width", vis.width)
-//     //     .attr("height", vis.height);
-//
-//
 //     // Scales and axes
-//     vis.x = d3.scaleTime()
+//     vis.x = d3.scaleBand()
 //         .range([0, vis.width]);
 //
 //     vis.y = d3.scaleLinear()
@@ -56,17 +44,23 @@
 //         .scale(vis.x);
 //
 //     vis.yAxis = d3.axisLeft()
-//         .scale(vis.y)
-//         .ticks(6);
+//         .scale(vis.y);
 //
 //
-//     // Set domains
-//     var minMaxY= [0, d3.max(vis.data.map(function(d){ return d.count; }))];
-//     vis.y.domain(minMaxY);
+//     // Append a path for the area function, so that it is later behind the brush overlay
+//     vis.agePath = vis.svg.append("path")
+//         .attr("class", "area area-age");
 //
-//     var minMaxX = d3.extent(vis.data.map(function(d){ return d.host_since; }));
-//     vis.x.domain([minMaxX[0], minMaxX[1]]);
+//     // Define the D3 path generator
+//     vis.area = d3.area()
+//         .x(function(d,index) { return vis.x(index); })
+//         .y0(vis.height)
+//         .y1(function(d) { return vis.y(d); });
 //
+//     vis.area.curve(d3.curveCardinal);
+//
+//
+//     // Append axes
 //     vis.svg.append("g")
 //         .attr("class", "x-axis axis")
 //         .attr("transform", "translate(0," + vis.height + ")");
@@ -74,75 +68,16 @@
 //     vis.svg.append("g")
 //         .attr("class", "y-axis axis");
 //
-//     // Axis title
+//     // Axis titles
 //     vis.svg.append("text")
 //         .attr("x", -50)
 //         .attr("y", -8)
-//         .text("Number of homes available");
+//         .text("Votes");
+//     vis.svg.append("text")
+//         .attr("x", vis.width - 5)
+//         .attr("y", vis.height + 25)
+//         .text("Age");
 //
-//
-//     // Append a path for the area function, so that it is later behind the brush overlay
-//     vis.timePath = vis.svg.append("path")
-//         .attr("class", "area area-time");
-//
-//     // Define the D3 path generator
-//     vis.area = d3.area()
-//         .curve(d3.curveStep)
-//         .x(function(d) {
-//             return vis.x(d.host_since);
-//         })
-//         .y0(vis.height)
-//         .y1(function(d) { return vis.y(d.count); });
-//
-//
-//     // Initialize brushing component
-//     // *** TO-DO ***
-//     // vis.currentBrushRegion = null;
-//     // vis.brush = d3.brushX()
-//     //     .on("brush", function() {
-//     //         // get the specific region selected by user
-//     //         vis.currentBrushRegion = d3.event.selection;
-//     //         vis.currentBrushRegion = vis.currentBrushRegion.map(vis.x.invert);
-//     //
-//     //         //triger the event of the event handler
-//     //         $(vis.eventHandler).trigger("selectionChanged", vis.currentBrushRegion);
-//     //     })
-//     //     .extent([[0, 0], [vis.width, vis.height]]);
-//
-//
-//     // Append brush component here
-//     // *** TO-DO ***
-//     // vis.brushGroup = vis.svg.append("g")
-//     //     .attr("class", "brush")
-//
-//     // Add zoom component
-//     // *** TO-DO ***
-//     //
-//     // vis.xOrig = vis.x; // save original scale
-//     //
-//     vis.zoomFunction = function() {
-//         vis.x = d3.event.transform.rescaleX(vis.xOrig);
-//
-//         // check if the brush is active
-//         if (vis.currentBrushRegion) {
-//             vis.brushGroup.call(vis.brush.move, vis.currentBrushRegion.map(vis.x))
-//         }
-//         vis.updateVis();
-//     }
-//     // function that is being called when user zooms
-//     //
-//     // vis.zoom = d3.zoom()
-//     //     .on("zoom", vis.zoomFunction)
-//     //     .scaleExtent([1,20]);
-//
-//
-//     // disable mousedown and drag in zoom, when you activate zoom (by .call)
-//     // *** TO-DO ***
-//
-//     // init the time period label
-//     // var formatTime = d3.timeFormat("%Y-%m-%d");
-//     // d3.select("#time-period-min").text(formatTime(minMaxX[0]));
-//     // d3.select("#time-period-max").text(formatTime(minMaxX[1]));
 //
 //     // (Filter, aggregate, modify data)
 //     vis.wrangleData();
@@ -154,10 +89,26 @@
 //  * Data wrangling
 //  */
 //
-// CountVis.prototype.wrangleData = function(){
+// RoomTypeVis.prototype.wrangleData = function(){
 //     var vis = this;
 //
-//     this.displayData = this.data;
+//     // Here you want to aggregate the data by age, not by day (as it is given)!
+//     // Create a sequence of values from index 0 - 98 (age: 1-99; array length: 99), initialize each value to 0
+//     //
+//     var votesPerAge = d3.range(0,99).map(function(){
+//         return 0;
+//     });
+//
+//     // Iterate over each day and accumulate values for each age - use vis.filteredData
+//
+//     vis.filteredData.forEach(function(d) {
+//         d3.range(0,99).forEach(function(i){
+//             votesPerAge[i] += d.ages[i]
+//         });
+//     });
+//
+//     // set data that is being visualized
+//     vis.displayData = votesPerAge;
 //
 //     // Update the visualization
 //     vis.updateVis();
@@ -166,40 +117,39 @@
 //
 //
 // /*
-//  * The drawing function - should use the D3 update sequence (enter, update, exit)
-//  * Function parameters only needed if different kinds of updates are needed
+//  * The drawing function
 //  */
 //
-// CountVis.prototype.updateVis = function(){
+// RoomTypeVis.prototype.updateVis = function(){
 //     var vis = this;
 //
-//     // Call brush component here
-//     // *** TO-DO ***
-//     // vis.brushGroup.call(vis.brush);
-//     // vis.brushGroup.call(vis.zoom)
-//     //     .on("mousedown.zoom", null)
-//     //     .on("touchstart.zoom", null);
+//     // Update domains
+//     vis.y.domain(d3.extent(vis.displayData));
+//
 //
 //     // Call the area function and update the path
 //     // D3 uses each data point and passes it to the area function.
 //     // The area function translates the data into positions on the path in the SVG.
-//     vis.timePath
+//     vis.agePath
 //         .datum(vis.displayData)
-//         .attr("d", vis.area)
-//         .attr("clip-path", "url(#clip)");
+//         .transition()
+//         .attr("d", vis.area);
 //
 //
-//     // Call axis functions with the new domain
+//     // Call axis function with the new domain
 //     vis.svg.select(".x-axis").call(vis.xAxis);
 //     vis.svg.select(".y-axis").call(vis.yAxis);
 // }
 //
-// CountVis.prototype.onSelectionChange = function(selectionStart, selectionEnd){
-//     // update the label showing current time period
-//     console.log(selectionEnd)
 //
-//     var formatTime = d3.timeFormat("%Y-%m-%d");
-//     d3.select("#time-period-min").text(formatTime(selectionStart));
-//     d3.select("#time-period-max").text(formatTime(selectionEnd));
+// RoomTypeVis.prototype.onSelectionChange = function(selectionStart, selectionEnd){
+//     var vis = this;
 //
+//     // Filter original unfiltered data depending on selected time period (brush)
+//     // *** TO-DO ***
+//     vis.filteredData = vis.data.filter(function(d) {
+//         return d.time >= selectionStart && d.time <= selectionEnd;
+//     });
+//
+//     vis.wrangleData();
 // }
