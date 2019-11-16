@@ -15,7 +15,13 @@ function createVisualization(error, bos_listing, bos_listing_for_vis, boston_rev
     // data cleaning
     var listing_by_time = get_count_by_time(bos_listing);
     var listing_by_time = reorg_to_array(listing_by_time)
-    console.log(listing_by_time);
+    // listing_by_time.forEach(function(d) {
+    //     console.log(typeof(d["count"]))
+    // })
+
+    // total count of airbnb homes
+    var countVis = new CountVis("room-type-vis", listing_by_time);
+
 
 }
 
