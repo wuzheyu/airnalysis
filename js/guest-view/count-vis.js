@@ -21,6 +21,23 @@ CountVis.prototype.clean_data = function() {
             vis.displayData.push(d)
         }
     })
+
+    // sort the data and aggregate
+    vis.hotel_data.sort(function(a, b) {
+        return ('' + a.nei).localeCompare(b.nei);
+    })
+
+    vis.displayData.sort(function(a, b) {
+        return ('' + a.neightborhood).localeCompare(b.neightborhood);
+    })
+
+    vis.displayData.forEach(function(d, index) {
+        d["hotel_price"] = vis.hotel_data[index].ave_price;
+    })
+
+    console.log(vis.displayData)
+    console.log(vis.hotel_data)
+
 }
 
 CountVis.prototype.initVis = function() {
@@ -50,14 +67,13 @@ CountVis.prototype.initVis = function() {
     vis.yAxis = d3.axisLeft()
         .scale(vis.y)
 
-    var minMaxY= [0, d3.max(vis.data.map(function(d){ return d.count; }))];
-    vis.y.domain(minMaxY);
+    var MaxY= d3.max(vis.displayData.map(function(d){ return (d.avg_price + d.hotel_price); }));
+    // var MaxY_hotel = d3.max(vis.hotel_data.map(function(d){ return d.ave_price; }));
+    vis.y.domain([0, MaxY]);
 
     let rm_dp = (names) => names.filter((v,i) => names.indexOf(v) === i)
-    console.log(vis.displayData)
     var domain_arr =  rm_dp(vis.displayData.map(function(d){ return d["neightborhood"]; }));
 
-    console.log(domain_arr)
     vis.x.domain(domain_arr);
 
     vis.svg.append("g")
@@ -74,10 +90,9 @@ CountVis.prototype.initVis = function() {
         })
         .y0(vis.height)
         .y1(function(d) {
-            return vis.y(d.count);
+            return vis.y(d.ave_price);
         });
 
-    console.log(vis.hotel_data)
     vis.area_hotel = d3.area()
         .curve(d3.curveStep)
         .x(function(d) {
@@ -93,21 +108,21 @@ CountVis.prototype.initVis = function() {
 
 
     /* brush  */
-    vis.currentBrushRegion = null;
-    vis.brush = d3.brushX()
-        .on("brush", function() {
-            // get the specific region selected by user
-            vis.currentBrushRegion = d3.event.selection;
-            vis.currentBrushRegion = vis.currentBrushRegion.map(vis.x.invert);
-
-            //triger the event of the event handler
-            $(vis.eventHandler).trigger("selectionChanged", vis.currentBrushRegion);
-        })
-        .extent([[0, 0], [vis.width, vis.height]]);
-
-        vis.brushGroup = vis.svg.append("g")
-            .attr("class", "brush")
-
+    // vis.currentBrushRegion = null;
+    // vis.brush = d3.brushX()
+    //     .on("brush", function() {
+    //         // get the specific region selected by user
+    //         vis.currentBrushRegion = d3.event.selection;
+    //         vis.currentBrushRegion = vis.currentBrushRegion.map(vis.x.invert);
+    //
+    //         //triger the event of the event handler
+    //         $(vis.eventHandler).trigger("selectionChanged", vis.currentBrushRegion);
+    //     })
+    //     .extent([[0, 0], [vis.width, vis.height]]);
+    //
+    //     vis.brushGroup = vis.svg.append("g")
+    //         .attr("class", "brush")
+    //
 
     // bar graphs
 
@@ -124,12 +139,27 @@ CountVis.prototype.wrangleData = function(){
     vis.updateVis();
 }
 
+CountVis.prototype.show_diff = function() {
+    console.log("show in class!!!!!!")
+    var vis = this;
+
+    var bar = vis.svg.select(".bar-chart")
+    bar.selectAll(".airbnb_pbyn").remove()
+    bar.selectAll(".hotel_pbyn").remove()
+    vis.svg.select(".x-axis").remove()
+    vis.svg.select(".y-axis").remove()
+
+    // draw difference vis
+    var diff_vis = new DiffVis("count-vis", vis.displayData, vis.hotel_data, vis.svg, vis.width, vis.height, vis.svg.select(".bar-chart"));
+}
+
 
 CountVis.prototype.updateVis = function() {
     var vis = this;
 
-    console.log("drawing")
-    vis.svg.selectAll(".airbnb_pbyn")
+    var bar_air = vis.svg.append("g")
+        .attr("class", "bar-chart");
+    bar_air.selectAll(".airbnb_pbyn")
         .data(vis.displayData)
         .enter()
         .append("rect")
@@ -138,13 +168,33 @@ CountVis.prototype.updateVis = function() {
             return vis.x(d.neightborhood)
         })
         .attr("y", function(d) {
-            console.log(vis.y(d.count))
-            return vis.y(d.count)
+            return vis.y(d.avg_price)
         })
         .attr("height", function(d) {
-            return vis.height - vis.y(d.count)
+            return vis.height - vis.y(d.avg_price)
         })
-        .attr("fill", "black")
+        .attr("width", vis.x.bandwidth())
+        .attr("fill", "darkblue")
+        .attr("opacity", 0.5)
+
+
+    bar_air.selectAll(".hotel_pbyn")
+        .data(vis.displayData)
+        .enter()
+        .append("rect")
+        .attr("class", "hotel_pbyn")
+        .attr("x", function(d) {
+            return vis.x(d.neightborhood)
+        })
+        .attr("y", function(d) {
+            return vis.y(d.avg_price + d.hotel_price)
+        })
+        .attr("height", function(d) {
+            return vis.height - vis.y(d.hotel_price)
+        })
+        .attr("width", vis.x.bandwidth())
+        .attr("fill", "darkred")
+        .attr("opacity", 0.5)
 
     // vis.timePath
     //     .datum(vis.displayData)
@@ -157,12 +207,16 @@ CountVis.prototype.updateVis = function() {
     //     .attr("d", vis.area_hotel)
     //     .attr("fill", "darkred")
 
-    vis.svg.select(".x-axis").call(vis.xAxis);
+    vis.svg.select(".x-axis").call(vis.xAxis)
+        .selectAll("text")
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", function(d) {
+            return "rotate(-45)"
+        })
     vis.svg.select(".y-axis").call(vis.yAxis);
 
-    // console.log("finished rendering count-vis")
-
     // brush
-    vis.brushGroup.call(vis.brush);
-
+    // vis.brushGroup.call(vis.brush);
 }

@@ -7,6 +7,8 @@ queue()
     // .defer(d3.csv, "data/data-guest/airbnb-ratings.csv")
     .await(createVisualization);
 
+var countVis;
+
 function createVisualization(error, bos_listing, bos_hotel_prices) {
 // function createVisualization(error, bos_listing, bos_listing_for_vis, boston_review, boston_review_detail, boston_rating) {
 
@@ -21,9 +23,8 @@ function createVisualization(error, bos_listing, bos_hotel_prices) {
     var all_room_types = get_room_types(listing_by_neighborhood);
     var listing_by_neigh_types = listing_types(listing_by_neighborhood, all_room_types);
 
-    var countVis = new CountVis("count-vis", listing_by_neighborhood, bos_hotel_prices_by_neighborhood);
+    countVis = new CountVis("count-vis", listing_by_neighborhood, bos_hotel_prices_by_neighborhood);
     // var roomTypeVis = new RoomTypeVis("room-type-vis", listing_by_neigh_types);
-
 }
 
 function clean_hotel_prices(bos_hotel_prices) {
@@ -84,6 +85,8 @@ function reorg_to_array_by_neightbor(listing_by_neighborhood) {
     neighborhoods_in_ob.forEach(function(d) {
         var new_object = listing_by_neighborhood[d]
         new_object["neightborhood"] = d
+        new_object["avg_price"] = listing_by_neighborhood[d]["total_prices"] / listing_by_neighborhood[d]["count"]
+
         array_list.push(new_object);
     })
 
@@ -94,22 +97,31 @@ function get_count_by_neighbor(bos_listing) {
     var listing_by_neighbor = {}
     bos_listing.forEach(function(d) {
         var neighbor = d["neighbourhood_cleansed"]
+        var price = +d["price"].replace("$", '')
 
-        if (neighbor in listing_by_neighbor) {
-            listing_by_neighbor[neighbor]["count"] += 1
-            listing_by_neighbor[neighbor]["room_type"].push(d["room_type"])
-            listing_by_neighbor[neighbor]["property_type"].push(d["property_type"])
-        }
-        else {
-            var new_object = {}
-            new_object["count"] = 1
-            new_object["room_type"] = [d["room_type"]]
-            new_object["property_type"] = [d["property_type"]]
-            listing_by_neighbor[neighbor] = new_object;
+        if (!isNaN(price) && ((d["room_type"] == "Private room") ||
+            (d["room_type"] == "Entire home/apt"))){
+            if (neighbor in listing_by_neighbor) {
+                listing_by_neighbor[neighbor]["total_prices"] += price
+                listing_by_neighbor[neighbor]["count"] += 1
+                listing_by_neighbor[neighbor]["room_type"].push(d["room_type"])
+                listing_by_neighbor[neighbor]["property_type"].push(d["property_type"])
+            } else {
+                var new_object = {}
+                new_object["total_prices"] = price
+                new_object["count"] = 1
+                new_object["room_type"] = [d["room_type"]]
+                new_object["property_type"] = [d["property_type"]]
+                listing_by_neighbor[neighbor] = new_object;
+            }
         }
     });
 
     return listing_by_neighbor;
+}
+
+function show_diff() {
+    countVis.show_diff();
 }
 
 // function reorg_to_array(listing_by_time) {
