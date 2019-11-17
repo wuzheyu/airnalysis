@@ -68,7 +68,6 @@ DiffVis.prototype.prepareData = function() {
         vis.display_data.push(new_object)
     })
 
-    console.log(vis.display_data)
     this.render();
 }
 
@@ -83,8 +82,6 @@ DiffVis.prototype.render = function() {
     var minValue= d3.min(vis.display_data.map(function(d){ return d.price_diff; }));
     vis.valueNeg.domain([minValue, 0]);
     vis.valuePos.domain([0, maxValue]);
-    console.log(vis.valueNeg.domain())
-    console.log(vis.valuePos.domain())
 
     vis.bar_area = vis.svg.append("g")
         .attr("class", "diff-bar-vis")
@@ -97,12 +94,11 @@ DiffVis.prototype.render = function() {
         .duration(1000)
         .attr("class", "diff-bar")
         .attr("x", function(d) {
-            console.log(vis.valueNeg(d.price_diff))
             if (d.price_diff > 0) {
                 return vis.width / 2;
             }
             else {
-                return (vis.width/2 - vis.valueNeg(d.price_diff));
+                return vis.valueNeg(d.price_diff);
             }
         })
         .attr("y", function(d) {
@@ -114,7 +110,7 @@ DiffVis.prototype.render = function() {
                 return vis.valuePos(d.price_diff);
             }
             else {
-                return vis.valueNeg(d.price_diff);
+                return (vis.width/2 - vis.valueNeg(d.price_diff));
             }
         })
         .attr("fill", function(d) {

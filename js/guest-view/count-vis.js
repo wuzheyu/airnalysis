@@ -35,9 +35,6 @@ CountVis.prototype.clean_data = function() {
         d["hotel_price"] = vis.hotel_data[index].ave_price;
     })
 
-    console.log(vis.displayData)
-    console.log(vis.hotel_data)
-
 }
 
 CountVis.prototype.initVis = function() {
@@ -140,7 +137,6 @@ CountVis.prototype.wrangleData = function(){
 }
 
 CountVis.prototype.show_diff = function() {
-    console.log("show in class!!!!!!")
     var vis = this;
 
     var bar = vis.svg.select(".bar-chart")
