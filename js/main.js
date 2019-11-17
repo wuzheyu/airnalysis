@@ -12,7 +12,7 @@ $(document).ready(function() {
         verticalCentered: false,
         afterLoad: function(origin, destination, direction) {
             // currentIndex records the page index starting from 0.
-            console.log(direction)
+            //console.log(direction)
             var currentIndex = destination.index;
             if ((currentIndex == 1) && (direction == "down")) {
                 var timeDelay = basePause;

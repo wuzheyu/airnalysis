@@ -1,0 +1,8 @@
+/******** NYC map area ********/
+#ny-map svg{
+    fill: darkcyan;
+}
+.listing {
+    fill: lightcoral;
+    fill-opacity: 0.7;
+}

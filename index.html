@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/fullpage.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/host-style.css">
 
 
 </head>
@@ -52,10 +53,14 @@
 		<div class="section" id="travel-boston">
 				<div class="section-header">Travel to Boston</div>
 				<div class ="container">
+						<button onclick="show_diff()">Show Difference</button>
 						<div class="row">
-								<div class="col-md-6">Airbnb's story</div>
-								<div class="col-md-6">Airbnb's story</div>
+								<div class="col-md-8" id="count-vis" >Airbnb's story</div>
+<!--									<div class="row col-md-6" ></div>-->
+<!--									<div class="row col-md-6" id="room-type-vis"></div>-->
+								<div class="col-md-4">Airbnb's story</div>
 						</div>
+
 				</div>
 		</div>
 
@@ -63,7 +68,7 @@
 				<div class="section-header">Hosting Emily's own Airbnb</div>
 				<div class ="container">
 						<div class="row">
-								<div class="col-md-6">Airbnb's story</div>
+								<div class="col-md-6" id="ny-map">Airbnb's story</div>
 								<div class="col-md-6">Airbnb's story</div>
 						</div>
 				</div>
@@ -123,5 +128,12 @@
 	<script src="js/main.js"></script>
 	<script src="js/viz-hotel-industry.js"></script>
 	<script src="js/viz-world-map.js"></script>
+	<script src="js/host-view.js"></script>
+	<script src="js/mapchart.js"></script>
+	<script src="js/guest-view/guest-view.js"></script>
+	<script src="js/guest-view/count-vis.js"></script>
+	<script src="js/guest-view/roomtype-vis.js"></script>
+	<script src="js/guest-view/diff-vis.js"></script>
+
 </body>
 </html>
