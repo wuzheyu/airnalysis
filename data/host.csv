@@ -1,0 +1,26 @@
+,Borough,type,rental_price,rental_inventory,airbnb_inventory,airbnb_price
+0,Bronx,All,1900.0,1154.0,392,100.0
+1,Brooklyn,All,2550.0,17556.0,9364,145.0
+2,Manhattan,All,3300.0,19604.0,12828,194.0
+3,Queens,All,2200.0,5581.0,2135,120.0
+4,Staten Island,All,1900.0,97.0,179,100.0
+5,Bronx,Studio,1475.0,91.0,49,95.0
+6,Brooklyn,Studio,2050.0,1277.0,972,112.5
+7,Manhattan,Studio,2450.0,3788.0,2727,150.0
+8,Queens,Studio,1700.0,603.0,249,96.0
+9,Staten Island,Studio,1690.0,11.0,21,70.0
+10,Bronx,OneBd,1600.0,404.0,195,90.0
+11,Brooklyn,OneBd,2250.0,5022.0,4521,125.0
+12,Manhattan,OneBd,3200.0,7369.0,6575,180.0
+13,Queens,OneBd,1900.0,2190.0,1049,100.0
+14,Staten Island,OneBd,1463.0,36.0,66,89.5
+15,Bronx,TwoBd,1995.0,367.0,88,114.5
+16,Brooklyn,TwoBd,2500.0,6381.0,2612,160.0
+17,Manhattan,TwoBd,3825.0,5444.0,2628,250.0
+18,Queens,TwoBd,2300.0,1822.0,494,140.0
+19,Staten Island,TwoBd,2000.0,25.0,45,100.0
+20,Bronx,ThreePlusBd,2350.0,292.0,59,190.0
+21,Brooklyn,ThreePlusBd,3000.0,4876.0,1253,250.0
+22,Manhattan,ThreePlusBd,4999.0,3003.0,879,400.0
+23,Queens,ThreePlusBd,2795.0,966.0,340,200.0
+24,Staten Island,ThreePlusBd,2300.0,25.0,47,180.0
