@@ -42,6 +42,9 @@ $(document).ready(function() {
             else if (currentIndex == 6) {
 
             }
+            else if (currentIndex == 7) {
+
+            }
             else { 
 
             }
