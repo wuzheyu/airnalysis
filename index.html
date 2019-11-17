@@ -68,7 +68,23 @@
 				<div class="section-header">Hosting Emily's own Airbnb</div>
 				<div class ="container">
 						<div class="row">
-								<div class="col-md-6" id="ny-map">Airbnb's story</div>
+								<div class="col-md-6">
+									Airbnb vs. Rental in New York City
+
+									<form class="form-inline">
+										<div class="form-group">
+											<label for="map-type">Room type:</label>
+											<select class="form-control" id="map-type" onchange="updateChoropleth()">
+												<option value="All">All</option>
+												<option value="Studio">Studio</option>
+												<option value="OneBd">1 Bedroom</option>
+												<option value="TwoBd">2 Bedrooms</option>
+												<option value="ThreePlusBd">3+ Bedrooms</option>
+											</select>
+										</div>
+									</form>
+									<div id="ny-map"></div>
+								</div>
 								<div class="col-md-6">Airbnb's story</div>
 						</div>
 				</div>
@@ -128,8 +144,14 @@
 	<script src="js/main.js"></script>
 	<script src="js/viz-hotel-industry.js"></script>
 	<script src="js/viz-world-map.js"></script>
+  <!-- Load JS libraries for host view-->
 	<script src="js/host-view.js"></script>
 	<script src="js/mapchart.js"></script>
+	<script src="js/vis-choropleth-ny.js"></script>
+	<script src="js/d3-tip.js"></script>
+	<script src="js/d3-scale-chromatic.min.js"></script>
+	<script src="js/d3-legend.min.js"></script>
+  <!-- Load JS libraries for guest view-->
 	<script src="js/guest-view/guest-view.js"></script>
 	<script src="js/guest-view/count-vis.js"></script>
 	<script src="js/guest-view/roomtype-vis.js"></script>

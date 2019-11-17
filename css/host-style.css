@@ -6,3 +6,40 @@
     fill: lightcoral;
     fill-opacity: 0.7;
 }
+
+.viz-title {
+    text-anchor: middle;
+    fill: #a50f15;
+}
+
+.viz-comment {
+    text-anchor: middle;
+    fill: #bdbdbd;
+}
+
+/******** map area ********/
+
+#ny-map path {
+    stroke: #fff5f0;
+}
+
+#ny-map path:hover {
+    fill-opacity: 0.8;
+}
+
+.legendSequential text {
+    font-size: 14px;
+}
+
+.d3-tip {
+    background-color: rgb(165,15,21,0.4);
+    color: #fff5f0;
+    opacity: 0.3;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.d3-tip h6 {
+    margin-bottom: 5px;
+}
