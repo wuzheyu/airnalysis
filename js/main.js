@@ -1,8 +1,7 @@
 var textTypeInterval = 40;
 var basePause = 1000;
-var airbnbIntroText = "Airbnb is an online platform for offering lodging and tourism experiences.  "
-var ericAndEmilyP1 = "Eric is a hotel manager in New York and he recently got married to Emily. "
-var ericAndEmilyP2 = "They would like to travel to Boston for a short trip. They would like to try out Airbnb as one of their friends recommended it."
+// var ericAndEmilyP1 = "Eric is a hotel manager in New York and he recently got married to Emily. "
+// var ericAndEmilyP2 = "They would like to travel to Boston for a short trip. They would like to try out Airbnb as one of their friends recommended it."
 
 $(document).ready(function() {
     $('#fullPage').fullpage({
@@ -16,17 +15,33 @@ $(document).ready(function() {
             var currentIndex = destination.index;
             if ((currentIndex == 1) && (direction == "down")) {
                 var timeDelay = basePause;
-                setTimeout(function(){generateText(airbnbIntroText, 'airbnb-description')}, timeDelay);
+                setTimeout(function(){
+                    $(function () {
+                        $('#airbnb-description').css('visibility','visible');
+                        $('#airbnb-description').textillate({ in: { effect: 'fadeInLeftBig' } });
+                    })
+                }, timeDelay);
 
                 timeDelay += 500;
                 setTimeout(function(){generateProgressBar("airbnb-logo", "bt")}, timeDelay);
             }
             else if ((currentIndex == 2) && (direction == "down")) {
                 var timeDelay = basePause;
-                setTimeout(function(){generateText(ericAndEmilyP1, 'eric-emily-p1')}, timeDelay);
+                setTimeout(function(){
+                    //generateText(ericAndEmilyP1, 'eric-emily-p1')
+                    $(function () {
+                        $('#eric-emily-p1').css('visibility','visible');
+                        $('#eric-emily-p1').textillate({ in: { effect: 'fadeInLeftBig' } });
+                    })
+                }, timeDelay);
 
                 timeDelay += 500;
-                setTimeout(function(){generateText(ericAndEmilyP2, 'eric-emily-p2')}, timeDelay);
+                setTimeout(function(){
+                    $(function () {
+                        $('#eric-emily-p2').css('visibility','visible');
+                        $('#eric-emily-p2').textillate({ in: { effect: 'fadeInLeftBig' } });
+                    })
+                }, timeDelay);
 
                 
             }
