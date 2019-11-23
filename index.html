@@ -26,7 +26,7 @@
 				<div class ="container">
 					<div class="row">
 						<div class="col-md-6" id="logo-animation">
-							<div id="airbnb-description" class="story-line" style="visibility:hidden"> Airbnb is an online platform for offering lodging and tourism experiences. </div>
+							<div id="airbnb-description" style="visibility:hidden" class="story-line"> Airbnb is an online platform for offering lodging and tourism experiences. </div>
 							<div><img id="airbnb-logo" src="img/airbnb-logo.png"></div>
 						</div>
 						<div class="col-md-6">
@@ -41,11 +41,14 @@
 				<div class ="container">
 					<div class="row">
 						<div class="col-md-6">
-
+							<div id="eric-emily-p1" class="story-line" style="visibility:hidden">Eric is a hotel manager in New York and he recently got married to Emily.</div>
+							<img src="img/boston.png" id="boston-icon" class="img-icon"/>
+							<div id="eric-emily-p3" class="story-line" style="visibility:hidden">But what should they do to get started?</div>
 						</div>
 						<div class="col-md-6">
-							<div id="eric-emily-p1" class="story-line" style="visibility:hidden">Eric is a hotel manager in New York and he recently got married to Emily.</div>
-							<div id="eric-emily-p2" class="story-line" style="visibility:hidden">They would like to travel to Boston for a short trip. They would like to try out Airbnb as one of their friends recommended it.</div>
+							<img src="img/eric_emily.png" id="eric-emily-icon" class="img-icon" />
+							<div id="eric-emily-p2" class="story-line" style="visibility:hidden">They would like to travel to Boston for a short trip. They want to try out Airbnb as one of their friends recommended it.</div>
+							<img src="img/question_mark.png" id="question-icon" class="img-icon"/>
 						</div>
 					</div>
 				</div>
@@ -96,16 +99,47 @@
 				<div class ="container">
 						<div class="row">
 								<div class="col-md-6">
-									<label for="attribute-select">Please select the attribute you want to visualize: </label>
-									<select id="attribute-select">
-										<option value="numberOfRooms">Number of Rooms</option>
-										<option value="rates" selected>Rates per Night</option>
-										<option value="occupancy">Occupancy</option>
+									<div class="sub-section-header">Airbnb's Revnue Growth</div>
+									<label for="hotel-select">Please select the type of accomodation you want to visualize: </label>
+									<select id="hotel-select">
+										<option value="all" selected>All</option>
+										<option value="airbnb">Airbnb</option>
+										<option value="homeaway">HomeAway Brands</option>
+										<option value="hilton">Hilton Worldwide</option>
+										<option value="ihg">InterContinental Hotels Group</option>
+										<option value="marriott">Marriott</option>
 									</select>
 									<div id="hotel-industry-plot"> </div>
+
+									<div class="sub-section-header">The past, present and future of this battle</div>
+									<ul class="nav nav-tabs">
+											<li class="nav-item">
+											  <a class="nav-link active" data-toggle="tab" href="#past">Past</a>
+											</li>
+											<li class="nav-item">
+											  <a class="nav-link" data-toggle="tab" href="#present">Present</a>
+											</li>
+											<li class="nav-item">
+											  <a class="nav-link" data-toggle="tab" href="#future">Future</a>
+											</li>
+										  </ul>
+										  
+										  <!-- Tab panes -->
+										  <div class="tab-content">
+											<div class="tab-pane container active" id="past">"Airbnb's competition with traditional hotels is overstated, as it serves a different segment of travellers - Brain Chesky, CEO, Airbnb"</div>
+											<div class="tab-pane container fade" id="present">"We want a level palying field"</div>
+											<div class="tab-pane container fade" id="future">"Hmm... This is bigger than we thought. How can we compete in this space?"</div>
+										  </div>
 								</div>
 
-								<div class="col-md-6">Airbnb's story</div>
+								<div class="col-md-6">
+									<div style="margin-top: 40px;">
+										Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam expedita facere laboriosam atque rem dolores repellendus, eum architecto totam harum, consequuntur ullam aspernatur incidunt exercitationem officia libero itaque soluta vitae!
+									</div>
+									<div class="revenue-growth"></div>
+									<div class="force-airbnb-hotel"></div>
+									<div class="quote"></div>
+								</div>
 						</div>
 				</div>
 		</div>

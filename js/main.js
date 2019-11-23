@@ -1,7 +1,6 @@
 var textTypeInterval = 40;
 var basePause = 1000;
-// var ericAndEmilyP1 = "Eric is a hotel manager in New York and he recently got married to Emily. "
-// var ericAndEmilyP2 = "They would like to travel to Boston for a short trip. They would like to try out Airbnb as one of their friends recommended it."
+var showDict = {1: false, 2: false, 3: false, 4: false, 5: true}
 
 $(document).ready(function() {
     $('#fullPage').fullpage({
@@ -18,7 +17,7 @@ $(document).ready(function() {
                 setTimeout(function(){
                     $(function () {
                         $('#airbnb-description').css('visibility','visible');
-                        $('#airbnb-description').textillate({ in: { effect: 'fadeInLeftBig' } });
+                        $('#airbnb-description').textillate({ in: { effect: 'fadeIn' } });
                     })
                 }, timeDelay);
 
@@ -27,22 +26,35 @@ $(document).ready(function() {
             }
             else if ((currentIndex == 2) && (direction == "down")) {
                 var timeDelay = basePause;
+                setTimeout(function() {moveItem('eric-emily-icon', 0, 50, 100)}, timeDelay);
+                timeDelay += 500;
+
                 setTimeout(function(){
-                    //generateText(ericAndEmilyP1, 'eric-emily-p1')
                     $(function () {
                         $('#eric-emily-p1').css('visibility','visible');
-                        $('#eric-emily-p1').textillate({ in: { effect: 'fadeInLeftBig' } });
+                        $('#eric-emily-p1').textillate({ in: { effect: 'fadeIn' } });
                     })
                 }, timeDelay);
 
+                timeDelay += 5000;
+                setTimeout(function() {moveItem('boston-icon', 0, 50, 100)}, timeDelay);
                 timeDelay += 500;
                 setTimeout(function(){
                     $(function () {
                         $('#eric-emily-p2').css('visibility','visible');
-                        $('#eric-emily-p2').textillate({ in: { effect: 'fadeInLeftBig' } });
+                        $('#eric-emily-p2').textillate({ initialDelay: 500, in: { effect: 'fadeIn' } });
                     })
                 }, timeDelay);
 
+                timeDelay += 9000;
+                setTimeout(function() {moveItem('question-icon', 0, 50, 100)}, timeDelay);
+                timeDelay += 500;
+                setTimeout(function(){
+                    $(function () {
+                        $('#eric-emily-p3').css('visibility','visible');
+                        $('#eric-emily-p3').textillate({ initialDelay: 500, in: { effect: 'fadeIn' } });
+                    })
+                }, timeDelay);
                 
             }
             else if (currentIndex == 3) {
@@ -111,4 +123,27 @@ function generateProgressBar(elementID, direction) {
             clearInterval(myInterval);
         }
     }
+}
+
+function moveItem(elementId, startPosition, endPosition, timeInterval) {
+
+    var distance = endPosition - startPosition;
+    var distanceMoved = 0;
+    var moveIncrement = distance / timeInterval;
+
+    var item = document.getElementById(elementId);
+    var itemPosition = startPosition;
+
+    item.style.left = itemPosition + 'px';
+    item.style.display = 'inline';
+
+    var moveIcon = setInterval(function() {
+        itemPosition += moveIncrement;
+        distanceMoved += moveIncrement;
+        item.style.left = itemPosition + 'px';
+        if (Math.abs(distanceMoved) >= Math.abs(distance)) {
+            clearInterval(moveIcon);
+        }
+    }, 1);
+
 }
