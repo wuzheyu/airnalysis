@@ -49,3 +49,25 @@
     display: inline-block;
     line-height: 1em;
 }
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.axis text {
+  font-size: 11px;
+}
+
+.airbnbLine {
+  fill: none;
+  stroke: rgb(255,78,87);
+  stroke-width: 1.5px;
+}
+
+.hotelLine {
+    fill: none;
+    stroke: #1C9A3D;
+    stroke-width: 1.5px;
+  }

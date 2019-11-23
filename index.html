@@ -53,10 +53,14 @@
 		<div class="section" id="travel-boston">
 				<div class="section-header">Travel to Boston</div>
 				<div class ="container">
+						<button onclick="show_diff()">Show Difference</button>
 						<div class="row">
-								<div class="col-md-6">Airbnb's story</div>
-								<div class="col-md-6">Airbnb's story</div>
+								<div class="col-md-8" id="count-vis" >Airbnb's story</div>
+<!--									<div class="row col-md-6" ></div>-->
+<!--									<div class="row col-md-6" id="room-type-vis"></div>-->
+								<div class="col-md-4">Airbnb's story</div>
 						</div>
+
 				</div>
 		</div>
 
@@ -90,7 +94,16 @@
 				<div class="section-header">Impact to traditional hotel industry</div>
 				<div class ="container">
 						<div class="row">
-								<div class="col-md-6">Airbnb's story</div>
+								<div class="col-md-6">
+									<label for="attribute-select">Please select the attribute you want to visualize: </label>
+									<select id="attribute-select">
+										<option value="numberOfRooms">Number of Rooms</option>
+										<option value="rates" selected>Rates per Night</option>
+										<option value="occupancy">Occupancy</option>
+									</select>
+									<div id="hotel-industry-plot"> </div>
+								</div>
+
 								<div class="col-md-6">Airbnb's story</div>
 						</div>
 				</div>
@@ -105,6 +118,15 @@
 						</div>
 				</div>
 		</div>
+		<div class="section" id="reference">
+			<div class="section-header">References</div>
+			<div class ="container">
+					<div class="row">
+							<div class="col-md-6">Airbnb's story</div>
+							<div class="col-md-6">Airbnb's story</div>
+					</div>
+			</div>
+		</div>
 
 		
     
@@ -116,16 +138,24 @@
 	<script src="js/queue.min.js"></script>
 	<script src="js/topojson.js"></script>
 	<script type="text/javascript" src="js/fullpage.min.js"></script>
-	<script type="text/javascript" src="js/loadgo/loadgo-nojquery.min.js"></script>
+	<script type="text/javascript" src="js/loadgo-nojquery.min.js"></script>
 	<script type="text/javascript" src="js/anime.min.js"></script>
 	<script src="js/d3.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/viz-hotel-industry.js"></script>
 	<script src="js/viz-world-map.js"></script>
+  <!-- Load JS libraries for host view-->
 	<script src="js/host-view.js"></script>
 	<script src="js/mapchart.js"></script>
 	<script src="js/vis-choropleth-ny.js"></script>
 	<script src="js/d3-tip.js"></script>
 	<script src="js/d3-scale-chromatic.min.js"></script>
 	<script src="js/d3-legend.min.js"></script>
+  <!-- Load JS libraries for guest view-->
+	<script src="js/guest-view/guest-view.js"></script>
+	<script src="js/guest-view/count-vis.js"></script>
+	<script src="js/guest-view/roomtype-vis.js"></script>
+	<script src="js/guest-view/diff-vis.js"></script>
+
 </body>
 </html>

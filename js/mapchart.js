@@ -12,7 +12,7 @@ MapChart = function(_parentElement, _data){
     this.displayData = []; // see data wrangling
 
     // DEBUG RAW DATA
-    console.log(this.data);
+    //console.log(this.data);
 
     this.initVis();
 };
