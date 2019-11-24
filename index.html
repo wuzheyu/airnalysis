@@ -60,12 +60,16 @@
 		<div class="section" id="travel-boston">
 				<div class="section-header">Travel to Boston</div>
 				<div class ="container">
-						<button onclick="show_diff()">Show Difference</button>
+						<button onclick="show_diff()">Show Difference / Show Stacked Price</button>
 						<div class="row">
-								<div class="col-md-8" id="count-vis" >Airbnb's story</div>
+							<div class="col-md-8">
+								<div id="count-vis" ></div>
+								<div id="para-under-diff">Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend. Duis at tellus at urna condimentum mattis pellentesque. Pharetra sit amet aliquam id diam. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque. Vivamus at augue eget arcu dictum varius. Eget magna fermentum iaculis eu non diam.
+								</div>
+							</div>
 <!--									<div class="row col-md-6" ></div>-->
 <!--									<div class="row col-md-6" id="room-type-vis"></div>-->
-								<div class="col-md-4">Airbnb's story</div>
+								<div class="col-md-4" id="guest-story">Airbnb's story</div>
 						</div>
 
 				</div>
@@ -92,7 +96,14 @@
 									</form>
 									<div id="ny-map"></div>
 								</div>
-								<div class="col-md-6">Airbnb's story</div>
+<!--								<div class="col-md-6" >Price and Occupancy of one airbnb listing in a year-->
+<!--									<div id="price-vary"></div>-->
+<!--								</div>-->
+							<div class="col-md-6">
+								<div class="row" id="small-multiples"> </div>
+								<div class="row" id="para-under-multiples">Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend. Duis at tellus at urna condimentum mattis pellentesque. Pharetra sit amet aliquam id diam. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque. Vivamus at augue eget arcu dictum varius. Eget magna fermentum iaculis eu non diam.
+								</div>
+							</div>
 						</div>
 				</div>
 		</div>
@@ -211,6 +222,7 @@
 	<script src="js/guest-view/count-vis.js"></script>
 	<script src="js/guest-view/roomtype-vis.js"></script>
 	<script src="js/guest-view/diff-vis.js"></script>
+	<script src="js/small_multiples.js"></script>
 
 </body>
 </html>
