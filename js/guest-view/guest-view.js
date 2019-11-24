@@ -12,6 +12,8 @@ var countVis;
 function createVisualization(error, bos_listing, bos_hotel_prices) {
 // function createVisualization(error, bos_listing, bos_listing_for_vis, boston_review, boston_review_detail, boston_rating) {
 
+    fill_paragraphs()
+
     /* multiple coordinated views */
 
     // data cleaning for count-vis
@@ -25,6 +27,16 @@ function createVisualization(error, bos_listing, bos_hotel_prices) {
 
     countVis = new CountVis("count-vis", listing_by_neighborhood, bos_hotel_prices_by_neighborhood);
     // var roomTypeVis = new RoomTypeVis("room-type-vis", listing_by_neigh_types);
+}
+
+function fill_paragraphs() {
+    var par = "In egestas erat imperdiet sed euismod. Nibh mauris cursus mattis molestie a iaculis at erat. Pulvinar pellentesque habitant morbi tristique senectus et. Quis vel eros donec ac. Risus at ultrices mi tempus. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Lorem donec massa sapien faucibus et. Amet est placerat in egestas erat imperdiet sed euismod nisi. Leo duis ut diam quam nulla porttitor. Nunc eget lorem dolor sed viverra ipsum nunc aliquet bibendum. Pulvinar elementum integer enim neque volutpat. Tristique risus nec feugiat in fermentum posuere urna nec tincidunt. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Augue ut lectus arcu bibendum. Egestas quis ipsum suspendisse ultrices gravida. Aliquet lectus proin nibh nisl condimentum."
+    // story_sec = d3.select("#guest-story").innerHTML(par)
+    var node = document.createElement("P");                 // Create a <li> node
+    var textnode = document.createTextNode(par);         // Create a text node
+    node.appendChild(textnode);                              // Append the text to <li>
+    document.getElementById("guest-story").appendChild(node);
+    console.log("success")
 }
 
 function clean_hotel_prices(bos_hotel_prices) {
@@ -99,8 +111,9 @@ function get_count_by_neighbor(bos_listing) {
         var neighbor = d["neighbourhood_cleansed"]
         var price = +d["price"].replace("$", '')
 
-        if (!isNaN(price) && ((d["room_type"] == "Private room") ||
-            (d["room_type"] == "Entire home/apt"))){
+        if (!isNaN(price) && ((d["room_type"] == "Private room")
+            // || (d["room_type"] == "Entire home/apt")
+        )){
             if (neighbor in listing_by_neighbor) {
                 listing_by_neighbor[neighbor]["total_prices"] += price
                 listing_by_neighbor[neighbor]["count"] += 1
