@@ -118,14 +118,6 @@ function selectHandler(){
 }
 
 
-// // Set up the tool tip
-// var tool_tip = d3.tip()
-// 	.attr("class", "d3-tip")
-// 	.offset([-8, 0])
-// 	.html(function(d) { return d.EDITION + "</br>" + `${userSelectionMapping[userSelection]}: ` +  d[userSelection]});
-
-// hotel_airbnb_svg.call(tool_tip);
-
 // Render visualization
 function updateHotelAirbnbVisualization() {
 
@@ -270,7 +262,6 @@ function updateHotelAirbnbVisualization() {
 
 	function mouseout() { 
 		lineToolTip.attr('stroke', 'none');
-  
 	  	filterDataPerHotel.forEach(function(d) {
 			d3.select('#hotel-tooltip-label-' + d.key)
 			.text('');

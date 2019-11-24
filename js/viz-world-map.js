@@ -1,35 +1,53 @@
 
+/*
+ *  footprintMap - Object constructor function
+ *  @param _parentElement   -- HTML element in which to draw the visualization
+ *  @param _data            -- Array with all stations of the bike-sharing network
+ */
 
-queue()
-    .defer(d3.json, 'data/world-110m.json')
-    .await(function(error, rawWorldMap){
-        var worldMap = topojson.feature(rawWorldMap, rawWorldMap.objects.countries).features;
-        var worldMapContainer = '#company-choropleth';
+footprintMap = function(_parentElement, _data, _mapPosition) {
 
-        var mapMargin = { top: 50, right: 50, bottom: 50, left: 50 };
-        var mapWidth = $(worldMapContainer).width() - mapMargin.left - mapMargin.right;
-        var mapHeight = 400 - mapMargin.top - mapMargin.bottom;
+	this.parentElement = _parentElement;
+	this.data = _data;
+	this.mapPosition = _mapPosition;
+	this.initVis();
+}
 
-        mapSVG = d3.select(worldMapContainer)
-            .append("svg")
-            .attr("width", mapWidth + mapMargin.left + mapMargin.right)
-            .attr("height", mapHeight + mapMargin.top + mapMargin.bottom)
-            .append('g')
-            .attr('transform', "translate(" + mapMargin.left + "," + mapMargin.top + ")");
 
-        mapProjection = d3.geoMercator()
-            .translate([mapWidth / 2, mapHeight / 1.75])
-            //.scale([150]);
+/*
+ *  Initialize station map
+ */
 
-        var path = d3.geoPath()
-            .projection(mapProjection);
+footprintMap.prototype.initVis = function() {
+	var vis = this;
 
-        mapSVG.selectAll("path")
-            .data(worldMap)
-            .enter().append("path")
-            .attr("d", path)
-            .style('fill', '#736e6f')
-            .style('stroke', '#ebebeb');
+	vis.map = L.map('company-choropleth').setView(vis.mapPosition, 1);
 
-    })
-       
+	L.Icon.Default.imagePath = 'img/';
+	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(vis.map)
+
+	//vis.events = L.layerGroup().addTo(vis.map);
+	//vis.wrangleData();
+}
+
+
+
+/*
+ *  The drawing function
+ */
+
+footprintMap.prototype.updateVis = function() {
+    var vis = this;
+    console.log(vis.data)
+	vis.data.forEach(function(d, index) {
+        setTimeout(function(){
+            L.marker([d.lat, d.lon]).bindPopup(
+                "<b>" + d.event + "</b>"
+                ).addTo(vis.map);
+        }, index * 1000);
+    
+	})
+
+}

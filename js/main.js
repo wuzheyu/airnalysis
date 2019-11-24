@@ -1,6 +1,12 @@
 var textTypeInterval = 40;
 var basePause = 1000;
 var showDict = {1: false, 2: false, 3: false, 4: false, 5: true}
+var forcePlot;
+var airbnbCityGrowthPlot;
+var footprintPlot;
+var userSelectedTime = 'linksPast';
+var airbnbFootprintProgress;
+var progressYearMapping = {1 : "2007", 2: "2008", 3: "2008", 4: "2009", 5 : "2011", 6 : "2012", 7 : "2013", 8 : "2014", 9 : "2014", 10 : "2015", 11 : "2015", 12: "2016", 13 : "2017"};
 
 $(document).ready(function() {
     $('#fullPage').fullpage({
@@ -14,6 +20,15 @@ $(document).ready(function() {
             var currentIndex = destination.index;
             if ((currentIndex == 1) && (direction == "down")) {
                 var timeDelay = basePause;
+                d3.csv("data/airbnb-footprint.csv", function(data) {
+                    airbnbFootprintProgress = data
+                    airbnbFootprintProgress.forEach(function(d) {
+                        d.year = parseDate(d.year);
+                        d.lat = +d.lat;
+                        d.lon = +d.lon;
+                    })
+                    footprintPlot = new footprintMap("company-choropleth", airbnbFootprintProgress, [0, 0]);
+                });
                 setTimeout(function(){
                     $(function () {
                         $('#airbnb-description').css('visibility','visible');
@@ -21,8 +36,14 @@ $(document).ready(function() {
                     })
                 }, timeDelay);
 
-                timeDelay += 500;
+                timeDelay += 9500;
+                $('#airbnb-logo').css('visibility','visible');
+                $('#company-choropleth').css('visibility','visible');
+                timeDelay += 500
+                setTimeout(function(){footprintPlot.updateVis()}, timeDelay);
                 setTimeout(function(){generateProgressBar("airbnb-logo", "bt")}, timeDelay);
+
+                
             }
             else if ((currentIndex == 2) && (direction == "down")) {
                 var timeDelay = basePause;
@@ -46,7 +67,7 @@ $(document).ready(function() {
                     })
                 }, timeDelay);
 
-                timeDelay += 9000;
+                timeDelay += 9500;
                 setTimeout(function() {moveItem('question-icon', 0, 50, 100)}, timeDelay);
                 timeDelay += 500;
                 setTimeout(function(){
@@ -64,7 +85,31 @@ $(document).ready(function() {
 
             }
             else if (currentIndex == 5) {
-
+                d3.json("data/airbnb-hotel-force.json", function(data) {
+                    forcePlot = new forceChart('force-airbnb-hotel', data);
+                });
+                d3.csv("data/airbnb_growth_us_cleaned.csv", function(data) {
+                    data.forEach(function(d) {
+                        d.Year = parseDate(d.Year);
+                        d.Listings = +d.Listings;
+                    })
+                    airbnbCityGrowthPlot = new airbnbCityGrowthChart('airbnb-growth', data);
+                });
+                
+                $("#past-button").click(function(){
+                    userSelectedTime = 'linksPast';
+                    forcePlot.updateVis();
+                });
+                
+                $("#present-button").click(function(){
+                    userSelectedTime = 'linksPresent';
+                    forcePlot.updateVis();
+                });
+                
+                $("#future-button").click(function(){
+                    userSelectedTime = 'linksFuture';
+                    forcePlot.updateVis();
+                });
             }
             else if (currentIndex == 6) {
 
@@ -80,43 +125,36 @@ $(document).ready(function() {
     });
 
 })
-function generateText(text, elementID) {
-    document.getElementById(elementID).innerHTML = text;
-    var textWrapper = document.querySelector('#' + elementID);
-    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-
-    anime.timeline({loop: false})
-    .add({
-        targets: '#' + elementID + ' .letter',
-        translateX: [40,0],
-        translateZ: 0,
-        opacity: [0,1],
-        duration: 1200,
-        delay: (el, i) => 500 + 30 * i
-    })
-    // .add({
-    //     targets: '#' + elementID + ' .letter',
-    //     translateX: [0,-30],
-    //     opacity: [1,0],
-    //     easing: "easeInExpo",
-    //     duration: 1100,
-    //     delay: (el, i) => 100 + 30 * i
-    // });
-}
 
 function generateProgressBar(elementID, direction) {
     var image = document.getElementById(elementID);
     Loadgo.init(image,  {'direction': direction});
 
     triggerLoadEffect();
+
     function triggerLoadEffect(){
-        var progress = 0;
+        $("#timeline-event-box").css("margin-top", "30px");
+        $("#timeline-event-box").css("border-style", "solid");
+        $("#timeline-event-box").css("border-color", "rgb(255,78,87)");
+        $("#timeline-event-box").css("font-family", "Montserrat, sans-serif");
+
+        var progress = 1;
+        var newsQueue = airbnbFootprintProgress;
         var myInterval = setInterval(function(){ 
-            if(progress == 100){
+            if (progress <= 13) {
+                $("#year-count").html(progressYearMapping[progress])
+                var displayEvent = newsQueue.shift(); 
+                $("#timeline-event-box").append('</br><b>' + formatDate(displayEvent.year) + "</b>: "+ displayEvent.event+ ".</br>")
+                var elem = document.getElementById('timeline-event-box');
+                elem.scrollTop = elem.scrollHeight;
+
+            }
+            else{
                 return stopInterval();
             }
-            progress += 10;
-            Loadgo.setprogress(image, progress);
+            Loadgo.setprogress(image, 8 * progress > 100 ? 100 : 8 * progress);
+            progress += 1;
+            
         }, 1000);
     
         function stopInterval(){
