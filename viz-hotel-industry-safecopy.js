@@ -19,14 +19,12 @@ var yLabel = hotel_airbnb_svg.append("text")
 		.attr("x", -40)
 		.attr("y", -20)
 		.style("fill", "grey")
-		.style("font-family", "Montserrat, sans-serif")
 		.text("US Sales($) [Normalized to Airbnb's 2013 U.S. Sales]")
 // Create x label
 var xLabel = hotel_airbnb_svg.append("text")
 	.attr("x", width - 50)
 	.attr("y", height + 30)
 	.style("fill", "grey")
-	.style("font-family", "Montserrat, sans-serif")
 	.text("Year")
 
 // Date parser. Convert a Date to string
@@ -203,7 +201,6 @@ function updateHotelAirbnbVisualization() {
 		.text(function(d){
 			return hotelOfficialNames[d.key];
 		})
-		.style("font-family", "Montserrat, sans-serif");
 
 		legendTexts.exit().remove();
 
@@ -211,17 +208,12 @@ function updateHotelAirbnbVisualization() {
 	d3.select(".airbnb-hotel-x-axis")
 		.transition()
 		.duration(800)
-		.call(xAxis)
-		.selectAll("text")
-		.style("font-family", "Montserrat, sans-serif");
-
+		.call(xAxis);
 	  
 	d3.select(".airbnb-hotel-y-axis")
 		.transition()
 		.duration(800)
-		.call(yAxis)
-		.selectAll("text")
-		.style("font-family", "Montserrat, sans-serif");
+		.call(yAxis);
 	
 	// tooltip
 	var focus = hotel_airbnb_svg.append("g")           
@@ -256,13 +248,11 @@ function updateHotelAirbnbVisualization() {
 		.attr('x2', x(x0) - 5)
 		.attr('stroke', 'rgb(255,78,87)');
 
-		filterDataPerHotel.forEach(function(d) {
+		filterDataPerHotel.forEach(function(d, i) {
 			var i = bisectYear(d.values, x0, 1);                  
 			var d0 = d.values[i - 1];                              
 			var d1 = d.values[i];                                 
 			var dA = x0 - d0.year > d1.year - x0 ? d1 : d0;
-
-			airbnbCityGrowthPlot.wrangleData(dA.year)
 			d3.select('#hotel-tooltip-label-' + d.key)
 			.attr('x', x(x0))
 			.text(hotelOfficialNames[d.key] + ": " + d3.format(",.1f")(dA.sales));

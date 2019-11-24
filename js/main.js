@@ -1,6 +1,6 @@
 var textTypeInterval = 40;
 var basePause = 1000;
-var showDict = {1: false, 2: false, 3: false, 4: false, 5: true}
+var slidesRun = {1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true, 8: true}
 var forcePlot;
 var airbnbCityGrowthPlot;
 var footprintPlot;
@@ -18,103 +18,127 @@ $(document).ready(function() {
             // currentIndex records the page index starting from 0.
             //console.log(direction)
             var currentIndex = destination.index;
-            if ((currentIndex == 1) && (direction == "down")) {
-                var timeDelay = basePause;
-                d3.csv("data/airbnb-footprint.csv", function(data) {
-                    airbnbFootprintProgress = data
-                    airbnbFootprintProgress.forEach(function(d) {
-                        d.year = parseDate(d.year);
-                        d.lat = +d.lat;
-                        d.lon = +d.lon;
-                    })
-                    footprintPlot = new footprintMap("company-choropleth", airbnbFootprintProgress, [0, 0]);
-                });
-                setTimeout(function(){
-                    $(function () {
-                        $('#airbnb-description').css('visibility','visible');
-                        $('#airbnb-description').textillate({ in: { effect: 'fadeIn' } });
-                    })
-                }, timeDelay);
+            if (currentIndex == 1) {
+                if (slidesRun[currentIndex] == true) { 
+                    var timeDelay = basePause;
+                    d3.csv("data/airbnb-footprint.csv", function(data) {
+                        airbnbFootprintProgress = data
+                        airbnbFootprintProgress.forEach(function(d) {
+                            d.year = parseDate(d.year);
+                            d.lat = +d.lat;
+                            d.lon = +d.lon;
+                        })
+                        footprintPlot = new footprintMap("company-choropleth", airbnbFootprintProgress, [0, 0]);
+                    });
+                    setTimeout(function(){
+                        $(function () {
+                            $('#airbnb-description').css('visibility','visible');
+                            $('#airbnb-description').textillate({ in: { effect: 'fadeIn' } });
+                        })
+                    }, timeDelay);
 
-                timeDelay += 9500;
-                $('#airbnb-logo').css('visibility','visible');
-                $('#company-choropleth').css('visibility','visible');
-                timeDelay += 500
-                setTimeout(function(){footprintPlot.updateVis()}, timeDelay);
-                setTimeout(function(){generateProgressBar("airbnb-logo", "bt")}, timeDelay);
+                    timeDelay += 9500;
+                    $('#airbnb-logo').css('visibility','visible');
+                    $('#company-choropleth').css('visibility','visible');
+                    timeDelay += 500
+                    setTimeout(function(){footprintPlot.updateVis()}, timeDelay);
+                    setTimeout(function(){generateProgressBar("airbnb-logo", "bt")}, timeDelay);
 
-                
+                    slidesRun[currentIndex] = false;
+                }    
             }
-            else if ((currentIndex == 2) && (direction == "down")) {
-                var timeDelay = basePause;
-                setTimeout(function() {moveItem('eric-emily-icon', 0, 50, 100)}, timeDelay);
-                timeDelay += 500;
+            else if (currentIndex == 2) {
+                if (slidesRun[currentIndex] == true){
+                    var timeDelay = basePause;
+                    setTimeout(function() {moveItem('eric-emily-icon', 0, 50, 100)}, timeDelay);
+                    timeDelay += 500;
 
-                setTimeout(function(){
-                    $(function () {
-                        $('#eric-emily-p1').css('visibility','visible');
-                        $('#eric-emily-p1').textillate({ in: { effect: 'fadeIn' } });
-                    })
-                }, timeDelay);
+                    setTimeout(function(){
+                        $(function () {
+                            $('#eric-emily-p1').css('visibility','visible');
+                            $('#eric-emily-p1').textillate({ in: { effect: 'fadeIn' } });
+                        })
+                    }, timeDelay);
 
-                timeDelay += 5000;
-                setTimeout(function() {moveItem('boston-icon', 0, 50, 100)}, timeDelay);
-                timeDelay += 500;
-                setTimeout(function(){
-                    $(function () {
-                        $('#eric-emily-p2').css('visibility','visible');
-                        $('#eric-emily-p2').textillate({ initialDelay: 500, in: { effect: 'fadeIn' } });
-                    })
-                }, timeDelay);
+                    timeDelay += 5000;
+                    setTimeout(function() {moveItem('boston-icon', 0, 50, 100)}, timeDelay);
+                    timeDelay += 500;
+                    setTimeout(function(){
+                        $(function () {
+                            $('#eric-emily-p2').css('visibility','visible');
+                            $('#eric-emily-p2').textillate({ initialDelay: 500, in: { effect: 'fadeIn' } });
+                        })
+                    }, timeDelay);
 
-                timeDelay += 9500;
-                setTimeout(function() {moveItem('question-icon', 0, 50, 100)}, timeDelay);
-                timeDelay += 500;
-                setTimeout(function(){
-                    $(function () {
-                        $('#eric-emily-p3').css('visibility','visible');
-                        $('#eric-emily-p3').textillate({ initialDelay: 500, in: { effect: 'fadeIn' } });
-                    })
-                }, timeDelay);
-                
+                    timeDelay += 9500;
+                    setTimeout(function() {moveItem('question-icon', 0, 50, 100)}, timeDelay);
+                    timeDelay += 500;
+                    setTimeout(function(){
+                        $(function () {
+                            $('#eric-emily-p3').css('visibility','visible');
+                            $('#eric-emily-p3').textillate({ initialDelay: 500, in: { effect: 'fadeIn' } });
+                        })
+                    }, timeDelay);
+
+                    slidesRun[currentIndex] = false;
+                }
             }
             else if (currentIndex == 3) {
+                if (slidesRun[currentIndex] == true) {
+
+
+                    slidesRun[currentIndex] = false;
+                }
 
             }
             else if (currentIndex == 4) {
+                if (slidesRun[currentIndex] == true) {
+
+                }
+                    slidesRun[currentIndex] = false;
 
             }
             else if (currentIndex == 5) {
-                d3.json("data/airbnb-hotel-force.json", function(data) {
-                    forcePlot = new forceChart('force-airbnb-hotel', data);
-                });
-                d3.csv("data/airbnb_growth_us_cleaned.csv", function(data) {
-                    data.forEach(function(d) {
-                        d.Year = parseDate(d.Year);
-                        d.Listings = +d.Listings;
-                    })
-                    airbnbCityGrowthPlot = new airbnbCityGrowthChart('airbnb-growth', data);
-                });
-                
-                $("#past-button").click(function(){
-                    userSelectedTime = 'linksPast';
-                    forcePlot.updateVis();
-                });
-                
-                $("#present-button").click(function(){
-                    userSelectedTime = 'linksPresent';
-                    forcePlot.updateVis();
-                });
-                
-                $("#future-button").click(function(){
-                    userSelectedTime = 'linksFuture';
-                    forcePlot.updateVis();
-                });
+                if (slidesRun[currentIndex] == true) {
+                    d3.json("data/airbnb-hotel-force.json", function(data) {
+                        forcePlot = new forceChart('force-airbnb-hotel', data);
+                    });
+                    d3.csv("data/airbnb_growth_us_cleaned.csv", function(data) {
+                        data.forEach(function(d) {
+                            d.Year = parseDate(d.Year);
+                            d.Listings = +d.Listings;
+                        })
+                        airbnbCityGrowthPlot = new airbnbCityGrowthChart('airbnb-growth', data);
+                    });
+                    
+                    $("#past-button").click(function(){
+                        userSelectedTime = 'linksPast';
+                        forcePlot.updateVis();
+                    });
+                    
+                    $("#present-button").click(function(){
+                        userSelectedTime = 'linksPresent';
+                        forcePlot.updateVis();
+                    });
+                    
+                    $("#future-button").click(function(){
+                        userSelectedTime = 'linksFuture';
+                        forcePlot.updateVis();
+                    });
+                    slidesRun[currentIndex] = false;
+                }
             }
             else if (currentIndex == 6) {
+                if (slidesRun[currentIndex] == true) {
+
+                    slidesRun[currentIndex] = false;
+                }
 
             }
             else if (currentIndex == 7) {
+                if (slidesRun[currentIndex] == true) {
+                    slidesRun[currentIndex] = false;
+                }
 
             }
             else { 
