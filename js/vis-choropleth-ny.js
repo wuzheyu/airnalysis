@@ -19,7 +19,7 @@ Choropleth.prototype.initVis = function (){
 
     vis.margin = {top: 0, right: 0, bottom: 10, left: 60}
     vis.width = map_width - vis.margin.left - vis.margin.right
-    vis.height = 620 - vis.margin.top - vis.margin.bottom;
+    vis.height = 520 - vis.margin.top - vis.margin.bottom;
 
 
 // --> CREATE SVG DRAWING AREA
@@ -43,7 +43,7 @@ Choropleth.prototype.initVis = function (){
     // Initialize projection and path
     vis.projection = d3.geoMercator()
         .translate([vis.width / 2, vis.height / 2])
-        .scale(50000)
+        .scale(40000)
         .center([-73.9,40.7]);
 
     vis.path = d3.geoPath()
@@ -57,11 +57,11 @@ Choropleth.prototype.initVis = function (){
 // Initialize legend (ref:https://d3-legend.susielu.com/)
     vis.svg.append("g")
         .attr("class", "legendSequential")
-        .attr("transform", "translate("+(vis.width/2-280)+","+(vis.height-500)+")");
+        .attr("transform", "translate("+(vis.width/2-280)+","+(vis.height-400)+")");
 
     vis.legendtitle = vis.svg.append("text")
         .attr("id", "legend_title")
-        .attr("transform", "translate("+(vis.width/2-280)+","+(vis.height-510)+")");
+        .attr("transform", "translate("+(vis.width/2-280)+","+(vis.height-410)+")");
 
     // Update choropleth
     vis.updateVis();
@@ -105,14 +105,17 @@ Choropleth.prototype.updateVis = function(){
         var data = vis.displayData[borough];
         return "<h6>"+data.Borough+ "</h6>"+ "Room type: "+data.type
             + "<br/>Airbnb rate: $"+data.airbnb_price + "/night"
-            + "<br/>Rental rate: $"+data.rental_price +"/month"
+            + "<br/>Rental rate: $"+d3.format("d")(data.rental_price/30) +"/night"
             + "<br/>Airbnb inventory: " + data.airbnb_inventory
             + "<br/>Rental inventory: "+data.rental_inventory
     });
     vis.svg.call(vis.tip);
     vis.svg.selectAll("path")
         .on('mouseover', vis.tip.show)
-        .on('mouseout', vis.tip.hide);
+        .on('mouseout', vis.tip.hide)
+        .on('click', function(d) {
+            show_small_multiples(d);
+        });
     vis.tip.offset([0, 0]);
 
     vis.choropleth.exit().remove();
@@ -129,7 +132,7 @@ Choropleth.prototype.updateVis = function(){
         vis.svg.select(".legendSequential")
             .call(legend);
     } else {
-        vis.legendtitle.text("Rate Difference for "+attr);
+        vis.legendtitle.text("Rate Difference (per night) for "+attr);
         var legend = d3.legendColor()
             .scale(vis.color)
             .labelFormat(d3.format(".2s"));

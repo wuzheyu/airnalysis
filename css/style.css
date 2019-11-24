@@ -168,3 +168,14 @@
 .marriottLine:hover {
   opacity: 1;
 }
+
+#para-under-multiples {
+    padding-top: 30px;
+}
+
+
+#para-under-diff {
+    padding-top: 60px;
+    padding-right: 30px;
+    margin-right: 100px;
+}
