@@ -44,15 +44,15 @@ CountVis.prototype.clean_data = function() {
 CountVis.prototype.initVis = function() {
     var vis = this;
 
-    vis.margin = {top: 40, right: 0, bottom: 80, left: 40};
+    vis.margin = {top: 40, right: 0, bottom: 100, left: 40};
 
     // vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
     vis.height = 300 - vis.margin.top - vis.margin.bottom;
-    vis.width = 600 - vis.margin.left - vis.margin.right;
+    vis.width = 610 - vis.margin.left - vis.margin.right;
 
     // SVG drawing area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
-        .attr("transform", "translate(-100, 0)")
+        .attr("transform", "translate(0, 0)")
         .attr("width", vis.width + vis.margin.left + vis.margin.right)
         .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
         .append("g")
@@ -210,8 +210,6 @@ CountVis.prototype.updateDiffVis = function() {
     // update bars
     var stacked_bars = vis.bar_air.selectAll(".airbnb_pbyn")
         .data(vis.displayData, function(d) {
-            // console.log("look at here")
-            // console.log(d)
             return d.neightborhood;});
     stacked_bars
         .enter()

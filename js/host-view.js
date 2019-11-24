@@ -11,11 +11,11 @@ queue()
 var choro_ny;
 
 function createVisualization(error, nyc_contour, nyc_listings, air_rental) {
-    console.log(nyc_contour);
+    // console.log(nyc_contour);
     // console.log(nyc_listings);
     // mapchart = new MapChart("ny-map", {"contour":nyc_contour,"listings":nyc_listings});
 
-    console.log(air_rental);
+    // console.log(air_rental);
     // Convert string to float
     air_rental.forEach(function(d){
         d.rental_price = parseFloat(d.rental_price);
@@ -25,8 +25,8 @@ function createVisualization(error, nyc_contour, nyc_listings, air_rental) {
         d.price_diff = d.airbnb_price - d.rental_price/30;
     });
 
-
     choro_ny = new Choropleth("ny-map", nyc_contour, air_rental);
+    createSmallMultiples(air_rental, nyc_listings);
 }
 
 function updateChoropleth(){
@@ -35,7 +35,7 @@ function updateChoropleth(){
 
 d3.json("data/variability.json", function(variability){
     var example = variability[3];
-    console.log(example);
+    // console.log(example);
 
 
     var margin = {top: 10, right: 10, bottom: 10, left: 0},

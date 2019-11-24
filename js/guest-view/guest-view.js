@@ -36,7 +36,6 @@ function fill_paragraphs() {
     var textnode = document.createTextNode(par);         // Create a text node
     node.appendChild(textnode);                              // Append the text to <li>
     document.getElementById("guest-story").appendChild(node);
-    console.log("success")
 }
 
 function clean_hotel_prices(bos_hotel_prices) {
