@@ -42,3 +42,12 @@
 .d3-tip h6 {
     margin-bottom: 5px;
 }
+
+/*Circular calendar*/
+
+#week-labels {
+    fill: rgb(3,140,140);
+}
+#month-labels{
+    fill: rgb(3,140,140);
+}
