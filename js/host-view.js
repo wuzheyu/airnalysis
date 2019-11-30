@@ -6,18 +6,20 @@ queue()
     // 12 September, 2019 http://insideairbnb.com/get-the-data.html
     .defer(d3.csv, "data/ny-listings.csv")
     .defer(d3.csv, "data/host.csv")
+    .defer(d3.json, "data/new_york_neighbourhoods.geojson")
+    .defer(d3.csv, "data/host_neighbor.csv")
     .await(createVisualization);
 
 var choro_ny;
 
-function createVisualization(error, nyc_contour, nyc_listings, air_rental) {
+function createVisualization(error, nyc_borough, nyc_listings, data_borough, nyc_neighbor, data_neighbor) {
     // console.log(nyc_contour);
     // console.log(nyc_listings);
     // mapchart = new MapChart("ny-map", {"contour":nyc_contour,"listings":nyc_listings});
 
     // console.log(air_rental);
-    // Convert string to float
-    air_rental.forEach(function(d){
+    ////***** Convert string to float *******//
+    data_borough.forEach(function(d){
         d.rental_price = parseFloat(d.rental_price);
         d.rental_inventory = parseFloat(d.rental_inventory);
         d.airbnb_price = parseFloat(d.airbnb_price);
@@ -25,15 +27,25 @@ function createVisualization(error, nyc_contour, nyc_listings, air_rental) {
         d.price_diff = d.airbnb_price - d.rental_price/30;
     });
 
-    choro_ny = new Choropleth("ny-map", nyc_contour, air_rental);
-    createSmallMultiples(air_rental, nyc_listings);
+    data_neighbor.forEach(function(d){
+        d.rental_price = parseFloat(d.rental_price);
+        d.rental_inventory = parseFloat(d.rental_inventory);
+        d.airbnb_price = parseFloat(d.airbnb_price);
+        d.airbnb_inventory = parseFloat(d.airbnb_inventory);
+        d.price_diff = d.airbnb_price - d.rental_price/30;
+    });
+    choro_ny = new Choropleth("ny-map", nyc_borough, nyc_neighbor, data_borough, data_neighbor);
+
+
+    createSmallMultiples(data_borough, nyc_listings);
+
 }
 
 function updateChoropleth(){
     choro_ny.updateVis();
 }
 
-// second vis
+//***************** innovative viz ******************//
 d3.json("data/variability.json", function(variability){
     var example = variability[3];
     // first day is friday - remove them so we have weeks starting saturday
@@ -77,14 +89,15 @@ d3.json("data/variability.json", function(variability){
         .append("circle")
         .attr("class","price-circles")
         .attr("cx",function(d){
-            var angle = (Math.floor(d/7)+1.5)/54 * 2 * Math.PI - Math.PI; //same week has same angle
+            var angle = (Math.floor(d/7)+1.5)/54 * 2 * Math.PI - 0.5*Math.PI; //same week has same angle
             return (inner_radius + (6-d%7) * (circle_r*2+circle_margin)) * Math.cos(angle)+ (width/2)
         })
         .attr("cy",function(d){
-            var angle = (Math.floor(d/7)+1.5)/54 * 2 * Math.PI - Math.PI; //same week has same angle
+            var angle = (Math.floor(d/7)+1.5)/54 * 2 * Math.PI - 0.5*Math.PI; //same week has same angle
             return (inner_radius + (6-d%7) * (circle_r*2+circle_margin)) * Math.sin(angle)+ (height/2)
         })
         .attr("r",circle_r)
+    // occupancy marker with green stroke
         .attr('fill',function(d){
             return color(example.price[d])
         })
@@ -94,25 +107,36 @@ d3.json("data/variability.json", function(variability){
                 return 2
             } else{return 0}
         })
+    //     .attr('stroke',function(d){
+    //         return color(example.price[d])
+    //     })
+    //     .attr('stroke-width',2)
+    //     .attr('stroke-alignment','inner')
+    //     .attr('fill',function(d){
+    //             if (example.available[d]==='False'){
+    //                 return 'rgb(115,191,191)';
+    //             } else{return color(example.price[d])}
+    //     })
         .append('title')
         .text(function(d){
             return 'price:'+example.price[d]+'\ndate: '+example.date[d]
-        })
+        });
+
 
     // add week labels
     var weekLabels = svg.append("g")
         .attr("id","week-labels")
-        .attr("transform","translate("+(width/2-inner_radius+circle_r)+","+ (height/2) +")");
+        .attr("transform","translate("+(width/2)+","+ (height/2-inner_radius+circle_r) +")");
 
     var weekNames = ["Fri", "Thu","Wed","Tue","Mon","Sun","Sat"];
     weekLabels.selectAll("text")
         .data(weekNames)
         .enter()
         .append("text")
-        .attr("transform","rotate(-90)")
+        // .attr("transform","rotate(-90)")
         .text(d=>d)
         .attr("y",function(d,i){
-            return -(circle_r*2 + circle_margin) * i
+            return -(circle_r*2 + circle_margin) * i -2
         })
         .attr("font-size",12)
         .attr("text-anchor","middle");
@@ -126,12 +150,13 @@ d3.json("data/variability.json", function(variability){
 
     var parseMonth = d3.timeParse("%Y-%m-%d");
     var formatMonth =d3.timeFormat("%b %Y");
+
     monthLabels.selectAll("text")
         .data(example.date)
         .enter()
         .append("text")
         .attr("transform",function(d,i){
-            var angle = (Math.floor(i/7)+1.5)/54 * 360 - 90;
+            var angle = (Math.floor(i/7)+1.5)/54 * 360;
             return "rotate("+angle+ ")"
         })
         .attr("y", -(inner_radius + 7*(circle_r*2 + circle_margin)))

@@ -478,8 +478,12 @@ SmallMultiples.prototype.updateVis = function() {
 
 
 function show_small_multiples(unit_data) {
-    console.log(unit_data.properties.name)
-    selectedDist = unit_data.properties.name;
+    console.log(unit_data.properties.neighbourhood_group);
+    if (unit_data.properties.name){
+        selectedDist = unit_data.properties.name;
+    }else{
+        selectedDist = unit_data.properties.neighbourhood_group;
+    }
     smallMultiples.wrangleData();
 }
 
