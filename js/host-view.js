@@ -4,7 +4,6 @@ queue()
     // https://github.com/codeforamerica/click_that_hood/blob/master/public/data/new-york-city-boroughs.geojson
     .defer(d3.json, "data/new-york-city-boroughs.geojson")
     // 12 September, 2019 http://insideairbnb.com/get-the-data.html
-    .defer(d3.csv, "data/ny-listings.csv")
     .defer(d3.csv, "data/host_borough.csv")
     .defer(d3.json, "data/new_york_neighbourhoods.geojson")
     .defer(d3.csv, "data/host_neighbor.csv")
@@ -12,7 +11,7 @@ queue()
 
 var choro_ny;
 
-function createVisualization(error, nyc_borough, nyc_listings, data_borough, nyc_neighbor, data_neighbor) {
+function createVisualization(error, nyc_borough, data_borough, nyc_neighbor, data_neighbor) {
     // console.log(nyc_contour);
     // console.log(nyc_listings);
     // mapchart = new MapChart("ny-map", {"contour":nyc_contour,"listings":nyc_listings});
@@ -37,7 +36,7 @@ function createVisualization(error, nyc_borough, nyc_listings, data_borough, nyc
     choro_ny = new Choropleth("ny-map", nyc_borough, nyc_neighbor, data_borough, data_neighbor);
 
 
-    createSmallMultiples(data_borough, nyc_listings);
+    createSmallMultiples(data_borough);
 
 }
 
