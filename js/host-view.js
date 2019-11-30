@@ -5,7 +5,7 @@ queue()
     .defer(d3.json, "data/new-york-city-boroughs.geojson")
     // 12 September, 2019 http://insideairbnb.com/get-the-data.html
     .defer(d3.csv, "data/ny-listings.csv")
-    .defer(d3.csv, "data/host.csv")
+    .defer(d3.csv, "data/host_borough.csv")
     .defer(d3.json, "data/new_york_neighbourhoods.geojson")
     .defer(d3.csv, "data/host_neighbor.csv")
     .await(createVisualization);
