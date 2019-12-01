@@ -1,0 +1,912 @@
+,Borough,airbnb_inventory,airbnb_price,type,neighborhood,rental_price,rental_inventory
+0,Bronx,17,100.0,All,Allerton,,
+1,Staten Island,3,75.0,All,Arden Heights,,
+2,Staten Island,10,123.5,All,Arrochar,,
+3,Queens,54,150.0,All,Arverne,,
+4,Queens,359,120.0,All,Astoria,2200.0,1903.0
+5,Brooklyn,9,100.0,All,Bath Beach,1750.0,67.0
+6,Manhattan,50,225.0,All,Battery Park City,4900.0,213.0
+7,Brooklyn,67,120.0,All,Bay Ridge,1999.0,601.0
+8,Queens,3,189.0,All,Bay Terrace,,
+9,Staten Island,2,102.5,All,"Bay Terrace, Staten Island",,
+10,Bronx,4,97.5,All,Baychester,,0.0
+11,Queens,16,170.0,All,Bayside,2400.0,27.0
+12,Queens,4,135.5,All,Bayswater,,
+13,Brooklyn,1596,129.5,All,Bedford-Stuyvesant,2500.0,2325.0
+14,Queens,5,105.0,All,Belle Harbor,,
+15,Queens,2,122.5,All,Bellerose,,2.0
+16,Bronx,6,132.5,All,Belmont,2100.0,35.0
+17,Brooklyn,30,105.0,All,Bensonhurst,1850.0,121.0
+18,Brooklyn,12,92.5,All,Bergen Beach,2088.0,14.0
+19,Brooklyn,133,170.0,All,Boerum Hill,3250.0,113.0
+20,Brooklyn,23,110.0,All,Borough Park,1900.0,84.0
+21,Queens,16,92.0,All,Briarwood,1750.0,71.0
+22,Brooklyn,35,119.0,All,Brighton Beach,2050.0,73.0
+23,Bronx,8,77.5,All,Bronxdale,,
+24,Brooklyn,117,160.0,All,Brooklyn Heights,3391.0,207.0
+25,Brooklyn,20,100.0,All,Brownsville,2025.0,50.0
+26,Brooklyn,683,125.0,All,Bushwick,2575.0,2541.0
+27,Queens,5,120.0,All,Cambria Heights,,0.0
+28,Brooklyn,80,114.0,All,Canarsie,2200.0,32.0
+29,Brooklyn,170,170.0,All,Carroll Gardens,2983.0,182.0
+30,Bronx,2,66.0,All,Castle Hill,1799.0,13.0
+31,Staten Island,2,182.0,All,Castleton Corners,,
+32,Staten Island,1,500.0,All,Charleston,,
+33,Manhattan,787,223.0,All,Chelsea,4137.0,804.0
+34,Manhattan,203,170.0,All,Chinatown,2500.0,70.0
+35,Bronx,9,110.0,All,City Island,,1.0
+36,Manhattan,30,172.5,All,Civic Center,,0.0
+37,Bronx,9,85.0,All,Claremont Village,,
+38,Bronx,8,110.0,All,Clason Point,,
+39,Staten Island,9,75.0,All,Clifton,,
+40,Brooklyn,337,150.0,All,Clinton Hill,2700.0,368.0
+41,Brooklyn,73,175.0,All,Cobble Hill,3163.0,111.0
+42,Queens,11,87.0,All,College Point,,9.0
+43,Brooklyn,31,149.0,All,Columbia St,,
+44,Staten Island,5,120.0,All,Concord,,
+45,Bronx,19,100.0,All,Concourse,1700.0,93.0
+46,Bronx,10,117.5,All,Concourse Village,,
+47,Brooklyn,8,110.0,All,Coney Island,2300.0,27.0
+48,Queens,13,100.0,All,Corona,1955.0,33.0
+49,Brooklyn,751,125.0,All,Crown Heights,2400.0,1376.0
+50,Brooklyn,52,99.5,All,Cypress Hills,,
+51,Brooklyn,21,195.0,All,DUMBO,4773.0,70.0
+52,Queens,124,112.5,All,Ditmars Steinway,,
+53,Staten Island,4,90.0,All,Dongan Hills,,
+54,Queens,3,125.0,All,Douglaston,,7.0
+55,Brooklyn,50,155.0,All,Downtown Brooklyn,3350.0,411.0
+56,Brooklyn,8,120.0,All,Dyker Heights,2200.0,57.0
+57,Queens,69,120.0,All,East Elmhurst,,8.0
+58,Brooklyn,189,110.0,All,East Flatbush,2100.0,257.0
+59,Manhattan,503,150.0,All,East Harlem,2332.0,548.0
+60,Bronx,3,120.0,All,East Morrisania,,
+61,Brooklyn,105,100.0,All,East New York,2199.0,93.0
+62,Manhattan,1135,190.0,All,East Village,3204.0,1094.0
+63,Bronx,6,182.5,All,Eastchester,,7.0
+64,Bronx,6,92.5,All,Edenwald,,1.0
+65,Queens,4,139.5,All,Edgemere,,
+66,Queens,63,120.0,All,Elmhurst,1969.0,130.0
+67,Staten Island,2,184.5,All,Eltingville,,
+68,Staten Island,2,63.5,All,Emerson Hill,,
+69,Queens,16,197.0,All,Far Rockaway,,
+70,Bronx,3,109.0,All,Fieldston,,
+71,Manhattan,600,230.0,All,Financial District,3831.0,707.0
+72,Brooklyn,249,100.0,All,Flatbush,2195.0,644.0
+73,Manhattan,62,262.5,All,Flatiron District,,
+74,Brooklyn,38,125.0,All,Flatlands,2000.0,18.0
+75,Queens,114,120.0,All,Flushing,1825.0,223.0
+76,Bronx,8,98.5,All,Fordham,1900.0,42.0
+77,Queens,51,105.0,All,Forest Hills,2000.0,341.0
+78,Brooklyn,280,160.0,All,Fort Greene,2850.0,229.0
+79,Brooklyn,28,112.5,All,Fort Hamilton,,
+80,Staten Island,1,800.0,All,Fort Wadsworth,,
+81,Queens,18,100.0,All,Fresh Meadows,,4.0
+82,Brooklyn,1,103.0,All,Gerritsen Beach,,4.0
+83,Queens,23,105.0,All,Glendale,2099.0,57.0
+84,Brooklyn,131,160.0,All,Gowanus,2999.0,140.0
+85,Manhattan,234,198.5,All,Gramercy,,
+86,Staten Island,1,71.0,All,Graniteville,,
+87,Staten Island,6,77.5,All,Grant City,,
+88,Brooklyn,29,99.0,All,Gravesend,1950.0,113.0
+89,Staten Island,3,75.0,All,Great Kills,,
+90,Brooklyn,600,150.0,All,Greenpoint,2800.0,736.0
+91,Manhattan,283,210.0,All,Greenwich Village,3750.0,405.0
+92,Staten Island,7,125.0,All,Grymes Hill,,
+93,Manhattan,1033,140.0,All,Harlem,,
+94,Manhattan,1170,200.0,All,Hell's Kitchen,,
+95,Bronx,8,84.0,All,Highbridge,2003.0,34.0
+96,Queens,6,99.5,All,Hollis,,4.0
+97,Queens,1,239.0,All,Holliswood,,
+98,Queens,11,180.0,All,Howard Beach,,8.0
+99,Staten Island,1,125.0,All,Howland Hook,,
+100,Staten Island,2,140.0,All,Huguenot,,
+101,Bronx,2,137.5,All,Hunts Point,,5.0
+102,Manhattan,99,100.0,All,Inwood,1995.0,221.0
+103,Queens,62,115.0,All,Jackson Heights,1900.0,154.0
+104,Queens,90,100.0,All,Jamaica,2025.0,18.0
+105,Queens,11,150.0,All,Jamaica Estates,2325.0,29.0
+106,Queens,4,215.0,All,Jamaica Hills,,7.0
+107,Brooklyn,74,100.0,All,Kensington,2013.0,232.0
+108,Queens,10,100.0,All,Kew Gardens,1895.0,182.0
+109,Queens,18,124.5,All,Kew Gardens Hills,2000.0,73.0
+110,Bronx,18,101.0,All,Kingsbridge,1798.0,94.0
+111,Manhattan,319,187.0,All,Kips Bay,,
+112,Queens,12,100.0,All,Laurelton,,5.0
+113,Staten Island,2,157.5,All,Lighthouse Hill,,
+114,Manhattan,74,190.0,All,Little Italy,3150.0,72.0
+115,Queens,1,156.0,All,Little Neck,,3.0
+116,Queens,225,145.0,All,Long Island City,3175.0,724.0
+117,Bronx,24,100.0,All,Longwood,2088.0,10.0
+118,Manhattan,503,195.0,All,Lower East Side,3345.0,483.0
+119,Brooklyn,6,117.0,All,Manhattan Beach,,0.0
+120,Manhattan,4,100.0,All,Marble Hill,1975.0,13.0
+121,Staten Island,3,115.0,All,Mariners Harbor,,
+122,Queens,45,133.0,All,Maspeth,2095.0,105.0
+123,Bronx,4,74.5,All,Melrose,1675.0,14.0
+124,Queens,21,100.0,All,Middle Village,2200.0,12.0
+125,Staten Island,6,99.5,All,Midland Beach,,
+126,Manhattan,971,215.0,All,Midtown,4000.0,512.0
+127,Brooklyn,49,89.0,All,Midwood,1800.0,214.0
+128,Brooklyn,5,100.0,All,Mill Basin,,4.0
+129,Manhattan,137,125.0,All,Morningside Heights,3052.0,134.0
+130,Bronx,5,95.0,All,Morris Heights,1595.0,11.0
+131,Bronx,5,125.0,All,Morris Park,1850.0,40.0
+132,Bronx,6,119.5,All,Morrisania,2200.0,15.0
+133,Bronx,27,115.0,All,Mott Haven,2050.0,123.0
+134,Bronx,1,150.0,All,Mount Eden,,
+135,Bronx,10,114.5,All,Mount Hope,,
+136,Manhattan,419,200.0,All,Murray Hill,,
+137,Brooklyn,11,150.0,All,Navy Yard,,
+138,Queens,3,274.0,All,Neponsit,,
+139,Staten Island,1,57.0,All,New Dorp,,
+140,Staten Island,2,85.5,All,New Dorp Beach,,
+141,Staten Island,2,88.5,All,New Springville,,
+142,Manhattan,68,270.0,All,NoHo,,
+143,Manhattan,174,225.0,All,Nolita,3650.0,151.0
+144,Bronx,1,105.0,All,North Riverdale,,
+145,Bronx,8,103.5,All,Norwood,1550.0,29.0
+146,Staten Island,2,160.0,All,Oakwood,,
+147,Queens,27,110.0,All,Ozone Park,1563.0,12.0
+148,Brooklyn,349,160.0,All,Park Slope,3000.0,679.0
+149,Bronx,10,90.5,All,Parkchester,1507.0,22.0
+150,Bronx,11,119.0,All,Pelham Bay,1700.0,16.0
+151,Bronx,19,80.0,All,Pelham Gardens,,2.0
+152,Bronx,15,120.0,All,Port Morris,,3.0
+153,Staten Island,2,77.5,All,Port Richmond,,
+154,Staten Island,3,185.0,All,Prince's Bay,,
+155,Brooklyn,200,150.0,All,Prospect Heights,2880.0,244.0
+156,Brooklyn,261,115.0,All,Prospect-Lefferts Gardens,,
+157,Queens,38,99.5,All,Queens Village,,8.0
+158,Staten Island,8,122.0,All,Randall Manor,,
+159,Brooklyn,52,129.5,All,Red Hook,2550.0,51.0
+160,Queens,37,100.0,All,Rego Park,2115.0,241.0
+161,Queens,33,120.0,All,Richmond Hill,1850.0,13.0
+162,Staten Island,1,78.0,All,Richmondtown,,
+163,Queens,134,110.0,All,Ridgewood,2500.0,508.0
+164,Bronx,9,111.0,All,Riverdale,2175.0,288.0
+165,Queens,55,135.0,All,Rockaway Beach,,
+166,Manhattan,18,155.0,All,Roosevelt Island,3415.0,89.0
+167,Staten Island,4,136.5,All,Rosebank,,
+168,Queens,16,80.0,All,Rosedale,,4.0
+169,Staten Island,1,75.0,All,Rossville,,
+170,Bronx,3,85.0,All,Schuylerville,,3.0
+171,Brooklyn,7,223.0,All,Sea Gate,,
+172,Brooklyn,60,117.0,All,Sheepshead Bay,1799.0,202.0
+173,Staten Island,4,127.5,All,Shore Acres,,
+174,Staten Island,1,80.0,All,Silver Lake,,
+175,Manhattan,224,245.0,All,SoHo,,
+176,Bronx,5,60.0,All,Soundview,1898.0,18.0
+177,Queens,15,100.0,All,South Ozone Park,,1.0
+178,Brooklyn,186,153.0,All,South Slope,,
+179,Queens,42,107.5,All,Springfield Gardens,,5.0
+180,Bronx,3,120.0,All,Spuyten Duyvil,,
+181,Queens,26,114.0,All,St. Albans,,5.0
+182,Staten Island,27,120.0,All,St. George,,
+183,Staten Island,12,99.5,All,Stapleton,,
+184,Manhattan,12,182.0,All,Stuyvesant Town,,
+185,Queens,134,110.0,All,Sunnyside,1935.0,309.0
+186,Brooklyn,179,128.0,All,Sunset Park,1995.0,225.0
+187,Manhattan,154,239.0,All,Theater District,,
+188,Bronx,12,99.5,All,Throgs Neck,2150.0,15.0
+189,Staten Island,3,135.0,All,Todt Hill,,
+190,Staten Island,19,99.0,All,Tompkinsville,,
+191,Staten Island,5,85.0,All,Tottenville,,
+192,Bronx,4,76.5,All,Tremont,1823.0,36.0
+193,Manhattan,127,316.0,All,Tribeca,6860.0,296.0
+194,Manhattan,27,159.0,All,Two Bridges,,
+195,Bronx,6,105.0,All,Unionport,,
+196,Bronx,5,120.0,All,University Heights,1695.0,41.0
+197,Manhattan,1275,160.0,All,Upper East Side,3000.0,3006.0
+198,Manhattan,1198,187.0,All,Upper West Side,3400.0,2636.0
+199,Bronx,6,150.0,All,Van Nest,,8.0
+200,Brooklyn,22,212.5,All,Vinegar Hill,,
+201,Bronx,21,90.0,All,Wakefield,2100.0,13.0
+202,Manhattan,307,120.0,All,Washington Heights,2250.0,896.0
+203,Staten Island,6,112.0,All,West Brighton,,
+204,Bronx,1,165.0,All,West Farms,,
+205,Manhattan,628,220.0,All,West Village,3900.0,532.0
+206,Bronx,3,75.0,All,Westchester Square,,
+207,Staten Island,2,91.0,All,Westerleigh,,
+208,Queens,3,250.0,All,Whitestone,2250.0,17.0
+209,Bronx,19,87.0,All,Williamsbridge,1825.0,20.0
+210,Brooklyn,1837,175.0,All,Williamsburg,3000.0,3244.0
+211,Staten Island,1,299.0,All,Willowbrook,,
+212,Brooklyn,110,145.0,All,Windsor Terrace,2643.0,118.0
+213,Queens,22,102.5,All,Woodhaven,1850.0,15.0
+214,Bronx,3,77.0,All,Woodlawn,,4.0
+215,Staten Island,1,700.0,All,Woodrow,,
+216,Queens,60,125.0,All,Woodside,1850.0,125.0
+217,Bronx,1,60.0,Studio,Allerton,,
+218,Bronx,10,77.0,OneBd,Allerton,,
+219,Bronx,2,102.5,TwoBd,Allerton,,
+220,Bronx,4,196.0,ThreePlusBd,Allerton,,
+221,Staten Island,1,70.0,Studio,Arden Heights,,
+222,Staten Island,2,79.0,OneBd,Arden Heights,,
+223,Staten Island,2,70.0,Studio,Arrochar,,
+224,Staten Island,1,125.0,OneBd,Arrochar,,
+225,Staten Island,3,100.0,TwoBd,Arrochar,,
+226,Staten Island,4,224.5,ThreePlusBd,Arrochar,,
+227,Queens,4,122.5,Studio,Arverne,,
+228,Queens,15,120.0,OneBd,Arverne,,
+229,Queens,20,137.0,TwoBd,Arverne,,
+230,Queens,15,275.0,ThreePlusBd,Arverne,,
+231,Queens,36,99.5,Studio,Astoria,1750.0,106.0
+232,Queens,232,113.5,OneBd,Astoria,1900.0,802.0
+233,Queens,65,145.0,TwoBd,Astoria,2300.0,720.0
+234,Queens,25,245.0,ThreePlusBd,Astoria,2800.0,275.0
+235,Brooklyn,1,119.0,Studio,Bath Beach,,1.0
+236,Brooklyn,6,99.0,OneBd,Bath Beach,1537.0,24.0
+237,Brooklyn,2,165.0,TwoBd,Bath Beach,1799.0,25.0
+238,Manhattan,15,200.0,Studio,Battery Park City,3250.0,29.0
+239,Manhattan,22,200.0,OneBd,Battery Park City,3773.0,82.0
+240,Manhattan,10,350.0,TwoBd,Battery Park City,6450.0,71.0
+241,Manhattan,3,433.0,ThreePlusBd,Battery Park City,12000.0,31.0
+242,Brooklyn,6,87.5,Studio,Bay Ridge,1595.0,57.0
+243,Brooklyn,32,95.0,OneBd,Bay Ridge,1699.0,196.0
+244,Brooklyn,14,132.5,TwoBd,Bay Ridge,2150.0,227.0
+245,Brooklyn,15,175.0,ThreePlusBd,Bay Ridge,2595.0,121.0
+246,Queens,3,189.0,ThreePlusBd,Bay Terrace,,
+247,Staten Island,1,55.0,Studio,"Bay Terrace, Staten Island",,
+248,Staten Island,1,150.0,ThreePlusBd,"Bay Terrace, Staten Island",,
+249,Bronx,2,85.0,OneBd,Baychester,,
+250,Bronx,1,101.0,TwoBd,Baychester,,
+251,Bronx,1,100.0,ThreePlusBd,Baychester,,
+252,Queens,1,55.0,Studio,Bayside,,4.0
+253,Queens,6,89.0,OneBd,Bayside,,6.0
+254,Queens,3,200.0,TwoBd,Bayside,,8.0
+255,Queens,6,245.0,ThreePlusBd,Bayside,,9.0
+256,Queens,2,150.0,OneBd,Bayswater,,
+257,Queens,1,120.0,TwoBd,Bayswater,,
+258,Queens,1,151.0,ThreePlusBd,Bayswater,,
+259,Brooklyn,145,100.0,Studio,Bedford-Stuyvesant,1948.0,92.0
+260,Brooklyn,721,116.0,OneBd,Bedford-Stuyvesant,2195.0,544.0
+261,Brooklyn,507,150.0,TwoBd,Bedford-Stuyvesant,2500.0,869.0
+262,Brooklyn,222,199.0,ThreePlusBd,Bedford-Stuyvesant,2995.0,820.0
+263,Queens,1,90.0,Studio,Belle Harbor,,
+264,Queens,1,97.0,OneBd,Belle Harbor,,
+265,Queens,3,150.0,TwoBd,Belle Harbor,,
+266,Queens,1,89.0,Studio,Bellerose,,
+267,Queens,1,156.0,TwoBd,Bellerose,,
+268,Bronx,1,80.0,OneBd,Belmont,,5.0
+269,Bronx,3,125.0,TwoBd,Belmont,1800.0,11.0
+270,Bronx,2,273.0,ThreePlusBd,Belmont,2200.0,19.0
+271,Brooklyn,2,80.0,Studio,Bensonhurst,,7.0
+272,Brooklyn,13,88.0,OneBd,Bensonhurst,1550.0,51.0
+273,Brooklyn,11,120.0,TwoBd,Bensonhurst,1899.0,31.0
+274,Brooklyn,4,123.0,ThreePlusBd,Bensonhurst,2450.0,32.0
+275,Brooklyn,3,80.0,Studio,Bergen Beach,,
+276,Brooklyn,6,92.5,OneBd,Bergen Beach,,3.0
+277,Brooklyn,3,125.0,ThreePlusBd,Bergen Beach,,6.0
+278,Brooklyn,19,125.0,Studio,Boerum Hill,,5.0
+279,Brooklyn,58,150.0,OneBd,Boerum Hill,2600.0,43.0
+280,Brooklyn,46,189.5,TwoBd,Boerum Hill,3850.0,42.0
+281,Brooklyn,10,487.5,ThreePlusBd,Boerum Hill,5800.0,23.0
+282,Brooklyn,4,102.5,Studio,Borough Park,,8.0
+283,Brooklyn,11,100.0,OneBd,Borough Park,1550.0,28.0
+284,Brooklyn,3,160.0,TwoBd,Borough Park,1900.0,35.0
+285,Brooklyn,5,149.0,ThreePlusBd,Borough Park,2350.0,13.0
+286,Queens,5,75.0,Studio,Briarwood,,6.0
+287,Queens,6,78.5,OneBd,Briarwood,1649.0,36.0
+288,Queens,1,99.0,TwoBd,Briarwood,1999.0,25.0
+289,Queens,4,274.5,ThreePlusBd,Briarwood,,4.0
+290,Brooklyn,5,99.0,Studio,Brighton Beach,,4.0
+291,Brooklyn,18,114.5,OneBd,Brighton Beach,1750.0,36.0
+292,Brooklyn,10,140.0,TwoBd,Brighton Beach,2497.0,24.0
+293,Brooklyn,2,150.0,ThreePlusBd,Brighton Beach,,9.0
+294,Bronx,7,76.0,OneBd,Bronxdale,,
+295,Bronx,1,100.0,ThreePlusBd,Bronxdale,,
+296,Brooklyn,21,110.0,Studio,Brooklyn Heights,2295.0,55.0
+297,Brooklyn,68,157.5,OneBd,Brooklyn Heights,2998.0,66.0
+298,Brooklyn,17,250.0,TwoBd,Brooklyn Heights,4500.0,55.0
+299,Brooklyn,11,409.0,ThreePlusBd,Brooklyn Heights,7400.0,31.0
+300,Brooklyn,10,92.5,OneBd,Brownsville,1550.0,11.0
+301,Brooklyn,6,114.5,TwoBd,Brownsville,1850.0,16.0
+302,Brooklyn,4,187.5,ThreePlusBd,Brownsville,2295.0,21.0
+303,Brooklyn,60,100.0,Studio,Bushwick,2030.0,99.0
+304,Brooklyn,336,110.0,OneBd,Bushwick,2299.0,360.0
+305,Brooklyn,197,145.0,TwoBd,Bushwick,2400.0,908.0
+306,Brooklyn,90,200.0,ThreePlusBd,Bushwick,2800.0,1174.0
+307,Queens,2,87.0,OneBd,Cambria Heights,,
+308,Queens,2,140.0,TwoBd,Cambria Heights,,
+309,Queens,1,169.0,ThreePlusBd,Cambria Heights,,
+310,Brooklyn,8,92.5,Studio,Canarsie,,
+311,Brooklyn,30,95.0,OneBd,Canarsie,,3.0
+312,Brooklyn,26,122.5,TwoBd,Canarsie,1900.0,10.0
+313,Brooklyn,16,175.0,ThreePlusBd,Canarsie,2300.0,19.0
+314,Brooklyn,10,150.0,Studio,Carroll Gardens,2075.0,10.0
+315,Brooklyn,73,130.0,OneBd,Carroll Gardens,2600.0,74.0
+316,Brooklyn,58,199.0,TwoBd,Carroll Gardens,3350.0,66.0
+317,Brooklyn,29,350.0,ThreePlusBd,Carroll Gardens,3898.0,32.0
+318,Bronx,2,66.0,OneBd,Castle Hill,,
+319,Staten Island,1,65.0,Studio,Castleton Corners,,
+320,Staten Island,1,299.0,ThreePlusBd,Castleton Corners,,
+321,Staten Island,1,500.0,Studio,Charleston,,
+322,Manhattan,219,175.0,Studio,Chelsea,2850.0,223.0
+323,Manhattan,403,220.0,OneBd,Chelsea,4000.0,312.0
+324,Manhattan,124,339.0,TwoBd,Chelsea,6021.0,181.0
+325,Manhattan,40,500.0,ThreePlusBd,Chelsea,7500.0,88.0
+326,Manhattan,28,145.0,Studio,Chinatown,,3.0
+327,Manhattan,113,155.0,OneBd,Chinatown,2397.0,26.0
+328,Manhattan,51,235.0,TwoBd,Chinatown,2663.0,26.0
+329,Manhattan,11,400.0,ThreePlusBd,Chinatown,5000.0,15.0
+330,Bronx,3,110.0,Studio,City Island,,
+331,Bronx,3,120.0,OneBd,City Island,,
+332,Bronx,1,175.0,TwoBd,City Island,,1.0
+333,Bronx,2,162.5,ThreePlusBd,City Island,,
+334,Manhattan,7,175.0,Studio,Civic Center,,
+335,Manhattan,15,150.0,OneBd,Civic Center,,
+336,Manhattan,6,204.5,TwoBd,Civic Center,,
+337,Manhattan,2,153.0,ThreePlusBd,Civic Center,,
+338,Bronx,1,85.0,Studio,Claremont Village,,
+339,Bronx,2,69.0,OneBd,Claremont Village,,
+340,Bronx,1,57.0,TwoBd,Claremont Village,,
+341,Bronx,5,127.0,ThreePlusBd,Claremont Village,,
+342,Bronx,2,105.0,OneBd,Clason Point,,
+343,Bronx,5,110.0,TwoBd,Clason Point,,
+344,Bronx,1,350.0,ThreePlusBd,Clason Point,,
+345,Staten Island,1,75.0,Studio,Clifton,,
+346,Staten Island,4,67.5,OneBd,Clifton,,
+347,Staten Island,1,75.0,TwoBd,Clifton,,
+348,Staten Island,3,120.0,ThreePlusBd,Clifton,,
+349,Brooklyn,40,115.0,Studio,Clinton Hill,2255.0,57.0
+350,Brooklyn,175,135.0,OneBd,Clinton Hill,2500.0,130.0
+351,Brooklyn,74,189.5,TwoBd,Clinton Hill,3150.0,105.0
+352,Brooklyn,48,350.0,ThreePlusBd,Clinton Hill,3875.0,76.0
+353,Brooklyn,8,125.0,Studio,Cobble Hill,,2.0
+354,Brooklyn,39,160.0,OneBd,Cobble Hill,2600.0,54.0
+355,Brooklyn,15,250.0,TwoBd,Cobble Hill,3400.0,37.0
+356,Brooklyn,11,424.0,ThreePlusBd,Cobble Hill,5250.0,18.0
+357,Queens,3,65.0,Studio,College Point,,
+358,Queens,3,69.0,OneBd,College Point,,1.0
+359,Queens,3,100.0,TwoBd,College Point,,4.0
+360,Queens,2,260.0,ThreePlusBd,College Point,,4.0
+361,Brooklyn,3,105.0,Studio,Columbia St,,
+362,Brooklyn,14,130.0,OneBd,Columbia St,,
+363,Brooklyn,11,175.0,TwoBd,Columbia St,,
+364,Brooklyn,3,160.0,ThreePlusBd,Columbia St,,
+365,Staten Island,3,100.0,OneBd,Concord,,
+366,Staten Island,2,175.0,TwoBd,Concord,,
+367,Bronx,2,102.5,Studio,Concourse,1490.0,15.0
+368,Bronx,6,93.0,OneBd,Concourse,1573.0,30.0
+369,Bronx,8,130.0,TwoBd,Concourse,1875.0,28.0
+370,Bronx,3,95.0,ThreePlusBd,Concourse,2200.0,20.0
+371,Bronx,1,90.0,Studio,Concourse Village,,
+372,Bronx,7,145.0,OneBd,Concourse Village,,
+373,Bronx,2,143.5,TwoBd,Concourse Village,,
+374,Brooklyn,2,275.0,Studio,Coney Island,,1.0
+375,Brooklyn,3,110.0,OneBd,Coney Island,2088.0,10.0
+376,Brooklyn,3,115.0,TwoBd,Coney Island,2750.0,13.0
+377,Queens,2,89.5,Studio,Corona,,6.0
+378,Queens,9,99.0,OneBd,Corona,1915.0,13.0
+379,Queens,1,119.0,TwoBd,Corona,,9.0
+380,Queens,1,359.0,ThreePlusBd,Corona,,5.0
+381,Brooklyn,65,97.0,Studio,Crown Heights,1750.0,66.0
+382,Brooklyn,370,106.5,OneBd,Crown Heights,2150.0,361.0
+383,Brooklyn,198,150.0,TwoBd,Crown Heights,2396.0,514.0
+384,Brooklyn,118,250.0,ThreePlusBd,Crown Heights,2934.0,435.0
+385,Brooklyn,5,60.0,Studio,Cypress Hills,,
+386,Brooklyn,14,89.5,OneBd,Cypress Hills,,
+387,Brooklyn,23,99.0,TwoBd,Cypress Hills,,
+388,Brooklyn,10,177.0,ThreePlusBd,Cypress Hills,,
+389,Brooklyn,3,212.0,Studio,DUMBO,,9.0
+390,Brooklyn,9,219.0,OneBd,DUMBO,4195.0,33.0
+391,Brooklyn,7,189.0,TwoBd,DUMBO,5119.0,16.0
+392,Brooklyn,2,125.0,ThreePlusBd,DUMBO,9500.0,12.0
+393,Queens,16,99.0,Studio,Ditmars Steinway,,
+394,Queens,66,100.0,OneBd,Ditmars Steinway,,
+395,Queens,29,151.0,TwoBd,Ditmars Steinway,,
+396,Queens,13,225.0,ThreePlusBd,Ditmars Steinway,,
+397,Staten Island,1,70.0,Studio,Dongan Hills,,
+398,Staten Island,1,85.0,OneBd,Dongan Hills,,
+399,Staten Island,1,95.0,TwoBd,Dongan Hills,,
+400,Staten Island,1,155.0,ThreePlusBd,Dongan Hills,,
+401,Queens,2,112.0,OneBd,Douglaston,,1.0
+402,Queens,1,178.0,ThreePlusBd,Douglaston,,3.0
+403,Brooklyn,7,150.0,Studio,Downtown Brooklyn,2695.0,104.0
+404,Brooklyn,32,150.0,OneBd,Downtown Brooklyn,3369.0,197.0
+405,Brooklyn,9,175.0,TwoBd,Downtown Brooklyn,4308.0,97.0
+406,Brooklyn,2,312.5,ThreePlusBd,Downtown Brooklyn,6689.0,13.0
+407,Brooklyn,3,69.0,OneBd,Dyker Heights,,9.0
+408,Brooklyn,3,160.0,TwoBd,Dyker Heights,2000.0,19.0
+409,Brooklyn,2,150.0,ThreePlusBd,Dyker Heights,2500.0,25.0
+410,Queens,7,99.0,Studio,East Elmhurst,,3.0
+411,Queens,30,99.0,OneBd,East Elmhurst,,1.0
+412,Queens,18,130.5,TwoBd,East Elmhurst,,2.0
+413,Queens,14,179.0,ThreePlusBd,East Elmhurst,,2.0
+414,Brooklyn,20,87.0,Studio,East Flatbush,1400.0,19.0
+415,Brooklyn,81,91.0,OneBd,East Flatbush,1750.0,63.0
+416,Brooklyn,50,121.5,TwoBd,East Flatbush,2050.0,73.0
+417,Brooklyn,38,189.0,ThreePlusBd,East Flatbush,2700.0,102.0
+418,Manhattan,72,119.0,Studio,East Harlem,1850.0,55.0
+419,Manhattan,252,130.0,OneBd,East Harlem,2050.0,222.0
+420,Manhattan,131,179.0,TwoBd,East Harlem,2495.0,195.0
+421,Manhattan,47,285.0,ThreePlusBd,East Harlem,3260.0,76.0
+422,Bronx,3,120.0,TwoBd,East Morrisania,,
+423,Brooklyn,8,72.5,Studio,East New York,,1.0
+424,Brooklyn,35,95.0,OneBd,East New York,1600.0,13.0
+425,Brooklyn,38,99.0,TwoBd,East New York,1900.0,27.0
+426,Brooklyn,24,152.5,ThreePlusBd,East New York,2372.0,52.0
+427,Manhattan,208,150.0,Studio,East Village,2175.0,191.0
+428,Manhattan,615,175.0,OneBd,East Village,2700.0,363.0
+429,Manhattan,246,250.0,TwoBd,East Village,3598.0,340.0
+430,Manhattan,64,382.0,ThreePlusBd,East Village,4878.0,200.0
+431,Bronx,2,107.0,OneBd,Eastchester,,3.0
+432,Bronx,1,145.0,TwoBd,Eastchester,,2.0
+433,Bronx,3,299.0,ThreePlusBd,Eastchester,,2.0
+434,Bronx,4,82.5,OneBd,Edenwald,,
+435,Bronx,2,144.5,ThreePlusBd,Edenwald,,
+436,Queens,3,180.0,OneBd,Edgemere,,
+437,Queens,1,80.0,TwoBd,Edgemere,,
+438,Queens,7,85.0,Studio,Elmhurst,1510.0,28.0
+439,Queens,31,95.0,OneBd,Elmhurst,1790.0,50.0
+440,Queens,17,150.0,TwoBd,Elmhurst,2130.0,37.0
+441,Queens,8,270.0,ThreePlusBd,Elmhurst,2750.0,15.0
+442,Staten Island,2,184.5,OneBd,Eltingville,,
+443,Staten Island,1,49.0,Studio,Emerson Hill,,
+444,Staten Island,1,78.0,TwoBd,Emerson Hill,,
+445,Queens,1,115.0,Studio,Far Rockaway,,
+446,Queens,6,165.0,OneBd,Far Rockaway,,
+447,Queens,5,250.0,TwoBd,Far Rockaway,,
+448,Queens,4,211.0,ThreePlusBd,Far Rockaway,,
+449,Bronx,3,109.0,OneBd,Fieldston,,
+450,Manhattan,187,184.0,Studio,Financial District,3050.0,272.0
+451,Manhattan,288,238.0,OneBd,Financial District,3998.0,224.0
+452,Manhattan,81,375.0,TwoBd,Financial District,5400.0,155.0
+453,Manhattan,43,478.0,ThreePlusBd,Financial District,6500.0,56.0
+454,Brooklyn,30,90.0,Studio,Flatbush,1577.0,58.0
+455,Brooklyn,140,95.0,OneBd,Flatbush,1750.0,195.0
+456,Brooklyn,46,127.5,TwoBd,Flatbush,2200.0,229.0
+457,Brooklyn,33,200.0,ThreePlusBd,Flatbush,2700.0,162.0
+458,Manhattan,13,200.0,Studio,Flatiron District,,
+459,Manhattan,29,220.0,OneBd,Flatiron District,,
+460,Manhattan,10,435.5,TwoBd,Flatiron District,,
+461,Manhattan,10,562.5,ThreePlusBd,Flatiron District,,
+462,Brooklyn,10,97.5,Studio,Flatlands,,
+463,Brooklyn,11,89.0,OneBd,Flatlands,,7.0
+464,Brooklyn,10,139.5,TwoBd,Flatlands,,4.0
+465,Brooklyn,7,195.0,ThreePlusBd,Flatlands,,7.0
+466,Queens,11,95.0,Studio,Flushing,1550.0,30.0
+467,Queens,51,99.0,OneBd,Flushing,1700.0,95.0
+468,Queens,27,139.0,TwoBd,Flushing,2275.0,61.0
+469,Queens,25,267.0,ThreePlusBd,Flushing,2450.0,37.0
+470,Bronx,1,80.0,Studio,Fordham,,1.0
+471,Bronx,1,65.0,OneBd,Fordham,1558.0,16.0
+472,Bronx,3,92.0,TwoBd,Fordham,,8.0
+473,Bronx,3,200.0,ThreePlusBd,Fordham,2300.0,17.0
+474,Queens,10,99.5,Studio,Forest Hills,1550.0,56.0
+475,Queens,22,99.5,OneBd,Forest Hills,1895.0,150.0
+476,Queens,10,120.0,TwoBd,Forest Hills,2500.0,92.0
+477,Queens,9,288.0,ThreePlusBd,Forest Hills,3500.0,43.0
+478,Brooklyn,40,125.0,Studio,Fort Greene,2400.0,58.0
+479,Brooklyn,141,150.0,OneBd,Fort Greene,2907.0,84.0
+480,Brooklyn,67,200.0,TwoBd,Fort Greene,2995.0,59.0
+481,Brooklyn,31,300.0,ThreePlusBd,Fort Greene,4208.0,28.0
+482,Brooklyn,3,110.0,Studio,Fort Hamilton,,
+483,Brooklyn,13,100.0,OneBd,Fort Hamilton,,
+484,Brooklyn,11,125.0,TwoBd,Fort Hamilton,,
+485,Brooklyn,1,399.0,ThreePlusBd,Fort Hamilton,,
+486,Staten Island,1,800.0,ThreePlusBd,Fort Wadsworth,,
+487,Queens,8,96.0,OneBd,Fresh Meadows,,
+488,Queens,5,89.0,TwoBd,Fresh Meadows,,2.0
+489,Queens,5,375.0,ThreePlusBd,Fresh Meadows,,2.0
+490,Brooklyn,1,103.0,OneBd,Gerritsen Beach,,
+491,Queens,2,99.5,Studio,Glendale,,
+492,Queens,7,85.0,OneBd,Glendale,,6.0
+493,Queens,12,130.5,TwoBd,Glendale,1999.0,24.0
+494,Queens,2,160.5,ThreePlusBd,Glendale,2350.0,27.0
+495,Brooklyn,12,125.0,Studio,Gowanus,2621.0,16.0
+496,Brooklyn,52,135.0,OneBd,Gowanus,2908.0,41.0
+497,Brooklyn,43,192.0,TwoBd,Gowanus,3175.0,65.0
+498,Brooklyn,24,299.5,ThreePlusBd,Gowanus,3200.0,18.0
+499,Manhattan,53,175.0,Studio,Gramercy,,
+500,Manhattan,123,180.0,OneBd,Gramercy,,
+501,Manhattan,39,250.0,TwoBd,Gramercy,,
+502,Manhattan,17,1100.0,ThreePlusBd,Gramercy,,
+503,Staten Island,1,71.0,TwoBd,Graniteville,,
+504,Staten Island,1,80.0,Studio,Grant City,,
+505,Staten Island,4,73.5,OneBd,Grant City,,
+506,Staten Island,1,169.0,ThreePlusBd,Grant City,,
+507,Brooklyn,2,94.5,Studio,Gravesend,1345.0,13.0
+508,Brooklyn,16,86.5,OneBd,Gravesend,1650.0,31.0
+509,Brooklyn,7,130.0,TwoBd,Gravesend,2000.0,35.0
+510,Brooklyn,4,145.0,ThreePlusBd,Gravesend,2400.0,34.0
+511,Staten Island,2,63.0,OneBd,Great Kills,,
+512,Staten Island,1,180.0,ThreePlusBd,Great Kills,,
+513,Brooklyn,65,129.0,Studio,Greenpoint,2304.0,41.0
+514,Brooklyn,326,149.0,OneBd,Greenpoint,2540.0,244.0
+515,Brooklyn,167,185.0,TwoBd,Greenpoint,2800.0,268.0
+516,Brooklyn,42,297.0,ThreePlusBd,Greenpoint,3683.0,183.0
+517,Manhattan,55,190.0,Studio,Greenwich Village,2985.0,96.0
+518,Manhattan,159,200.0,OneBd,Greenwich Village,3875.0,178.0
+519,Manhattan,53,295.0,TwoBd,Greenwich Village,5400.0,99.0
+520,Manhattan,16,749.5,ThreePlusBd,Greenwich Village,15495.0,32.0
+521,Staten Island,2,157.5,OneBd,Grymes Hill,,
+522,Staten Island,2,142.5,TwoBd,Grymes Hill,,
+523,Staten Island,3,125.0,ThreePlusBd,Grymes Hill,,
+524,Manhattan,154,105.0,Studio,Harlem,,
+525,Manhattan,511,125.0,OneBd,Harlem,,
+526,Manhattan,252,181.0,TwoBd,Harlem,,
+527,Manhattan,115,295.0,ThreePlusBd,Harlem,,
+528,Manhattan,215,150.0,Studio,Hell's Kitchen,,
+529,Manhattan,603,199.0,OneBd,Hell's Kitchen,,
+530,Manhattan,271,295.0,TwoBd,Hell's Kitchen,,
+531,Manhattan,78,411.5,ThreePlusBd,Hell's Kitchen,,
+532,Bronx,6,84.0,OneBd,Highbridge,,4.0
+533,Bronx,1,75.0,TwoBd,Highbridge,1850.0,15.0
+534,Bronx,1,240.0,ThreePlusBd,Highbridge,2263.0,12.0
+535,Queens,5,99.0,OneBd,Hollis,,
+536,Queens,1,150.0,TwoBd,Hollis,,3.0
+537,Queens,1,239.0,ThreePlusBd,Holliswood,,
+538,Queens,5,95.0,OneBd,Howard Beach,,1.0
+539,Queens,2,235.0,TwoBd,Howard Beach,,1.0
+540,Queens,4,203.5,ThreePlusBd,Howard Beach,,6.0
+541,Staten Island,1,125.0,TwoBd,Howland Hook,,
+542,Staten Island,2,140.0,OneBd,Huguenot,,
+543,Bronx,1,150.0,Studio,Hunts Point,,1.0
+544,Bronx,1,125.0,ThreePlusBd,Hunts Point,,
+545,Manhattan,9,70.0,Studio,Inwood,,5.0
+546,Manhattan,68,100.0,OneBd,Inwood,1750.0,108.0
+547,Manhattan,19,145.0,TwoBd,Inwood,2225.0,80.0
+548,Manhattan,3,225.0,ThreePlusBd,Inwood,2500.0,28.0
+549,Queens,9,85.0,Studio,Jackson Heights,1600.0,21.0
+550,Queens,34,107.0,OneBd,Jackson Heights,1800.0,74.0
+551,Queens,15,149.0,TwoBd,Jackson Heights,2349.0,42.0
+552,Queens,4,237.5,ThreePlusBd,Jackson Heights,2450.0,17.0
+553,Queens,9,85.0,Studio,Jamaica,,6.0
+554,Queens,34,66.5,OneBd,Jamaica,,5.0
+555,Queens,21,129.0,TwoBd,Jamaica,,6.0
+556,Queens,25,150.0,ThreePlusBd,Jamaica,,1.0
+557,Queens,1,500.0,Studio,Jamaica Estates,,8.0
+558,Queens,3,68.0,OneBd,Jamaica Estates,,4.0
+559,Queens,3,150.0,TwoBd,Jamaica Estates,,8.0
+560,Queens,4,250.0,ThreePlusBd,Jamaica Estates,,9.0
+561,Queens,1,110.0,Studio,Jamaica Hills,,2.0
+562,Queens,3,275.0,ThreePlusBd,Jamaica Hills,,3.0
+563,Brooklyn,8,79.5,Studio,Kensington,1413.0,14.0
+564,Brooklyn,31,95.0,OneBd,Kensington,1750.0,89.0
+565,Brooklyn,17,100.0,TwoBd,Kensington,2200.0,84.0
+566,Brooklyn,18,237.5,ThreePlusBd,Kensington,2750.0,45.0
+567,Queens,4,100.0,Studio,Kew Gardens,1488.0,26.0
+568,Queens,4,125.0,OneBd,Kew Gardens,1713.0,82.0
+569,Queens,2,259.5,ThreePlusBd,Kew Gardens,2625.0,24.0
+570,Queens,2,102.5,Studio,Kew Gardens Hills,,4.0
+571,Queens,9,105.0,OneBd,Kew Gardens Hills,1700.0,29.0
+572,Queens,4,140.5,TwoBd,Kew Gardens Hills,2070.0,33.0
+573,Queens,3,250.0,ThreePlusBd,Kew Gardens Hills,,7.0
+574,Bronx,1,100.0,Studio,Kingsbridge,,5.0
+575,Bronx,13,99.0,OneBd,Kingsbridge,1575.0,40.0
+576,Bronx,3,200.0,TwoBd,Kingsbridge,1995.0,32.0
+577,Bronx,1,149.0,ThreePlusBd,Kingsbridge,2450.0,17.0
+578,Manhattan,86,150.0,Studio,Kips Bay,,
+579,Manhattan,153,180.0,OneBd,Kips Bay,,
+580,Manhattan,52,255.0,TwoBd,Kips Bay,,
+581,Manhattan,27,539.0,ThreePlusBd,Kips Bay,,
+582,Queens,1,60.0,Studio,Laurelton,,2.0
+583,Queens,6,80.0,OneBd,Laurelton,,2.0
+584,Queens,3,150.0,TwoBd,Laurelton,,
+585,Queens,2,187.5,ThreePlusBd,Laurelton,,1.0
+586,Staten Island,2,157.5,OneBd,Lighthouse Hill,,
+587,Manhattan,6,144.5,Studio,Little Italy,1893.0,12.0
+588,Manhattan,40,166.5,OneBd,Little Italy,2625.0,24.0
+589,Manhattan,20,232.5,TwoBd,Little Italy,3208.0,31.0
+590,Manhattan,8,612.0,ThreePlusBd,Little Italy,,5.0
+591,Queens,1,156.0,TwoBd,Little Neck,,2.0
+592,Queens,39,110.0,Studio,Long Island City,2507.0,166.0
+593,Queens,120,130.0,OneBd,Long Island City,3175.0,322.0
+594,Queens,44,175.0,TwoBd,Long Island City,4173.0,195.0
+595,Queens,21,285.0,ThreePlusBd,Long Island City,5170.0,41.0
+596,Bronx,3,100.0,Studio,Longwood,,
+597,Bronx,12,80.0,OneBd,Longwood,,3.0
+598,Bronx,7,100.0,TwoBd,Longwood,,2.0
+599,Bronx,2,164.5,ThreePlusBd,Longwood,,5.0
+600,Manhattan,76,140.0,Studio,Lower East Side,2195.0,65.0
+601,Manhattan,273,175.0,OneBd,Lower East Side,2695.0,164.0
+602,Manhattan,126,250.0,TwoBd,Lower East Side,3600.0,151.0
+603,Manhattan,28,345.0,ThreePlusBd,Lower East Side,4795.0,103.0
+604,Brooklyn,2,91.5,Studio,Manhattan Beach,,
+605,Brooklyn,3,150.0,OneBd,Manhattan Beach,,
+606,Brooklyn,1,130.0,TwoBd,Manhattan Beach,,
+607,Manhattan,2,89.0,OneBd,Marble Hill,,4.0
+608,Manhattan,1,131.0,TwoBd,Marble Hill,,4.0
+609,Manhattan,1,110.0,ThreePlusBd,Marble Hill,,3.0
+610,Staten Island,1,80.0,OneBd,Mariners Harbor,,
+611,Staten Island,1,115.0,TwoBd,Mariners Harbor,,
+612,Staten Island,1,150.0,ThreePlusBd,Mariners Harbor,,
+613,Queens,5,79.0,Studio,Maspeth,,2.0
+614,Queens,18,100.0,OneBd,Maspeth,1750.0,15.0
+615,Queens,11,145.0,TwoBd,Maspeth,1950.0,51.0
+616,Queens,11,199.0,ThreePlusBd,Maspeth,2500.0,37.0
+617,Bronx,2,64.0,OneBd,Melrose,,1.0
+618,Bronx,2,115.0,TwoBd,Melrose,,5.0
+619,Queens,3,99.0,Studio,Middle Village,,1.0
+620,Queens,10,100.0,OneBd,Middle Village,,2.0
+621,Queens,4,120.0,TwoBd,Middle Village,,6.0
+622,Queens,4,224.5,ThreePlusBd,Middle Village,,3.0
+623,Staten Island,2,80.0,Studio,Midland Beach,,
+624,Staten Island,4,107.5,OneBd,Midland Beach,,
+625,Manhattan,292,179.0,Studio,Midtown,2925.0,82.0
+626,Manhattan,429,210.0,OneBd,Midtown,3750.0,247.0
+627,Manhattan,187,300.0,TwoBd,Midtown,5673.0,128.0
+628,Manhattan,63,450.0,ThreePlusBd,Midtown,7850.0,55.0
+629,Brooklyn,8,83.5,Studio,Midwood,1650.0,11.0
+630,Brooklyn,26,82.5,OneBd,Midwood,1700.0,112.0
+631,Brooklyn,13,130.0,TwoBd,Midwood,1995.0,66.0
+632,Brooklyn,2,225.0,ThreePlusBd,Midwood,2450.0,25.0
+633,Brooklyn,1,207.0,Studio,Mill Basin,,
+634,Brooklyn,2,92.5,OneBd,Mill Basin,,
+635,Brooklyn,1,85.0,TwoBd,Mill Basin,,
+636,Brooklyn,1,299.0,ThreePlusBd,Mill Basin,,4.0
+637,Manhattan,17,125.0,Studio,Morningside Heights,2295.0,19.0
+638,Manhattan,83,120.0,OneBd,Morningside Heights,2500.0,25.0
+639,Manhattan,31,160.0,TwoBd,Morningside Heights,2850.0,29.0
+640,Manhattan,6,274.5,ThreePlusBd,Morningside Heights,3506.0,61.0
+641,Bronx,1,149.0,Studio,Morris Heights,,1.0
+642,Bronx,4,87.5,OneBd,Morris Heights,,7.0
+643,Bronx,1,300.0,Studio,Morris Park,,4.0
+644,Bronx,1,60.0,OneBd,Morris Park,1600.0,15.0
+645,Bronx,1,125.0,TwoBd,Morris Park,2100.0,13.0
+646,Bronx,2,114.5,ThreePlusBd,Morris Park,,8.0
+647,Bronx,5,99.0,OneBd,Morrisania,,2.0
+648,Bronx,1,140.0,ThreePlusBd,Morrisania,2200.0,12.0
+649,Bronx,7,100.0,Studio,Mott Haven,1725.0,14.0
+650,Bronx,15,115.0,OneBd,Mott Haven,1980.0,36.0
+651,Bronx,5,149.0,TwoBd,Mott Haven,2000.0,47.0
+652,Bronx,1,150.0,OneBd,Mount Eden,,
+653,Bronx,3,69.0,OneBd,Mount Hope,,
+654,Bronx,3,120.0,TwoBd,Mount Hope,,
+655,Bronx,4,162.5,ThreePlusBd,Mount Hope,,
+656,Manhattan,135,179.0,Studio,Murray Hill,,
+657,Manhattan,173,196.0,OneBd,Murray Hill,,
+658,Manhattan,83,265.0,TwoBd,Murray Hill,,
+659,Manhattan,28,495.0,ThreePlusBd,Murray Hill,,
+660,Brooklyn,1,120.0,Studio,Navy Yard,,
+661,Brooklyn,8,150.0,OneBd,Navy Yard,,
+662,Brooklyn,2,182.5,TwoBd,Navy Yard,,
+663,Queens,1,200.0,OneBd,Neponsit,,
+664,Queens,1,274.0,TwoBd,Neponsit,,
+665,Queens,1,350.0,ThreePlusBd,Neponsit,,
+666,Staten Island,1,57.0,Studio,New Dorp,,
+667,Staten Island,1,62.0,OneBd,New Dorp Beach,,
+668,Staten Island,1,109.0,ThreePlusBd,New Dorp Beach,,
+669,Staten Island,2,88.5,OneBd,New Springville,,
+670,Manhattan,10,249.5,Studio,NoHo,,
+671,Manhattan,35,195.0,OneBd,NoHo,,
+672,Manhattan,19,449.0,TwoBd,NoHo,,
+673,Manhattan,4,432.5,ThreePlusBd,NoHo,,
+674,Manhattan,11,176.0,Studio,Nolita,2800.0,13.0
+675,Manhattan,105,200.0,OneBd,Nolita,3166.0,73.0
+676,Manhattan,42,295.0,TwoBd,Nolita,4698.0,46.0
+677,Manhattan,16,236.0,ThreePlusBd,Nolita,6687.0,19.0
+678,Bronx,1,105.0,Studio,North Riverdale,,
+679,Bronx,2,66.5,Studio,Norwood,,1.0
+680,Bronx,4,122.5,OneBd,Norwood,1490.0,15.0
+681,Bronx,2,143.5,TwoBd,Norwood,,8.0
+682,Staten Island,1,100.0,OneBd,Oakwood,,
+683,Staten Island,1,220.0,TwoBd,Oakwood,,
+684,Queens,2,87.5,Studio,Ozone Park,,5.0
+685,Queens,10,95.0,OneBd,Ozone Park,,6.0
+686,Queens,11,125.0,TwoBd,Ozone Park,,
+687,Queens,4,163.5,ThreePlusBd,Ozone Park,,1.0
+688,Brooklyn,43,120.0,Studio,Park Slope,2100.0,65.0
+689,Brooklyn,163,149.0,OneBd,Park Slope,2650.0,238.0
+690,Brooklyn,85,189.0,TwoBd,Park Slope,3200.0,233.0
+691,Brooklyn,58,275.5,ThreePlusBd,Park Slope,4300.0,143.0
+692,Bronx,1,65.0,Studio,Parkchester,,
+693,Bronx,8,94.0,OneBd,Parkchester,1475.0,12.0
+694,Bronx,1,93.0,TwoBd,Parkchester,,8.0
+695,Bronx,3,69.0,Studio,Pelham Bay,,
+696,Bronx,6,125.0,OneBd,Pelham Bay,,9.0
+697,Bronx,1,299.0,TwoBd,Pelham Bay,,7.0
+698,Bronx,1,119.0,ThreePlusBd,Pelham Bay,,
+699,Bronx,5,79.0,Studio,Pelham Gardens,,
+700,Bronx,6,68.5,OneBd,Pelham Gardens,,
+701,Bronx,5,102.0,TwoBd,Pelham Gardens,,2.0
+702,Bronx,3,199.0,ThreePlusBd,Pelham Gardens,,
+703,Bronx,2,130.0,Studio,Port Morris,,
+704,Bronx,5,125.0,OneBd,Port Morris,,
+705,Bronx,3,109.0,TwoBd,Port Morris,,
+706,Bronx,5,139.0,ThreePlusBd,Port Morris,,3.0
+707,Staten Island,2,77.5,TwoBd,Port Richmond,,
+708,Staten Island,1,185.0,Studio,Prince's Bay,,
+709,Staten Island,1,85.0,TwoBd,Prince's Bay,,
+710,Staten Island,1,1250.0,ThreePlusBd,Prince's Bay,,
+711,Brooklyn,17,125.0,Studio,Prospect Heights,1975.0,32.0
+712,Brooklyn,105,135.0,OneBd,Prospect Heights,2450.0,86.0
+713,Brooklyn,50,177.5,TwoBd,Prospect Heights,3206.0,83.0
+714,Brooklyn,28,277.5,ThreePlusBd,Prospect Heights,3900.0,43.0
+715,Brooklyn,36,90.0,Studio,Prospect-Lefferts Gardens,,
+716,Brooklyn,129,100.0,OneBd,Prospect-Lefferts Gardens,,
+717,Brooklyn,53,150.0,TwoBd,Prospect-Lefferts Gardens,,
+718,Brooklyn,43,175.0,ThreePlusBd,Prospect-Lefferts Gardens,,
+719,Queens,1,67.0,Studio,Queens Village,,
+720,Queens,21,84.0,OneBd,Queens Village,,5.0
+721,Queens,9,150.0,TwoBd,Queens Village,,1.0
+722,Queens,7,125.0,ThreePlusBd,Queens Village,,2.0
+723,Staten Island,1,75.0,Studio,Randall Manor,,
+724,Staten Island,2,92.0,OneBd,Randall Manor,,
+725,Staten Island,2,144.5,TwoBd,Randall Manor,,
+726,Staten Island,3,135.0,ThreePlusBd,Randall Manor,,
+727,Brooklyn,8,107.5,Studio,Red Hook,,4.0
+728,Brooklyn,20,120.0,OneBd,Red Hook,2400.0,11.0
+729,Brooklyn,16,147.5,TwoBd,Red Hook,2500.0,29.0
+730,Brooklyn,8,325.0,ThreePlusBd,Red Hook,,7.0
+731,Queens,7,69.0,Studio,Rego Park,1650.0,36.0
+732,Queens,17,90.0,OneBd,Rego Park,1898.0,100.0
+733,Queens,9,108.0,TwoBd,Rego Park,2470.0,87.0
+734,Queens,4,244.0,ThreePlusBd,Rego Park,3021.0,18.0
+735,Queens,1,100.0,Studio,Richmond Hill,,1.0
+736,Queens,9,89.0,OneBd,Richmond Hill,,5.0
+737,Queens,13,120.0,TwoBd,Richmond Hill,,5.0
+738,Queens,10,207.0,ThreePlusBd,Richmond Hill,,2.0
+739,Staten Island,1,78.0,OneBd,Richmondtown,,
+740,Queens,13,98.0,Studio,Ridgewood,1895.0,13.0
+741,Queens,54,95.0,OneBd,Ridgewood,2000.0,72.0
+742,Queens,44,122.5,TwoBd,Ridgewood,2195.0,157.0
+743,Queens,23,170.0,ThreePlusBd,Ridgewood,2800.0,266.0
+744,Bronx,1,100.0,Studio,Riverdale,1450.0,24.0
+745,Bronx,3,90.0,OneBd,Riverdale,1843.0,112.0
+746,Bronx,3,160.0,TwoBd,Riverdale,2300.0,94.0
+747,Bronx,1,265.0,ThreePlusBd,Riverdale,3000.0,58.0
+748,Queens,11,100.0,Studio,Rockaway Beach,,
+749,Queens,26,125.5,OneBd,Rockaway Beach,,
+750,Queens,12,150.0,TwoBd,Rockaway Beach,,
+751,Queens,6,312.0,ThreePlusBd,Rockaway Beach,,
+752,Manhattan,1,70.0,Studio,Roosevelt Island,2095.0,16.0
+753,Manhattan,11,150.0,OneBd,Roosevelt Island,2650.0,23.0
+754,Manhattan,5,220.0,TwoBd,Roosevelt Island,3773.0,20.0
+755,Manhattan,1,130.0,ThreePlusBd,Roosevelt Island,4693.0,30.0
+756,Staten Island,2,119.0,TwoBd,Rosebank,,
+757,Staten Island,2,167.5,ThreePlusBd,Rosebank,,
+758,Queens,11,80.0,OneBd,Rosedale,,
+759,Queens,3,75.0,TwoBd,Rosedale,,
+760,Queens,2,242.5,ThreePlusBd,Rosedale,,4.0
+761,Staten Island,1,75.0,OneBd,Rossville,,
+762,Bronx,1,71.0,Studio,Schuylerville,,
+763,Bronx,1,85.0,OneBd,Schuylerville,,
+764,Bronx,1,100.0,TwoBd,Schuylerville,,1.0
+765,Brooklyn,1,125.0,Studio,Sea Gate,,
+766,Brooklyn,2,707.0,OneBd,Sea Gate,,
+767,Brooklyn,4,509.0,ThreePlusBd,Sea Gate,,
+768,Brooklyn,7,95.0,Studio,Sheepshead Bay,1450.0,30.0
+769,Brooklyn,30,99.5,OneBd,Sheepshead Bay,1650.0,82.0
+770,Brooklyn,14,127.0,TwoBd,Sheepshead Bay,2000.0,65.0
+771,Brooklyn,9,200.0,ThreePlusBd,Sheepshead Bay,2500.0,25.0
+772,Staten Island,2,82.5,OneBd,Shore Acres,,
+773,Staten Island,1,300.0,TwoBd,Shore Acres,,
+774,Staten Island,1,165.0,ThreePlusBd,Shore Acres,,
+775,Staten Island,1,80.0,OneBd,Silver Lake,,
+776,Manhattan,25,189.0,Studio,SoHo,,
+777,Manhattan,122,200.0,OneBd,SoHo,,
+778,Manhattan,57,425.0,TwoBd,SoHo,,
+779,Manhattan,19,595.0,ThreePlusBd,SoHo,,
+780,Bronx,3,50.0,OneBd,Soundview,,6.0
+781,Bronx,2,95.0,TwoBd,Soundview,,7.0
+782,Queens,7,75.0,OneBd,South Ozone Park,,
+783,Queens,2,111.0,TwoBd,South Ozone Park,,
+784,Queens,6,172.5,ThreePlusBd,South Ozone Park,,1.0
+785,Brooklyn,11,110.0,Studio,South Slope,,
+786,Brooklyn,77,145.0,OneBd,South Slope,,
+787,Brooklyn,61,175.0,TwoBd,South Slope,,
+788,Brooklyn,37,260.0,ThreePlusBd,South Slope,,
+789,Queens,2,80.0,Studio,Springfield Gardens,,
+790,Queens,17,93.0,OneBd,Springfield Gardens,,1.0
+791,Queens,5,150.0,TwoBd,Springfield Gardens,,4.0
+792,Queens,18,167.5,ThreePlusBd,Springfield Gardens,,
+793,Bronx,1,141.0,OneBd,Spuyten Duyvil,,
+794,Bronx,2,99.5,TwoBd,Spuyten Duyvil,,
+795,Queens,4,79.5,Studio,St. Albans,,
+796,Queens,11,80.0,OneBd,St. Albans,,2.0
+797,Queens,7,130.0,TwoBd,St. Albans,,1.0
+798,Queens,4,274.5,ThreePlusBd,St. Albans,,2.0
+799,Staten Island,3,100.0,Studio,St. George,,
+800,Staten Island,8,108.0,OneBd,St. George,,
+801,Staten Island,6,103.5,TwoBd,St. George,,
+802,Staten Island,10,177.5,ThreePlusBd,St. George,,
+803,Staten Island,5,89.0,OneBd,Stapleton,,
+804,Staten Island,4,97.0,TwoBd,Stapleton,,
+805,Staten Island,3,150.0,ThreePlusBd,Stapleton,,
+806,Manhattan,2,129.5,Studio,Stuyvesant Town,,
+807,Manhattan,7,175.0,OneBd,Stuyvesant Town,,
+808,Manhattan,2,264.5,TwoBd,Stuyvesant Town,,
+809,Manhattan,1,1500.0,ThreePlusBd,Stuyvesant Town,,
+810,Queens,22,87.5,Studio,Sunnyside,1653.0,31.0
+811,Queens,82,110.0,OneBd,Sunnyside,1850.0,172.0
+812,Queens,20,149.5,TwoBd,Sunnyside,2325.0,90.0
+813,Queens,10,190.0,ThreePlusBd,Sunnyside,2875.0,16.0
+814,Brooklyn,21,120.0,Studio,Sunset Park,,9.0
+815,Brooklyn,73,105.0,OneBd,Sunset Park,1700.0,61.0
+816,Brooklyn,53,140.0,TwoBd,Sunset Park,2000.0,104.0
+817,Brooklyn,32,262.5,ThreePlusBd,Sunset Park,2400.0,51.0
+818,Manhattan,25,199.0,Studio,Theater District,,
+819,Manhattan,95,220.0,OneBd,Theater District,,
+820,Manhattan,26,364.0,TwoBd,Theater District,,
+821,Manhattan,8,539.5,ThreePlusBd,Theater District,,
+822,Bronx,3,95.0,Studio,Throgs Neck,,1.0
+823,Bronx,6,99.5,OneBd,Throgs Neck,,3.0
+824,Bronx,1,90.0,TwoBd,Throgs Neck,,4.0
+825,Bronx,2,212.5,ThreePlusBd,Throgs Neck,,7.0
+826,Staten Island,1,62.0,Studio,Todt Hill,,
+827,Staten Island,2,282.0,ThreePlusBd,Todt Hill,,
+828,Staten Island,1,65.0,Studio,Tompkinsville,,
+829,Staten Island,7,99.0,OneBd,Tompkinsville,,
+830,Staten Island,10,95.0,TwoBd,Tompkinsville,,
+831,Staten Island,1,245.0,ThreePlusBd,Tompkinsville,,
+832,Staten Island,2,72.5,OneBd,Tottenville,,
+833,Staten Island,1,85.0,TwoBd,Tottenville,,
+834,Staten Island,2,292.0,ThreePlusBd,Tottenville,,
+835,Bronx,3,68.0,OneBd,Tremont,,7.0
+836,Bronx,1,85.0,TwoBd,Tremont,1800.0,12.0
+837,Manhattan,37,287.0,Studio,Tribeca,4275.0,41.0
+838,Manhattan,42,254.5,OneBd,Tribeca,4900.0,86.0
+839,Manhattan,30,404.5,TwoBd,Tribeca,7950.0,87.0
+840,Manhattan,18,625.0,ThreePlusBd,Tribeca,15170.0,82.0
+841,Manhattan,5,145.0,Studio,Two Bridges,,
+842,Manhattan,14,142.5,OneBd,Two Bridges,,
+843,Manhattan,7,190.0,TwoBd,Two Bridges,,
+844,Manhattan,1,250.0,ThreePlusBd,Two Bridges,,
+845,Bronx,5,100.0,OneBd,Unionport,,
+846,Bronx,1,450.0,TwoBd,Unionport,,
+847,Bronx,4,115.0,OneBd,University Heights,1535.0,17.0
+848,Bronx,1,120.0,TwoBd,University Heights,1750.0,15.0
+849,Manhattan,346,140.0,Studio,Upper East Side,2150.0,629.0
+850,Manhattan,640,160.0,OneBd,Upper East Side,2888.0,1215.0
+851,Manhattan,236,221.0,TwoBd,Upper East Side,3500.0,797.0
+852,Manhattan,51,450.0,ThreePlusBd,Upper East Side,7895.0,365.0
+853,Manhattan,245,145.0,Studio,Upper West Side,2250.0,504.0
+854,Manhattan,606,179.5,OneBd,Upper West Side,3200.0,1062.0
+855,Manhattan,245,256.0,TwoBd,Upper West Side,4799.0,644.0
+856,Manhattan,98,379.5,ThreePlusBd,Upper West Side,6998.0,426.0
+857,Bronx,3,150.0,OneBd,Van Nest,,6.0
+858,Bronx,3,150.0,TwoBd,Van Nest,,
+859,Brooklyn,3,200.0,Studio,Vinegar Hill,,
+860,Brooklyn,10,176.5,OneBd,Vinegar Hill,,
+861,Brooklyn,7,245.0,TwoBd,Vinegar Hill,,
+862,Brooklyn,2,337.5,ThreePlusBd,Vinegar Hill,,
+863,Bronx,5,80.0,Studio,Wakefield,,
+864,Bronx,7,75.0,OneBd,Wakefield,,5.0
+865,Bronx,3,85.0,TwoBd,Wakefield,,1.0
+866,Bronx,6,309.0,ThreePlusBd,Wakefield,,7.0
+867,Manhattan,38,95.0,Studio,Washington Heights,1695.0,68.0
+868,Manhattan,169,100.0,OneBd,Washington Heights,1845.0,257.0
+869,Manhattan,73,150.0,TwoBd,Washington Heights,2295.0,318.0
+870,Manhattan,27,285.0,ThreePlusBd,Washington Heights,2950.0,253.0
+871,Staten Island,1,70.0,Studio,West Brighton,,
+872,Staten Island,2,100.0,OneBd,West Brighton,,
+873,Staten Island,2,114.5,TwoBd,West Brighton,,
+874,Staten Island,1,190.0,ThreePlusBd,West Brighton,,
+875,Bronx,1,165.0,TwoBd,West Farms,,
+876,Manhattan,135,188.0,Studio,West Village,2895.0,143.0
+877,Manhattan,375,220.0,OneBd,West Village,3825.0,222.0
+878,Manhattan,93,300.0,TwoBd,West Village,4744.0,118.0
+879,Manhattan,25,600.0,ThreePlusBd,West Village,7995.0,49.0
+880,Bronx,1,670.0,Studio,Westchester Square,,
+881,Bronx,2,72.5,OneBd,Westchester Square,,
+882,Staten Island,1,79.0,OneBd,Westerleigh,,
+883,Staten Island,1,103.0,ThreePlusBd,Westerleigh,,
+884,Queens,1,140.0,OneBd,Whitestone,,6.0
+885,Queens,1,250.0,TwoBd,Whitestone,,8.0
+886,Queens,1,400.0,ThreePlusBd,Whitestone,,3.0
+887,Bronx,1,63.0,Studio,Williamsbridge,,1.0
+888,Bronx,12,86.0,OneBd,Williamsbridge,,5.0
+889,Bronx,4,147.5,TwoBd,Williamsbridge,,6.0
+890,Bronx,2,215.0,ThreePlusBd,Williamsbridge,,8.0
+891,Brooklyn,188,149.0,Studio,Williamsburg,2500.0,186.0
+892,Brooklyn,940,155.0,OneBd,Williamsburg,2775.0,959.0
+893,Brooklyn,532,200.0,TwoBd,Williamsburg,3025.0,1295.0
+894,Brooklyn,173,300.0,ThreePlusBd,Williamsburg,3599.0,804.0
+895,Staten Island,1,299.0,ThreePlusBd,Willowbrook,,
+896,Brooklyn,10,100.0,Studio,Windsor Terrace,,5.0
+897,Brooklyn,45,115.0,OneBd,Windsor Terrace,2200.0,35.0
+898,Brooklyn,28,155.0,TwoBd,Windsor Terrace,2900.0,59.0
+899,Brooklyn,27,265.0,ThreePlusBd,Windsor Terrace,3195.0,19.0
+900,Queens,1,99.0,Studio,Woodhaven,,
+901,Queens,9,75.0,OneBd,Woodhaven,,6.0
+902,Queens,3,63.0,TwoBd,Woodhaven,,5.0
+903,Queens,9,170.0,ThreePlusBd,Woodhaven,,4.0
+904,Bronx,2,81.0,OneBd,Woodlawn,,3.0
+905,Bronx,1,35.0,TwoBd,Woodlawn,,1.0
+906,Staten Island,1,700.0,ThreePlusBd,Woodrow,,
+907,Queens,4,112.5,Studio,Woodside,1595.0,13.0
+908,Queens,23,99.0,OneBd,Woodside,1785.0,68.0
+909,Queens,21,150.0,TwoBd,Woodside,2200.0,24.0
+910,Queens,12,194.0,ThreePlusBd,Woodside,2625.0,20.0

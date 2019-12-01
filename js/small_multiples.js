@@ -1,10 +1,10 @@
 var selectedDist = "Queens"
 var smallMultiples;
 
-SmallMultiples = function(_parentElement, _origData, _listingData){
+SmallMultiples = function(_parentElement, _origData){
     this.parentElement = _parentElement;
     this.origData = _origData;
-    this.listingData = _listingData
+    // this.listingData = _listingData
     // this.selectedDist = "Queens"
 
     this.rentalColor = "#73BFBF";
@@ -478,11 +478,15 @@ SmallMultiples.prototype.updateVis = function() {
 
 
 function show_small_multiples(unit_data) {
-    console.log(unit_data.properties.name)
-    selectedDist = unit_data.properties.name;
+    console.log(unit_data.properties.neighbourhood_group);
+    if (unit_data.properties.name){
+        selectedDist = unit_data.properties.name;
+    }else{
+        selectedDist = unit_data.properties.neighbourhood_group;
+    }
     smallMultiples.wrangleData();
 }
 
-function createSmallMultiples(air_rental, nyc_listings) {
-    smallMultiples = new SmallMultiples("small-multiples", air_rental, nyc_listings);
+function createSmallMultiples(air_rental) {
+    smallMultiples = new SmallMultiples("small-multiples", air_rental);
 }

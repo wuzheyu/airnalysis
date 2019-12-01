@@ -1,10 +1,12 @@
 
 ////////////////////////// below should be an object ////////////////////////
-Choropleth = function(_parentElement, nyc_contour, air_rental){
+Choropleth = function(_parentElement, nyc_borough, nyc_neighbor, data_borough, data_neighbor){
     this.parentElement = _parentElement;
-    this.nyc_contour = nyc_contour;
-    this.air_rental = air_rental;
-    this.displayData = this.air_rental;
+    this.nyc_borough = nyc_borough;
+    this.nyc_neighbor = nyc_neighbor;
+    this.data_borough = data_borough;
+    this.data_neighbor = data_neighbor;
+    this.displayData = {};
 
     this.initVis();
 }
@@ -73,41 +75,84 @@ Choropleth.prototype.updateVis = function(){
 
     // get combobox value
     var attr = d3.select("#map-type").property("value");
-    var filteredData = vis.air_rental.filter(function(d){return d.type === attr});
+    var filteredData = vis.data_neighbor.filter(function(d){return d.type === attr});
     vis.displayData = {};
     filteredData.forEach(function(d){
-        vis.displayData[d.Borough] = d
-    })
+        // vis.displayData[d.Borough] = d;
+        vis.displayData[d.neighborhood] = d;
+    });
+    // add filtered borough data to vis.displayData
+    vis.data_borough
+        .filter(function(d){return d.type === attr})
+        .forEach(function(d){
+            vis.displayData[d.Borough] = d;
+        })
+
     console.log(vis.displayData);
 
 
     // --> Choropleth implementation
 
     // Update color scale domain
-    vis.color.domain([d3.min(vis.air_rental, d=>d['price_diff']),
-        d3.max(vis.air_rental, d=>d['price_diff'])]);
+    // vis.color.domain([d3.min(vis.data_neighbor, d=>d['price_diff']),
+    //     d3.max(vis.data_neighbor, d=>d['price_diff'])]);
+    vis.color.domain([0,200]);
 
-    // Render the countries by using the path generator
-    vis.choropleth = vis.svg.selectAll("path")
-        .data(vis.nyc_contour.features);
+    // boroughs as base
+    vis.borough = vis.svg.selectAll("path.borough")
+        .data(vis.nyc_borough.features);
 
-    vis.choropleth.enter().append("path")
-        .merge(vis.choropleth)
+    vis.borough.enter().append("path")
+        .attr("class",'borough')
+        .merge(vis.borough)
         .attr("d", vis.path)
         .attr("fill", function(d){
             var borough = d.properties.name;
             return vis.color(vis.displayData[borough]['price_diff']);
         });
 
+    // Plot the neighborhoods on top of the boroughs
+    vis.choropleth = vis.svg.selectAll("path.neighborhood")
+        .data(vis.nyc_neighbor.features);
+
+    vis.choropleth.enter().append("path")
+        .attr("class",'neighborhood')
+        .merge(vis.choropleth)
+        .attr("d", vis.path)
+        .attr("fill", function(d){
+            // var borough = d.properties.name;
+            // return vis.color(vis.displayData[borough]['price_diff']);
+            var neighborhood = d.properties.neighbourhood;
+            var datum = vis.displayData[neighborhood];
+            if(datum){
+                if(datum['price_diff']){
+                    return vis.color(vis.displayData[neighborhood]['price_diff'])
+                }
+                else{return 'gray'}
+            }else{
+                return 'gray';
+            }
+        });
+
     // Add tooltip
     vis.tip = d3.tip().attr('class', 'd3-tip').attr("data-html", "true").html(function(d) {
-        var borough = d.properties.name;
-        var data = vis.displayData[borough];
-        return "<h6>"+data.Borough+ "</h6>"+ "Room type: "+data.type
-            + "<br/>Airbnb rate: $"+data.airbnb_price + "/night"
-            + "<br/>Rental rate: $"+d3.format("d")(data.rental_price/30) +"/night"
-            + "<br/>Airbnb inventory: " + data.airbnb_inventory
-            + "<br/>Rental inventory: "+data.rental_inventory
+        if (d.properties.name){   // d is the base borough
+            return "<h6>Nonresidential Area, "+d.properties.name + "</h6>"
+                    + "Details Unavailable"
+        }
+        var neighborhood = d.properties.neighbourhood;
+        var data = vis.displayData[neighborhood];
+        var text = "<h6>"+neighborhood+", "+d.properties.neighbourhood_group + "</h6>";
+        if(data){
+            text = text + "Room type: "+data.type
+                + "<br/>Airbnb rate: $"+data.airbnb_price + "/night"
+                + "<br/>Rental rate: $"+d3.format("d")(data.rental_price/30) +"/night"
+                + "<br/>Airbnb inventory: " + data.airbnb_inventory
+                + "<br/>Rental inventory: "+data.rental_inventory;
+        }else{
+            text = text + "Details Unavailable"
+        }
+        return text
     });
     vis.svg.call(vis.tip);
     vis.svg.selectAll("path")
