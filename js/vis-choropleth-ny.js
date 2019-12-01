@@ -111,11 +111,13 @@ Choropleth.prototype.updateVis = function(){
     });
     vis.svg.call(vis.tip);
     vis.svg.selectAll("path")
-        .on('mouseover', vis.tip.show)
-        .on('mouseout', vis.tip.hide)
-        .on('click', function(d) {
+        .on('mouseover', vis.tip.show, function(d) {
             show_small_multiples(d);
-        });
+        })
+        .on('mouseout', vis.tip.hide)
+        // .on('click', function(d) {
+        //
+        // });
     vis.tip.offset([0, 0]);
 
     vis.choropleth.exit().remove();
