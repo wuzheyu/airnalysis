@@ -32,13 +32,20 @@ SmallMultiples.prototype.initVis = function(){
 
     // scales
     vis.x1 = d3.scaleBand()
-        .range([0, vis.width/2]);
+        .range([0, vis.width/2])
+        .padding(.2);
+
     vis.x2 = d3.scaleBand()
-        .range([0, vis.width/2]);
+        .range([0, vis.width/2])
+        .padding(.2);
+
     vis.x3 = d3.scaleBand()
-        .range([0, vis.width/2]);
+        .range([0, vis.width/2])
+        .padding(.2);
+
     vis.x4 = d3.scaleBand()
-        .range([0, vis.width/2]);
+        .range([0, vis.width/2])
+        .padding(.2);
 
     vis.y1 = d3.scaleLinear()
         .range([vis.height/2, 0]);

@@ -26,6 +26,8 @@ function createVisualization(error, bos_listing, bos_hotel_prices) {
     var listing_by_neigh_types = listing_types(listing_by_neighborhood, all_room_types);
 
     countVis = new CountVis("count-vis", listing_by_neighborhood, bos_hotel_prices_by_neighborhood);
+
+    d3.select("")
     // var roomTypeVis = new RoomTypeVis("room-type-vis", listing_by_neigh_types);
 }
 

@@ -60,7 +60,19 @@
 		<div class="section" id="travel-boston">
 				<div class="section-header">Travel to Boston</div>
 				<div class ="container">
-						<button onclick="show_diff()">Show Difference / Show Stacked Price</button>
+					<p>Select:</p>
+
+					<div>
+						<input type="radio" id="price" name="drone" value="price"
+							   checked>
+						<label for="price">Show side-by-side prices</label>
+					</div>
+
+					<div>
+						<input type="radio" id="diff" name="drone" value="diff">
+						<label for="diff">Show differences in prices (Hotels - Airbnb)</label>
+					</div>
+						<button onclick="show_diff()">Show Visualization</button>
 						<div class="row">
 							<div class="col-md-8">
 								<div id="count-vis" ></div>
