@@ -7,6 +7,7 @@ forceChart = function(_parentElement, _data){
 
 forceChart.prototype.initVis = function(){
     // load data
+    console.log("force layout")
 	var vis = this;
 
 	// define svg propertities
