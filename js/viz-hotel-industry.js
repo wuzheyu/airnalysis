@@ -1,12 +1,12 @@
-var allHotelNames = ['airbnb', 'homeaway', 'hilton', 'ihg', 'marriott']
+var allHotelNames = ['marriott', 'hilton', 'airbnb', 'ihg','homeaway']
 var hotelOfficialNames = {'airbnb': 'Airbnb', 'homeaway' : 'Homeaway', 'hilton': 'Hilton', 'ihg' : 'IHG', 'marriott' : 'Marriott'}
 var color = {'airbnb': '#e41a1c', 'homeaway': '#377eb8','hilton': '#4daf4a','ihg':'#984ea3','marriott':'#ff7f00'}
 
 // hotel_airbnb_SVG drawing area
-var margin = {top: 40, right: 80, bottom: 40, left: 130};
+var margin = {top: 40, right: 100, bottom: 40, left: 130};
 
-var width = 500 - margin.left - margin.right,
-	height = 300 - margin.top - margin.bottom;
+var width = 600 - margin.left - margin.right,
+	height = 470 - margin.top - margin.bottom;
 
 var hotel_airbnb_svg = d3.select("#hotel-industry-plot").append("svg")
 		.attr("width", width + margin.left + margin.right)
@@ -18,16 +18,18 @@ var hotel_airbnb_svg = d3.select("#hotel-industry-plot").append("svg")
 var yLabel = hotel_airbnb_svg.append("text")
 		.attr("x", -40)
 		.attr("y", -20)
-		.style("fill", "grey")
+		.style("fill", "white")
 		.style("font-family", "Montserrat, sans-serif")
 		.text("US Sales($) [Normalized to Airbnb's 2013 U.S. Sales]")
+		.style("font-size", 12)
 // Create x label
 var xLabel = hotel_airbnb_svg.append("text")
 	.attr("x", width - 50)
 	.attr("y", height + 30)
-	.style("fill", "grey")
+	.style("fill", "white")
 	.style("font-family", "Montserrat, sans-serif")
 	.text("Year")
+	.style("font-size", 12)
 
 // Date parser. Convert a Date to string
 var formatDate = d3.timeFormat("%Y");
@@ -203,7 +205,9 @@ function updateHotelAirbnbVisualization() {
 		.text(function(d){
 			return hotelOfficialNames[d.key];
 		})
-		.style("font-family", "Montserrat, sans-serif");
+		.style("font-family", "Montserrat, sans-serif")
+		.style("fill", "white")
+		.style("font-size", 14);
 
 		legendTexts.exit().remove();
 
@@ -213,7 +217,8 @@ function updateHotelAirbnbVisualization() {
 		.duration(800)
 		.call(xAxis)
 		.selectAll("text")
-		.style("font-family", "Montserrat, sans-serif");
+		.style("font-family", "Montserrat, sans-serif")
+		.style("fill", "white");
 
 	  
 	d3.select(".airbnb-hotel-y-axis")
@@ -221,7 +226,8 @@ function updateHotelAirbnbVisualization() {
 		.duration(800)
 		.call(yAxis)
 		.selectAll("text")
-		.style("font-family", "Montserrat, sans-serif");
+		.style("font-family", "Montserrat, sans-serif")
+		.style("fill", "white");
 	
 	// tooltip
 	var focus = hotel_airbnb_svg.append("g")           
@@ -265,7 +271,8 @@ function updateHotelAirbnbVisualization() {
 			airbnbCityGrowthPlot.wrangleData(dA.year)
 			d3.select('#hotel-tooltip-label-' + d.key)
 			.attr('x', x(x0))
-			.text(hotelOfficialNames[d.key] + ": " + d3.format(",.1f")(dA.sales));
+			.text(hotelOfficialNames[d.key] + ": " + d3.format(",.1f")(dA.sales))
+			.style("font-size", 14)
 		})
 
 	}  

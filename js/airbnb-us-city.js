@@ -18,7 +18,7 @@ airbnbCityGrowthChart.prototype.initVis = function(){
 	vis.margin = {top: 10, right: 20, bottom: 70, left: 50};
 	
 	vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
-    vis.height = 200 - vis.margin.top - vis.margin.bottom;
+    vis.height = 400 - vis.margin.top - vis.margin.bottom;
 
 	// SVG drawing area
 	vis.svg = d3.select("#" + vis.parentElement)
@@ -35,7 +35,10 @@ airbnbCityGrowthChart.prototype.initVis = function(){
                 .round(true)
 
     vis.y = d3.scaleLinear()
+            .domain([300, 180000])
             .range([vis.height, 0]);
+
+    vis.yAxis = d3.axisLeft().scale(vis.y).tickFormat(d3.format(".6"))
 
     vis.svg.append("g")
             .attr("class", "axis us-city-y-axis")
@@ -44,17 +47,17 @@ airbnbCityGrowthChart.prototype.initVis = function(){
             .attr("transform", "translate(0," + (vis.height) + ")")
     // Create y label
     vis.yLabel = vis.svg.append("text")
-    .style("font-size", 10)
-    .style("fill", "grey")
+    .style("font-size", 12)
+    .style("fill", "white")
     .style("font-family", "Montserrat, sans-serif")
     .text("# of listings")
     // Create x label
     vis.xLabel = vis.svg.append("text")
-    .attr("x", vis.width)
-    .attr("y", vis.height + 10)
-    .style("fill", "grey")
+    .attr("x", vis.width - 5)
+    .attr("y", vis.height + 15)
+    .style("fill", "white")
     .style("font-family", "Montserrat, sans-serif")
-    .style("font-size", 10)
+    .style("font-size", 12)
     .text("City");
     vis.updateVis()
 }
@@ -71,7 +74,7 @@ airbnbCityGrowthChart.prototype.wrangleData = function(year){
 airbnbCityGrowthChart.prototype.updateVis = function(){
     var vis = this;
 
-    vis.y.domain(d3.extent(vis.filteredData.map(function(d) { return d.Listings;})))
+    //vis.y.domain(d3.extent(vis.filteredData.map(function(d) { return d.Listings;})))
     console.log(d3.extent(vis.filteredData.map(function(d) { return d.Listings;})))
 
     vis.rects = vis.svg.selectAll("rect").data(vis.filteredData)
@@ -91,7 +94,7 @@ airbnbCityGrowthChart.prototype.updateVis = function(){
            .attr("height", function(d) {return vis.height - vis.y(d.Listings)})
 
 
-    vis.yAxis = d3.axisLeft().scale(vis.y).tickFormat(d3.format(".6"))
+    
     vis.xAxis = d3.axisBottom().scale(vis.x)
 
     d3.select(".us-city-y-axis")

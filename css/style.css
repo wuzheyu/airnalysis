@@ -73,7 +73,7 @@ rect:hover {
 .sub-section-header {
   font-family: 'Montserrat', sans-serif;
   opacity:.8;
-  color: black;
+  color: white;
   font-size: 20px;
   text-align: left;
   font-weight: bold;
@@ -84,7 +84,7 @@ rect:hover {
 
 .sub-section-title {
   font-family: 'Montserrat', sans-serif;
-  color: black;
+  color: white;
   font-size: 17px;
   text-align: left;
   font-weight: bold;
@@ -94,7 +94,7 @@ rect:hover {
 
 .sub-section-content {
   font-family: 'Montserrat', sans-serif;
-  color: black;
+  color: white;
   font-size: 15px;
   text-align: left;
   font-weight: bold;
@@ -106,6 +106,51 @@ rect:hover {
   visibility: hidden;
   margin-left: 100px;
 
+}
+
+.airbnb-hotel-x-axis path{
+  stroke: white;
+}
+
+.airbnb-hotel-x-axis line{
+  stroke: white;
+}
+
+.airbnb-hotel-x-axis text{
+  fill: white;
+}
+
+.airbnb-hotel-y-axis path{
+  stroke: white;
+}
+
+.airbnb-hotel-y-axis line{
+  stroke: white;
+}
+
+.airbnb-hotel-y-axis text{
+  fill: white;
+}
+
+
+
+.us-city-x-axis text{
+  fill: white;
+}
+
+.us-city-x-axis .domain{
+  stroke: white;
+}
+
+
+
+
+.us-city-y-axis text{
+  fill: white;
+}
+
+.us-city-y-axis .domain{
+  stroke: white;
 }
 
 .ml12 {
@@ -123,7 +168,7 @@ rect:hover {
 .axis path,
 .axis line {
   fill: none;
-  stroke: #000;
+  stroke: white;
   shape-rendering: crispEdges;
 }
 .axis text {
@@ -241,8 +286,14 @@ rect:hover {
   padding: 0;
 }
 
-#reference {
+#hotel-impact-2 {
   background-image: url(../img/Picture10.png);
+  background-size: 100% 100%;
+  padding: 0;
+}
+
+#reference {
+  background-image: url(../img/Picture11.png);
   background-size: 100% 100%;
   padding: 0;
 }

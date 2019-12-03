@@ -181,12 +181,11 @@
 		<div class="section" id="hotel-impact">
 				<div class ="container">
 					<div class="text-background">
-						<div class="section-header">Impact to traditional hotel industry</div>
+						<div class="section-header">Airbnb's Battle with Hotels</div>
 						<hr>
 						<div class="row">
 								<div class="col-md-6">
-									<div class="sub-section-header">Airbnb's Battle with Hotels</div>
-									<label for="hotel-select" class="sub-section-content">Please select the type of accomodation you want to visualize: </label>
+									<label for="hotel-select" class="sub-section-content" style="margin-top:50px">Please select the type of accomodation you want to visualize: </label>
 									<select id="hotel-select">
 										<option value="all" selected>All</option>
 										<option value="airbnb">Airbnb</option>
@@ -196,35 +195,6 @@
 										<option value="marriott">Marriott</option>
 									</select>
 									<div id="hotel-industry-plot"> </div>
-
-									<div class="sub-section-header">The Past, Present and Future of this battle</div>
-									<ul class="nav nav-tabs">
-											<li class="nav-item">
-											  <a class="nav-link active" data-toggle="tab" href="#past" id="past-button">Past</a>
-											</li>
-											<li class="nav-item">
-											  <a class="nav-link" data-toggle="tab" href="#present" id="present-button">Present</a>
-											</li>
-											<li class="nav-item">
-											  <a class="nav-link" data-toggle="tab" href="#future" id="future-button">Future</a>
-											</li>
-										  </ul>
-										  
-										  <!-- Tab panes -->
-										  <div class="tab-content">
-											<div class="tab-pane container active" id="past">
-												<h4 class="sub-section-title">The Past: Denial</h4>
-												<p class="sub-section-content">For a long time, the hotel industry did not consider Airbnb a threat. Both the industry and Airbnb claimed they were serving different markets and had different underlying business models. Over the years, as Airbnb become more successful and grown to being larger than the companies in the hotel industry, the rhetoric has changed. The hotel industry began to realize they had something to worry about. </p>
-											</div>
-											<div class="tab-pane container fade" id="present">
-													<h4 class="sub-section-title">The Present: Attack</h4>
-													<p class="sub-section-content">A stage of denial was followed by the American Hotel & Lodging Association (AH&LA) attacking Airbnb by sponsoring research to demonstrate its negative impacts on the economy and lobbying governments to impose taxes and regulations on homesharing. The association is arguing for a level playing field between homesharing and hotels (and rightly so).</p>
-											</div>
-											<div class="tab-pane container fade" id="future">
-													<h4 class="sub-section-title">The Future: Participation</h4>
-													<p class="sub-section-content">The next stage of this battle involves competition and integration. Not only are hotels looking to add homesharing-like attributes and experiences to their properties, to more effectively compete with Airbnb, but are also looking to tap into the platform-based business model that underlies Airbnb’s success.</p>
-											</div>
-										  </div>
 								</div>
 
 								<div class="col-md-6">
@@ -232,15 +202,56 @@
 										<p class="sub-section-content"> Consumer spending on Airbnb is growing at a faster pace than major hotel chains. As a matter of fact, research shows that a 1% growth in Airbnb supply would cause hotel RevPAR(Revenue Per Available Room) to decrease 0.02% across all segments. Given that Airbnb supply grew by over 100% year-on-year over the last ten-year period, it means that the "real" decrease in RevPAR is 2% across hotel segments.</p>
 									</div>
 									<div id="airbnb-growth"></div>
-									<div id="guidance-drag" class="sub-section-content"> After selecting the stage (past, present or future), please drag hotel icons to visualize their relationships. </div>
-									<div id="force-airbnb-hotel"></div>
-									<div class="quote"></div>
 								</div>
 						</div>
 					</div>
 				</div>
 		</div>
+		<div class="section" id="hotel-impact-2">
+				<div class ="container">
+					<div class="text-background">
+						<div class="section-header">The Past, Present and Future of this battle</div>
+						<hr>
+						<div class="row">
+								<div class="col-md-6">
+									<ul class="nav nav-tabs">
+											<li class="nav-item">
+												<a class="nav-link active" data-toggle="tab" href="#past" id="past-button">Past</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" data-toggle="tab" href="#present" id="present-button">Present</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" data-toggle="tab" href="#future" id="future-button">Future</a>
+											</li>
+											</ul>
+											
+											<!-- Tab panes -->
+									<div class="tab-content">
+										<div class="tab-pane container active" id="past">
+											<h4 class="sub-section-title">The Past: Denial</h4>
+											<p class="sub-section-content">For a long time, the hotel industry did not consider Airbnb a threat. Both the industry and Airbnb claimed they were serving different markets and had different underlying business models. Over the years, as Airbnb become more successful and grown to being larger than the companies in the hotel industry, the rhetoric has changed. The hotel industry began to realize they had something to worry about. </p>
+										</div>
+										<div class="tab-pane container fade" id="present">
+												<h4 class="sub-section-title">The Present: Attack</h4>
+												<p class="sub-section-content">A stage of denial was followed by the American Hotel & Lodging Association (AH&LA) attacking Airbnb by sponsoring research to demonstrate its negative impacts on the economy and lobbying governments to impose taxes and regulations on homesharing. The association is arguing for a level playing field between homesharing and hotels (and rightly so).</p>
+										</div>
+										<div class="tab-pane container fade" id="future">
+												<h4 class="sub-section-title">The Future: Participation</h4>
+												<p class="sub-section-content">The next stage of this battle involves competition and integration. Not only are hotels looking to add homesharing-like attributes and experiences to their properties, to more effectively compete with Airbnb, but are also looking to tap into the platform-based business model that underlies Airbnb’s success.</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div id="guidance-drag" class="sub-section-content"> After selecting the stage (past, present or future), please drag hotel icons to visualize their relationships. </div>
+									<div id="force-airbnb-hotel"></div>
+									<div class="quote"></div>
 
+								</div>
+						</div>
+					</div>
+				</div>
+		</div>
 		<div class="section" id="take-away">
 				<div class ="container">
 					<div class="text-background">

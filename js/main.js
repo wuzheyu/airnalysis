@@ -1,6 +1,6 @@
 var textTypeInterval = 40;
 var basePause = 1000;
-var slidesRun = {1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true, 8: true}
+var slidesRun = {1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true, 8: true, 9: true, 10: true, 11: true, 12: true}
 var forcePlot;
 var airbnbCityGrowthPlot;
 var footprintPlot;
@@ -182,18 +182,22 @@ $(document).ready(function() {
             }
             else if (currentIndex == 8) {
                 if (slidesRun[currentIndex] == true) {
-                    d3.json("data/airbnb-hotel-force.json", function(data) {
-                        forcePlot = new forceChart('force-airbnb-hotel', data);
-                    });
+
                     d3.csv("data/airbnb_growth_us_cleaned.csv", function(data) {
                         data.forEach(function(d) {
                             d.Year = parseDate(d.Year);
                             d.Listings = +d.Listings;
                         })
-                        console.log("processing data")
                         airbnbCityGrowthPlot = new airbnbCityGrowthChart('airbnb-growth', data);
                     });
-                    
+                    slidesRun[currentIndex] = false;
+                }
+            }
+            else if (currentIndex == 9) {
+                if (slidesRun[currentIndex] == true) {
+                    d3.json("data/airbnb-hotel-force.json", function(data) {
+                        forcePlot = new forceChart('force-airbnb-hotel', data);
+                    });
                     $("#past-button").click(function(){
                         userSelectedTime = 'linksPast';
                         forcePlot.updateVis();
@@ -208,12 +212,6 @@ $(document).ready(function() {
                         userSelectedTime = 'linksFuture';
                         forcePlot.updateVis();
                     });
-                    slidesRun[currentIndex] = false;
-                }
-            }
-            else if (currentIndex == 9) {
-                if (slidesRun[currentIndex] == true) {
-
                     slidesRun[currentIndex] = false;
                 }
 
