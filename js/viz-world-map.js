@@ -14,6 +14,13 @@ footprintMap = function(_parentElement, _data, _mapPosition) {
 }
 
 
+var Stamen_TonerLite = L.tileLayer('', {
+	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	subdomains: 'abcd',
+	minZoom: 0,
+	maxZoom: 20,
+	ext: 'png'
+});
 /*
  *  Initialize station map
  */
@@ -21,22 +28,19 @@ footprintMap = function(_parentElement, _data, _mapPosition) {
 footprintMap.prototype.initVis = function() {
 	var vis = this;
 
-	vis.map = L.map(vis.parentElement, {zoomControl: false}).setView(vis.mapPosition, 2);
+	vis.map = L.map(vis.parentElement, {zoomControl: false}).setView(vis.mapPosition, 1);
 
 	L.Icon.Default.imagePath = 'img/';
-	// L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+
+	// L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
 	// 	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 	// }).addTo(vis.map)
-
-	L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
-		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-	}).addTo(vis.map)
 	
-	var imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Sydney_Opera_House_-_Dec_2008.jpg/1024px-Sydney_Opera_House_-_Dec_2008.jpg',
-	imageBounds = [[-45.386048, 105.360836], [-49.084379, 119.773847]];
-
-	L.imageOverlay(imageUrl, imageBounds).addTo(vis.map);
-	L.imageOverlay(imageUrl, imageBounds).bringToFront();
+	L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
+		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+		subdomains: 'abcd',
+		maxZoom: 19
+	}).addTo(vis.map)
 
 	vis.map.dragging.disable();
 	vis.map.touchZoom.disable();
@@ -66,7 +70,10 @@ footprintMap.prototype.updateVis = function() {
     console.log(vis.data)
 	vis.data.forEach(function(d, index) {
         setTimeout(function(){
-            L.marker([d.lat, d.lon], {icon: redIcon}).bindPopup(
+            L.marker([d.lat, d.lon], {
+				bounceOnAdd: true,
+				icon: redIcon
+			}).bindPopup(
                 "<b>" + d.event + "</b>"
                 ).addTo(vis.map);
         }, index * 1000);

@@ -37,12 +37,23 @@ $(document).ready(function() {
                         })
                     }, timeDelay);
 
-                    timeDelay += 9500;
-                    $('#company-choropleth').css('visibility','visible');
-                    $('#airbnb-logo').css('visibility','visible');
-                    timeDelay += 500
-                    $('#year-count').css('visibility','visible');
-                    $('#timeline-event-box').css('visibility','visible');
+                    timeDelay += 10000;
+                    setTimeout(function(){
+                        $(function () {
+                            $('#company-choropleth').delay(timeDelay).css('visibility','visible');
+                            $('#airbnb-logo').delay(timeDelay).css('visibility','visible');
+                        })
+                    }, timeDelay);
+
+                    timeDelay += 1500
+                    setTimeout(function(){
+                        $(function () {
+                            $('#year-count').delay(timeDelay).css('visibility','visible');
+                            $('#timeline-event-box').delay(timeDelay).css('visibility','visible');
+                            $('#timeline-event-box').delay(timeDelay).css('overflow-y','scroll');
+                        })
+                    }, timeDelay);
+
                     setTimeout(function(){footprintPlot.updateVis()}, timeDelay);
                     setTimeout(function(){generateProgressBar("airbnb-logo", "bt")}, timeDelay);
 
@@ -224,12 +235,16 @@ $(document).ready(function() {
 
 function generateProgressBar(elementID, direction) {
     var image = document.getElementById(elementID);
-    Loadgo.init(image,  {'direction': direction});
+    Loadgo.init(image,  {
+        'opacity':  1,
+        'image':    'img/airbnb-logo-white.png',
+        'direction': direction
+    });
 
     triggerLoadEffect();
 
     function triggerLoadEffect(){
-        $("#timeline-event-box").css("margin-top", "20px");
+        $("#timeline-event-box").css("margin-top", "40px");
         $("#timeline-event-box").css("border-style", "solid");
         $("#timeline-event-box").css("border-color", "rgb(255,78,87)");
         $("#timeline-event-box").css("font-family", "Montserrat, sans-serif");
@@ -240,7 +255,7 @@ function generateProgressBar(elementID, direction) {
             if (progress <= 13) {
                 $("#year-count").html("Year: " + progressYearMapping[progress])
                 var displayEvent = newsQueue.shift(); 
-                $("#timeline-event-box").append('</br><b>' + formatDate(displayEvent.year) + "</b>: "+ displayEvent.event+ ".</br>")
+                $("#timeline-event-box").append('<span style="color: rgb(255,78,87)"><b>' + formatDate(displayEvent.year) + "</b></span>: "+ displayEvent.event+ ".</br></br>")
                 var elem = document.getElementById('timeline-event-box');
                 elem.scrollTop = elem.scrollHeight;
 
@@ -279,5 +294,6 @@ function moveItem(elementId, startPosition, endPosition, timeInterval) {
             clearInterval(moveIcon);
         }
     }, 1);
+    $('#' + elementId).css('visibility','visible');
 
 }
