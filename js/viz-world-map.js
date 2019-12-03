@@ -74,9 +74,9 @@ footprintMap.prototype.updateVis = function() {
 				bounceOnAdd: true,
 				icon: redIcon
 			}).bindPopup(
-                "<b>" + d.event + "</b>"
+                "<span style='color:rgb(255,78,87)'><b>" + '[' + formatDate(d.year) + ' ' + d.location + ']' + "</b></span>" + ' ' + d.event + '.'
                 ).addTo(vis.map);
-        }, index * 1000);
+        }, (index + 1)* 1000);
     
 	})
 

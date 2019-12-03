@@ -18,7 +18,7 @@ airbnbCityGrowthChart.prototype.initVis = function(){
 	vis.margin = {top: 10, right: 20, bottom: 70, left: 50};
 	
 	vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
-    vis.height = 400 - vis.margin.top - vis.margin.bottom;
+    vis.height = 340 - vis.margin.top - vis.margin.bottom;
 
 	// SVG drawing area
 	vis.svg = d3.select("#" + vis.parentElement)

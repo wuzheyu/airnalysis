@@ -6,7 +6,7 @@ var color = {'airbnb': '#e41a1c', 'homeaway': '#377eb8','hilton': '#4daf4a','ihg
 var margin = {top: 40, right: 100, bottom: 40, left: 130};
 
 var width = 600 - margin.left - margin.right,
-	height = 470 - margin.top - margin.bottom;
+	height = 410 - margin.top - margin.bottom;
 
 var hotel_airbnb_svg = d3.select("#hotel-industry-plot").append("svg")
 		.attr("width", width + margin.left + margin.right)

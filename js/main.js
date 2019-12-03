@@ -62,8 +62,11 @@ $(document).ready(function() {
             }
             else if (currentIndex == 2) {
                 if (slidesRun[currentIndex] == true){
+                    
                     var timeDelay = basePause;
-                    setTimeout(function() {moveItem('eric-emily-icon', 0, 50, 100)}, timeDelay);
+                    setTimeout(function() {
+                        moveItem('eric-emily-icon', 0, 50, 100)
+                    }, timeDelay);
                     timeDelay += 500;
 
                     setTimeout(function(){
@@ -256,7 +259,6 @@ function generateProgressBar(elementID, direction) {
                 $("#timeline-event-box").append('<span style="color: rgb(255,78,87)"><b>' + formatDate(displayEvent.year) + "</b></span>: "+ displayEvent.event+ ".</br></br>")
                 var elem = document.getElementById('timeline-event-box');
                 elem.scrollTop = elem.scrollHeight;
-
             }
             else{
                 return stopInterval();
