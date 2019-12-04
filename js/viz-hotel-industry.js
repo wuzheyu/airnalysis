@@ -157,7 +157,12 @@ function updateHotelAirbnbVisualization() {
 			  .append("path")
 			  .attr("fill", "none")
 			  .attr("class", "hotelLine")
-			  .attr("stroke-width", 1.5)
+			  .attr("stroke-width", function(d){
+				if (d.key == 'airbnb') { 
+					return 5;
+				}
+				else return 1.5;
+			  })
 			  .merge(hotelLines)
 			  .attr("stroke", function(d) { 
 				return color[d.key]
