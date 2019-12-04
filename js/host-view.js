@@ -44,6 +44,64 @@ function updateChoropleth(){
     choro_ny.updateVis();
 }
 
+//highlight small multiples
+$('#finding1').on("mouseover",function(){
+    smallMultiples.svg.selectAll(".priceDiff, .inventDiff").style("fill",function(d){
+        if(d.type==="TwoBd"||d.type==="ThreePlusBd"){
+            return "#F28D95"
+        }else{return smallMultiples.airbnbColor}
+    });
+    })
+    .on("mouseout",function(){
+        smallMultiples.svg.selectAll(".priceDiff, .inventDiff").style("fill",smallMultiples.airbnbColor);
+    });
+
+$('#finding2').on("mouseover",function(){
+    smallMultiples.svg.selectAll(".rentalInvent").style("fill",function(d){
+            if(d.type==="TwoBd"||d.type==="OneBd"){
+                return "#038C8C"
+            }else{return smallMultiples.rentalColor}
+        })
+        .attr("stroke",function(d){
+            if(d.type==="TwoBd"||d.type==="OneBd"){
+                return "yellow"
+            }else{return }
+        });
+    smallMultiples.svg.selectAll(".airbnbInvent").style("fill",function(d){
+        if(d.type==="OneBd"){
+            return "#F28D95"
+        }else{return smallMultiples.airbnbColor}
+        })
+        .attr("stroke",function(d){
+        if(d.type==="OneBd"){
+            return "yellow"
+        }else{return }
+    });
+    })
+    .on("mouseout",function(){
+        smallMultiples.svg.selectAll(".rentalInvent").style("fill",smallMultiples.rentalColor).attr("stroke","none");
+        smallMultiples.svg.selectAll(".airbnbInvent").style("fill",smallMultiples.airbnbColor).attr("stroke","none");
+    });
+
+// highlight map
+$('#see-change').on("mouseover", function(){
+        var choices = ['Studio','OneBd','TwoBd','ThreePlusBd'];
+        var counter = 0;
+        // make the map automatically change according to room type
+        gif = setInterval(function(){
+            var next = choices[counter % 4];
+            counter += 1;
+            $("#map-type").val(next).change();
+        },1500);
+    })
+    .on("mouseout",function(){
+        setTimeout(function(){
+            clearInterval(gif); //clear above gif after .5 seconds
+        },500);
+    })
+
+
+
 //***************** innovative viz ******************//
 d3.json("data/variability.json", function(variability){
     var example = variability[3];
@@ -82,7 +140,7 @@ d3.json("data/variability.json", function(variability){
 
 
     // create circular circles
-    var circles = svg.selectAll("circle")
+    var circles = svg.selectAll("circle.price-circles")
         .data(d3.range(364))
         .enter()
         .append("circle")
@@ -100,7 +158,7 @@ d3.json("data/variability.json", function(variability){
         .attr('fill',function(d){
             return color(example.price[d])
         })
-        .attr('stroke','rgb(3,140,140)')
+        .attr('stroke','rgb(115,191,191)')
         .attr('stroke-width',function(d){
             if (example.available[d]==='False'){
                 return 2
@@ -242,7 +300,7 @@ d3.json("data/variability.json", function(variability){
         })
         .attr("r",circle_r)
         .attr("fill",color(domain_lower+10))
-        .attr('stroke','rgb(3,140,140)')
+        .attr('stroke','rgb(115,191,191)')
         .attr("stroke-width",function(d){
             if(d==="Available"){
                 return 0
@@ -250,31 +308,103 @@ d3.json("data/variability.json", function(variability){
         });
 
 
+    var finding1 = svg.append("text")
+        .attr("class","finding")
+        .attr("id","finding-holiday")
+        .attr("x",width/2+inner_radius+100)
+        .attr("y",height/2 + inner_radius)
+        .attr("width",200)
+        .attr("height",20)
+        // .attr("fill", 'whitesmoke')
+        // .append("div")
+        .text("Rates are higher than usual during holidays!");
 
-    // create a grid of squares
-    // var grid = svg.selectAll("rect")
-    //     .data(d3.range(365))
-    //     .enter()
-    //     .append("rect")
-    //     .attr("x",function(d){
-    //         return d%20 * (rect_width + rect_margin)
-    //     })
-    //     .attr("y",function(d){
-    //         return Math.floor(d/20) * (rect_width + rect_margin)
-    //     })
-    //     .attr("width",rect_width)
-    //     .attr("height",rect_width)
-    //     .attr('fill',function(d){
-    //         return color(example.price[d])
-    //     })
-    //     .attr('stroke','rgb(3,140,140)')
-    //     .attr('stroke-width',function(d){
-    //         if (example.available[d]==='False'){
-    //             return 3
-    //         } else{return 0}
-    //     })
-    //     .append('title')
-    //     .text(function(d){
-    //         return 'price:'+example.price[d]+'\ndate: '+example.date[d]
-    //     })
+    //highlights
+    $("#finding-holiday").on("mouseover",function(){
+        console.log("111")
+        svg.selectAll("circle.price-circles")
+            .attr("stroke", function(d){
+                if(parseMonth(example.date[d])>parseMonth("2019-12-18")&parseMonth(example.date[d])<parseMonth("2020-01-11")){
+                    return "lightyellow";
+                }//&
+                return 'rgb(115,191,191)'
+            })
+            .attr("fill-opacity",function(d){
+                if(parseMonth(example.date[d])>parseMonth("2019-12-18")&parseMonth(example.date[d])<parseMonth("2020-01-11")){
+                    return "0.8";
+                }//&
+                return '100%'
+            })
+    }).on("mouseout",function(){
+        svg.selectAll("circle.price-circles")
+            .attr("stroke", 'rgb(115,191,191)')
+            .attr("fill-opacity","100%")
+    })
+
+    var finding2 = svg.append("text")
+        .attr("class","finding")
+        .attr("id","finding-future")
+        .attr("x",0)
+        .attr("y",height/2 - inner_radius)
+        .attr("width",200)
+        .attr("height",20)
+        // .attr("fill", 'whitesmoke')
+        // .append("div")
+        .text("Host hasn't set future price yet");
+
+    //highlights
+    $("#finding-future").on("mouseover",function(){
+        console.log("111")
+        svg.selectAll("circle.price-circles")
+            .attr("stroke", function(d){
+                if(parseMonth(example.date[d])>parseMonth("2020-03-09")){
+                    return "lightyellow";
+                }//&
+                return 'rgb(115,191,191)'
+            })
+            .attr("fill-opacity",function(d){
+                if(parseMonth(example.date[d])>parseMonth("2020-03-09")){
+                    return "0.8";
+                }//&
+                return '100%'
+            })
+    }).on("mouseout",function(){
+        svg.selectAll("circle.price-circles")
+            .attr("stroke", 'rgb(115,191,191)')
+            .attr("fill-opacity","100%")
+    })
+
+    var finding3 = svg.append("text")
+        .attr("class","finding")
+        .attr("id","finding-vary")
+        .attr("x",width/2 + inner_radius+100)
+        .attr("y",height/2 - inner_radius)
+        .attr("width",200)
+        .attr("height",20)
+        // .attr("fill", 'whitesmoke')
+        // .append("div")
+        .text("hasn't got as many bookings in Nov");
+
+    //highlights
+    $("#finding-vary").on("mouseover",function(){
+        console.log("111")
+        svg.selectAll("circle.price-circles")
+            .attr("stroke", function(d){
+                if(parseMonth(example.date[d])<parseMonth("2019-12-04")&parseMonth(example.date[d])>parseMonth("2019-11-01")){
+                    return "lightyellow";
+                }//&
+                return 'rgb(115,191,191)'
+            })
+            .attr("fill-opacity",function(d){
+                if(parseMonth(example.date[d])<parseMonth("2019-12-04")&parseMonth(example.date[d])>parseMonth("2019-11-01")){
+                    return "0.8";
+                }//&
+                return '100%'
+            })
+    }).on("mouseout",function(){
+        svg.selectAll("circle.price-circles")
+            .attr("stroke", 'rgb(115,191,191)')
+            .attr("fill-opacity","100%")
+    })
 })
+

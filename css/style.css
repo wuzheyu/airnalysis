@@ -22,20 +22,24 @@
 
 .story-line { 
     font-family: 'Montserrat', sans-serif;
-    font-size: 25px;
-    margin: 60px;
+    font-size: 20px;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 80px;
+
+
 }
 
 #company-choropleth{
-  width: 100%;
-  height: 500px;
+  width: 80%;
+  height: 390px;
+  opacity: 1;
+  border-radius: 10px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-#airbnb-logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
 rect:hover {
   opacity: 0.5;
 }
@@ -43,6 +47,7 @@ rect:hover {
   font-family: 'Montserrat', sans-serif;
   font-size: 22px;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .nav-link {
@@ -54,25 +59,26 @@ rect:hover {
   padding: 3px;
   margin: 10px;
 }
+
 .section-header {
     font-family: 'Montserrat', sans-serif;
+    color:white;
     opacity:.8;
-    color: black;
     font-size: 40px;
     text-align: left;
     font-weight: bold;
     padding-left: 15px;
     margin-bottom: 15px;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
     padding-right: 15px;
 }
 
-#year-count {
-  font-family: 'Montserrat', sans-serif;
-}
 .sub-section-header {
   font-family: 'Montserrat', sans-serif;
   opacity:.8;
-  color: black;
+  color: white;
   font-size: 20px;
   text-align: left;
   font-weight: bold;
@@ -83,7 +89,7 @@ rect:hover {
 
 .sub-section-title {
   font-family: 'Montserrat', sans-serif;
-  color: black;
+  color: white;
   font-size: 17px;
   text-align: left;
   font-weight: bold;
@@ -93,18 +99,62 @@ rect:hover {
 
 .sub-section-content {
   font-family: 'Montserrat', sans-serif;
-  color: black;
+  color: white;
   font-size: 15px;
   text-align: left;
   font-weight: bold;
 }
 
 .img-icon {
-  height: 200px;
-  width: 200px;
-  display: none;
+  height: 150px;
+  width: 150px;
+  position: absolute;
+  visibility: hidden;
   margin-left: 100px;
+}
 
+
+.airbnb-hotel-x-axis path{
+  stroke: white;
+}
+
+.airbnb-hotel-x-axis line{
+  stroke: white;
+}
+
+.airbnb-hotel-x-axis text{
+  fill: white;
+}
+
+.airbnb-hotel-y-axis path{
+  stroke: white;
+}
+
+.airbnb-hotel-y-axis line{
+  stroke: white;
+}
+
+.airbnb-hotel-y-axis text{
+  fill: white;
+}
+
+
+
+.us-city-x-axis text{
+  fill: white;
+}
+
+.us-city-x-axis .domain{
+  stroke: white;
+}
+
+
+.us-city-y-axis text{
+  fill: white;
+}
+
+.us-city-y-axis .domain{
+  stroke: white;
 }
 
 .ml12 {
@@ -122,7 +172,7 @@ rect:hover {
 .axis path,
 .axis line {
   fill: none;
-  stroke: #000;
+  stroke: white;
   shape-rendering: crispEdges;
 }
 .axis text {
@@ -186,6 +236,7 @@ rect:hover {
     margin-right: 100px;
 }
 
+<<<<<<< HEAD
 .toolTip {
     position: absolute;
     display: none;
@@ -195,4 +246,90 @@ rect:hover {
     border: 1px solid #6F257F;
     padding: 14px;
     text-align: center;
+}
+=======
+#take-away {
+  background-image: url(../img/Picture1.png);
+  background-size: 100% 100%;
+  padding: 0;
+}
+
+#airbnb-footprint {
+  background-image: url(../img/Picture2.png);
+  background-size: 100% 100%;
+  padding: 0;
+}
+
+#eric-emily-title {
+  background-image: url(../img/Picture3.png);
+  background-size: 100% 100%;
+  padding: 0;
+}
+
+#travel-boston {
+  background-image: url(../img/Picture4.png);
+  background-size: 100% 100%;
+  padding: 0;
+}
+
+#after-travel-boston {
+  background-image: url(../img/Picture5.png);
+  background-size: 100% 100%;
+  padding: 0;
+}
+
+#hosting-airbnb {
+  background-image: url(../img/Picture6.png);
+  background-size: 100% 100%;
+  padding: 0;
+}
+
+#hosting-airbnb-2 {
+  background-image: url(../img/Picture7.png);
+  background-size: 100% 100%;
+  padding: 0;
+}
+
+#eric-concern {
+  background-image: url(../img/Picture8.png);
+  background-size: 100% 100%;
+  padding: 0;
+}
+
+#hotel-impact {
+  background-image: url(../img/Picture9.png);
+  background-size: 100% 100%;
+  padding: 0;
+}
+
+#hotel-impact-2 {
+  background-image: url(../img/Picture10.png);
+  background-size: 100% 100%;
+  padding: 0;
+}
+
+#reference {
+  background-image: url(../img/Picture11.png);
+  background-size: 100% 100%;
+  padding: 0;
+}
+
+
+.text-background{
+  font-family: 'Montserrat', sans-serif;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 100px;
+  padding-left: 40px;
+  padding-right: 40px;
+  display: inline-block;
+  border-radius: 30px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+hr {
+  border-color:white;
 }

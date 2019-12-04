@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/host-style.css">
 	<link rel="stylesheet" href="css/animate.min.css">
-
+	<link rel="icon" href="img/airbnb.png">
 
 </head>
 <body>
@@ -23,43 +23,63 @@
 			</div>
 		</div>
 		<div class="section" id="airbnb-footprint">
-				<div class="section-header">Airbnb's Footprint</div>
-				<div class ="container">
-					<div class="row">
-						<div class="col-md-8" id="logo-animation">
-							<div id="airbnb-description" style="visibility:hidden" class="airbnb-introduction">Airbnb is an online platform for offering lodging and tourism experiences. Since its launch in 2008, it has quickly put its footprint around the world.  </div>
-							<div id="company-choropleth" style="visibility: hidden;"></div>
-							<div id="year-count" style="visibility:hidden; text-align: center;"></div>
-						</div>
-						<div class="col-md-4">
-							<div><img id="airbnb-logo" src="img/airbnb-logo.png" style="visibility:hidden; width: 100px; height: 100px"></div>
-							<div id="timeline-event-box" style="visibility:hidden; overflow: scroll; height: 500px;"></div>
+
+				<div class="container">
+					<div class="text-background">
+						<div class="section-header">Airbnb's Footprint</div>
+						<hr>
+						<div class="row">
+							<div class="col-md-8" id="logo-animation">
+								<div id="airbnb-description" style="visibility:hidden" class="airbnb-introduction">Airbnb is an online platform for offering lodging and tourism experiences. Since its launch in 2008, it has quickly put its footprint around the world.  </div>
+								<div id="company-choropleth" style="visibility:hidden"></div>
+								<div id="year-count" style="visibility:hidden; text-align: center; font-family: Montserrat, sans-serif">Year: 2007</div>
+							</div>
+							<div class="col-md-4">
+								<div><img id="airbnb-logo" src="img/airbnb-logo.png" style="visibility:hidden; width: 100px; height: 100px; display: block; margin-left: auto; margin-right: auto;"></div>
+								<div id="timeline-event-box" style="visibility:hidden;  margin-top: 30px; height: 410px; border-radius: 10px; font-size:14px"></div>
+							</div>
 						</div>
 					</div>
 				</div>
+			
 		</div>
 
 		<div class="section" id="eric-emily-title">
-				<div class="section-header">Eric and Emily</div>
 				<div class ="container">
-					<div class="row">
-						<div class="col-md-6">
-							<div id="eric-emily-p1" class="story-line" style="visibility:hidden">Eric is a hotel manager in New York and he recently got married to Emily.</div>
-							<img src="img/boston.png" id="boston-icon" class="img-icon"/>
-							<div id="eric-emily-p3" class="story-line" style="visibility:hidden">But what should they do to get started?</div>
+					<div class="text-background">
+						<div class="section-header">Eric and Emily</div>
+						<hr>
+						<div class="row">
+							<div class="col-md-6">
+								<div id="eric-emily-p1" class="story-line" style="visibility:hidden">Eric is a hotel manager in New York and he recently got married to Emily.</div>
+							</div>
+							<div class="col-md-6">
+								<img src="img/eric_emily.png" id="eric-emily-icon" class="img-icon" style="visibility:hidden"/>
+							</div>
 						</div>
-						<div class="col-md-6">
-							<img src="img/eric_emily.png" id="eric-emily-icon" class="img-icon" />
-							<div id="eric-emily-p2" class="story-line" style="visibility:hidden">They would like to travel to Boston for a short trip. They want to try out Airbnb as one of their friends recommended it.</div>
-							<img src="img/question_mark.png" id="question-icon" class="img-icon"/>
+						<div class="row">
+								<div class="col-md-6">
+									<img src="img/boston.png" id="boston-icon" class="img-icon"/>
+								</div>
+								<div class="col-md-6">
+									<div id="eric-emily-p2" class="story-line" style="visibility:hidden">They would like to travel to Boston for a short trip. They want to try out Airbnb as one of their friends recommended it.</div>
+								</div>
+						</div>
+						<div class="row">
+								<div class="col-md-6">
+									<div id="eric-emily-p3" class="story-line" style="visibility:hidden">But what should they do to get started?</div>
+								</div>
+								<div class="col-md-6">
+									<img src="img/question_mark.png" id="question-icon" class="img-icon"/>
+								</div>
 						</div>
 					</div>
 				</div>
 		</div>
 
 		<div class="section" id="travel-boston">
-				<div class="section-header">Travel to Boston</div>
 				<div class ="container">
+
 					<p>Select:</p>
 
 					<div>
@@ -73,6 +93,11 @@
 						<label for="diff">Show differences in prices (Hotels - Airbnb)</label>
 					</div>
 						<button onclick="show_diff()">Show Visualization</button>
+
+					<div class="text-background">
+						<button onclick="show_diff()">Show Difference / Show Stacked Price</button>
+						<div class="section-header">Travel to Boston</div>
+						<hr>
 						<div class="row">
 							<div class="col-md-8">
 								<div id="count-vis" ></div>
@@ -83,37 +108,54 @@
 <!--									<div class="row col-md-6" id="room-type-vis"></div>-->
 								<div class="col-md-4" id="radar-vis">Airbnb's story</div>
 						</div>
-
+					</div>
 				</div>
 		</div>
 		<div class="section" id="after-travel-boston">
-				<div class="section-header">After traveling to Boston</div>
 				<div class ="container">
+					<div class="text-background">
+						<div class="section-header">After traveling to Boston</div>
+						<hr>
 						<div class="row">
 								<div class="col-md-6">
-									<div id="eric-emily-p4" class="story-line" style="visibility:hidden">Eric and Emily had a great time in Boston and now they are back in New York.</div>
-									<img src="img/ee-house.png" id="ee-house-icon" class="img-icon" />
-									<div id="eric-emily-p6" class="story-line" style="visibility:hidden">But how does hosting an Airbnb in New York look like?</div>
-								</div>
+									<div id="eric-emily-p4" class="story-line" style="visibility:hidden">Eric and Emily had a great time in Boston and now they are back in New York.</div>								</div>
 								<div class="col-md-6">
 									<img src="img/new-york.png" id="newyork-icon" class="img-icon"/>
-									<div id="eric-emily-p5" class="story-line" style="visibility:hidden">They happened to have an empty room in their house, and Emily would like to list it on Airbnb to make some extra profit.</div>
+								</div>
+						</div>
+						<div class="row">
+								<div class="col-md-6">
+									<img src="img/ee-house.png" id="ee-house-icon" class="img-icon" />
+								</div>
+								<div class="col-md-6">
+									<div id="eric-emily-p5" class="story-line" style="visibility:hidden">They happen to have a second apartment for rent. Last tenant has just moved out and they are looking for the next.</div>
+								</div>
+						</div>
+						<div class="row">
+								<div class="col-md-6">
+									<div id="eric-emily-p6" class="story-line" style="visibility:hidden">'But what if we host an Airbnb instead?' Emily thought to herself.</div>
+								</div>
+								<div class="col-md-6">
 									<img src="img/analytics.png" id="analytics-icon" class="img-icon"/>
 								</div>
 						</div>
-
+					</div>
 				</div>
 		</div>
 		<div class="section" id="hosting-airbnb">
-				<div class="section-header">Hosting Emily's own Airbnb</div>
 				<div class ="container">
-						<div class="row">
-								<div class="col-md-6">
-									Airbnb vs. Rental in New York City
+					<div class="text-background">
+						<div class="section-header">Airbnb vs. Rental in New York City</div>
+						<hr>
+							<div class="row">
 
+								<div class="col-md-6">
+									The color on the map shows the price difference (per night) between Airbnb and rental. It looks like Airbnb is almost always more expensive than rentals!
+
+									<div id="see-change">*See what happens if the listing has more rooms by selecting</div>
 									<form class="form-inline">
 										<div class="form-group">
-											<label for="map-type">Room type:</label>
+											<label for="map-type">room type:</label>
 											<select class="form-control" id="map-type" onchange="updateChoropleth()">
 												<option value="All">All</option>
 												<option value="Studio">Studio</option>
@@ -123,59 +165,82 @@
 											</select>
 										</div>
 									</form>
-									<div id="ny-map"></div>
-								</div>
+								<div id="ny-map"></div>
+
+
+							</div>
 
 <!--								<div class="col-md-6" >Price and Occupancy of one airbnb listing in a year-->
 <!--									<div id="price-vary"></div>-->
 <!--								</div>-->
 							<div class="col-md-6">
 								<div class="row" id="small-multiples"> </div>
-								<div class="row" id="para-under-multiples">Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend. Duis at tellus at urna condimentum mattis pellentesque. Pharetra sit amet aliquam id diam. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque. Vivamus at augue eget arcu dictum varius. Eget magna fermentum iaculis eu non diam.</div>
+								<div class="row" id="finding1">*There are generally larger differences in price and inventory for two and three-plus bedroom apartments.</div>
+								<div class="row" id="finding2">*The most common listing on Airbnb is one bedroom, while for rental both one and two-bedroom apartments are the most popular.</div>
 
 							</div>
 						</div>
+					</div>
 				</div>
 		</div>
 
-		<div class="section" id="hosting-airbnb">
-			<div class="section-header">Hosting Emily's own Airbnb</div>
+		<div class="section" id="hosting-airbnb-2">
 			<div class ="container">
-				<div class="row">
-					<div class="col-md-12">
-						Even though Airbnb's per night rate is almost always higher than that of traditional monthly rental. However, it does not necessarily mean that the cash flow of hosting Airbnb will always outnumber the latter.
+				<div class="text-background">
+					<div class="section-header">Hosting Emily's own Airbnb</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-12">
+							Even though Airbnb's per night rate is almost always higher than that of traditional monthly rental. However, it does not necessarily mean that the cash flow of hosting Airbnb will always outnumber the latter.
 
-						Here's a visualization of the instability of price and occupancy of a one-bedroom airbnb listing in a year. (For comparison, the median one-bedroom rental price is around 2950/month.)
-						<div id="price-vary"></div>
+							Here's a visualization of the instability of price and occupancy of a one-bedroom airbnb listing in a year. (For comparison, the median one-bedroom rental price is around 2950/month.)
+							<div id="price-vary"></div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="section" id="eric-concern">
-				<div class="section-header">Eric's concern</div>
 				<div class ="container">
+					<div class="text-background">
+						<div class="section-header">Eric's concern</div>
+						<hr>
 						<div class="row">
 								<div class="col-md-6">
 									<div id="eric-emily-p7" class="story-line" style="visibility:hidden">Their Airbnb in New York works great and they have earned considerable amount of extra money.</div>
-									<img src="img/hotel.png" id="hotel-icon" class="img-icon" />
-									<div id="eric-emily-p9" class="story-line" style="visibility:hidden">How exactly does Airbnb impact hotels?</div>
 								</div>
 								<div class="col-md-6">
 									<img src="img/money.png" id="money-icon" class="img-icon"/>
+								</div>
+						</div>
+						<div class="row">
+								<div class="col-md-6">
+									<img src="img/hotel.png" id="hotel-icon" class="img-icon" />
+								</div>
+								<div class="col-md-6">
 									<div id="eric-emily-p8" class="story-line" style="visibility:hidden">However, as a hotel manager, Eric is concerning if Airbnb is becoming a threat to traditional hotel industry.</div>
+								</div>
+						</div>
+						<div class="row">
+								<div class="col-md-6">
+									<div id="eric-emily-p9" class="story-line" style="visibility:hidden">How exactly does Airbnb impact hotels?</div>
+								</div>
+								<div class="col-md-6">
 									<img src="img/light.png" id="light-icon" class="img-icon"/>
 								</div>
 						</div>
+					</div>
 
 				</div>
 		</div>
 		<div class="section" id="hotel-impact">
-				<div class="section-header">Impact to traditional hotel industry</div>
 				<div class ="container">
+					<div class="text-background">
+						<div class="section-header">Airbnb's Battle with Hotels</div>
+						<hr>
 						<div class="row">
 								<div class="col-md-6">
-									<div class="sub-section-header">Airbnb's Battle with Hotels</div>
-									<label for="hotel-select" class="sub-section-content">Please select the type of accomodation you want to visualize: </label>
+									<label for="hotel-select" class="sub-section-content" style="margin-top:50px">Please select the type of accomodation you want to visualize: </label>
 									<select id="hotel-select">
 										<option value="all" selected>All</option>
 										<option value="airbnb">Airbnb</option>
@@ -185,35 +250,6 @@
 										<option value="marriott">Marriott</option>
 									</select>
 									<div id="hotel-industry-plot"> </div>
-
-									<div class="sub-section-header">The Past, Present and Future of this battle</div>
-									<ul class="nav nav-tabs">
-											<li class="nav-item">
-											  <a class="nav-link active" data-toggle="tab" href="#past" id="past-button">Past</a>
-											</li>
-											<li class="nav-item">
-											  <a class="nav-link" data-toggle="tab" href="#present" id="present-button">Present</a>
-											</li>
-											<li class="nav-item">
-											  <a class="nav-link" data-toggle="tab" href="#future" id="future-button">Future</a>
-											</li>
-										  </ul>
-										  
-										  <!-- Tab panes -->
-										  <div class="tab-content">
-											<div class="tab-pane container active" id="past">
-												<h4 class="sub-section-title">The Past: Denial</h4>
-												<p class="sub-section-content">For a long time, the hotel industry did not consider Airbnb a threat. Both the industry and Airbnb claimed they were serving different markets and had different underlying business models. Over the years, as Airbnb become more successful and grown to being larger than the companies in the hotel industry, the rhetoric has changed. The hotel industry began to realize they had something to worry about. </p>
-											</div>
-											<div class="tab-pane container fade" id="present">
-													<h4 class="sub-section-title">The Present: Attack</h4>
-													<p class="sub-section-content">A stage of denial was followed by the American Hotel & Lodging Association (AH&LA) attacking Airbnb by sponsoring research to demonstrate its negative impacts on the economy and lobbying governments to impose taxes and regulations on homesharing. The association is arguing for a level playing field between homesharing and hotels (and rightly so).</p>
-											</div>
-											<div class="tab-pane container fade" id="future">
-													<h4 class="sub-section-title">The Future: Participation</h4>
-													<p class="sub-section-content">The next stage of this battle involves competition and integration. Not only are hotels looking to add homesharing-like attributes and experiences to their properties, to more effectively compete with Airbnb, but are also looking to tap into the platform-based business model that underlies Airbnb’s success.</p>
-											</div>
-										  </div>
 								</div>
 
 								<div class="col-md-6">
@@ -221,30 +257,78 @@
 										<p class="sub-section-content"> Consumer spending on Airbnb is growing at a faster pace than major hotel chains. As a matter of fact, research shows that a 1% growth in Airbnb supply would cause hotel RevPAR(Revenue Per Available Room) to decrease 0.02% across all segments. Given that Airbnb supply grew by over 100% year-on-year over the last ten-year period, it means that the "real" decrease in RevPAR is 2% across hotel segments.</p>
 									</div>
 									<div id="airbnb-growth"></div>
+								</div>
+						</div>
+					</div>
+				</div>
+		</div>
+		<div class="section" id="hotel-impact-2">
+				<div class ="container">
+					<div class="text-background">
+						<div class="section-header">The Past, Present and Future of this battle</div>
+						<hr>
+						<div class="row">
+								<div class="col-md-6">
+									<ul class="nav nav-tabs">
+											<li class="nav-item">
+												<a class="nav-link active" data-toggle="tab" href="#past" id="past-button">Past</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" data-toggle="tab" href="#present" id="present-button">Present</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" data-toggle="tab" href="#future" id="future-button">Future</a>
+											</li>
+											</ul>
+											
+											<!-- Tab panes -->
+									<div class="tab-content">
+										<div class="tab-pane container active" id="past">
+											<h4 class="sub-section-title">The Past: Denial</h4>
+											<p class="sub-section-content">For a long time, the hotel industry did not consider Airbnb a threat. Both the industry and Airbnb claimed they were serving different markets and had different underlying business models. Over the years, as Airbnb become more successful and grown to being larger than the companies in the hotel industry, the rhetoric has changed. The hotel industry began to realize they had something to worry about. </p>
+										</div>
+										<div class="tab-pane container fade" id="present">
+												<h4 class="sub-section-title">The Present: Attack</h4>
+												<p class="sub-section-content">A stage of denial was followed by the American Hotel & Lodging Association (AH&LA) attacking Airbnb by sponsoring research to demonstrate its negative impacts on the economy and lobbying governments to impose taxes and regulations on homesharing. The association is arguing for a level playing field between homesharing and hotels (and rightly so).</p>
+										</div>
+										<div class="tab-pane container fade" id="future">
+												<h4 class="sub-section-title">The Future: Participation</h4>
+												<p class="sub-section-content">The next stage of this battle involves competition and integration. Not only are hotels looking to add homesharing-like attributes and experiences to their properties, to more effectively compete with Airbnb, but are also looking to tap into the platform-based business model that underlies Airbnb’s success.</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
 									<div id="guidance-drag" class="sub-section-content"> After selecting the stage (past, present or future), please drag hotel icons to visualize their relationships. </div>
 									<div id="force-airbnb-hotel"></div>
 									<div class="quote"></div>
+
 								</div>
 						</div>
+					</div>
 				</div>
 		</div>
-
 		<div class="section" id="take-away">
-				<div class="section-header">Takeaways and Conclusion</div>
 				<div class ="container">
+					<div class="text-background">
+						<div class="section-header">Takeaways and Conclusion</div>
+						<hr>
 						<div class="row">
 								<div class="col-md-6">Airbnb's story</div>
 								<div class="col-md-6">Airbnb's story</div>
 						</div>
+					</div>
 				</div>
 		</div>
 		<div class="section" id="reference">
-			<div class="section-header">References</div>
 			<div class ="container">
+				<div class="text-background">
+					<div class="section-header">References</div>
+					<hr>	
 					<div class="row">
-							<div class="col-md-6">Airbnb's story</div>
-							<div class="col-md-6">Airbnb's story</div>
+								<div class="col-md-6">Airbnb's story</div>
+								<div class="col-md-6">Airbnb's story</div>
 					</div>
+				</div>
 			</div>
 		</div>
 
@@ -262,6 +346,7 @@
 	<script src="js/anime.min.js"></script>
 	<script src="js/d3.min.js"></script>
 	<script src="js/leaflet.js"></script>
+	<script src="js/bouncemarker.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/viz-hotel-industry.js"></script>
 	<script src="js/hotel-airbnb-force-graph.js"></script>
