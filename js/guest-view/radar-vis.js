@@ -1,6 +1,9 @@
-RadarVis = function(_parentElement, _rating){
+RadarVis = function(_parentElement, _rating, _hotel_rating){
     this.parentElement = _parentElement;
     this.rating = _rating;
+    this.hotel_rating = _hotel_rating;
+    this.hotelColor = "#038C8C"
+    this.airbnbColor = "#F28D95"
 
     // this.clean_data();
     this.initVis();
@@ -16,6 +19,7 @@ RadarVis.prototype.angleToCoordinate = function(angle, value) {
 
 RadarVis.prototype.initVis = function() {
     var vis = this;
+    console.log(vis.hotel_rating)
 
     vis.margin = {top: 50, right: 50, bottom: 120, left: 50};
 
@@ -33,17 +37,20 @@ RadarVis.prototype.initVis = function() {
 
 
     vis.radialScale = d3.scaleLinear()
-        .domain([4.2, 5])
+        .domain([3.7, 5])
         .range([0, 100])
-    vis.ticks = [4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5.0]
+    vis.ticks = [3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5.0]
+    var ticks_rev = vis.ticks.reverse()
 
     // render radial circles
-    vis.ticks.forEach(t =>
+    ticks_rev.forEach(t =>
         vis.svg.append("circle")
             .attr("cx", 150)
             .attr("cy", 150)
-            .attr("fill", "none")
-            .attr("stroke", "gray")
+            .attr("fill", "white")
+            .attr("stroke", "black")
+            // .attr("stroke-width", 3)
+            // .attr("class", "radialAxis")
             .attr("r", vis.radialScale(t))
     );
 
@@ -52,7 +59,11 @@ RadarVis.prototype.initVis = function() {
         vis.svg.append("text")
             .attr("x", 150)
             .attr("y", 150 - vis.radialScale(t))
+            .attr("class", "radialAxisText")
+            .style("font-size", "10px")
+            .attr("color", "red")
             .text(t.toString())
+
     );
 
     // function angleToCoordinate(angle, value) {
@@ -67,11 +78,13 @@ RadarVis.prototype.initVis = function() {
         let ft_name = vis.features[i];
         let angle = (Math.PI / 2) + (2 * Math.PI * i / vis.features.length);
         let line_coordinate = vis.angleToCoordinate(angle, 5);
-        let label_coordinate = vis.angleToCoordinate(angle, 5.2);
+        let label_coordinate = vis.angleToCoordinate(angle, 5.4);
 
         //draw axis line
         vis.svg.append("line")
             .attr("x1", 150)
+            // .attr("class", "radialAxisLines")
+            .attr("fill", "black")
             .attr("y1", 150)
             .attr("x2", line_coordinate.x)
             .attr("y2", line_coordinate.y)
@@ -81,7 +94,9 @@ RadarVis.prototype.initVis = function() {
         vis.svg.append("text")
             .attr("x", label_coordinate.x)
             .attr("y", label_coordinate.y)
+            .attr("class", "radialAxisText")
             .text(ft_name)
+            .style("font-size", "11px")
             .style("text-anchor", "middle")
 
     }
@@ -118,10 +133,14 @@ RadarVis.prototype.updateVis = function(area) {
     }
 
     vis.coordinates = []
+    vis.hotel_coords = []
     for (var i = 0; i < vis.rating.length; i++){
         let d = vis.rating[i];
+        let d2 = vis.hotel_rating[i];
         // let color = vis.colors[i];
         vis.coordinates.push(getPathCoordinates(d));
+        vis.hotel_coords.push(getPathCoordinates(d2));
+
         // var opa = 0;
         // if (i == area) {
         //     opa = 1
@@ -140,22 +159,48 @@ RadarVis.prototype.updateVis = function(area) {
         //     .attr("opacity", opa);
     }
 
-    var all_paths = vis.svg.selectAll("path").data(vis.coordinates);
+    var all_paths = vis.svg.selectAll(".airbnbRadar").data(vis.coordinates);
     all_paths.enter()
         .append("path")
         .merge(all_paths)
         .attr("d",vis.line)
+        .attr("class", "airbnbRadar")
         .attr("stroke-width", 3)
-        .attr("stroke", function(d, index) {
-            return vis.colors[index]
-        })
-        .attr("fill", function(d, index) {
-            return vis.colors[index]
-        })
+        .attr("fill", this.airbnbColor)
+        // .attr("stroke", function(d, index) {
+        //     return vis.colors[index]
+        // })
+        // .attr("fill", function(d, index) {
+        //     return vis.colors[index]
+        // })
         .attr("stroke-opacity", 1)
         .attr("opacity", function(d, index) {
             if (index == area) {
                 return 0.5;
+            }
+            else {
+                return 0;
+            }
+        });
+
+    var all_paths_hotel = vis.svg.selectAll(".hotelRadar").data(vis.hotel_coords);
+    all_paths_hotel.enter()
+        .append("path")
+        .merge(all_paths_hotel)
+        .attr("d",vis.line)
+        .attr("class", "hotelRadar")
+        .attr("stroke-width", 3)
+        .attr("fill", this.hotelColor)
+        // .attr("stroke", function(d, index) {
+        //     return vis.colors[index]
+        // })
+        // .attr("fill", function(d, index) {
+        //     return vis.colors[index]
+        // })
+        .attr("stroke-opacity", 1)
+        .attr("opacity", function(d, index) {
+            if (index == area) {
+                return 0.8;
             }
             else {
                 return 0;

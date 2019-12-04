@@ -7,8 +7,8 @@ SmallMultiples = function(_parentElement, _origData){
     // this.listingData = _listingData
     // this.selectedDist = "Queens"
 
-    this.rentalColor = "#73BFBF";
-    this.airbnbColor = "#F2C9CC";
+    this.rentalColor = "#038C8C";
+    this.airbnbColor = "#F28D95";
     this.marginTopDown = 40;
 
     this.initVis();

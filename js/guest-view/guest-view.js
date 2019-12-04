@@ -2,6 +2,7 @@ queue()
     .defer(d3.csv, "data/bos-listings.csv")
     .defer(d3.csv, "data/bos-hotel-price.csv")
     .defer(d3.csv, "data/ratings-bos.csv")
+    .defer(d3.csv, "data/rating-hotel-bos.csv")
     // .defer(d3.csv, "data/data-guest/boston_listing_for_vis.csv")
     // .defer(d3.csv, "data/data-guest/boston_review.csv")
     // .defer(d3.csv, "data/data-guest/bos_review_detail.csv")
@@ -10,8 +11,11 @@ queue()
 
 var countVis;
 var radarVis;
+const diffColor = "#F25764"
+const hotelColor = "#038C8C"
+const airbnbColor = "#F28D95"
 
-function createVisualization(error, bos_listing, bos_hotel_prices, bos_ratings) {
+function createVisualization(error, bos_listing, bos_hotel_prices, bos_ratings, hotel_ratings) {
 // function createVisualization(error, bos_listing, bos_listing_for_vis, boston_review, boston_review_detail, boston_rating) {
 
     // fill_paragraphs()
@@ -31,9 +35,51 @@ function createVisualization(error, bos_listing, bos_hotel_prices, bos_ratings) 
     var listing_by_neigh_types = listing_types(listing_by_neighborhood, all_room_types);
 
     countVis = new CountVis("count-vis", listing_by_neighborhood, bos_hotel_prices_by_neighborhood);
-    radarVis = new RadarVis("radar-vis", bos_ratings)
+    radarVis = new RadarVis("radar-vis", bos_ratings, hotel_ratings)
+
 
     // var roomTypeVis = new RoomTypeVis("room-type-vis", listing_by_neigh_types);
+    add_events();
+}
+
+function add_events() {
+    // show side-by-side or diff vis
+    d3.select("#radio-price").on("click", function() {
+        countVis.show_orig_vis();
+    })
+    d3.select("#radio-diff").on("click", function() {
+        countVis.show_diff_vis();
+    })
+
+    // hover over text
+    d3.select("#count-left-first").on("mouseover", function() {
+        d3.select("#count-left-first").style("color", diffColor)
+        // countVis.highlightDT()
+        d3.select("#airbnb-bar-4").style("fill", "yellow")
+        d3.select("#hotel-bar-4").style("fill", "yellow")
+    })
+    d3.select("#count-left-first").on("mouseout", function() {
+        d3.select("#count-left-first").style("color", "white")
+        d3.select("#airbnb-bar-4").style("fill", airbnbColor)
+        d3.select("#hotel-bar-4").style("fill", hotelColor)
+    })
+    d3.select("#count-left-second").on("mouseover", function() {
+        d3.select("#count-left-second").style("color", diffColor)
+        d3.select("#airbnb-bar-1").style("fill", "yellow")
+        d3.select("#hotel-bar-1").style("fill", "yellow")
+    })
+    d3.select("#count-left-second").on("mouseout", function() {
+        d3.select("#count-left-second").style("color", "white")
+        d3.select("#airbnb-bar-1").style("fill", airbnbColor)
+        d3.select("#hotel-bar-1").style("fill", hotelColor)
+    })
+    d3.select("#count-left-third").on("mouseover", function() {
+        d3.select("#count-left-third").style("color", diffColor)
+    })
+    d3.select("#count-left-third").on("mouseout", function() {
+        d3.select("#count-left-third").style("color", "white")
+    })
+
 }
 
 // function fill_paragraphs() {
