@@ -64,7 +64,7 @@ $('#finding2').on("mouseover",function(){
         })
         .attr("stroke",function(d){
             if(d.type==="TwoBd"||d.type==="OneBd"){
-                return "yellow"
+                return "rgb(255,78,87);"
             }else{return }
         });
     smallMultiples.svg.selectAll(".airbnbInvent").style("fill",function(d){
@@ -74,7 +74,7 @@ $('#finding2').on("mouseover",function(){
         })
         .attr("stroke",function(d){
         if(d.type==="OneBd"){
-            return "yellow"
+            return "rgb(255,78,87);"
         }else{return }
     });
     })
