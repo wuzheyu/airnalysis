@@ -138,6 +138,13 @@ rect:hover {
   fill: white;
 }
 
+.radialAxis {
+    fill: white;
+}
+.radialAxisText {
+    fill: white;
+}
+
 
 
 .us-city-x-axis text{
@@ -333,4 +340,12 @@ rect:hover {
 
 hr {
   border-color:white;
+}
+
+/*#travel-boston {*/
+/*    font-size: 11px;*/
+/*}*/
+
+.guest-left {
+    font-size: 12px;
 }

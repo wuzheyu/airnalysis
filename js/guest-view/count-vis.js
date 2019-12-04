@@ -6,7 +6,7 @@ CountVis = function(_parentElement, _data, _hotel_data){
     this.hotel_data = _hotel_data;
     this.diff = false;
     this.diffColor = "#F25764"
-    this.hotelColor = "#73BFBF"
+    this.hotelColor = "#038C8C"
     this.airbnbColor = "#F28D95"
     this.started = 0;
 
@@ -148,6 +148,15 @@ CountVis.prototype.wrangleData = function(){
 
     // Update the visualization
     vis.updateVis();
+}
+
+
+CountVis.prototype.show_diff_vis = function() {
+    this.updateDiffVis();
+}
+
+CountVis.prototype.show_orig_vis = function() {
+    this.updateVis();
 }
 
 CountVis.prototype.show_diff = function() {
@@ -332,10 +341,13 @@ CountVis.prototype.updateVis = function() {
 
     // tooltips
     vis.tip = d3.tip().attr('class', 'd3-tip').attr("data-html", "true").html(function(d) {
-        return "Average Price: $" + d.avg_price.toFixed(2)
+        if (vis.diff) {
+            return "Average Price Difference: $" + (d.hotel_price - d.avg_price).toFixed(2)
+        }
+        return "Average Airbnb Price: $" + d.avg_price.toFixed(2)
     });
     vis.tip2 = d3.tip().attr('class', 'd3-tip').attr("data-html", "true").html(function(d) {
-        return "Average Price: $" + d.hotel_price.toFixed(2)
+        return "Average Hotel Price: $" + d.hotel_price.toFixed(2)
     });
     vis.svg.call(vis.tip);
     vis.svg.call(vis.tip2);
@@ -348,6 +360,9 @@ CountVis.prototype.updateVis = function() {
         .enter()
         .append("rect")
         .attr("class", "airbnb_pbyn")
+        .attr("id", function(d, index) {
+            return "airbnb-bar-" + index;
+        })
         .merge(stacked_bars)
         // .transition()
         // .duration(1000)
@@ -391,6 +406,9 @@ CountVis.prototype.updateVis = function() {
         .enter()
         .append("rect")
         .attr("class", "hotel_pbyn")
+        .attr("id", function(d, index) {
+            return "hotel-bar-" + index;
+        })
         .merge(stacked_bars_hotels)
         // .transition()
         // .duration(0.1)
@@ -406,7 +424,10 @@ CountVis.prototype.updateVis = function() {
         })
         .attr("width", vis.x.bandwidth()/2)
         .attr("fill", vis.hotelColor)
-        .on("mouseover", vis.tip2.show)
+        .on("mouseover",function(d, index) {
+                filter_radar(index);
+                vis.tip2.show(d);
+        })
         .on('mouseout', vis.tip2.hide)
 
     // .attr("opacity", 0.5)
@@ -445,4 +466,11 @@ CountVis.prototype.updateVis = function() {
 
     // brush
     // vis.brushGroup.call(vis.brush);
+}
+
+CountVis.prototype.highlightDT = function() {
+    var vis = this;
+    // console.log(vis.bar_air.selectAll(".airbnb_pbyn")._groups["0"][4].fill)
+    // var hl = vis.bar_air.selectAll(".airbnb_pbyn")._groups["0"][4]
+    // hl.fill = "red"
 }
