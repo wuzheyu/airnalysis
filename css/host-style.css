@@ -1,4 +1,13 @@
+#hosting-airbnb {
+    font-size: 15px;
+}
+
+
 /******** NYC map area ********/
+select {
+    width:20px;
+}
+
 #ny-map svg{
     fill: darkcyan;
 }
@@ -9,7 +18,7 @@
 
 .viz-title {
     text-anchor: middle;
-    fill: #a50f15;
+    fill: #F28D95;
 }
 
 .viz-comment {
@@ -19,15 +28,25 @@
 
 
 #ny-map path {
-    stroke: #fff5f0;
+    stroke: black;
+    stroke-opacity: 50%;
 }
 
 #ny-map path:hover {
     fill-opacity: 0.8;
 }
 
+#ny-map path.borough2:hover {
+    fill-opacity: 0;
+}
+
 .legendSequential text {
     font-size: 14px;
+    fill: rgb(115,191,191);
+}
+
+#legendtitle text {
+    fill: rgb(115,191,191);
 }
 
 .d3-tip {
@@ -43,11 +62,29 @@
     margin-bottom: 5px;
 }
 
+/*small multiples*/
+.axis text {
+    fill: whitesmoke;
+}
+
+#multiples-title {
+    fill: #F28D95;
+}
+
 /*Circular calendar*/
 
 #week-labels {
-    fill: rgb(3,140,140);
+    fill: rgb(115,191,191);
 }
 #month-labels{
-    fill: rgb(3,140,140);
+    fill: rgb(115,191,191);
+}
+
+#circle-legend {
+    fill: whitesmoke;
+}
+
+.finding {
+    fill: whitesmoke;
+    font-size: 15px;
 }
