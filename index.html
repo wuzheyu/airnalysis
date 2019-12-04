@@ -79,6 +79,21 @@
 
 		<div class="section" id="travel-boston">
 				<div class ="container">
+
+					<p>Select:</p>
+
+					<div>
+						<input type="radio" id="price" name="drone" value="price"
+							   checked>
+						<label for="price">Show side-by-side prices</label>
+					</div>
+
+					<div>
+						<input type="radio" id="diff" name="drone" value="diff">
+						<label for="diff">Show differences in prices (Hotels - Airbnb)</label>
+					</div>
+						<button onclick="show_diff()">Show Visualization</button>
+
 					<div class="text-background">
 						<button onclick="show_diff()">Show Difference / Show Stacked Price</button>
 						<div class="section-header">Travel to Boston</div>
@@ -91,7 +106,7 @@
 							</div>
 <!--									<div class="row col-md-6" ></div>-->
 <!--									<div class="row col-md-6" id="room-type-vis"></div>-->
-								<div class="col-md-4" id="guest-story">Airbnb's story</div>
+								<div class="col-md-4" id="radar-vis">Airbnb's story</div>
 						</div>
 					</div>
 				</div>
@@ -355,6 +370,7 @@
 	<script src="js/guest-view/roomtype-vis.js"></script>
 	<script src="js/guest-view/diff-vis.js"></script>
 	<script src="js/small_multiples.js"></script>
+	<script src="js/guest-view/radar-vis.js"></script>
 
 </body>
 </html>

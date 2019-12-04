@@ -256,7 +256,7 @@ function generateProgressBar(elementID, direction) {
             if (progress <= 13) {
                 $("#year-count").html("Year: " + progressYearMapping[progress])
                 var displayEvent = newsQueue.shift(); 
-                $("#timeline-event-box").append('<span style="color: rgb(255,78,87)"><b>' + formatDate(displayEvent.year) + "</b></span>: "+ displayEvent.event+ ".</br></br>")
+                $("#timeline-event-box").append('<span style="color: rgb(255,78,87); margin:5px"><b>' + formatDate(displayEvent.year) + "</b></span>: "+ displayEvent.event+ ".</br></br>")
                 var elem = document.getElementById('timeline-event-box');
                 elem.scrollTop = elem.scrollHeight;
             }
