@@ -44,7 +44,7 @@ function updateChoropleth(){
     choro_ny.updateVis();
 }
 
-//highlight
+//highlight small multiples
 $('#finding1').on("mouseover",function(){
     smallMultiples.svg.selectAll(".priceDiff, .inventDiff").style("fill",function(d){
         if(d.type==="TwoBd"||d.type==="ThreePlusBd"){
@@ -83,6 +83,22 @@ $('#finding2').on("mouseover",function(){
         smallMultiples.svg.selectAll(".airbnbInvent").style("fill",smallMultiples.airbnbColor).attr("stroke","none");
     });
 
+// highlight map
+$('#see-change').on("mouseover", function(){
+        var choices = ['Studio','OneBd','TwoBd','ThreePlusBd'];
+        var counter = 0;
+        // make the map automatically change according to room type
+        gif = setInterval(function(){
+            var next = choices[counter % 4];
+            counter += 1;
+            $("#map-type").val(next).change();
+        },1500);
+    })
+    .on("mouseout",function(){
+        setTimeout(function(){
+            clearInterval(gif); //clear above gif after .5 seconds
+        },500);
+    })
 
 
 
