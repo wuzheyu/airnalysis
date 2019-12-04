@@ -79,34 +79,37 @@
 
 		<div class="section" id="travel-boston">
 				<div class ="container">
-
-					<p>Select:</p>
-
-					<div>
-						<input type="radio" id="price" name="drone" value="price"
-							   checked>
-						<label for="price">Show side-by-side prices</label>
-					</div>
-
-					<div>
-						<input type="radio" id="diff" name="drone" value="diff">
-						<label for="diff">Show differences in prices (Hotels - Airbnb)</label>
-					</div>
-						<button onclick="show_diff()">Show Visualization</button>
-
 					<div class="text-background">
-						<button onclick="show_diff()">Show Difference / Show Stacked Price</button>
 						<div class="section-header">Travel to Boston</div>
 						<hr>
 						<div class="row">
-							<div class="col-md-8">
+							<div class="col-md-8 guest-left">
+								<p>Click to select to view the prices of Airbnb housings and hotels are shown below, or to view differences in prices (hotel - Airbnb).
+								<div>
+									<input type="radio" id="radio-price" name="drone" value="price"
+										   checked>
+									<label for="radio-price">Show side-by-side prices</label>
+								</div>
+
+								<div>
+									<input type="radio" id="radio-diff" name="drone" value="diff">
+									<label for="radio-diff">Show differences in prices (Hotels - Airbnb)</label>
+								</div>
+<!--								<button onclick="show_diff()">Show Difference / Show Stacked Price</button>-->
+
 								<div id="count-vis" ></div>
-								<div id="para-under-diff">Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend. Duis at tellus at urna condimentum mattis pellentesque. Pharetra sit amet aliquam id diam. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque. Vivamus at augue eget arcu dictum varius. Eget magna fermentum iaculis eu non diam.
+								<ul>
+									<li id="count-left-first">Prices for both hotels and Airbnb is the highest in the Downtown area.</li>
+									<li id="count-left-second">The price difference between hotels and Airbnb is the hist at Beacon Hill. If Eric wants to live here, he can save the most by choosing Airbnb. </li>
+									<li id="count-left-third">Variation of prices of Airbnb is less than the variation of hotel prices. They remain more constant across different sub-areas in Boston.</li>
+								</ul>
+
+								<div id="para-under-diff">
 								</div>
 							</div>
 <!--									<div class="row col-md-6" ></div>-->
 <!--									<div class="row col-md-6" id="room-type-vis"></div>-->
-								<div class="col-md-4" id="radar-vis">Airbnb's story</div>
+								<div class="col-md-4" id="radar-vis"></div>
 						</div>
 					</div>
 				</div>
