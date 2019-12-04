@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AIRnalysis</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/fullpage.min.css">
 	<link rel="stylesheet" href="css/leaflet.css">
@@ -243,10 +244,13 @@
 					<div class="text-background">
 						<div class="section-header">Airbnb's Battle with Hotels</div>
 						<hr>
+						<div>
+							Consumer spending on Airbnb is growing at a faster pace than major hotel chains.
+						</div>
 						<div class="row">
 								<div class="col-md-6">
-									<label for="hotel-select" class="sub-section-content" style="margin-top:50px">Please select the type of accomodation you want to visualize: </label>
-									<select id="hotel-select">
+									<label for="hotel-select" class="sub-section-content" style="margin-top:10px"> </label>
+									<select id="hotel-select" style="font-size: 15px;">
 										<option value="all" selected>All</option>
 										<option value="airbnb">Airbnb</option>
 										<option value="homeaway">HomeAway Brands</option>
@@ -258,8 +262,8 @@
 								</div>
 
 								<div class="col-md-6">
-									<div style="margin-top: 40px;">
-										<p class="sub-section-content"> Consumer spending on Airbnb is growing at a faster pace than major hotel chains. As a matter of fact, research shows that a 1% growth in Airbnb supply would cause hotel RevPAR(Revenue Per Available Room) to decrease 0.02% across all segments. Given that Airbnb supply grew by over 100% year-on-year over the last ten-year period, it means that the "real" decrease in RevPAR is 2% across hotel segments.</p>
+									<div style="margin-top: 20px;">
+										<p class="sub-section-content"></p>
 									</div>
 									<div id="airbnb-growth"></div>
 								</div>
@@ -274,7 +278,7 @@
 						<hr>
 						<div class="row">
 								<div class="col-md-6">
-									<ul class="nav nav-tabs">
+									<!-- <ul class="nav nav-tabs">
 											<li class="nav-item">
 												<a class="nav-link active" data-toggle="tab" href="#past" id="past-button">Past</a>
 											</li>
@@ -285,9 +289,9 @@
 												<a class="nav-link" data-toggle="tab" href="#future" id="future-button">Future</a>
 											</li>
 											</ul>
-											
+											 -->
 											<!-- Tab panes -->
-									<div class="tab-content">
+									<!-- <div class="tab-content">
 										<div class="tab-pane container active" id="past">
 											<h4 class="sub-section-title">The Past: Denial</h4>
 											<p class="sub-section-content">For a long time, the hotel industry did not consider Airbnb a threat. Both the industry and Airbnb claimed they were serving different markets and had different underlying business models. Over the years, as Airbnb become more successful and grown to being larger than the companies in the hotel industry, the rhetoric has changed. The hotel industry began to realize they had something to worry about. </p>
@@ -300,7 +304,21 @@
 												<h4 class="sub-section-title">The Future: Participation</h4>
 												<p class="sub-section-content">The next stage of this battle involves competition and integration. Not only are hotels looking to add homesharing-like attributes and experiences to their properties, to more effectively compete with Airbnb, but are also looking to tap into the platform-based business model that underlies Airbnb’s success.</p>
 										</div>
-									</div>
+									</div> -->
+									<div class="timeline">
+										<div class="container left">
+										  <div class="content">
+											<h2>2017</h2>
+											<p>Lorem ipsum..</p>
+										  </div>
+										</div>
+										<div class="container right">
+										  <div class="content">
+											<h2>2016</h2>
+											<p>Lorem ipsum..</p>
+										  </div>
+										</div>
+									  </div>
 								</div>
 								<div class="col-md-6">
 									<div id="guidance-drag" class="sub-section-content"> After selecting the stage (past, present or future), please drag hotel icons to visualize their relationships. </div>
@@ -327,12 +345,56 @@
 		<div class="section" id="reference">
 			<div class ="container">
 				<div class="text-background">
-					<div class="section-header">References</div>
+					<div class="section-header">Acknowledgement and References</div>
 					<hr>	
 					<div class="row">
-								<div class="col-md-6">Airbnb's story</div>
-								<div class="col-md-6">Airbnb's story</div>
+								<div class="col-md-6">
+									<div class='acknowledgement'>
+											We would like to take this opportunity to thank CS171 Teaching Group, especially Prof. Hanspeter Pfister and project advisor Dr. Yalong Wang for their advice and encourgement to make this project possible. 
+									</div>
+								</div>
+								<div class="col-md-6">
+
+									<div class='reference-url'>https://www.osc.state.ny.us/osdc/hotel_industry_nyc_rpt2_2017.pdf</div>
+							
+									<div class='reference-url'>https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/m1-hotel-text/nyc-hotel-market-analysis.pdf?r=a</div>
+							
+									<div class='reference-url'>https://www.tripadvisor.com/ShowTopic-g60763-i5-k5849478-Hotel_Occupancy_Statistics-New_York_City_New_York.html</div>
+							
+									<div class='reference-url'>https://str.com/sites/default/files/2019-07/Airbnb-and-Hotel-Performance.pdf</div>
+							
+									<div class='reference-url'>https://www.bu.edu/bhr/2018/10/31/airbnb-and-the-hotel-industry-the-past-present-and-future-of-sales-marketing-branding-and-revenue-management/</div>
+								</div>
 					</div>
+					<div style="text-align: center; font-size: 30px; font-family: 'Montserrat', sans-serif; color:rgb(255,78,87); margin:40px">Our Awesome Team</div>
+					<div class="row">
+						<div class="col-md-4">
+							<img src="img/zheyu-wu.png" class="author-photo" alt="">
+							<div class='author-name'>Zheyu Wu</div>
+							<div class='author-program'>MS, Engineerinng Sciences</div>
+							<i class="fa fa-facebook-square" style="font-size:36px;text-align:center;"></i>
+							<i class="fa fa-linkedin-square" style="font-size:36px;text-align:center;"></i>
+
+						</div>
+						<div class="col-md-4">
+							<img src="img/shu_xu.jpg" class="author-photo" alt="">
+							<div class='author-name'>Shu Xu</div>
+							<div class='author-program'>MS, Data Science</div>
+							<i class="fa fa-facebook-square" style="font-size:36px;text-align:center;"></i>
+							<i class="fa fa-linkedin-square" style="font-size:36px;text-align:center;"></i>
+
+						</div>
+						<div class="col-md-4">
+							<img src="img/shuyuan-xiao.png" class="author-photo" alt="">
+							<div class='author-name'>Shuyuan Xiao</div>
+							<div class='author-program'>MS, Data Science</div>
+							<i class="fa fa-facebook-square" style="font-size:36px;"></i>
+							<i class="fa fa-linkedin-square" style="font-size:36px;text-align:center;"></i>
+
+
+						</div>
+					</div>
+			</div>					
 				</div>
 			</div>
 		</div>

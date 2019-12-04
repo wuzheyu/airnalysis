@@ -151,36 +151,38 @@ $(document).ready(function() {
 
             }
             else if (currentIndex == 7) {
-                var timeDelay = basePause;
-                setTimeout(function() {moveItem('money-icon', 0, 50, 100)}, timeDelay);
-                timeDelay += 500;
+                if (slidesRun[currentIndex] == true) {
+                    var timeDelay = basePause;
+                    setTimeout(function() {moveItem('money-icon', 0, 50, 100)}, timeDelay);
+                    timeDelay += 500;
 
-                setTimeout(function(){
-                    $(function () {
-                        $('#eric-emily-p7').css('visibility','visible');
-                        $('#eric-emily-p7').textillate({ in: { effect: 'fadeIn' } });
-                    })
-                }, timeDelay);
+                    setTimeout(function(){
+                        $(function () {
+                            $('#eric-emily-p7').css('visibility','visible');
+                            $('#eric-emily-p7').textillate({ in: { effect: 'fadeIn' } });
+                        })
+                    }, timeDelay);
 
-                timeDelay += 6500;
-                setTimeout(function() {moveItem('hotel-icon', 0, 50, 100)}, timeDelay);
-                timeDelay += 800;
-                setTimeout(function(){
-                    $(function () {
-                        $('#eric-emily-p8').css('visibility','visible');
-                        $('#eric-emily-p8').textillate({ initialDelay: 200, in: { effect: 'fadeIn' } });
-                    })
-                }, timeDelay);
+                    timeDelay += 6500;
+                    setTimeout(function() {moveItem('hotel-icon', 0, 50, 100)}, timeDelay);
+                    timeDelay += 800;
+                    setTimeout(function(){
+                        $(function () {
+                            $('#eric-emily-p8').css('visibility','visible');
+                            $('#eric-emily-p8').textillate({ initialDelay: 200, in: { effect: 'fadeIn' } });
+                        })
+                    }, timeDelay);
 
-                timeDelay += 7800;
-                setTimeout(function() {moveItem('light-icon', 0, 50, 100)}, timeDelay);
-                timeDelay += 500;
-                setTimeout(function(){
-                    $(function () {
-                        $('#eric-emily-p9').css('visibility','visible');
-                        $('#eric-emily-p9').textillate({ initialDelay: 500, in: { effect: 'fadeIn' } });
-                    })
-                }, timeDelay);
+                    timeDelay += 7800;
+                    setTimeout(function() {moveItem('light-icon', 0, 50, 100)}, timeDelay);
+                    timeDelay += 500;
+                    setTimeout(function(){
+                        $(function () {
+                            $('#eric-emily-p9').css('visibility','visible');
+                            $('#eric-emily-p9').textillate({ initialDelay: 500, in: { effect: 'fadeIn' } });
+                        })
+                    }, timeDelay);
+                }
                 slidesRun[currentIndex] = false;
             }
             else if (currentIndex == 8) {
