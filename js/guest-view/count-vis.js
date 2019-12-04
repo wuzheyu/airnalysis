@@ -362,7 +362,10 @@ CountVis.prototype.updateVis = function() {
         })
         .attr("width", vis.x.bandwidth()/2)
         .attr("fill", vis.airbnbColor)
-        .on("mouseover", vis.tip.show)
+        .on("mouseover", function(d, index) {
+            vis.tip.show(d);
+            filter_radar(index);
+        })
         .on('mouseout', vis.tip.hide)
         // .on('mouseover', function(d){
         //     console.log(d3.event.pageX, d3.event.pageY)
@@ -432,7 +435,6 @@ CountVis.prototype.updateVis = function() {
 
     console.log(vis.started)
     if (vis.started == 0) {
-        console.log("add label here")
         vis.svg.select(".x-axis").append("text").text("Areas in Boston")
             .attr("x", vis.width/2 + 100)
             .attr("fill", "black")
