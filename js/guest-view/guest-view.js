@@ -15,6 +15,9 @@ const diffColor = "#F25764"
 const hotelColor = "#038C8C"
 const airbnbColor = "#F28D95"
 
+const hlRed = "#F2C9CC"
+const hlGreen = "#45D9D9"
+
 function createVisualization(error, bos_listing, bos_hotel_prices, bos_ratings, hotel_ratings) {
 // function createVisualization(error, bos_listing, bos_listing_for_vis, boston_review, boston_review_detail, boston_rating) {
 
@@ -55,8 +58,8 @@ function add_events() {
     d3.select("#count-left-first").on("mouseover", function() {
         d3.select("#count-left-first").style("color", diffColor)
         // countVis.highlightDT()
-        d3.select("#airbnb-bar-4").style("fill", "yellow")
-        d3.select("#hotel-bar-4").style("fill", "yellow")
+        d3.select("#airbnb-bar-4").style("fill", hlRed)
+        d3.select("#hotel-bar-4").style("fill", hlGreen)
     })
     d3.select("#count-left-first").on("mouseout", function() {
         d3.select("#count-left-first").style("color", "white")
@@ -65,8 +68,8 @@ function add_events() {
     })
     d3.select("#count-left-second").on("mouseover", function() {
         d3.select("#count-left-second").style("color", diffColor)
-        d3.select("#airbnb-bar-1").style("fill", "yellow")
-        d3.select("#hotel-bar-1").style("fill", "yellow")
+        d3.select("#airbnb-bar-1").style("fill", hlRed)
+        d3.select("#hotel-bar-1").style("fill", hlGreen)
     })
     d3.select("#count-left-second").on("mouseout", function() {
         d3.select("#count-left-second").style("color", "white")
@@ -75,9 +78,12 @@ function add_events() {
     })
     d3.select("#count-left-third").on("mouseover", function() {
         d3.select("#count-left-third").style("color", diffColor)
+        d3.selectAll(".airbnb_pbyn").style("fill", hlRed)
+
     })
     d3.select("#count-left-third").on("mouseout", function() {
         d3.select("#count-left-third").style("color", "white")
+        d3.selectAll(".airbnb_pbyn").style("fill", airbnbColor)
     })
 
 }
