@@ -7,8 +7,10 @@
 }
 
 /******** NYC map area ********/
-select {
-    width:20px;
+#map-type {
+    width:140px;
+    height: 30px;
+    margin-left:10px;
 }
 
 #ny-map svg{
@@ -25,10 +27,14 @@ select {
 }
 
 .viz-comment {
-    text-anchor: middle;
+    /*text-anchor: middle;*/
     fill: #bdbdbd;
+    font-size: 12px;
 }
-
+#see-change {
+    color: #bdbdbd;
+    font-size: 12px;
+}
 
 #ny-map path {
     stroke: black;

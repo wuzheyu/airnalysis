@@ -19,9 +19,9 @@ Choropleth.prototype.initVis = function (){
 
     var map_width = $("#"+vis.parentElement).width();
 
-    vis.margin = {top: -100, right: 0, bottom: 10, left: 60}
+    vis.margin = {top: -50, right: 0, bottom: -60, left: 60}
     vis.width = map_width - vis.margin.left - vis.margin.right
-    vis.height = 500 - vis.margin.top - vis.margin.bottom;
+    vis.height = 370 - vis.margin.top - vis.margin.bottom;
 
 
 // --> CREATE SVG DRAWING AREA
@@ -32,15 +32,11 @@ Choropleth.prototype.initVis = function (){
         .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
 // Add title
-    vis.svg.append("text")
-        .attr("class","viz-title")
-        .attr("transform","translate("+vis.width/2+","+(vis.height-70)+")")
-        .text("Viz title: Price difference");
+//     vis.svg.append("text")
+//         .attr("class","viz-title")
+//         .attr("transform","translate("+vis.width/2+","+(vis.height-70)+")")
+//         .text("Viz title: Price difference");
 
-    // vis.svg.append("text")
-    //     .attr("class","viz-comment")
-    //     .attr("transform","translate("+vis.width/3+","+30+")")
-    //     .text("*per night rate difference = airbnb - rental");
 
     // Initialize projection and path
     vis.projection = d3.geoMercator()
@@ -54,7 +50,11 @@ Choropleth.prototype.initVis = function (){
 // Colormap
 // var color = d3.scaleSequential(d3.interpolateReds); // continuous colormap
     vis.color = d3.scaleQuantize()
-        .range(d3.range(5).map(function(i) { return d3.interpolateReds((i+1)/5); }));
+        .range(d3.range(5).map(function(i) {
+            var scale = ["#F2C9CC","#F28D95","#F25764","#B51623","#610007"]
+            return scale[i];
+        }));
+
 
 // Initialize legend
     vis.legend = d3.select("#map-legend").append("svg")
@@ -64,19 +64,20 @@ Choropleth.prototype.initVis = function (){
         .attr("class", "legendSequential")
         .attr("transform", "translate(0,30)")
 
-    var squares = vis.legend.selectAll("rect")
+    var squares = vis.legend.selectAll("rect.legendsquare")
         .data(d3.range(5));
 
     var square_width = 15;
 
     squares.enter()
         .append("rect")
+        .attr("class","legendsquare")
         .merge(squares)
         .attr("x", d=>d*90)
         .attr("y",0)
         .attr("width", square_width)
         .attr("height",square_width)
-        .attr("fill",d=>d3.interpolateReds((d+1)/5));
+        .attr("fill",d=>(vis.color(d/5)));
 
     var legend_texts = vis.legend.selectAll("text.range")
         .data(d3.range(5));
@@ -89,6 +90,18 @@ Choropleth.prototype.initVis = function (){
         .text(function(d){
             return (d*40)+" to "+((d+1)*40)
         })
+
+    vis.legend.append("rect")
+        .attr("x",400)
+        .attr("y",-20)
+        .attr("width", square_width)
+        .attr("height",square_width)
+        .attr("fill","gray");
+
+    vis.legend.append("text")
+        .attr("x",400 +square_width+2)
+        .attr("y",-20+square_width-2 )
+        .text("N/A");
 
     //legend title
     vis.legend.append("text")
@@ -225,24 +238,12 @@ Choropleth.prototype.updateVis = function(){
 
     vis.choropleth.exit().remove();
 
-    // // Update legend
-    // if (attr === "At_risk" || attr === "At_high_risk"){
-    //     attr = attr + "(%)";
-    //     vis.legendtitle.text(attr);
-    //
-    //     var legend = d3.legendColor()
-    //         .scale(vis.color)
-    //         .labelFormat(d3.format("d"));
-    //
-    //     vis.svg.select(".legendSequential")
-    //         .call(legend);
-    // } else {
-    //     vis.legendtitle.text("Price Difference (Airbnb-Rental)");
-    //     var legend = d3.legendColor()
-    //         .scale(vis.color)
-    //         .labelFormat(d3.format(".2s"));
-    //     vis.legend.select(".legendSequential")
-    //         .call(legend);
-    // }
+    // // add hint
+    // vis.svg.append("text")
+    //     .attr("class","viz-comment")
+    //     .attr("id","see-change")
+    //     .attr("transform","translate(0"+","+200+")")
+    //     .text("* Hover to see what happens if there're more rooms");
+
 
 }
