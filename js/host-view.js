@@ -44,6 +44,48 @@ function updateChoropleth(){
     choro_ny.updateVis();
 }
 
+//highlight
+$('#finding1').on("mouseover",function(){
+    smallMultiples.svg.selectAll(".priceDiff, .inventDiff").style("fill",function(d){
+        if(d.type==="TwoBd"||d.type==="ThreePlusBd"){
+            return "#F28D95"
+        }else{return smallMultiples.airbnbColor}
+    });
+    })
+    .on("mouseout",function(){
+        smallMultiples.svg.selectAll(".priceDiff, .inventDiff").style("fill",smallMultiples.airbnbColor);
+    });
+
+$('#finding2').on("mouseover",function(){
+    smallMultiples.svg.selectAll(".rentalInvent").style("fill",function(d){
+            if(d.type==="TwoBd"||d.type==="OneBd"){
+                return "#038C8C"
+            }else{return smallMultiples.rentalColor}
+        })
+        .attr("stroke",function(d){
+            if(d.type==="TwoBd"||d.type==="OneBd"){
+                return "yellow"
+            }else{return }
+        });
+    smallMultiples.svg.selectAll(".airbnbInvent").style("fill",function(d){
+        if(d.type==="OneBd"){
+            return "#F28D95"
+        }else{return smallMultiples.airbnbColor}
+        })
+        .attr("stroke",function(d){
+        if(d.type==="OneBd"){
+            return "yellow"
+        }else{return }
+    });
+    })
+    .on("mouseout",function(){
+        smallMultiples.svg.selectAll(".rentalInvent").style("fill",smallMultiples.rentalColor).attr("stroke","none");
+        smallMultiples.svg.selectAll(".airbnbInvent").style("fill",smallMultiples.airbnbColor).attr("stroke","none");
+    });
+
+
+
+
 //***************** innovative viz ******************//
 d3.json("data/variability.json", function(variability){
     var example = variability[3];
@@ -100,7 +142,7 @@ d3.json("data/variability.json", function(variability){
         .attr('fill',function(d){
             return color(example.price[d])
         })
-        .attr('stroke','rgb(3,140,140)')
+        .attr('stroke','rgb(115,191,191)')
         .attr('stroke-width',function(d){
             if (example.available[d]==='False'){
                 return 2
@@ -242,7 +284,7 @@ d3.json("data/variability.json", function(variability){
         })
         .attr("r",circle_r)
         .attr("fill",color(domain_lower+10))
-        .attr('stroke','rgb(3,140,140)')
+        .attr('stroke','rgb(115,191,191)')
         .attr("stroke-width",function(d){
             if(d==="Available"){
                 return 0

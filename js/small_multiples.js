@@ -1,4 +1,4 @@
-var selectedDist = "Queens"
+var selectedDist = "Manhattan"
 var smallMultiples;
 
 SmallMultiples = function(_parentElement, _origData){
@@ -18,10 +18,11 @@ SmallMultiples = function(_parentElement, _origData){
 SmallMultiples.prototype.initVis = function(){
     const vis = this;
 
+    var width = $("#"+vis.parentElement).width();
     // svg area
-    vis.margin = { top: 103, right: 110, bottom: 100, left: 80 };
-    vis.width = 600 - vis.margin.left - vis.margin.right;
-    vis.height = 450 - vis.margin.top - vis.margin.bottom;
+    vis.margin = { top: 130, right: 50, bottom: 100, left: 110 };
+    vis.width = width - vis.margin.left - vis.margin.right;
+    vis.height = 350 - vis.margin.top - vis.margin.bottom;
     // SVG drawing area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
         .attr("transform", "translate(-20, 0)")
@@ -74,35 +75,35 @@ SmallMultiples.prototype.initVis = function(){
     vis.svg.append("g")
         .attr("class", "x1-axis axis")
         .attr("transform", "translate(" + -40 + "," + (-40 + vis.height/2) + ")")
-    vis.svg.select(".x1-axis").append("text").text("Room Types")
-        .attr("x", vis.width/2 - 20)
-        .attr("fill", "black")
-        .attr("y", vis.height/2+ 40)
-        .attr("transform", "rotate(45)");
+    // vis.svg.select(".x1-axis").append("text").text("Room Types")
+    //     .attr("x", vis.width/2 - 20)
+    //     .attr("fill", "black")
+    //     .attr("y", vis.height/2+ 40)
+    //     .attr("transform", "rotate(45)");
     vis.svg.append("g")
         .attr("class", "x2-axis axis")
         .attr("transform", "translate(" + -40 + "," + (40 + vis.height) + ")");
-    vis.svg.select(".x2-axis").append("text").text("Room Types")
-        .attr("x", vis.width/2 - 20)
-        .attr("fill", "black")
-        .attr("y", vis.height/2+ 40)
-        .attr("transform", "rotate(45)");
+    // vis.svg.select(".x2-axis").append("text").text("Room Types")
+    //     .attr("x", vis.width/2 - 20)
+    //     .attr("fill", "black")
+    //     .attr("y", vis.height/2+ 40)
+    //     .attr("transform", "rotate(45)");
     vis.svg.append("g")
         .attr("class", "x3-axis axis")
         .attr("transform", "translate(" + (40 + vis.width/2)  + "," + (-40 + vis.height/2) + ")");
-    vis.svg.select(".x3-axis").append("text").text("Room Types")
-        .attr("x", vis.width/2 - 20)
-        .attr("fill", "black")
-        .attr("y", vis.height/2+ 40)
-        .attr("transform", "rotate(45)");
+    // vis.svg.select(".x3-axis").append("text").text("Room Types")
+    //     .attr("x", vis.width/2 - 20)
+    //     .attr("fill", "black")
+    //     .attr("y", vis.height/2+ 40)
+    //     .attr("transform", "rotate(45)");
     vis.svg.append("g")
         .attr("class", "x4-axis axis")
         .attr("transform", "translate(" + (40 + vis.width/2) + "," + (40 + vis.height) + ")");
-    vis.svg.select(".x4-axis").append("text").text("Room Types")
-        .attr("x", vis.width/2 - 20)
-        .attr("fill", "black")
-        .attr("y", vis.height/2 + 40)
-        .attr("transform", "rotate(45)");
+    // vis.svg.select(".x4-axis").append("text").text("Room Types")
+    //     .attr("x", vis.width/2 - 20)
+    //     .attr("fill", "black")
+    //     .attr("y", vis.height/2 + 40)
+    //     .attr("transform", "rotate(45)");
 
     vis.svg.append("g")
         .attr("class", "y1-axis axis")
@@ -134,30 +135,37 @@ SmallMultiples.prototype.initVis = function(){
         .attr("y", -10);
 
     // legend
-    vis.svg.append('rect')
+    vis.legend = vis.svg.append("g")
+        .attr("transform","translate("+(vis.width-100)+",10)");
+    vis.legend.append('rect')
         .attr("x", -40)
         .attr('y', -100)
         .attr("width", 10)
         .attr("height", 10)
         .attr("fill", vis.airbnbColor)
-    vis.svg.append('text')
+    vis.legend.append('text')
         .text("Airbnb")
         .attr("fill", vis.airbnbColor)
         .attr("x", -20)
         .attr('y', -90)
-    vis.svg.append('rect')
-        .attr("x", -40)
-        .attr('y', -80)
+    vis.legend.append('rect')
+        .attr("x", 60)
+        .attr('y', -100)
         .attr("width", 10)
         .attr("height", 10)
         .attr("fill", vis.rentalColor)
-    vis.svg.append('text')
+    vis.legend.append('text')
         .text("Rental")
         .attr("fill", vis.rentalColor)
-        .attr("x", -20)
-        .attr('y', -70)
+        .attr("x", 80)
+        .attr('y', -90)
 
-
+    // title
+    vis.title = vis.svg.append('text')
+        .attr("id","multiples-title")
+        .attr("x", -70)
+        .attr("y",-110)
+        // .attr("fill","whitesmoke")
 
     // update data
     vis.wrangleData();
@@ -384,12 +392,12 @@ SmallMultiples.prototype.updateVis = function() {
 
 
     /*   Price Diff Bar Chart  */
-    var bar3 = vis.svg.selectAll(".priceDiff")
+    vis.bar3 = vis.svg.selectAll(".priceDiff")
         .data(vis.displayData);
-    bar3.enter()
+    vis.bar3.enter()
         .append("rect")
         .attr("class", "priceDiff")
-        .merge(bar3)
+        .merge(vis.bar3)
         .style("fill", vis.airbnbColor)
         .style("stroke", vis.rentalColor)
         .transition()
@@ -407,7 +415,7 @@ SmallMultiples.prototype.updateVis = function() {
         .attr("height", function(d) {
             return vis.height/2 - vis.y3(d.price_diff);
         });
-    bar3.exit().remove();
+    vis.bar3.exit().remove();
 
     /*   Inventory Diff Bar Chart  */
     var bar4 = vis.svg.selectAll(".inventDiff")
@@ -473,6 +481,10 @@ SmallMultiples.prototype.updateVis = function() {
     vis.svg.select(".y2-axis").call(vis.yAxis2.ticks(8));
     vis.svg.select(".y3-axis").call(vis.yAxis3.ticks(8));
     vis.svg.select(".y4-axis").call(vis.yAxis4.ticks(8));
+
+    // update title
+    vis.title
+        .text("Price and Inventory by room type in "+selectedDist);
 
 }
 

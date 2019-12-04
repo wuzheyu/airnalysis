@@ -19,9 +19,9 @@ Choropleth.prototype.initVis = function (){
 
     var map_width = $("#"+vis.parentElement).width();
 
-    vis.margin = {top: 0, right: 0, bottom: 10, left: 60}
+    vis.margin = {top: -100, right: 0, bottom: 10, left: 60}
     vis.width = map_width - vis.margin.left - vis.margin.right
-    vis.height = 520 - vis.margin.top - vis.margin.bottom;
+    vis.height = 500 - vis.margin.top - vis.margin.bottom;
 
 
 // --> CREATE SVG DRAWING AREA
@@ -37,15 +37,15 @@ Choropleth.prototype.initVis = function (){
         .attr("transform","translate("+vis.width/2+","+(vis.height-70)+")")
         .text("Viz title: Price difference");
 
-    vis.svg.append("text")
-        .attr("class","viz-comment")
-        .attr("transform","translate("+vis.width/3+","+30+")")
-        .text("*per night rate difference = airbnb - rental");
+    // vis.svg.append("text")
+    //     .attr("class","viz-comment")
+    //     .attr("transform","translate("+vis.width/3+","+30+")")
+    //     .text("*per night rate difference = airbnb - rental");
 
     // Initialize projection and path
     vis.projection = d3.geoMercator()
         .translate([vis.width / 2, vis.height / 2])
-        .scale(40000)
+        .scale(35000)
         .center([-73.9,40.7]);
 
     vis.path = d3.geoPath()
@@ -197,7 +197,7 @@ Choropleth.prototype.updateVis = function(){
         vis.svg.select(".legendSequential")
             .call(legend);
     } else {
-        vis.legendtitle.text("Rate Difference (per night) for "+attr);
+        vis.legendtitle.text("Price Difference (Airbnb-Rental)");
         var legend = d3.legendColor()
             .scale(vis.color)
             .labelFormat(d3.format(".2s"));
