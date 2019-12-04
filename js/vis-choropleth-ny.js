@@ -56,14 +56,54 @@ Choropleth.prototype.initVis = function (){
     vis.color = d3.scaleQuantize()
         .range(d3.range(5).map(function(i) { return d3.interpolateReds((i+1)/5); }));
 
-// Initialize legend (ref:https://d3-legend.susielu.com/)
-    vis.svg.append("g")
+// Initialize legend
+    vis.legend = d3.select("#map-legend").append("svg")
+        .attr("width", vis.width + vis.margin.left + vis.margin.right)
+        .attr("height", 50)
+        .append("g")
         .attr("class", "legendSequential")
-        .attr("transform", "translate("+(vis.width/2-280)+","+(vis.height-400)+")");
+        .attr("transform", "translate(0,30)")
 
-    vis.legendtitle = vis.svg.append("text")
+    var squares = vis.legend.selectAll("rect")
+        .data(d3.range(5));
+
+    var square_width = 15;
+
+    squares.enter()
+        .append("rect")
+        .merge(squares)
+        .attr("x", d=>d*90)
+        .attr("y",0)
+        .attr("width", square_width)
+        .attr("height",square_width)
+        .attr("fill",d=>d3.interpolateReds((d+1)/5));
+
+    var legend_texts = vis.legend.selectAll("text.range")
+        .data(d3.range(5));
+    legend_texts.enter()
+        .append("text")
+        .attr("class","range")
+        .merge(legend_texts)
+        .attr("x", d=>(d*90+square_width+2))
+        .attr("y",square_width-2)
+        .text(function(d){
+            return (d*40)+" to "+((d+1)*40)
+        })
+
+    //legend title
+    vis.legend.append("text")
+        .attr("id","legendtitle")
+        .attr("y",-10)
+        .text("Price difference per night (Airbnb - rental)");
+
+    //
+    // vis.svg.append("g")
+    //     .attr("class", "legendSequential")
+    //     .attr("transform", "translate("+(vis.width/2-280)+","+(vis.height-400)+")");
+
+    vis.legendtitle = vis.legend.append("text")
         .attr("id", "legend_title")
-        .attr("transform", "translate("+(vis.width/2-280)+","+(vis.height-410)+")");
+        // .attr("transform", "translate("+(vis.width/2-280)+","+(vis.height-410)+")");
 
     // Update choropleth
     vis.updateVis();
@@ -185,24 +225,24 @@ Choropleth.prototype.updateVis = function(){
 
     vis.choropleth.exit().remove();
 
-    // Update legend
-    if (attr === "At_risk" || attr === "At_high_risk"){
-        attr = attr + "(%)";
-        vis.legendtitle.text(attr);
-
-        var legend = d3.legendColor()
-            .scale(vis.color)
-            .labelFormat(d3.format("d"));
-
-        vis.svg.select(".legendSequential")
-            .call(legend);
-    } else {
-        vis.legendtitle.text("Price Difference (Airbnb-Rental)");
-        var legend = d3.legendColor()
-            .scale(vis.color)
-            .labelFormat(d3.format(".2s"));
-        vis.svg.select(".legendSequential")
-            .call(legend);
-    }
+    // // Update legend
+    // if (attr === "At_risk" || attr === "At_high_risk"){
+    //     attr = attr + "(%)";
+    //     vis.legendtitle.text(attr);
+    //
+    //     var legend = d3.legendColor()
+    //         .scale(vis.color)
+    //         .labelFormat(d3.format("d"));
+    //
+    //     vis.svg.select(".legendSequential")
+    //         .call(legend);
+    // } else {
+    //     vis.legendtitle.text("Price Difference (Airbnb-Rental)");
+    //     var legend = d3.legendColor()
+    //         .scale(vis.color)
+    //         .labelFormat(d3.format(".2s"));
+    //     vis.legend.select(".legendSequential")
+    //         .call(legend);
+    // }
 
 }
