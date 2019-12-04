@@ -83,3 +83,8 @@ select {
 #circle-legend {
     fill: whitesmoke;
 }
+
+.finding {
+    fill: whitesmoke;
+    font-size: 15px;
+}
