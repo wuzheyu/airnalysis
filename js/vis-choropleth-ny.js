@@ -106,6 +106,8 @@ Choropleth.prototype.updateVis = function(){
         .attr("class",'borough')
         .merge(vis.borough)
         .attr("d", vis.path)
+        // .attr("stroke","black")
+        // .attr("stroke-width",2)
         .attr("fill", function(d){
             var borough = d.properties.name;
             return vis.color(vis.displayData[borough]['price_diff']);
@@ -119,6 +121,8 @@ Choropleth.prototype.updateVis = function(){
         .attr("class",'neighborhood')
         .merge(vis.choropleth)
         .attr("d", vis.path)
+        // .attr("stroke","none")
+        // .attr("stroke-width",1)
         .attr("fill", function(d){
             // var borough = d.properties.name;
             // return vis.color(vis.displayData[borough]['price_diff']);
@@ -134,9 +138,24 @@ Choropleth.prototype.updateVis = function(){
             }
         });
 
+    // // another layer of boroughs on top
+    // vis.borough2 = vis.svg.selectAll("path.borough2")
+    //     .data(vis.nyc_borough.features);
+    //
+    // vis.borough2.enter().append("path")
+    //     .attr("class",'borough2')
+    //     .merge(vis.borough2)
+    //     .attr("d", vis.path)
+    //     // .attr("stroke","black")
+    //     // .attr("stroke-width",1)
+    //     .attr("fill", function(d){
+    //         var borough = d.properties.name;
+    //         return vis.color(vis.displayData[borough]['price_diff']);
+    //     });
+
     // Add tooltip
     vis.tip = d3.tip().attr('class', 'd3-tip').attr("data-html", "true").html(function(d) {
-        if (d.properties.name){   // d is the base borough
+        if (d.properties.name){   // when d is the base borough
             return "<h6>Nonresidential Area, "+d.properties.name + "</h6>"
                     + "Details Unavailable"
         }
@@ -156,11 +175,12 @@ Choropleth.prototype.updateVis = function(){
     });
     vis.svg.call(vis.tip);
     vis.svg.selectAll("path")
-        .on('mouseover', vis.tip.show)
-        .on('mouseout', vis.tip.hide)
-        .on('click', function(d) {
+        .on('mouseover', function(d) {
             show_small_multiples(d);
-        });
+            vis.tip.show(d);
+        })
+        .on('mouseout', vis.tip.hide);
+
     vis.tip.offset([0, 0]);
 
     vis.choropleth.exit().remove();
