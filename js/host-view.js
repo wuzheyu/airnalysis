@@ -62,9 +62,10 @@ $('#finding2').on("mouseover",function(){
                 return "#038C8C"
             }else{return smallMultiples.rentalColor}
         })
+        .attr("stroke-width",3)
         .attr("stroke",function(d){
             if(d.type==="TwoBd"||d.type==="OneBd"){
-                return "rgb(255,78,87);"
+                return "lightyellow";
             }else{return }
         });
     smallMultiples.svg.selectAll(".airbnbInvent").style("fill",function(d){
@@ -72,9 +73,10 @@ $('#finding2').on("mouseover",function(){
             return "#F28D95"
         }else{return smallMultiples.airbnbColor}
         })
+        .attr("stroke-width",3)
         .attr("stroke",function(d){
         if(d.type==="OneBd"){
-            return "rgb(255,78,87);"
+            return "lightyellow";
         }else{return }
     });
     })
@@ -84,7 +86,7 @@ $('#finding2').on("mouseover",function(){
     });
 
 // highlight map
-$('#see-change').on("mouseover", function(){
+$('#see-change').on("click", function(){
         var choices = ['Studio','OneBd','TwoBd','ThreePlusBd'];
         var counter = 0;
         // make the map automatically change according to room type
@@ -93,12 +95,15 @@ $('#see-change').on("mouseover", function(){
             counter += 1;
             $("#map-type").val(next).change();
         },1500);
-    })
-    .on("mouseout",function(){
         setTimeout(function(){
             clearInterval(gif); //clear above gif after .5 seconds
-        },500);
+        },6100);
     })
+    // .on("mouseout",function(){
+    //     setTimeout(function(){
+    //         clearInterval(gif); //clear above gif after .5 seconds
+    //     },500);
+    // })
 
 
 
@@ -368,7 +373,7 @@ d3.json("data/variability.json", function(variability){
                 if(parseMonth(example.date[d])>parseMonth("2020-03-09")){
                     return "lightyellow";
                 }//&
-                return 'rgb(3,140,140)'
+                return 'rgb(3,140,140)';
             })
             .attr("fill-opacity",function(d){
                 if(parseMonth(example.date[d])>parseMonth("2020-03-09")){
