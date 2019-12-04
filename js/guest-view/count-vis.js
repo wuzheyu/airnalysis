@@ -8,6 +8,7 @@ CountVis = function(_parentElement, _data, _hotel_data){
     this.diffColor = "#F25764"
     this.hotelColor = "#73BFBF"
     this.airbnbColor = "#F28D95"
+    this.started = 0;
 
     this.clean_data();
     this.initVis();
@@ -59,8 +60,11 @@ CountVis.prototype.initVis = function() {
         .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
 
+    vis.tooltip = vis.svg.append("div").attr("class", "toolTip");
+
     vis.x = d3.scaleBand()
-        .range([0, 350]);
+        .range([0, 350])
+        .padding(.3);
 
     vis.y = d3.scaleLinear()
         .range([vis.height, 0]);
@@ -127,6 +131,11 @@ CountVis.prototype.initVis = function() {
     //
 
     // bar graphs
+
+    vis.svg.select(".y-axis").call(vis.yAxis).append("text").text("Price")
+        .attr("x", -10)
+        .attr("fill", "black")
+        .attr("y", -10);
 
     vis.wrangleData();
 
@@ -321,6 +330,16 @@ CountVis.prototype.updateVis = function() {
 
     vis.x.domain(domain_arr);
 
+    // tooltips
+    vis.tip = d3.tip().attr('class', 'd3-tip').attr("data-html", "true").html(function(d) {
+        return "Average Price: $" + d.avg_price.toFixed(2)
+    });
+    vis.tip2 = d3.tip().attr('class', 'd3-tip').attr("data-html", "true").html(function(d) {
+        return "Average Price: $" + d.hotel_price.toFixed(2)
+    });
+    vis.svg.call(vis.tip);
+    vis.svg.call(vis.tip2);
+
     var stacked_bars = vis.bar_air.selectAll(".airbnb_pbyn")
         .data(vis.displayData, function(d) {
             return d.neightborhood
@@ -333,7 +352,7 @@ CountVis.prototype.updateVis = function() {
         // .transition()
         // .duration(1000)
         .attr("x", function(d) {
-            return vis.x(d.neightborhood)
+            return vis.x(d.neightborhood) + vis.x.bandwidth()/2
         })
         .attr("y", function(d) {
             return vis.y(d.avg_price)
@@ -341,9 +360,26 @@ CountVis.prototype.updateVis = function() {
         .attr("height", function(d) {
             return vis.height - vis.y(d.avg_price)
         })
-        .attr("width", vis.x.bandwidth())
+        .attr("width", vis.x.bandwidth()/2)
         .attr("fill", vis.airbnbColor)
+        .on("mouseover", function(d, index) {
+            vis.tip.show(d);
+            filter_radar(index);
+        })
+        .on('mouseout', vis.tip.hide)
+        // .on('mouseover', function(d){
+        //     console.log(d3.event.pageX, d3.event.pageY)
+        //
+        //     vis.tooltip
+        //         .style("left", vis.x(d.neightborhood) + vis.x.bandwidth()/2 + "px")
+        //         .style("top", vis.y(d.avg_price) + "px")
+        //         .style("display", "inline-block")
+        //         .style("fill", "black")
+        //         .html(("Average Price") + "<br>" + "$" + (d.avg_price));
+        // })
+        // .on("mouseout", function(d){ vis.tooltip.style("display", "none");});
         // .attr("opacity", 0.5)
+    stacked_bars.transition()
     stacked_bars.exit().remove()
 
 
@@ -363,14 +399,18 @@ CountVis.prototype.updateVis = function() {
             return vis.x(d.neightborhood)
         })
         .attr("y", function(d) {
-            return vis.y(d.avg_price + d.hotel_price)
+            return vis.y(d.hotel_price)
         })
         .attr("height", function(d) {
             return vis.height - vis.y(d.hotel_price)
         })
-        .attr("width", vis.x.bandwidth())
+        .attr("width", vis.x.bandwidth()/2)
         .attr("fill", vis.hotelColor)
-        // .attr("opacity", 0.5)
+        .on("mouseover", vis.tip2.show)
+        .on('mouseout', vis.tip2.hide)
+
+    // .attr("opacity", 0.5)
+    stacked_bars_hotels.transition()
     stacked_bars_hotels.exit().remove()
 
     // vis.timePath
@@ -392,7 +432,16 @@ CountVis.prototype.updateVis = function() {
         .attr("transform", function(d) {
             return "rotate(-45)"
         })
-    vis.svg.select(".y-axis").call(vis.yAxis);
+
+    console.log(vis.started)
+    if (vis.started == 0) {
+        vis.svg.select(".x-axis").append("text").text("Areas in Boston")
+            .attr("x", vis.width/2 + 100)
+            .attr("fill", "black")
+            .attr("y", 20)
+
+        vis.started += 1;
+    }
 
     // brush
     // vis.brushGroup.call(vis.brush);
