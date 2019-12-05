@@ -378,3 +378,11 @@ hr {
 .guest-left {
     font-size: 12px;
 }
+
+.fa {
+  color: rgb(255, 255, 255);
+}
+
+.fa:hover {
+  color: rgba(255, 255, 255, 0.797);
+}

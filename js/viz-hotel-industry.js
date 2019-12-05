@@ -60,7 +60,7 @@ hotel_airbnb_svg.append("g")
 var hotelLine= d3.line();
 
 // use this variable to store the selected chart data value - by default it should be "GOALS"
-var userSelection = d3.select("#hotel-select").property("value");
+var userSelection = 'all';
 
 var lineToolTip;
 // year data
@@ -114,12 +114,12 @@ function loadData() {
 
 
 
-// Handle the case where the user selection changes
-d3.select("#hotel-select").on("change", selectHandler);
-function selectHandler(){
-	userSelection = d3.select("#hotel-select").property("value");
-	updateHotelAirbnbVisualization();
-}
+// // Handle the case where the user selection changes
+// d3.select("#hotel-select").on("change", selectHandler);
+// function selectHandler(){
+// 	userSelection = d3.select("#hotel-select").property("value");
+// 	updateHotelAirbnbVisualization();
+// }
 
 
 // Render visualization
