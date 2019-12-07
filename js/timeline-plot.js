@@ -10,7 +10,7 @@ timelinePlot.prototype.initVis = function(){
 	var vis = this;
 
 	// define svg propertities
-	vis.margin = {top: 20, right: 50, bottom: 50, left: 80};
+	vis.margin = {top: 20, right: 65, bottom: 50, left: 67};
 	
 	vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
     vis.height = 155 - vis.margin.top - vis.margin.bottom;
@@ -43,7 +43,7 @@ timelinePlot.prototype.initVis = function(){
     vis.yAxis = d3.axisLeft().scale(vis.yScale).tickFormat(d3.format(".0%")).ticks(3);
     vis.xAxis = d3.axisBottom().scale(vis.xScale)
     vis.yLabel = vis.svg.append("text")
-                        .attr("x", -10)
+                        .attr("x", 0)
                         .style("font-size", 12)
                         .style("fill", "white")
                         .style("font-family", "Montserrat, sans-serif")
@@ -51,7 +51,7 @@ timelinePlot.prototype.initVis = function(){
                         // Create x label
     vis.xLabel = vis.svg.append("text")
                     .attr("x", vis.width - 5)
-                    .attr("y", vis.height + 25)
+                    .attr("y", vis.height + 30)
                     .style("fill", "white")
                     .style("font-family", "Montserrat, sans-serif")
                     .style("font-size", 12)
