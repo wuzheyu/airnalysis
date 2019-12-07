@@ -62,32 +62,51 @@ function add_events() {
     d3.select("#count-left-first").on("mouseover", function() {
         d3.select("#count-left-first").style("color", hlColor)
         // countVis.highlightDT()
-        d3.select("#airbnb-bar-4").style("fill", hlRed)
-        d3.select("#hotel-bar-4").style("fill", hlGreen)
+        if (!gridVis.allDiff[10]) {
+            gridVis.updateDiffSingle(10)
+        }
+        d3.select("#grid-10").style("fill", hlRed).attr("stroke", "#F25764")
+            .attr("stroke-width", 4)
+        // d3.select("#hotel-bar-4").style("fill", hlGreen)
     })
     d3.select("#count-left-first").on("mouseout", function() {
         d3.select("#count-left-first").style("color", "white")
-        d3.select("#airbnb-bar-4").style("fill", airbnbColor)
-        d3.select("#hotel-bar-4").style("fill", hotelColor)
+        d3.select("#grid-10").style("fill", "white").attr("stroke", "white")
+            .attr("stroke-width", 0)
+        // d3.select("#airbnb-bar-4").style("fill", airbnbColor)
+        // d3.select("#hotel-bar-4").style("fill", hotelColor)
     })
     d3.select("#count-left-second").on("mouseover", function() {
         d3.select("#count-left-second").style("color", hlColor)
-        d3.select("#airbnb-bar-1").style("fill", hlRed)
-        d3.select("#hotel-bar-1").style("fill", hlGreen)
+        if (gridVis.allDiff[6]) {
+            gridVis.updateDiffSingle(6)
+        }
+        d3.select("#grid-6").style("fill", hlRed).attr("stroke", "#F25764")
+            .attr("stroke-width", 4)
     })
     d3.select("#count-left-second").on("mouseout", function() {
         d3.select("#count-left-second").style("color", "white")
-        d3.select("#airbnb-bar-1").style("fill", airbnbColor)
-        d3.select("#hotel-bar-1").style("fill", hotelColor)
+        d3.select("#grid-6").style("fill", "white").attr("stroke", "white")
+            .attr("stroke-width", 0)
     })
     d3.select("#count-left-third").on("mouseover", function() {
         d3.select("#count-left-third").style("color", hlColor)
-        d3.selectAll(".airbnb_pbyn").style("fill", hlRed)
-
+        d3.selectAll(".grids").style("fill", hlRed).attr("stroke", "#F25764")
+            .attr("stroke-width", 4)
+        gridVis.updateTrue();
+        gridVis.updateVis();
     })
     d3.select("#count-left-third").on("mouseout", function() {
         d3.select("#count-left-third").style("color", "white")
-        d3.selectAll(".airbnb_pbyn").style("fill", airbnbColor)
+        d3.selectAll(".grids").style("fill", "white").attr("stroke", "white")
+            .attr("stroke-width", 0)
+    })
+    d3.select("#count-left-fourth").on("mouseover", function() {
+        d3.select("#count-left-fourth").style("color", hlColor)
+    })
+    d3.select("#count-left-fourth").on("mouseout", function() {
+        d3.select("#count-left-fourth").style("color", "white")
+
     })
 }
 

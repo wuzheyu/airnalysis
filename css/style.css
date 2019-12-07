@@ -2,7 +2,7 @@
     font-family: 'Montserrat', sans-serif;
     background-color: rgba(0, 0, 0, 0.3);
     opacity:.9;
-    color: white;
+    color: whitesmoke;
     font-size: 140px;
     text-align: center;
     font-weight: bold;
@@ -52,7 +52,7 @@ rect:hover {
 
 .nav-link {
   font-family: 'Montserrat', sans-serif;
-  color:white;
+  color:whitesmoke;
   background-color:  rgb(255,78,87);
   border-radius: 3px;
   font-weight: bold;
@@ -62,7 +62,7 @@ rect:hover {
 
 .section-header {
     font-family: 'Montserrat', sans-serif;
-    color:white;
+    color:whitesmoke;
     opacity:.8;
     font-size: 40px;
     text-align: left;
@@ -78,7 +78,7 @@ rect:hover {
 .sub-section-header {
   font-family: 'Montserrat', sans-serif;
   opacity:.8;
-  color: white;
+  color: whitesmoke;
   font-size: 20px;
   text-align: left;
   font-weight: bold;
@@ -89,7 +89,7 @@ rect:hover {
 
 .sub-section-title {
   font-family: 'Montserrat', sans-serif;
-  color: white;
+  color: whitesmoke;
   font-size: 17px;
   text-align: left;
   font-weight: bold;
@@ -99,7 +99,7 @@ rect:hover {
 
 .sub-section-content {
   font-family: 'Montserrat', sans-serif;
-  color: white;
+  color: whitesmoke;
   font-size: 15px;
   text-align: left;
   font-weight: bold;
@@ -115,53 +115,53 @@ rect:hover {
 
 
 .airbnb-hotel-x-axis path{
-  stroke: white;
+  stroke: whitesmoke;
 }
 
 .airbnb-hotel-x-axis line{
-  stroke: white;
+  stroke: whitesmoke;
 }
 
 .airbnb-hotel-x-axis text{
-  fill: white;
+  fill: whitesmoke;
 }
 
 .airbnb-hotel-y-axis path{
-  stroke: white;
+  stroke: whitesmoke;
 }
 
 .airbnb-hotel-y-axis line{
-  stroke: white;
+  stroke: whitesmoke;
 }
 
 .airbnb-hotel-y-axis text{
-  fill: white;
+  fill: whitesmoke;
 }
 
 .radialAxis {
-    fill: white;
+    fill: whitesmoke;
 }
 .radialAxisText {
-    fill: white;
+    fill: whitesmoke;
 }
 
 
 
 .us-city-x-axis text{
-  fill: white;
+  fill: whitesmoke;
 }
 
 .us-city-x-axis .domain{
-  stroke: white;
+  stroke: whitesmoke;
 }
 
 
 .us-city-y-axis text{
-  fill: white;
+  fill: whitesmoke;
 }
 
 .us-city-y-axis .domain{
-  stroke: white;
+  stroke: whitesmoke;
 }
 
 .ml12 {
@@ -179,7 +179,7 @@ rect:hover {
 .axis path,
 .axis line {
   fill: none;
-  stroke: white;
+  stroke: whitesmoke;
   shape-rendering: crispEdges;
 }
 .axis text {
@@ -249,7 +249,7 @@ rect:hover {
     display: none;
     min-width: 80px;
     height: auto;
-    background: none repeat scroll 0 0 #ffffff;
+    background: none repeat scroll 0 0 whitesmoke;
     border: 1px solid #6F257F;
     padding: 14px;
     text-align: center;
@@ -320,7 +320,7 @@ rect:hover {
 .text-background{
   font-family: 'Montserrat', sans-serif;
   background-color: rgba(0, 0, 0, 0.7);
-  color: white;
+  color: whitesmoke;
   font-size: 20px;
   margin-top: 30px;
   margin-bottom: 100px;
@@ -335,7 +335,7 @@ rect:hover {
 }
 
 hr {
-  border-color:white;
+  border-color:whitesmoke;
 }
 
 .reference-url {
@@ -373,8 +373,16 @@ hr {
 /*    font-size: 11px;*/
 /*}*/
 
-.guest-left {
+/*.guest-left {*/
+/*    font-size: 12px;*/
+/*}*/
+
+#grid-map-vis {
     font-size: 12px;
+}
+
+#radio-diff{
+    margin-left: 30px;
 }
 
 .fa {

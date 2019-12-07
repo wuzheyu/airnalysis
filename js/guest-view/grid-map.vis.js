@@ -23,7 +23,7 @@ gridMapVis.prototype.initVis = function() {
     vis.grey_out = [0, 1, 3, 4, 13, 15]
     vis.areas = [];
 
-    vis.margin = {top: 0, right: 0, bottom: 100, left: 40};
+    vis.margin = {top: 20, right: 0, bottom: 100, left: 40};
 
     // vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
     vis.height = 300 - vis.margin.top - vis.margin.bottom;
@@ -41,35 +41,103 @@ gridMapVis.prototype.initVis = function() {
         .range([0, 50]);
     vis.y2 = d3.scaleLinear()
         .range([0, 50]);
+    vis.yDis = d3.scaleLinear()
+        .range([50, 0]);
     var MaxY= d3.max(vis.displayData.map(function(d){ return (d.hotel_price - d.avg_price); }));
     vis.y2.domain([0,MaxY + 7]);
     var MaxY2= d3.max(vis.displayData.map(function(d){ return (d.avg_price); }));
     var MaxYHot =  d3.max(vis.displayData.map(function(d){ return (d.hotel_price); }));
     // var MaxY_hotel = d3.max(vis.hotel_data.map(function(d){ return d.ave_price; }));
-    vis.y.domain([0, Math.max(MaxY2, MaxYHot) + 20]);
+    vis.y.domain([0, Math.max(MaxY2, MaxYHot) + 10]);
+    vis.yDis.domain(vis.y.domain())
 
     vis.neigh_order = ["none", "none", "Back Bay", "none", "none",  "West End", "Beacon Hill",
         "South End", "Charlestown", "North End", "Downtown", "South Boston", "East Boston",
         "none", "South Boston Waterfront", "none"]
 
-    console.log("DISPLAY HERE !!!!!!!!!")
-    console.log(vis.displayData)
-
     vis.neigh_ind = [-1, -1, 0, -1, -1, 9, 1, 8, 2, 5, 3, 6, 4, -1, 7, -1]
 
-    // vis.renderLegend()
+    vis.renderLegend()
 
     vis.renderGrid();
 }
 
-// gridMapVis.prototype.renderLegend = function() {
-//     const vis = this;
-//
-//     var legend = vis.svg.append("rect")
-//
-//
-//
-// }
+gridMapVis.prototype.renderLegend = function() {
+    const vis = this;
+
+    // SQUARES
+    vis.svg.append("rect")
+        .attr("x", 380)
+        .attr("y", 40)
+        .attr("width", 15)
+        .attr("height", 15)
+        .attr("fill", vis.airbnbColor)
+
+    vis.svg.append("rect")
+        .attr("x", 380)
+        .attr("y", 60)
+        .attr("width", 15)
+        .attr("height", 15)
+        .attr("fill", vis.hotelColor)
+
+    vis.svg.append("rect")
+        .attr("x", 380)
+        .attr("y", 80)
+        .attr("width", 15)
+        .attr("height", 15)
+        .attr("fill", vis.diffColor)
+
+    // TEXTS
+    vis.svg.append("text")
+        .attr("x", 400)
+        .attr("y", 50)
+        .text("Airbnb Price / Rating")
+        .attr("fill", vis.airbnbColor)
+
+    vis.svg.append("text")
+        .attr("x", 400)
+        .attr("y", 70)
+        .text("Hotel Price / Rating")
+        .attr("fill", vis.hotelColor)
+
+    vis.svg.append("text")
+        .attr("x", 400)
+        .attr("y", 90)
+        .text("Hotel Price - Airbnb Price")
+        .attr("fill", vis.diffColor)
+
+    vis.svg.append("g")
+        .attr("class", "price-axis axis")
+        // .attr("x", 420)
+        // .attr("y", 200)
+        .attr("transform", "translate(10, 70)")
+    vis.yAxis = d3.axisLeft()
+        .scale(vis.yDis).ticks(4)
+    vis.svg.select(".price-axis").call(vis.yAxis).append("text").text("Price Scale (in USD)")
+        .attr("y", -10)
+        .attr("text-anchor", "middle")
+
+    vis.svg.append("text")
+        .attr("x", 380)
+        .attr("y", 120)
+        .attr("id", "tooltip1")
+        .text("")
+        .attr("fill", "white")
+
+    vis.svg.append("text")
+        .attr("x", 380)
+        .attr("y", 140)
+        .attr("id", "tooltip2")
+        .text("")
+        .attr("fill", "white")
+
+    vis.svg.append("text")
+        .attr("x", 380)
+        .attr("y", 160)
+        .attr("id", "tooltip3")
+        .text("")
+        .attr("fill", "white")
+}
 
 gridMapVis.prototype.renderGrid = function() {
     var vis = this;
@@ -131,20 +199,20 @@ gridMapVis.prototype.renderGrid = function() {
                 return 1;
             }
         })
-    .on("mouseover", function(d, index) {
-        filter_radar(index);
-        vis.updateDiffSingle(index)
-        // if (vis.diff) {
-        //     vis.updateDiff();
-        // }
-        // else {
-        //     vis.updateVis();
-        // }
-        d3.select("#grid-" + index).style("opacity", 0)
-    })
-    .on("mouseout", function(d, index) {
-        d3.select("#grid-" + index).style("opacity", 1)
-    })
+    // .on("mouseover", function(d, index) {
+    //     filter_radar(index);
+    //     vis.updateDiffSingle(index)
+    //     // if (vis.diff) {
+    //     //     vis.updateDiff();
+    //     // }
+    //     // else {
+    //     //     vis.updateVis();
+    //     // }
+    //     d3.select("#grid-" + index).style("opacity", 0)
+    // })
+    // .on("mouseout", function(d, index) {
+    //     d3.select("#grid-" + index).style("opacity", 1)
+    // })
     vis.grids.exit().remove()
 
     vis.grid_text = vis.svg.selectAll(".grid-text")
@@ -156,7 +224,7 @@ gridMapVis.prototype.renderGrid = function() {
             return "grid-text-" + index;
         })
         .attr("x", function(d) {
-            return 70 * Math.floor(d/4) + 72;
+            return 77 * Math.floor(d/4) + 65;
         })
         .attr("y", function(d) {
             return 70 * (d%4 + 1) - 5;
@@ -164,11 +232,9 @@ gridMapVis.prototype.renderGrid = function() {
         .style("text-anchor", "middle")
         .attr("fill", function(d) {
             if (vis.grey_out.includes(d)) {
-                console.log("include" + d);
                 return "black";
             }
             else {
-                console.log("not include" + d);
                 return vis.diffColor;
             }
         })
@@ -243,16 +309,15 @@ gridMapVis.prototype.updateDiffSingle = function(ind) {
             .attr("x", 70 * Math.floor(ind/4) + 70)
             .attr("height", function() {
                 const datum  = vis.displayData[vis.neigh_ind[ind]];
-                return vis.y2(datum.hotel_price - datum.avg_price);
+                return vis.y(datum.hotel_price - datum.avg_price);
             })
             .attr("fill", vis.diffColor)
             .attr("y", function() {
                 const datum  = vis.displayData[vis.neigh_ind[ind]];
-                return 70 * (ind%4) + 50 - vis.y2(datum.hotel_price - datum.avg_price);
+                return 70 * (ind%4) + 50 - vis.y(datum.hotel_price - datum.avg_price);
             })
     }
     else {
-        console.log("come here")
         d3.select("#air-bar-" + ind).attr("opacity", 1);
         // d3.select("#hotel-bar-" + ind).attr("fill", vis.hotelColor)
         const temp1 = d3.select("#hotel-bar-" + ind)
@@ -290,11 +355,11 @@ gridMapVis.prototype.updateDiff = function() {
         })
         .attr("y", function(d, index) {
             const ind = vis.neigh_order.indexOf(d.neightborhood)
-            return 70 * (ind%4) + 50 - vis.y2(d.hotel_price - d.avg_price);
+            return 70 * (ind%4) + 50 - vis.y(d.hotel_price - d.avg_price);
         })
         .attr("width", 15)
         .attr("height", function(d) {
-            return vis.y2(d.hotel_price - d.avg_price)
+            return vis.y(d.hotel_price - d.avg_price)
         })
         .attr("fill", vis.diffColor);
     vis.diffBars.exit().remove()
@@ -391,7 +456,6 @@ gridMapVis.prototype.renderCover = function() {
             return "grid-" + index;
         })
         .attr("x", function(d) {
-            console.log(Math.floor(d/4))
             return 70 * Math.floor(d/4) + 50;
         })
         .attr("y", function(d) {
@@ -418,9 +482,25 @@ gridMapVis.prototype.renderCover = function() {
             //     vis.updateVis();
             // }
             d3.select("#grid-" + index).style("opacity", 0)
+
+            // tooltip
+            const datum = vis.displayData[vis.neigh_ind[index]]
+            if (!vis.allDiff[index]) {
+                d3.select("#tooltip1").text("Neighborhood: " + datum.neightborhood)
+                d3.select("#tooltip2").text("Price Difference: " + (datum.hotel_price - datum.avg_price).toFixed(2))
+                d3.select("#tooltip3").text("")
+            }
+            else {
+                d3.select("#tooltip1").text("Neighborhood: " + datum.neightborhood)
+                d3.select("#tooltip2").text("Airbnb Price: " + datum.avg_price.toFixed(2))
+                d3.select("#tooltip3").text("Hotel Price: " + datum.hotel_price.toFixed(2))
+            }
         })
         .on("mouseout", function(d, index) {
             d3.select("#grid-" + index).style("opacity", 1)
+            d3.select("#tooltip1").text("")
+            d3.select("#tooltip2").text("")
+            d3.select("#tooltip3").text("")
         })
     vis.cover.exit().remove()
 }

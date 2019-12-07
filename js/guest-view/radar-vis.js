@@ -21,10 +21,10 @@ RadarVis.prototype.initVis = function() {
     var vis = this;
     console.log(vis.hotel_rating)
 
-    vis.margin = {top: 50, right: 50, bottom: 120, left: 0};
+    vis.margin = {top: 20, right: 50, bottom: 120, left: 60};
 
     // vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
-    vis.height = 500 - vis.margin.top - vis.margin.bottom;
+    vis.height = 350 - vis.margin.top - vis.margin.bottom;
     vis.width = 610 - vis.margin.left - vis.margin.right;
 
     // SVG drawing area
@@ -40,6 +40,7 @@ RadarVis.prototype.initVis = function() {
         .domain([3.7, 5])
         .range([0, 100])
     vis.ticks = [3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5.0]
+    vis.tickLabels = [4.2, 4.6, 5.0]
     var ticks_rev = vis.ticks.reverse()
 
     // render radial circles
@@ -55,15 +56,21 @@ RadarVis.prototype.initVis = function() {
     );
 
     // render texts for ticks
-    vis.ticks.forEach(t =>
+    vis.tickLabels.forEach(t =>
         vis.svg.append("text")
             .attr("x", 150)
             .attr("y", 150 - vis.radialScale(t))
-            .attr("class", "radialAxisText")
-            .style("font-size", "10px")
-            .attr("color", "red")
+            // .attr("class", "radialAxisText")
+            .style("font-size", "12px")
+            .attr("fill", function() {
+                if (t == 5.0) {
+                    return "white"
+                }
+                else {
+                    return "black"
+                }
+            })
             .text(t.toString())
-
     );
 
     // function angleToCoordinate(angle, value) {
@@ -72,7 +79,7 @@ RadarVis.prototype.initVis = function() {
     //     return {"x": 150 + x, "y": 150 - y};
     // }
 
-    vis.features = ["total", "cleanliness", "communication", "check-in", "accuracy", "location", "value"]
+    vis.features = ["total", "clean", "reply", "check-in", "accuracy", "location", "value"]
 
     for (var i = 0; i < vis.features.length; i++) {
         let ft_name = vis.features[i];

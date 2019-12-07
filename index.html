@@ -84,43 +84,45 @@
 						<div class="section-header">Travel to Boston</div>
 						<hr>
 						<div class="row">
-							<div class="col-md-8 guest-left">
-								<p>Click to select to view the prices of Airbnb housings and hotels are shown below, or to view differences in prices (hotel - Airbnb).
+							<div class="col-md-7 guest-left">
+								<p>Prices of Housing in Boston Neighborhoods in a Grid Map.
 								<div>
 									<input type="radio" id="radio-price" name="drone" value="price"
 										   checked>
 									<label for="radio-price">Show side-by-side prices</label>
+									<input type="radio" id="radio-diff" name="drone" value="diff">
+									<label for="radio-diff">Show differences in prices</label>
 								</div>
 
-								<div>
-									<input type="radio" id="radio-diff" name="drone" value="diff">
-									<label for="radio-diff">Show differences in prices (Hotels - Airbnb)</label>
-								</div>
+<!--								<div>-->
+<!--									-->
+<!--								</div>-->
 <!--								<button onclick="show_diff()">Show Difference / Show Stacked Price</button>-->
 
 								<div id="grid-map-vis" ></div>
-								<ul>
-									<div>
-										<li id="count-left-first">Prices for both hotels and Airbnb is the highest in the Downtown area.</li>
-									 </div>
-									<div>
-										<li id="count-left-second">The price difference between hotels and Airbnb is the hist at Beacon Hill. If Eric wants to live here, he can save the most by choosing Airbnb. </li>
-									</div>
-									<div>
-										<li id="count-left-third">Variation of prices of Airbnb is less than the variation of hotel prices. They remain more constant across different sub-areas in Boston.</li>
-									</div>
-								</ul>
-
-								<div id="para-under-diff">
-								</div>
 							</div>
 <!--									<div class="row col-md-6" ></div>-->
 <!--									<div class="row col-md-6" id="room-type-vis"></div>-->
-								<div class="col-md-4">
+								<div class="col-md-5">
 <!--									<div class="row" id="count-vis"></div>-->
+									<p>Ratings in Boston Neighborhood</p>
 									<div class="row" id="radar-vis"></div>
 								</div>
 						</div>
+						<ul>
+							<div>
+								<li id="count-left-first">Prices for both hotels and Airbnb is the highest in the Downtown area.</li>
+							</div>
+							<div>
+								<li id="count-left-second">The price difference between hotels and Airbnb is the hist at Beacon Hill. If Eric wants to live here, he can save the most by choosing Airbnb. </li>
+							</div>
+							<div>
+								<li id="count-left-third">Variation of prices of Airbnb is less than the variation of hotel prices. They remain more constant across different sub-areas in Boston.</li>
+							</div>
+							<div>
+								<li id="count-left-fourth">Most Airbnb housing have better ratings from customers than hotels in Boston.</li>
+							</div>
+						</ul>
 					</div>
 				</div>
 		</div>
@@ -209,7 +211,7 @@
 						<div class="col-md-12 host-text">
 							The pro is obvious: hosting on Airbnb generates larger cash flow than rentals. But the biggest con is that the cash flow is not steady enough.
 
-							Here's a "price and occupancy" calendar of a one-bedroom airbnb listing as of September 2019.
+							Here's a "price and occupancy" calendar of a one-bedroom airbnb listing as of September 2019. (Hover over text to see highlights.)
 							<div id="price-vary"></div>
 						</div>
 					</div>
