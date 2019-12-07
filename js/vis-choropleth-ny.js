@@ -73,7 +73,7 @@ Choropleth.prototype.initVis = function (){
         .append("rect")
         .attr("class","legendsquare")
         .merge(squares)
-        .attr("x", d=>d*90)
+        .attr("x", d=>d*93)
         .attr("y",0)
         .attr("width", square_width)
         .attr("height",square_width)
@@ -85,21 +85,21 @@ Choropleth.prototype.initVis = function (){
         .append("text")
         .attr("class","range")
         .merge(legend_texts)
-        .attr("x", d=>(d*90+square_width+2))
+        .attr("x", d=>(d*93+square_width+4))
         .attr("y",square_width-2)
         .text(function(d){
             return (d*40)+" to "+((d+1)*40)
         })
 
     vis.legend.append("rect")
-        .attr("x",400)
+        .attr("x",416)
         .attr("y",-20)
         .attr("width", square_width)
         .attr("height",square_width)
         .attr("fill","gray");
 
     vis.legend.append("text")
-        .attr("x",400 +square_width+2)
+        .attr("x",416 +square_width+4)
         .attr("y",-20+square_width-2 )
         .text("N/A");
 
@@ -107,7 +107,7 @@ Choropleth.prototype.initVis = function (){
     vis.legend.append("text")
         .attr("id","legendtitle")
         .attr("y",-10)
-        .text("Price difference per night (Airbnb - rental)");
+        .text("Price Difference Per Night (Airbnb - Rental)");
 
     //
     // vis.svg.append("g")

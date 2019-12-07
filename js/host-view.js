@@ -49,11 +49,11 @@ $('#finding1').on("mouseover",function(){
     smallMultiples.svg.selectAll(".priceDiff, .inventDiff").style("fill",function(d){
         if(d.type==="TwoBd"||d.type==="ThreePlusBd"){
             return "rgb(255,78,87)"
-        }else{return smallMultiples.airbnbColor}
+        }else{return smallMultiples.diffColor}
     });
     })
     .on("mouseout",function(){
-        smallMultiples.svg.selectAll(".priceDiff, .inventDiff").style("fill",smallMultiples.airbnbColor);
+        smallMultiples.svg.selectAll(".priceDiff, .inventDiff").style("fill",smallMultiples.diffColor);
     });
 
 $('#finding2').on("mouseover",function(){
@@ -119,11 +119,11 @@ d3.json("data/variability.json", function(variability){
 
     var margin = {top: 10, right: 10, bottom: 10, left: 0},
         width =$("#price-vary").width() - margin.left - margin.right,
-        height = 500 - margin.top - margin.bottom;
+        height = 480 - margin.top - margin.bottom;
 
     var rect_width = 15, rect_margin = 5;
 
-    var inner_radius = 130, circle_r = 6, circle_margin = 3;
+    var inner_radius = 130, circle_r = 4, circle_margin = 4;
 
 // --> CREATE SVG DRAWING AREA
     var svg = d3.select("#price-vary").append("svg")
@@ -171,22 +171,23 @@ d3.json("data/variability.json", function(variability){
         .attr('fill',function(d){
             return color(example.price[d])
         })
-        .attr('stroke','rgb(3,140,140)')
-        .attr('stroke-width',function(d){
-            if (example.available[d]==='False'){
-                return 2
-            } else{return 0}
+        // .attr('stroke','rgb(3,140,140)')
+        // .attr('stroke','gray')
+        // .attr('stroke-width',function(d){
+        //     if (example.available[d]==='False'){
+        //         return 2
+        //     } else{return 0}
+        // })
+        .attr('stroke',function(d){
+            return color(example.price[d])
         })
-    //     .attr('stroke',function(d){
-    //         return color(example.price[d])
-    //     })
-    //     .attr('stroke-width',2)
-    //     .attr('stroke-alignment','inner')
-    //     .attr('fill',function(d){
-    //             if (example.available[d]==='False'){
-    //                 return 'rgb(115,191,191)';
-    //             } else{return color(example.price[d])}
-    //     })
+        .attr('stroke-width',2)
+        .attr('stroke-alignment','inner')
+        .attr('fill',function(d){
+                if (example.available[d]==='False'){
+                    return color(example.price[d]);
+                } else{return }
+        })
         .append('title')
         .text(function(d){
             return 'price:'+example.price[d]+'\ndate: '+example.date[d]
@@ -245,7 +246,7 @@ d3.json("data/variability.json", function(variability){
     // add legend
     var legend = svg.append("g")
         .attr("id","circle-legend")
-        .attr("transform","translate("+(width/2-inner_radius-220)+","+ (height/2) +")");
+        .attr("transform","translate("+(width/2-25)+","+ (height/2) +")"); //width/2-inner_radius-220
 
     var num_legend_circles = 6;
     legend.selectAll("circle")
@@ -312,45 +313,47 @@ d3.json("data/variability.json", function(variability){
             return -(circle_r*2+circle_margin) * (4-i)
         })
         .attr("r",circle_r)
-        .attr("fill",color(domain_lower+10))
-        .attr('stroke','rgb(3,140,140)')
-        .attr("stroke-width",function(d){
+        .attr("fill",function(d){
             if(d==="Available"){
-                return 0
-            }else{return 2}
-        });
+                return "none";
+            }else{return color(100)}
+        })
+        .attr('stroke',color(100))
+        .attr("stroke-width",2);
 
 
-    var finding1 = svg.append("text")
+    var finding1 = svg.append("foreignObject")
         .attr("class","finding")
         .attr("id","finding-holiday")
         .attr("x",width/2+inner_radius+100)
         .attr("y",height/2 + inner_radius)
         .attr("width",200)
         .attr("height",20)
-        // .attr("fill", 'whitesmoke')
-        // .append("div")
-        .text("Rates are higher than usual during holidays!");
+        .append("xhtml:div")
+        .style("color","whitesmoke")
+        .html("<p class='finding'>Rates are higher than usual during holidays!<>");
 
     //highlights
     $("#finding-holiday").on("mouseover",function(){
         console.log("111")
         svg.selectAll("circle.price-circles")
             .attr("stroke", function(d){
-                if(parseMonth(example.date[d])>parseMonth("2019-12-18")&parseMonth(example.date[d])<parseMonth("2020-01-11")){
-                    return "lightyellow";
+                if(parseMonth(example.date[d])>parseMonth("2019-12-18")&parseMonth(example.date[d])<parseMonth("2020-01-13")){
+                    return "rgb(3,140,140)";
                 }//&
-                return 'rgb(3,140,140)'
+                return color(example.price[d]);
             })
-            .attr("fill-opacity",function(d){
-                if(parseMonth(example.date[d])>parseMonth("2019-12-18")&parseMonth(example.date[d])<parseMonth("2020-01-11")){
-                    return "0.8";
-                }//&
-                return '100%'
-            })
+            // .attr("fill-opacity",function(d){
+            //     if(parseMonth(example.date[d])>parseMonth("2019-12-18")&parseMonth(example.date[d])<parseMonth("2020-01-11")){
+            //         return "0.8";
+            //     }//&
+            //     return '100%'
+            // })
     }).on("mouseout",function(){
         svg.selectAll("circle.price-circles")
-            .attr("stroke", 'rgb(3,140,140)')
+            .attr("stroke", function(d){
+                return color(example.price[d]);
+            })
             .attr("fill-opacity","100%")
     })
 
@@ -370,20 +373,22 @@ d3.json("data/variability.json", function(variability){
         console.log("111")
         svg.selectAll("circle.price-circles")
             .attr("stroke", function(d){
-                if(parseMonth(example.date[d])>parseMonth("2020-03-09")){
-                    return "lightyellow";
-                }//&
-                return 'rgb(3,140,140)';
+                if(parseMonth(example.date[d])>parseMonth("2020-03-06")){
+                    return "rgb(3,140,140)";
+                }
+                return color(example.price[d]);
             })
             .attr("fill-opacity",function(d){
-                if(parseMonth(example.date[d])>parseMonth("2020-03-09")){
+                if(parseMonth(example.date[d])>parseMonth("2020-03-06")){
                     return "0.8";
                 }//&
                 return '100%'
             })
     }).on("mouseout",function(){
         svg.selectAll("circle.price-circles")
-            .attr("stroke", 'rgb(3,140,140)')
+            .attr("stroke", function(d){
+                return color(example.price[d]);
+            })
             .attr("fill-opacity","100%")
     })
 
@@ -404,19 +409,22 @@ d3.json("data/variability.json", function(variability){
         svg.selectAll("circle.price-circles")
             .attr("stroke", function(d){
                 if(parseMonth(example.date[d])<parseMonth("2019-12-04")&parseMonth(example.date[d])>parseMonth("2019-11-01")){
-                    return "lightyellow";
-                }//&
-                return 'rgb(3,140,140)'
+                    return "rgb(3,140,140)";
+                }else{
+                    return color(example.price[d]);
+                }
             })
-            .attr("fill-opacity",function(d){
-                if(parseMonth(example.date[d])<parseMonth("2019-12-04")&parseMonth(example.date[d])>parseMonth("2019-11-01")){
-                    return "0.8";
-                }//&
-                return '100%'
-            })
+            // .attr("fill-opacity",function(d){
+            //     if(parseMonth(example.date[d])<parseMonth("2019-12-04")&parseMonth(example.date[d])>parseMonth("2019-11-01")){
+            //         return "0.8";
+            //     }//&
+            //     return '100%'
+            // })
     }).on("mouseout",function(){
         svg.selectAll("circle.price-circles")
-            .attr("stroke", 'rgb(3,140,140)')
+            .attr("stroke", function(d){
+                return color(example.price[d]);
+            })
             .attr("fill-opacity","100%")
     })
 })
