@@ -40,6 +40,7 @@ RadarVis.prototype.initVis = function() {
         .domain([3.7, 5])
         .range([0, 100])
     vis.ticks = [3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5.0]
+    vis.tickLabels = [4.2, 4.6, 5.0]
     var ticks_rev = vis.ticks.reverse()
 
     // render radial circles
@@ -55,15 +56,21 @@ RadarVis.prototype.initVis = function() {
     );
 
     // render texts for ticks
-    vis.ticks.forEach(t =>
+    vis.tickLabels.forEach(t =>
         vis.svg.append("text")
             .attr("x", 150)
             .attr("y", 150 - vis.radialScale(t))
-            .attr("class", "radialAxisText")
-            .style("font-size", "10px")
-            .attr("color", "red")
+            // .attr("class", "radialAxisText")
+            .style("font-size", "12px")
+            .attr("fill", function() {
+                if (t == 5.0) {
+                    return "white"
+                }
+                else {
+                    return "black"
+                }
+            })
             .text(t.toString())
-
     );
 
     // function angleToCoordinate(angle, value) {
