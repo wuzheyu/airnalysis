@@ -27,10 +27,13 @@
     color: rgb(255,78,87);
 }
 
-.finding div{
-    width:150px;
-    border: whitesmoke;
-    border-radius: 4px;
+p.finding{
+    width: 220px;
+    border: 1px dashed rgb(3,140,140);
+    /*border-style: solid;*/
+    /*border-color: whitesmoke;*/
+    border-radius: 10px;
+    padding: 10px;
 }
 
 /******** NYC map area ********/
