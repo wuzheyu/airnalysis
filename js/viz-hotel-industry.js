@@ -60,7 +60,7 @@ hotel_airbnb_svg.append("g")
 var hotelLine= d3.line();
 
 // use this variable to store the selected chart data value - by default it should be "GOALS"
-var userSelection = d3.select("#hotel-select").property("value");
+var userSelection = 'all';
 
 var lineToolTip;
 // year data
@@ -114,12 +114,12 @@ function loadData() {
 
 
 
-// Handle the case where the user selection changes
-d3.select("#hotel-select").on("change", selectHandler);
-function selectHandler(){
-	userSelection = d3.select("#hotel-select").property("value");
-	updateHotelAirbnbVisualization();
-}
+// // Handle the case where the user selection changes
+// d3.select("#hotel-select").on("change", selectHandler);
+// function selectHandler(){
+// 	userSelection = d3.select("#hotel-select").property("value");
+// 	updateHotelAirbnbVisualization();
+// }
 
 
 // Render visualization
@@ -153,7 +153,7 @@ function updateHotelAirbnbVisualization() {
 
 	var hotelLines = hotel_airbnb_svg.selectAll(".hotelLine").data(filterDataPerHotel);
 
-	hotelLines.enter()
+	var hotelPaths = hotelLines.enter()
 			  .append("path")
 			  .attr("fill", "none")
 			  .attr("class", "hotelLine")
@@ -173,7 +173,7 @@ function updateHotelAirbnbVisualization() {
 				  return hotelLine (d.values)
 			   })
 	hotelLines.exit().remove();
-	
+	//https://medium.com/@louisemoxy/create-a-d3-line-chart-animation-336f1cb7dd61
 	// Create legend
 	var legendCircles = hotel_airbnb_svg.selectAll(".legend-circles").data(filterDataPerHotel);
 	var legendTexts = hotel_airbnb_svg.selectAll(".legend-texts").data(filterDataPerHotel);
