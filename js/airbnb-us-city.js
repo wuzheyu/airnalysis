@@ -28,7 +28,7 @@ airbnbCityGrowthChart.prototype.initVis = function(){
             .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
     vis.x = d3.scaleBand()
-                .domain(vis.filteredData.map(function(d) { return d.City;}))
+                // .domain(vis.filteredData.map(function(d) { return d.City;}))
                 .range([0, vis.width])
                 .paddingInner(0.05)
                 .round(true)
@@ -68,6 +68,9 @@ airbnbCityGrowthChart.prototype.wrangleData = function(year){
     vis.filteredData = vis.data.filter(function(d) {
         return (d.Year.getTime() == year.getTime());
     })
+    vis.filteredData.sort(function(a,b) {
+         return b['Listings'] - a['Listings'];
+    })
 
     vis.updateVis();
 }
@@ -75,6 +78,7 @@ airbnbCityGrowthChart.prototype.wrangleData = function(year){
 airbnbCityGrowthChart.prototype.updateVis = function(){
     var vis = this;
 
+    vis.x.domain(vis.filteredData.map(function(d) { return d.City;}))
     //vis.y.domain(d3.extent(vis.filteredData.map(function(d) { return d.Listings;})))
 
     vis.rects = vis.svg.selectAll("rect").data(vis.filteredData)
