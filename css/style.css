@@ -373,8 +373,16 @@ hr {
 /*    font-size: 11px;*/
 /*}*/
 
-.guest-left {
+/*.guest-left {*/
+/*    font-size: 12px;*/
+/*}*/
+
+#grid-map-vis {
     font-size: 12px;
+}
+
+#radio-diff{
+    margin-left: 30px;
 }
 
 .fa {
