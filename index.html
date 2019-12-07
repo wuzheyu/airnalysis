@@ -98,11 +98,17 @@
 								</div>
 <!--								<button onclick="show_diff()">Show Difference / Show Stacked Price</button>-->
 
-								<div id="count-vis" ></div>
+								<div id="grid-map-vis" ></div>
 								<ul>
-									<li id="count-left-first">Prices for both hotels and Airbnb is the highest in the Downtown area.</li>
-									<li id="count-left-second">The price difference between hotels and Airbnb is the hist at Beacon Hill. If Eric wants to live here, he can save the most by choosing Airbnb. </li>
-									<li id="count-left-third">Variation of prices of Airbnb is less than the variation of hotel prices. They remain more constant across different sub-areas in Boston.</li>
+									<div>
+										<li id="count-left-first">Prices for both hotels and Airbnb is the highest in the Downtown area.</li>
+									 </div>
+									<div>
+										<li id="count-left-second">The price difference between hotels and Airbnb is the hist at Beacon Hill. If Eric wants to live here, he can save the most by choosing Airbnb. </li>
+									</div>
+									<div>
+										<li id="count-left-third">Variation of prices of Airbnb is less than the variation of hotel prices. They remain more constant across different sub-areas in Boston.</li>
+									</div>
 								</ul>
 
 								<div id="para-under-diff">
@@ -110,7 +116,10 @@
 							</div>
 <!--									<div class="row col-md-6" ></div>-->
 <!--									<div class="row col-md-6" id="room-type-vis"></div>-->
-								<div class="col-md-4" id="radar-vis"></div>
+								<div class="col-md-4">
+<!--									<div class="row" id="count-vis"></div>-->
+									<div class="row" id="radar-vis"></div>
+								</div>
 						</div>
 					</div>
 				</div>
@@ -436,6 +445,7 @@
 	<script src="js/guest-view/diff-vis.js"></script>
 	<script src="js/small_multiples.js"></script>
 	<script src="js/guest-view/radar-vis.js"></script>
+	<script src="js/guest-view/grid-map.vis.js"></script>
 
 </body>
 </html>

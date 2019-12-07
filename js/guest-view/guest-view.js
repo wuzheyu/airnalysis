@@ -11,9 +11,11 @@ queue()
 
 var countVis;
 var radarVis;
+var gridVis;
 const diffColor = "#F25764"
 const hotelColor = "#038C8C"
 const airbnbColor = "#F28D95"
+const hlColor = "rgb(255,78,87)"
 
 const hlRed = "#F2C9CC"
 const hlGreen = "#45D9D9"
@@ -27,7 +29,7 @@ function createVisualization(error, bos_listing, bos_hotel_prices, bos_ratings, 
     console.log("end of ratings")
 
     /* multiple coordinated views */
-
+x
     // data cleaning for count-vis
     var listing_by_neighborhood = get_count_by_neighbor(bos_listing);
     var listing_by_neighborhood = reorg_to_array_by_neightbor(listing_by_neighborhood)
@@ -37,9 +39,9 @@ function createVisualization(error, bos_listing, bos_hotel_prices, bos_ratings, 
     var all_room_types = get_room_types(listing_by_neighborhood);
     var listing_by_neigh_types = listing_types(listing_by_neighborhood, all_room_types);
 
-    countVis = new CountVis("count-vis", listing_by_neighborhood, bos_hotel_prices_by_neighborhood);
-    radarVis = new RadarVis("radar-vis", bos_ratings, hotel_ratings)
-
+    gridVis = new gridMapVis("grid-map-vis", listing_by_neighborhood, bos_hotel_prices_by_neighborhood);
+    // countVis = new CountVis("count-vis", listing_by_neighborhood, bos_hotel_prices_by_neighborhood);
+    radarVis = new RadarVis("radar-vis", bos_ratings, hotel_ratings);
 
     // var roomTypeVis = new RoomTypeVis("room-type-vis", listing_by_neigh_types);
     add_events();
@@ -48,15 +50,17 @@ function createVisualization(error, bos_listing, bos_hotel_prices, bos_ratings, 
 function add_events() {
     // show side-by-side or diff vis
     d3.select("#radio-price").on("click", function() {
-        countVis.show_orig_vis();
+        gridVis.updateTrue();
+        gridVis.updateVis();
     })
     d3.select("#radio-diff").on("click", function() {
-        countVis.show_diff_vis();
+        gridVis.updateFalse();
+        gridVis.updateDiff();
     })
 
     // hover over text
     d3.select("#count-left-first").on("mouseover", function() {
-        d3.select("#count-left-first").style("color", diffColor)
+        d3.select("#count-left-first").style("color", hlColor)
         // countVis.highlightDT()
         d3.select("#airbnb-bar-4").style("fill", hlRed)
         d3.select("#hotel-bar-4").style("fill", hlGreen)
@@ -67,7 +71,7 @@ function add_events() {
         d3.select("#hotel-bar-4").style("fill", hotelColor)
     })
     d3.select("#count-left-second").on("mouseover", function() {
-        d3.select("#count-left-second").style("color", diffColor)
+        d3.select("#count-left-second").style("color", hlColor)
         d3.select("#airbnb-bar-1").style("fill", hlRed)
         d3.select("#hotel-bar-1").style("fill", hlGreen)
     })
@@ -77,7 +81,7 @@ function add_events() {
         d3.select("#hotel-bar-1").style("fill", hotelColor)
     })
     d3.select("#count-left-third").on("mouseover", function() {
-        d3.select("#count-left-third").style("color", diffColor)
+        d3.select("#count-left-third").style("color", hlColor)
         d3.selectAll(".airbnb_pbyn").style("fill", hlRed)
 
     })
@@ -85,7 +89,6 @@ function add_events() {
         d3.select("#count-left-third").style("color", "white")
         d3.selectAll(".airbnb_pbyn").style("fill", airbnbColor)
     })
-
 }
 
 // function fill_paragraphs() {
