@@ -40,7 +40,7 @@ $(document).ready(function() {
                             $('#airbnb-description').textillate({ in: { effect: 'fadeIn', delayScale: .7} });
                         })
                     }, timeDelay);
-                    timeDelay += 5500;
+                    timeDelay += 5000;
                     setTimeout(function(){
                         $(function () {
                             $('#company-choropleth').delay(timeDelay).css('visibility','visible');
@@ -49,7 +49,7 @@ $(document).ready(function() {
                         })
                     }, timeDelay);
 
-                    timeDelay += 1500
+                    timeDelay += 500
                     setTimeout(function(){
                         $(function () {
                             $('#timeline-event-box').delay(timeDelay).css('visibility','visible');

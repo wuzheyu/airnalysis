@@ -3,7 +3,7 @@ var hotelOfficialNames = {'airbnb': 'Airbnb', 'homeaway' : 'Homeaway', 'hilton':
 var color = {'airbnb': '#e41a1c', 'homeaway': '#377eb8','hilton': '#4daf4a','ihg':'#984ea3','marriott':'#ff7f00'}
 
 // hotel_airbnb_SVG drawing area
-var margin = {top: 40, right: 100, bottom: 40, left: 40};
+var margin = {top: 50, right: 100, bottom: 40, left: 40};
 
 var width = 550 - margin.left - margin.right,
 	height = 450 - margin.top - margin.bottom;
@@ -16,7 +16,7 @@ var hotel_airbnb_svg = d3.select("#hotel-industry-plot").append("svg")
 
 // Create y label
 var yLabel = hotel_airbnb_svg.append("text")
-		.attr("x", -40)
+		.attr("x", -20)
 		.attr("y", -10)
 		.style("fill", "white")
 		.style("font-family", "Montserrat, sans-serif")
@@ -24,7 +24,7 @@ var yLabel = hotel_airbnb_svg.append("text")
 		.style("font-size", 12)
 // Create x label
 var xLabel = hotel_airbnb_svg.append("text")
-	.attr("x", width - 50)
+	.attr("x", width - 23)
 	.attr("y", height + 30)
 	.style("fill", "white")
 	.style("font-family", "Montserrat, sans-serif")
@@ -189,12 +189,12 @@ function updateHotelAirbnbVisualization() {
 		.attr("r", 5)
 		.attr("cx",function(d, i){
 			if (d.key == 'homeaway') { 
-				return i * 65;
+				return i * 65 -13;
 			}
-			else return i * 85;
+			else return i * 85 -13;
 		})
 		.attr("cy", function(d, i){
-			return -35;
+			return -40;
 		})
 
 	legendCircles.exit().remove();
@@ -210,12 +210,12 @@ function updateHotelAirbnbVisualization() {
 		})
 		.attr("x", function(d, i){
 			if (d.key == 'homeaway') {
-				return (i) * 65 + 10;
+				return (i) * 65 -3;
 			}
-			else return i * 85 + 10;
+			else return i * 85 -3;
 		})
 		.attr("y", function(d, i){
-			return -30;
+			return -35;
 		})
 		.text(function(d){
 			return hotelOfficialNames[d.key];
