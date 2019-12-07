@@ -14,10 +14,10 @@ airbnbCityGrowthChart.prototype.initVis = function(){
     })
     
 	// define svg propertities
-	vis.margin = {top: 50, right: 20, bottom: 100, left: 50};
+	vis.margin = {top: 25, right: 20, bottom: 110, left: 50};
 	
 	vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
-    vis.height = 490 - vis.margin.top - vis.margin.bottom;
+    vis.height = 505 - vis.margin.top - vis.margin.bottom;
 
 	// SVG drawing area
 	vis.svg = d3.select("#" + vis.parentElement)
@@ -47,6 +47,8 @@ airbnbCityGrowthChart.prototype.initVis = function(){
     // Create y label
     vis.yLabel = vis.svg.append("text")
     .style("font-size", 12)
+    .attr("x", -40)
+    .attr("y", -15)
     .style("fill", "white")
     .style("font-family", "Montserrat, sans-serif")
     .text("# of listings")
