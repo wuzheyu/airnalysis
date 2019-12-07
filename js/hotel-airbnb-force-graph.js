@@ -10,7 +10,7 @@ forceChart.prototype.initVis = function(){
 	var vis = this;
 
 	// define svg propertities
-	vis.margin = {top: 50, right: 60, bottom: 50, left: 100};
+	vis.margin = {top: -10, right: 60, bottom: 50, left: 0};
 	
 	vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
     vis.height = 300 - vis.margin.top - vis.margin.bottom;

@@ -416,10 +416,10 @@ hr {
 }
 
 .force-group {
-  border-radius: 10px;
+  border-radius: 30px;
   height: 500px;
   width: 600px;
-  border-style: solid;
+  border-style: dashed;
   border-color: rgb(255,78,87)
 }
 

@@ -23,10 +23,10 @@ ppf_timelinePlot.prototype.initVis = function(){
     // load data
 	var vis = this;
 	// define svg propertities
-	vis.margin = {top: 10, right: 50, bottom: 20, left: 80};
+	vis.margin = {top: 0, right: 50, bottom: 20, left: 80};
 	
 	vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
-    vis.height = 500 - vis.margin.top - vis.margin.bottom;
+    vis.height = 465 - vis.margin.top - vis.margin.bottom;
 
 
 	// SVG drawing area
@@ -55,17 +55,17 @@ ppf_timelinePlot.prototype.initVis = function(){
     .attr("class", "timeline-tooltip")
     .html(function(d) { 
         if (d.name == 'Past') {
-            return "<b style='font-size: 28px';'color:rgb(255,78,87)'>Denial</b><br>For a long time, the hotel industry did not consider Airbnb a threat. Both the industry and Airbnb claimed they were serving different markets and had different underlying business models."
+            return "<b style='font-size: 28px;'>Denial</b><br><div style='padding-left:50px'>For a long time, the hotel industry did not consider Airbnb a threat. Both the industry and Airbnb claimed they were serving different markets and had different underlying business models.</div>"
         }
         else if (d.name == 'Present') {
-            return "<b style='font-size: 28px;'color:rgb(255,78,87)'>Attack</b><br>A stage of denial was followed by the American Hotel & Lodging Association (AH&LA) attacking Airbnb by sponsoring research to demonstrate its negative impacts on the economy and lobbying governments to impose taxes and regulations on homesharing. "
+            return "<b style='font-size: 28px;'>Attack</b><br><p style='padding:20px'>A stage of denial was followed by the American Hotel & Lodging Association (AH&LA) attacking Airbnb by sponsoring research to demonstrate its negative impacts on the economy and lobbying governments to impose taxes and regulations on homesharing. "
         }
         else if (d.name == 'Future') {
-            return "<b style='font-size: 28px;'color:rgb(255,78,87)'>Participation</b><br>The next stage of this battle involves competition and integration. Hotels are looking to add homesharing-like attributes and also looking to tap into the platform-based business model that underlies Airbnb’s success."
+            return "<b style='font-size: 28px;'>Participation</b><br><p style='padding:20px'>The next stage of this battle involves competition and integration. Hotels are looking to add homesharing-like attributes and also looking to tap into the platform-based business model that underlies Airbnb’s success."
         }
 
     })
-    .style("left", 0 + "px")     
+    .style("left", 15 + "px")
     .style("top", 0 + "px");
 
     vis.svg.call(vis.tool_tip);
