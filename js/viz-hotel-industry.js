@@ -153,7 +153,7 @@ function updateHotelAirbnbVisualization() {
 
 	var hotelLines = hotel_airbnb_svg.selectAll(".hotelLine").data(filterDataPerHotel);
 
-	hotelLines.enter()
+	var hotelPaths = hotelLines.enter()
 			  .append("path")
 			  .attr("fill", "none")
 			  .attr("class", "hotelLine")
@@ -173,7 +173,7 @@ function updateHotelAirbnbVisualization() {
 				  return hotelLine (d.values)
 			   })
 	hotelLines.exit().remove();
-	
+	//https://medium.com/@louisemoxy/create-a-d3-line-chart-animation-336f1cb7dd61
 	// Create legend
 	var legendCircles = hotel_airbnb_svg.selectAll(".legend-circles").data(filterDataPerHotel);
 	var legendTexts = hotel_airbnb_svg.selectAll(".legend-texts").data(filterDataPerHotel);

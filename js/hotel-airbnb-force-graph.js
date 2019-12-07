@@ -7,7 +7,6 @@ forceChart = function(_parentElement, _data){
 
 forceChart.prototype.initVis = function(){
     // load data
-    console.log("force layout")
 	var vis = this;
 
 	// define svg propertities
@@ -18,7 +17,8 @@ forceChart.prototype.initVis = function(){
 
 	// SVG drawing area
 	vis.svg = d3.select("#" + vis.parentElement)
-			.append("svg")
+            .append("svg")
+            .attr("class", "forced-layout")
 			.attr("width", vis.width + vis.margin.left + vis.margin.right)
 			.attr("height", vis.height + vis.margin.top + vis.margin.bottom)
 			.append("g")
@@ -37,7 +37,6 @@ forceChart.prototype.initVis = function(){
                 .enter()
                 .append("line")
                 .attr("class", "link")
-
 
     // 4) DRAW THE NODES (SVG CIRCLE)
     vis.node = vis.svg.selectAll(".node")
@@ -67,16 +66,16 @@ forceChart.prototype.initVis = function(){
 
     .attr("width", function(d) { 
         if (d.name == "Marriott") {
-            return 200;
+            return 100;
         }
         else if (d.name == "Airbnb") {
-            return 50;
+            return 70;
         }
-        else return 70;
+        else return 100;
     })
     .attr("height", function(d) {
-        if (d.name == "Airbnb") return 50;
-        else return 70;
+        if (d.name == "Airbnb") return 70;
+        else return 100;
     });
 
     vis.node.call(
@@ -128,7 +127,7 @@ forceChart.prototype.wrangleData = function(){
 
 forceChart.prototype.updateVis = function(){
     var vis = this;
-    console.log(userSelectedTime)
+    setInterval(function(){vis.force.alpha(0.1);},250);
     if (userSelectedTime == 'linksPresent') {
         vis.force.force("charge", d3.forceManyBody().strength(-10))
         vis.force.force("link", d3.forceLink(vis.data.linksPresent).distance(150))
@@ -139,7 +138,8 @@ forceChart.prototype.updateVis = function(){
             else {
                 return 100;
             }
-        }));
+        })
+        );
         vis.force.force("collide", d3.forceCollide(15));
         vis.link.data(vis.data.linksPresent)
     }
