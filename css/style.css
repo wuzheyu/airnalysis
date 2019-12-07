@@ -339,8 +339,8 @@ hr {
 }
 
 .reference-url {
-  color: grey;
-  font-size:14px;
+  color: rgb(231, 223, 223);
+  font-size:12px;
 }
 
 .author-name {
@@ -365,7 +365,8 @@ hr {
   margin-right: auto;
 }
 
-.acknowledgement { 
+.acknowledgement {
+  margin-top: 40px;
   font-size: 18px;
 }
 /*#travel-boston {*/
@@ -434,4 +435,8 @@ hr {
 #current-status-desc{
   font-size: 14px;
   margin: 10px
+}
+
+.ref-header{
+  font-size:16px;
 }
