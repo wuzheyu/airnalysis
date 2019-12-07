@@ -33,7 +33,7 @@
 							<div class="col-md-8" id="logo-animation">
 								<div id="airbnb-description" style="visibility:hidden" class="airbnb-introduction">Airbnb is an online platform for offering lodging and tourism experiences. Since its launch in 2008, it has quickly put its footprint around the world.  </div>
 								<div id="company-choropleth" style="visibility:hidden"></div>
-								<div id="year-count" style="visibility:hidden; text-align: center; font-family: Montserrat, sans-serif">Year: 2007</div>
+								<div id="timeline-plot"></div>
 							</div>
 							<div class="col-md-4">
 								<div><img id="airbnb-logo" src="img/airbnb-logo.png" style="visibility:hidden; width: 100px; height: 100px; display: block; margin-left: auto; margin-right: auto;"></div>
@@ -141,12 +141,13 @@
 									<img src="img/ee-house.png" id="ee-house-icon" class="img-icon" />
 								</div>
 								<div class="col-md-6">
-									<div id="eric-emily-p5" class="story-line" style="visibility:hidden">They happen to have a second apartment for rent. Last tenant has just moved out and they are looking for the next.</div>
+									<div id="eric-emily-p5" class="story-line" style="visibility:hidden">They happen to have a second apartment for rent. The last tenant has just moved out and they are looking for the next.</div>
 								</div>
 						</div>
 						<div class="row">
 								<div class="col-md-6">
-									<div id="eric-emily-p6" class="story-line" style="visibility:hidden">'But what if we host an Airbnb instead?' Emily thought to herself.</div>
+									<div id="eric-emily-p6" class="story-line" style="visibility:hidden">"But what if we host on Airbnb instead?" Emily thought to herself.</div>
+
 								</div>
 								<div class="col-md-6">
 									<img src="img/analytics.png" id="analytics-icon" class="img-icon"/>
@@ -163,7 +164,7 @@
 							<div class="row">
 
 								<div class="col-md-6 host-text">
-									The colors on the map show the price difference.
+									The colors on the map show the price DIFFERENCE.
 									<div id="map-legend"></div>
 									It looks like Airbnb is almost always more expensive than rentals!
 
@@ -179,7 +180,7 @@
 											</select>
 										</div>
 									</form>
-									<div id="see-change">* Hover to see what happens if there're more rooms</div>
+									<div id="see-change">>> More rooms, larger price differences. (click to see animation)</div>
 								<div id="ny-map"></div>
 
 
@@ -190,9 +191,9 @@
 <!--								</div>-->
 							<div class="col-md-6">
 								<div class="row" id="small-multiples"> </div>
-								<div class="row host-text" id="finding1">*There are generally larger differences in price and inventory for two and three-plus bedroom apartments.</div>
-								<div class="row host-text"" id="finding2">*The most common listing on Airbnb is one bedroom, while for rental both one and two-bedroom apartments are the most popular.</div>
-
+								<div class="row host-text" id="finding1">>> There are generally larger differences in price and inventory for two and three-plus bedroom apartments.</div>
+								<div class="row host-text" id="finding2">>> The most common listing on Airbnb has one bedroom, while for rental both one and two-bedroom apartments are the most popular. </div>
+								<div class="row host-hint">(Hover over the text above to see highlights.)</div>
 							</div>
 						</div>
 					</div>
@@ -206,9 +207,9 @@
 					<hr>
 					<div class="row">
 						<div class="col-md-12 host-text">
-							Even though Airbnb's per night rate is almost always higher than that of traditional monthly rental. However, it does not necessarily mean that the cash flow of hosting Airbnb will always outnumber the latter.
+							The pro is obvious: hosting on Airbnb generates larger cash flow than rentals. But the biggest con is that the cash flow is not steady enough.
 
-							Here's a visualization of the instability of price and occupancy of a one-bedroom airbnb listing in a year. (For comparison, the median one-bedroom rental price is around 2950/month.)
+							Here's a "price and occupancy" calendar of a one-bedroom airbnb listing as of September 2019.
 							<div id="price-vary"></div>
 						</div>
 					</div>
@@ -222,7 +223,7 @@
 						<hr>
 						<div class="row">
 								<div class="col-md-6">
-									<div id="eric-emily-p7" class="story-line" style="visibility:hidden">Their Airbnb in New York works great and they have earned considerable amount of extra money.</div>
+									<div id="eric-emily-p7" class="story-line" style="visibility:hidden">Their Airbnb in New York works great and they have earned considerable amount of money.</div>
 								</div>
 								<div class="col-md-6">
 									<img src="img/money.png" id="money-icon" class="img-icon"/>
@@ -253,12 +254,12 @@
 					<div class="text-background">
 						<div class="section-header">Airbnb's Battle with Hotels</div>
 						<hr>
-						<div>
-							Consumer spending on Airbnb is growing at a faster pace than major hotel chains.
+						<div style="margin-bottom: 20px">
+							Consumer spending on Airbnb is growing at a faster pace than major hotel chains. This persistent war has begun. 
 						</div>
 						<div class="row">
 								<div class="col-md-6">
-									<label for="hotel-select" class="sub-section-content" style="margin-top:10px"> </label>
+									<!-- <label for="hotel-select" class="sub-section-content" style="margin-top:10px"> </label>
 									<select id="hotel-select" style="font-size: 15px;">
 										<option value="all" selected>All</option>
 										<option value="airbnb">Airbnb</option>
@@ -266,7 +267,7 @@
 										<option value="hilton">Hilton Worldwide</option>
 										<option value="ihg">InterContinental Hotels Group</option>
 										<option value="marriott">Marriott</option>
-									</select>
+									</select> -->
 									<div id="hotel-industry-plot"> </div>
 								</div>
 
@@ -286,7 +287,7 @@
 						<div class="section-header">The Past, Present and Future of this battle</div>
 						<hr>
 						<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-4">
 									<!-- <ul class="nav nav-tabs">
 											<li class="nav-item">
 												<a class="nav-link active" data-toggle="tab" href="#past" id="past-button">Past</a>
@@ -314,43 +315,22 @@
 												<p class="sub-section-content">The next stage of this battle involves competition and integration. Not only are hotels looking to add homesharing-like attributes and experiences to their properties, to more effectively compete with Airbnb, but are also looking to tap into the platform-based business model that underlies Airbnb’s success.</p>
 										</div>
 									</div> -->
-									<div class="timeline">
-										<div class="container left">
-										  <div class="content">
-											<h2>2017</h2>
-											<p>Lorem ipsum..</p>
-										  </div>
-										</div>
-										<div class="container right">
-										  <div class="content">
-											<h2>2016</h2>
-											<p>Lorem ipsum..</p>
-										  </div>
-										</div>
-									  </div>
+									
+									<div id="ppf-timeline"></div>
 								</div>
-								<div class="col-md-6">
-									<div id="guidance-drag" class="sub-section-content"> After selecting the stage (past, present or future), please drag hotel icons to visualize their relationships. </div>
-									<div id="force-airbnb-hotel"></div>
-									<div class="quote"></div>
+								<div class="col-md-8">
+									<div class="force-group">
+											<div id="current-status"></div>
+											<div id="force-airbnb-hotel"></div>
+											<div id="current-status-desc"></div>
+									</div>
+								</div>
+						</div>
+						<i style="font-size: 12px; margin: 10px">Hover each stage for visualization and description.</i>
+					</div>
+				</div>
+		</div>
 
-								</div>
-						</div>
-					</div>
-				</div>
-		</div>
-		<div class="section" id="take-away">
-				<div class ="container">
-					<div class="text-background">
-						<div class="section-header">Takeaways and Conclusion</div>
-						<hr>
-						<div class="row">
-								<div class="col-md-6">Airbnb's story</div>
-								<div class="col-md-6">Airbnb's story</div>
-						</div>
-					</div>
-				</div>
-		</div>
 		<div class="section" id="reference">
 			<div class ="container">
 				<div class="text-background">
@@ -363,16 +343,28 @@
 									</div>
 								</div>
 								<div class="col-md-6">
-
-									<div class='reference-url'>https://www.osc.state.ny.us/osdc/hotel_industry_nyc_rpt2_2017.pdf</div>
-							
-									<div class='reference-url'>https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/m1-hotel-text/nyc-hotel-market-analysis.pdf?r=a</div>
-							
-									<div class='reference-url'>https://www.tripadvisor.com/ShowTopic-g60763-i5-k5849478-Hotel_Occupancy_Statistics-New_York_City_New_York.html</div>
-							
-									<div class='reference-url'>https://str.com/sites/default/files/2019-07/Airbnb-and-Hotel-Performance.pdf</div>
-							
-									<div class='reference-url'>https://www.bu.edu/bhr/2018/10/31/airbnb-and-the-hotel-industry-the-past-present-and-future-of-sales-marketing-branding-and-revenue-management/</div>
+										<div class="row">
+											<div class="col-md-3">
+											<span class="ref-header">JS libraries</span>											
+												<ul> 
+													<li><a class='reference-url' href="https://leafletjs.com/">Leaflet.js</a></li>
+													<li><a class='reference-url' href="https://alvarotrigo.com/fullPage/">Fullpage.js</a></li>
+													<li><a class='reference-url' href="https://github.com/franverona/loadgo">Loadgo.js</a></li>
+													<li><a class='reference-url' href="https://animejs.com/">Anime.js</a></li>
+													<li><a class='reference-url' href="https://textillate.js.org/">Textillate.js</a></li>
+												</ul>
+											</div>
+											<div class="col-md-9">
+											<span class="ref-header">Data</span>											
+												<ul> 
+													<li><a class='reference-url' href="https://www.osc.state.ny.us/osdc/hotel_industry_nyc_rpt2_2017.pdf">New York Airbnb Data 2017</a></li>
+													<li><a class='reference-url' href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/m1-hotel-text/nyc-hotel-market-analysis.pdf?r=a">NYC Hotel Market Analysis</a></li>
+													<li><a class='reference-url' href="https://www.tripadvisor.com/ShowTopic-g60763-i5-k5849478-Hotel_Occupancy_Statistics-New_York_City_New_York.html">Hotel Occupancy Statistics</a></li>
+													<li><a class='reference-url' href="https://str.com/sites/default/files/2019-07/Airbnb-and-Hotel-Performance.pdf">Airbnb & Hotel Performance</a></li>
+													<li><a class='reference-url' href="https://www.bu.edu/bhr/2018/10/31/airbnb-and-the-hotel-industry-the-past-present-and-future-of-sales-marketing-branding-and-revenue-management/">Airbnb and the Hotel Industry: The Past, Present, and Future</a></li>
+												</ul>
+											</div>
+										</div>
 								</div>
 					</div>
 					<div style="text-align: center; font-size: 30px; font-family: 'Montserrat', sans-serif; color:rgb(255,78,87); margin:40px">Our Awesome Team</div>
@@ -381,25 +373,31 @@
 							<img src="img/zheyu-wu.png" class="author-photo" alt="">
 							<div class='author-name'>Zheyu Wu</div>
 							<div class='author-program'>MS, Engineerinng Sciences</div>
-							<i class="fa fa-facebook-square" style="font-size:36px;text-align:center;"></i>
-							<i class="fa fa-linkedin-square" style="font-size:36px;text-align:center;"></i>
+							<a href="https://www.facebook.com/zheyu.wu.73"><i class="fa fa-facebook-square" style="font-size:36px;margin-left: 100px;"></i></a>
+							<a href="https://www.linkedin.com/in/zheyu-wu-229b20b1/"><i class="fa fa-linkedin-square" style="font-size:36px;margin-left: 10px;"></i></a>
+							<a href="https://github.com/wuzheyu"><i class="fa fa-github-square" style="font-size:36px;margin-left: 10px;"></i></a>
 
 						</div>
 						<div class="col-md-4">
 							<img src="img/shu_xu.jpg" class="author-photo" alt="">
 							<div class='author-name'>Shu Xu</div>
 							<div class='author-program'>MS, Data Science</div>
-							<i class="fa fa-facebook-square" style="font-size:36px;text-align:center;"></i>
-							<i class="fa fa-linkedin-square" style="font-size:36px;text-align:center;"></i>
+							<a href="https://www.facebook.com/shuxu224"><i class="fa fa-facebook-square" style="font-size:36px;margin-left: 100px;"></i></a>
+							<a href="https://www.linkedin.com/in/shu-xu/"><i class="fa fa-linkedin-square" style="font-size:36px;margin-left: 10px;"></i></a>
+							<a href="https://github.com/shuxu24"><i class="fa fa-github-square" style="font-size:36px;margin-left: 10px;"></i></a>
+							
+
 
 						</div>
 						<div class="col-md-4">
 							<img src="img/shuyuan-xiao.png" class="author-photo" alt="">
 							<div class='author-name'>Shuyuan Xiao</div>
 							<div class='author-program'>MS, Data Science</div>
-							<i class="fa fa-facebook-square" style="font-size:36px;"></i>
-							<i class="fa fa-linkedin-square" style="font-size:36px;text-align:center;"></i>
-
+							
+							<a href="https://www.facebook.com/shuyuan.xiao.58"><i class="fa fa-facebook-square text-center" style="font-size:36px; margin-left: 100px;"></i></a>
+							<a href="https://www.linkedin.com/in/shuyuan-xiao-20ba0711b/"><i class="fa fa-linkedin-square text-center" style="font-size:36px; margin-left: 10px;"></i></a>
+							<a href="https://github.com/shuyuanx"><i class="fa fa-github-square" style="font-size:36px;margin-left: 10px;"></i></a>
+							
 
 						</div>
 					</div>
@@ -428,7 +426,8 @@
 	<script src="js/hotel-airbnb-force-graph.js"></script>
 	<script src="js/airbnb-us-city.js"></script>
 	<script src="js/viz-world-map.js"></script>
-
+	<script src="js/timeline-plot.js"></script>
+	<script src="js/ppf-timeline.js"></script>
 	<!-- styling -->
 	<script src="js/style/jquery.lettering.js"></script>
 	<script src="js/style/jquery.textillate.js"></script>

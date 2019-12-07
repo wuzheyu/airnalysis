@@ -9,6 +9,7 @@ SmallMultiples = function(_parentElement, _origData){
 
     this.rentalColor = "#038C8C";
     this.airbnbColor = "#F28D95";
+    this.diffColor = "gray";
     this.marginTopDown = 40;
 
     this.initVis();
@@ -20,7 +21,7 @@ SmallMultiples.prototype.initVis = function(){
 
     var width = $("#"+vis.parentElement).width();
     // svg area
-    vis.margin = { top: 130, right: 50, bottom: 100, left: 110 };
+    vis.margin = { top: 130, right: 50, bottom: 100, left: 105 };
     vis.width = width - vis.margin.left - vis.margin.right;
     vis.height = 350 - vis.margin.top - vis.margin.bottom;
     // SVG drawing area
@@ -116,34 +117,34 @@ SmallMultiples.prototype.initVis = function(){
         .attr("class", "y1-axis axis")
         .attr("transform", "translate(" + -40 + "," + "-40)");
     vis.svg.select(".y1-axis").append("text").text("Prices")
-        .attr("x", -10)
+        .attr("x", 1)
         .attr("fill", "black")
         .attr("y", -10);
     vis.svg.append("g")
         .attr("class", "y2-axis axis")
         .attr("transform", "translate(" + -40 + "," + (vis.height/2 + 40) +  ")");
     vis.svg.select(".y2-axis").append("text").text("Inventory")
-        .attr("x", 5)
+        .attr("x", 1)
         .attr("fill", "black")
         .attr("y", -10);
     vis.svg.append("g")
         .attr("class", "y3-axis axis")
         .attr("transform", "translate(" + (40 + vis.width/2)  + ", -40)");
     vis.svg.select(".y3-axis").append("text").text("Price Differences")
-        .attr("x", -10)
+        .attr("x", 1)
         .attr("fill", "black")
         .attr("y", -10);
     vis.svg.append("g")
         .attr("class", "y4-axis axis")
         .attr("transform", "translate(" + (40 + vis.width/2)  + "," + (vis.height/2 + 40) + ")");
     vis.svg.select(".y4-axis").append("text").text("Inventory Differences")
-        .attr("x", -10)
+        .attr("x", 1)
         .attr("fill", "black")
         .attr("y", -10);
 
     // legend
-    vis.legend = vis.svg.append("g")
-        .attr("transform","translate("+(vis.width-100)+",10)");
+    vis.legend = vis.svg.append("g").attr("class","bar-legend")
+        .attr("transform","translate("+(-46)+",10)");
     vis.legend.append('rect')
         .attr("x", -40)
         .attr('y', -100)
@@ -153,10 +154,10 @@ SmallMultiples.prototype.initVis = function(){
     vis.legend.append('text')
         .text("Airbnb")
         .attr("fill", vis.airbnbColor)
-        .attr("x", -20)
+        .attr("x", -25)
         .attr('y', -90)
     vis.legend.append('rect')
-        .attr("x", 60)
+        .attr("x", 35)
         .attr('y', -100)
         .attr("width", 10)
         .attr("height", 10)
@@ -164,13 +165,29 @@ SmallMultiples.prototype.initVis = function(){
     vis.legend.append('text')
         .text("Rental")
         .attr("fill", vis.rentalColor)
-        .attr("x", 80)
+        .attr("x", 50)
+        .attr('y', -90)
+    vis.legend.append('rect')
+        .attr("x", 110)
+        .attr('y', -100)
+        .attr("width", 10)
+        .attr("height", 10)
+        .attr("fill", vis.diffColor)
+    vis.legend.append('text')
+        .text("Difference")
+        .attr("fill", vis.diffColor)
+        .attr("x", 125)
+        .attr('y', -90)
+    vis.legend.append('text')
+        .text("*Hover over map to switch borough")
+        .attr("fill", vis.airbnbColor)
+        .attr("x", 210)
         .attr('y', -90)
 
     // title
     vis.title = vis.svg.append('text')
         .attr("id","multiples-title")
-        .attr("x", -70)
+        .attr("x", -87)
         .attr("y",-110)
         // .attr("fill","whitesmoke")
 
@@ -405,7 +422,7 @@ SmallMultiples.prototype.updateVis = function() {
         .append("rect")
         .attr("class", "priceDiff")
         .merge(vis.bar3)
-        .style("fill", vis.airbnbColor)
+        .style("fill", vis.diffColor)
         .style("stroke", vis.rentalColor)
         .transition()
         .duration(1000)
@@ -431,7 +448,7 @@ SmallMultiples.prototype.updateVis = function() {
         .append("rect")
         .attr("class", "inventDiff")
         .merge(bar4)
-        .style("fill", vis.airbnbColor)
+        .style("fill", vis.diffColor)
         .style("stroke", vis.rentalColor)
         .transition()
         .duration(1000)
@@ -484,14 +501,14 @@ SmallMultiples.prototype.updateVis = function() {
         .attr("transform", function(d) {
             return "rotate(-45)"
         })
-    vis.svg.select(".y1-axis").call(vis.yAxis1.ticks(8));
-    vis.svg.select(".y2-axis").call(vis.yAxis2.ticks(8));
-    vis.svg.select(".y3-axis").call(vis.yAxis3.ticks(8));
-    vis.svg.select(".y4-axis").call(vis.yAxis4.ticks(8));
+    vis.svg.select(".y1-axis").call(vis.yAxis1.ticks(4));
+    vis.svg.select(".y2-axis").call(vis.yAxis2.ticks(4));
+    vis.svg.select(".y3-axis").call(vis.yAxis3.ticks(4));
+    vis.svg.select(".y4-axis").call(vis.yAxis4.ticks(4));
 
     // update title
     vis.title
-        .text("Price and Inventory by room type in "+selectedDist);
+        .text("Price and Inventory by room type in "+selectedDist+"*");
 
 }
 
