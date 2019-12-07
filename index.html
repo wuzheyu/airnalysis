@@ -84,8 +84,8 @@
 						<div class="section-header">Travel to Boston</div>
 						<hr>
 						<div class="row">
-							<div class="col-md-7 guest-left">
-								<p style="text-align: center;">Grid Map of Prices of Housing in Boston Neighborhoods
+							<div class="col-md-7 guest-left" style="font-size:16px">
+								<p style="text-align: center; font-size: 20px;">Grid Map of Prices of Housing in Boston Neighborhoods
 								<div>
 									<input type="radio" id="radio-price" name="drone" value="price"
 										   checked>
@@ -109,9 +109,9 @@
 									<div class="row" id="radar-vis"></div>
 								</div>
 						</div>
-						<ul style="font-size: 18px;">
+						<ul style="font-size: 16px;">
 							<div>
-								<li id="count-left-first">Prices for both hotels and Airbnb is the <span style="background-color: rgba(255,78,87,0.5); border-radius:3px;">highest in the Downtown area.</span> </li>
+								<li id="count-left-first">Prices for both hotels and Airbnb is the <span style="background-color: rgba(255,78,87,0.5); border-radius:3px;">highest in the Downtown area.</span></li>
 							</div>
 							<div>
 								<li id="count-left-second">The price difference between hotels and Airbnb is the highest at Beacon Hill. If Eric and Emily want to live here, they can save the most by choosing Airbnb. </li>
@@ -166,7 +166,7 @@
 							<div class="row">
 
 								<div class="col-md-6 host-text">
-									The colors on the map show the price DIFFERENCE.
+									The colors on the map show the price difference.
 									<div id="map-legend"></div>
 									It looks like Airbnb is almost always more expensive than rentals!
 
@@ -192,10 +192,13 @@
 <!--									<div id="price-vary"></div>-->
 <!--								</div>-->
 							<div class="col-md-6">
-								<div class="row" id="small-multiples"> </div>
-								<div class="row host-text" id="finding1">>> There are generally larger differences in price and inventory for two and three-plus bedroom apartments.</div>
-								<div class="row host-text" id="finding2">>> The most common listing on Airbnb has one bedroom, while for rental both one and two-bedroom apartments are the most popular. </div>
-								<div class="row host-hint">(Hover over the text above to see highlights.)</div>
+								<div id="small-multiples"> </div>
+								<ul>
+									<li><span class="host-text" id="finding1">There are generally larger differences in price and inventory for two and three-plus bedroom apartments.</span></li>
+									<li><span class="host-text" id="finding2">The most common listing on Airbnb has one bedroom, while for rental both one and two-bedroom apartments are the most popular. </span></li>
+								</ul>
+								
+								<div class="host-hint">(Hover over the text above to see highlights.)</div>
 							</div>
 						</div>
 					</div>
@@ -209,12 +212,13 @@
 					<hr>
 					<div class="row">
 						<div class="col-md-12 host-text">
-							The pro is obvious: hosting on Airbnb generates larger cash flow than rentals. But the biggest con is that the cash flow is not steady enough.
-
-							Here's a "price and occupancy" calendar of a one-bedroom airbnb listing as of September 2019. (Hover over text to see highlights.)
+							The advantage is obvious: hosting an Airbnb generates larger cash flow than rentals. But the biggest disadvantage is that the cash flow is not steady enough.
+							Here is a "price and occupancy" calendar of a one-bedroom airbnb listing as of September 2019. 
+							<p class='host-hint'>Hover over each text box for visualization highlights.</p>
 							<div id="price-vary"></div>
 						</div>
 					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -257,7 +261,8 @@
 						<div class="section-header">Airbnb's Battle with Hotels</div>
 						<hr>
 						<div style="margin-bottom: 20px">
-							Consumer spending on Airbnb is growing at a faster pace than major hotel chains. This persistent war has begun. 
+							<p>Consumer spending on Airbnb is growing at a faster pace than major hotel chains. </p>
+							<p>This persistent war has begun. </p>
 						</div>
 						<div class="row">
 								<div class="col-md-6">
@@ -319,7 +324,7 @@
 									</div> -->
 									
 									<div id="ppf-timeline"></div>
-									<i style="font-size: 12px; margin: 15px;">Hover over each stage for visualization & details.</i>
+									<p class='host-hint'>Hover over each stage for visualization & details.</p>
 								</div>
 								<div class="col-md-8">
 									<div class="force-group">
@@ -373,7 +378,7 @@
 										</div>
 								</div>
 					</div>
-					<div style="text-align: center; font-size: 30px; font-family: 'Montserrat', sans-serif; color:rgb(255,78,87); margin:40px">Our Awesome Team</div>
+					<div style="text-align: center; font-size: 30px; font-family: 'Montserrat', sans-serif; color:rgb(255,78,87); margin:25px">Our Awesome Team</div>
 					<div class="row">
 						<div class="col-md-4">
 							<img src="img/zheyu-wu.png" class="author-photo" alt="">
