@@ -14,10 +14,10 @@ airbnbCityGrowthChart.prototype.initVis = function(){
     })
     
 	// define svg propertities
-	vis.margin = {top: 50, right: 20, bottom: 100, left: 50};
+	vis.margin = {top: 25, right: 20, bottom: 110, left: 50};
 	
 	vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
-    vis.height = 490 - vis.margin.top - vis.margin.bottom;
+    vis.height = 505 - vis.margin.top - vis.margin.bottom;
 
 	// SVG drawing area
 	vis.svg = d3.select("#" + vis.parentElement)
@@ -28,7 +28,7 @@ airbnbCityGrowthChart.prototype.initVis = function(){
             .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
     vis.x = d3.scaleBand()
-                .domain(vis.filteredData.map(function(d) { return d.City;}))
+                // .domain(vis.filteredData.map(function(d) { return d.City;}))
                 .range([0, vis.width])
                 .paddingInner(0.05)
                 .round(true)
@@ -47,6 +47,8 @@ airbnbCityGrowthChart.prototype.initVis = function(){
     // Create y label
     vis.yLabel = vis.svg.append("text")
     .style("font-size", 12)
+    .attr("x", -40)
+    .attr("y", -15)
     .style("fill", "white")
     .style("font-family", "Montserrat, sans-serif")
     .text("# of listings")
@@ -66,6 +68,9 @@ airbnbCityGrowthChart.prototype.wrangleData = function(year){
     vis.filteredData = vis.data.filter(function(d) {
         return (d.Year.getTime() == year.getTime());
     })
+    vis.filteredData.sort(function(a,b) {
+         return b['Listings'] - a['Listings'];
+    })
 
     vis.updateVis();
 }
@@ -73,6 +78,7 @@ airbnbCityGrowthChart.prototype.wrangleData = function(year){
 airbnbCityGrowthChart.prototype.updateVis = function(){
     var vis = this;
 
+    vis.x.domain(vis.filteredData.map(function(d) { return d.City;}))
     //vis.y.domain(d3.extent(vis.filteredData.map(function(d) { return d.Listings;})))
 
     vis.rects = vis.svg.selectAll("rect").data(vis.filteredData)

@@ -21,10 +21,10 @@ RadarVis.prototype.initVis = function() {
     var vis = this;
     console.log(vis.hotel_rating)
 
-    vis.margin = {top: 50, right: 50, bottom: 120, left: 50};
+    vis.margin = {top: 20, right: 50, bottom: 120, left: 60};
 
     // vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
-    vis.height = 500 - vis.margin.top - vis.margin.bottom;
+    vis.height = 350 - vis.margin.top - vis.margin.bottom;
     vis.width = 610 - vis.margin.left - vis.margin.right;
 
     // SVG drawing area
@@ -72,7 +72,7 @@ RadarVis.prototype.initVis = function() {
     //     return {"x": 150 + x, "y": 150 - y};
     // }
 
-    vis.features = ["total", "cleanliness", "communication", "check-in", "accuracy", "location", "value"]
+    vis.features = ["total", "clean", "reply", "check-in", "accuracy", "location", "value"]
 
     for (var i = 0; i < vis.features.length; i++) {
         let ft_name = vis.features[i];
