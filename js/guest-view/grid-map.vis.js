@@ -57,19 +57,19 @@ gridMapVis.prototype.initVis = function() {
 
     vis.neigh_ind = [-1, -1, 0, -1, -1, 9, 1, 8, 2, 5, 3, 6, 4, -1, 7, -1]
 
-    vis.renderLegend(;)
+    // vis.renderLegend()
 
     vis.renderGrid();
 }
 
-gridMapVis.prototype.renderLegend = function() {
-    const vis = this;
-
-    var legend = vis.svg.append("rect")
-        .attr
-
-
-}
+// gridMapVis.prototype.renderLegend = function() {
+//     const vis = this;
+//
+//     var legend = vis.svg.append("rect")
+//
+//
+//
+// }
 
 gridMapVis.prototype.renderGrid = function() {
     var vis = this;
