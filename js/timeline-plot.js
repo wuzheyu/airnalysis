@@ -67,7 +67,7 @@ timelinePlot.prototype.initVis = function(){
     vis.totalLength = vis.linePath.node().getTotalLength();
     const transitionPath = d3.transition()
                             .ease(d3.easeSin)
-                            .duration(16000);
+                            .duration(16500);
 
     vis.linePath.attr("stroke-dashoffset", vis.totalLength)
                 .attr("stroke-dasharray", vis.totalLength)
