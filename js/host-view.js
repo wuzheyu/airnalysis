@@ -324,14 +324,13 @@ d3.json("data/variability.json", function(variability){
 
     var finding1 = svg.append("foreignObject")
         .attr("class","finding")
-        .attr("id","finding-holiday")
         .attr("x",width/2+inner_radius+100)
-        .attr("y",height/2 + inner_radius)
-        .attr("width",200)
-        .attr("height",20)
+        .attr("y",height/2 + inner_radius-60)
+        .attr("width",300)
+        .attr("height",100)
         .append("xhtml:div")
         .style("color","whitesmoke")
-        .html("<p class='finding'>Rates are higher than usual during holidays!<>");
+        .html("<p class='finding' id='finding-holiday'> Rates are higher than usual during holidays!");
 
     //highlights
     $("#finding-holiday").on("mouseover",function(){
@@ -357,16 +356,15 @@ d3.json("data/variability.json", function(variability){
             .attr("fill-opacity","100%")
     })
 
-    var finding2 = svg.append("text")
+    var finding2 = svg.append("foreignObject")
         .attr("class","finding")
-        .attr("id","finding-future")
-        .attr("x",0)
-        .attr("y",height/2 - inner_radius)
-        .attr("width",200)
-        .attr("height",20)
-        // .attr("fill", 'whitesmoke')
-        // .append("div")
-        .text("Host hasn't set future price yet");
+        .attr("x",50)
+        .attr("y",height/2 - inner_radius + 20)
+        .attr("width",300)
+        .attr("height",180)
+        .append("xhtml:div")
+        .style("color","whitesmoke")
+        .html("<p class='finding' id='finding-future'> Those months are most likely blocked out by the host and future prices haven't been set.");
 
     //highlights
     $("#finding-future").on("mouseover",function(){
@@ -392,16 +390,15 @@ d3.json("data/variability.json", function(variability){
             .attr("fill-opacity","100%")
     })
 
-    var finding3 = svg.append("text")
+    var finding3 = svg.append("foreignObject")
         .attr("class","finding")
-        .attr("id","finding-vary")
         .attr("x",width/2 + inner_radius+100)
-        .attr("y",height/2 - inner_radius)
-        .attr("width",200)
-        .attr("height",20)
-        // .attr("fill", 'whitesmoke')
-        // .append("div")
-        .text("hasn't got as many bookings in Nov");
+        .attr("y",height/2 - inner_radius-20)
+        .attr("width",300)
+        .attr("height",100)
+        .append("xhtml:div")
+        .style("color","whitesmoke")
+        .html("<p class='finding' id='finding-vary'> This listing hasn't got as many bookings in Nov as in other months.");
 
     //highlights
     $("#finding-vary").on("mouseover",function(){
