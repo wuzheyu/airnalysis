@@ -31,13 +31,13 @@
 						<hr>
 						<div class="row">
 							<div class="col-md-8" id="logo-animation">
-								<div id="airbnb-description" style="visibility:hidden" class="airbnb-introduction">Airbnb is an online platform for offering lodging and tourism experiences. Since its launch in 2008, it has quickly put its footprint around the world.  </div>
+								<div id="airbnb-description" style="visibility:hidden; width:80%;  margin-right: auto; margin-left: auto; font-size:20px" class="airbnb-introduction">Airbnb is an online platform for offering lodging and tourism experiences. Since its launch in 2008, it has expanded its footprint around the world.  </div>
 								<div id="company-choropleth" style="visibility:hidden"></div>
 								<div id="timeline-plot"></div>
 							</div>
 							<div class="col-md-4">
 								<div><img id="airbnb-logo" src="img/airbnb-logo.png" style="visibility:hidden; width: 100px; height: 100px; display: block; margin-left: auto; margin-right: auto;"></div>
-								<div id="timeline-event-box" style="visibility:hidden;  margin-top: 30px; height: 410px; border-radius: 10px; font-size:14px"></div>
+								<div id="timeline-event-box" style="visibility:hidden;  margin-top: 40px; height: 410px; border-radius: 10px; font-size:14px"></div>
 							</div>
 						</div>
 					</div>
@@ -84,8 +84,8 @@
 						<div class="section-header">Travel to Boston</div>
 						<hr>
 						<div class="row">
-							<div class="col-md-7 guest-left">
-								<p>Prices of Housing in Boston Neighborhoods in a Grid Map.
+							<div class="col-md-7 guest-left" style="font-size:16px">
+								<p style="text-align: center; font-size: 20px;">Grid Map of Prices of Housing in Boston Neighborhoods
 								<div>
 									<input type="radio" id="radio-price" name="drone" value="price"
 										   checked>
@@ -105,16 +105,16 @@
 <!--									<div class="row col-md-6" id="room-type-vis"></div>-->
 								<div class="col-md-5">
 <!--									<div class="row" id="count-vis"></div>-->
-									<p>Ratings in Boston Neighborhood</p>
+									<p style="text-align: center;">Ratings in Boston Neighborhood</p>
 									<div class="row" id="radar-vis"></div>
 								</div>
 						</div>
-						<ul>
+						<ul style="font-size: 16px;">
 							<div>
 								<li id="count-left-first">Prices for both hotels and Airbnb is the highest in the Downtown area.</li>
 							</div>
 							<div>
-								<li id="count-left-second">The price difference between hotels and Airbnb is the hist at Beacon Hill. If Eric wants to live here, he can save the most by choosing Airbnb. </li>
+								<li id="count-left-second">The price difference between hotels and Airbnb is the highest at Beacon Hill. If Eric and Emily want to live here, they can save the most by choosing Airbnb. </li>
 							</div>
 							<div>
 								<li id="count-left-third">Variation of prices of Airbnb is less than the variation of hotel prices. They remain more constant across different sub-areas in Boston.</li>
@@ -166,7 +166,7 @@
 							<div class="row">
 
 								<div class="col-md-6 host-text">
-									The colors on the map show the price DIFFERENCE.
+									The colors on the map show the price difference.
 									<div id="map-legend"></div>
 									It looks like Airbnb is almost always more expensive than rentals!
 
@@ -192,10 +192,13 @@
 <!--									<div id="price-vary"></div>-->
 <!--								</div>-->
 							<div class="col-md-6">
-								<div class="row" id="small-multiples"> </div>
-								<div class="row host-text" id="finding1">>> There are generally larger differences in price and inventory for two and three-plus bedroom apartments.</div>
-								<div class="row host-text" id="finding2">>> The most common listing on Airbnb has one bedroom, while for rental both one and two-bedroom apartments are the most popular. </div>
-								<div class="row host-hint">(Hover over the text above to see highlights.)</div>
+								<div id="small-multiples"> </div>
+								<ul>
+									<li><span class="host-text" id="finding1">There are generally larger differences in price and inventory for two and three-plus bedroom apartments.</span></li>
+									<li><span class="host-text" id="finding2">The most common listing on Airbnb has one bedroom, while for rental both one and two-bedroom apartments are the most popular. </span></li>
+								</ul>
+								
+								<div class="host-hint">(Hover over the text above to see highlights.)</div>
 							</div>
 						</div>
 					</div>
@@ -209,12 +212,13 @@
 					<hr>
 					<div class="row">
 						<div class="col-md-12 host-text">
-							The pro is obvious: hosting on Airbnb generates larger cash flow than rentals. But the biggest con is that the cash flow is not steady enough.
-
-							Here's a "price and occupancy" calendar of a one-bedroom airbnb listing as of September 2019. (Hover over text to see highlights.)
+							The advantage is obvious: hosting an Airbnb generates larger cash flow than rentals. But the biggest disadvantage is that the cash flow is not steady enough.
+							Here is a "price and occupancy" calendar of a one-bedroom airbnb listing as of September 2019. 
+							<p class='host-hint'>Hover over each text box for visualization highlights.</p>
 							<div id="price-vary"></div>
 						</div>
 					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -257,7 +261,8 @@
 						<div class="section-header">Airbnb's Battle with Hotels</div>
 						<hr>
 						<div style="margin-bottom: 20px">
-							Consumer spending on Airbnb is growing at a faster pace than major hotel chains. This persistent war has begun. 
+							<p>Consumer spending on Airbnb is growing at a faster pace than major hotel chains. </p>
+							<p>This persistent war has begun. </p>
 						</div>
 						<div class="row">
 								<div class="col-md-6">
@@ -319,6 +324,7 @@
 									</div> -->
 									
 									<div id="ppf-timeline"></div>
+									<p class='host-hint'>Hover over each stage for visualization & details.</p>
 								</div>
 								<div class="col-md-8">
 									<div class="force-group">
@@ -328,7 +334,6 @@
 									</div>
 								</div>
 						</div>
-						<i style="font-size: 12px; margin: 10px">Hover each stage for visualization and description.</i>
 					</div>
 				</div>
 		</div>
@@ -341,7 +346,7 @@
 					<div class="row">
 								<div class="col-md-6">
 									<div class='acknowledgement'>
-											We would like to take this opportunity to thank CS171 Teaching Group, especially Prof. Hanspeter Pfister and project advisor Dr. Yalong Wang for their advice and encourgement to make this project possible. 
+											We would like to take this opportunity to thank CS171 Teaching Group, especially Prof. Hanspeter Pfister and project advisor Dr. Yalong Wang for their advice and encouragement to make this project possible. 
 									</div>
 								</div>
 								<div class="col-md-6">
@@ -354,11 +359,15 @@
 													<li><a class='reference-url' href="https://github.com/franverona/loadgo">Loadgo.js</a></li>
 													<li><a class='reference-url' href="https://animejs.com/">Anime.js</a></li>
 													<li><a class='reference-url' href="https://textillate.js.org/">Textillate.js</a></li>
+													<li><a class="reference-url" href="https://github.com/d3/d3-scale-chromatic">d3-scale-chromatic.min.js</a></li>
+													<li><a class="reference-url" href="https://github.com/caged/d3-tip">d3-tip.js</a></li>
 												</ul>
 											</div>
 											<div class="col-md-9">
 											<span class="ref-header">Data</span>											
-												<ul> 
+												<ul>
+													<li><a class="reference-url" href="http://insideairbnb.com/get-the-data.html">New York Airbnb Listing Data 2019</a> </li>
+													<li><a class="reference-url" href="https://streeteasy.com/blog/data-dashboard/">New York Rental Data: Streeteasy Dashboard</a></li>
 													<li><a class='reference-url' href="https://www.osc.state.ny.us/osdc/hotel_industry_nyc_rpt2_2017.pdf">New York Airbnb Data 2017</a></li>
 													<li><a class='reference-url' href="https://www1.nyc.gov/assets/planning/download/pdf/plans-studies/m1-hotel-text/nyc-hotel-market-analysis.pdf?r=a">NYC Hotel Market Analysis</a></li>
 													<li><a class='reference-url' href="https://www.tripadvisor.com/ShowTopic-g60763-i5-k5849478-Hotel_Occupancy_Statistics-New_York_City_New_York.html">Hotel Occupancy Statistics</a></li>
@@ -369,7 +378,7 @@
 										</div>
 								</div>
 					</div>
-					<div style="text-align: center; font-size: 30px; font-family: 'Montserrat', sans-serif; color:rgb(255,78,87); margin:40px">Our Awesome Team</div>
+					<div style="text-align: center; font-size: 30px; font-family: 'Montserrat', sans-serif; color:rgb(255,78,87); margin:25px">Our Awesome Team</div>
 					<div class="row">
 						<div class="col-md-4">
 							<img src="img/zheyu-wu.png" class="author-photo" alt="">
@@ -435,11 +444,9 @@
 	<script src="js/style/jquery.textillate.js"></script>
   <!-- Load JS libraries for host view-->
 	<script src="js/host-view.js"></script>
-	<script src="js/mapchart.js"></script>
 	<script src="js/vis-choropleth-ny.js"></script>
 	<script src="js/d3-tip.js"></script>
 	<script src="js/d3-scale-chromatic.min.js"></script>
-	<script src="js/d3-legend.min.js"></script>
   <!-- Load JS libraries for guest view-->
 	<script src="js/guest-view/guest-view.js"></script>
 	<script src="js/guest-view/count-vis.js"></script>

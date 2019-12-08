@@ -14,7 +14,7 @@ airbnbCityGrowthChart.prototype.initVis = function(){
     })
     
 	// define svg propertities
-	vis.margin = {top: 25, right: 20, bottom: 110, left: 50};
+	vis.margin = {top: 30, right: 20, bottom: 110, left: 50};
 	
 	vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
     vis.height = 505 - vis.margin.top - vis.margin.bottom;
@@ -47,15 +47,15 @@ airbnbCityGrowthChart.prototype.initVis = function(){
     // Create y label
     vis.yLabel = vis.svg.append("text")
     .style("font-size", 12)
-    .attr("x", -40)
-    .attr("y", -15)
+    .attr("x", -48)
+    .attr("y", -20)
     .style("fill", "white")
     .style("font-family", "Montserrat, sans-serif")
     .text("# of listings")
     // Create x label
     vis.xLabel = vis.svg.append("text")
-    .attr("x", vis.width - 5)
-    .attr("y", vis.height + 15)
+    .attr("x", vis.width-5)
+    .attr("y", vis.height + 25)
     .style("fill", "white")
     .style("font-family", "Montserrat, sans-serif")
     .style("font-size", 12)
@@ -116,10 +116,14 @@ airbnbCityGrowthChart.prototype.updateVis = function(){
            .call(vis.xAxis)
            .selectAll("text")
            .style("text-anchor", "start")
-           .attr("x", 10)
-           .attr("y", -10)
-           .attr("transform", function(d) { return "rotate(90)"})
+           .attr("x", 6)
+           .attr("y", 10)
+            .attr("transform", function(d) {
+                return "rotate(-45)"
+            })
            .style("font-family", "Montserrat, sans-serif")
+            .style("text-anchor", "end")
+
 
 }
 

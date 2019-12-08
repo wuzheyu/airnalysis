@@ -12,7 +12,7 @@ queue()
 var countVis;
 var radarVis;
 var gridVis;
-const diffColor = "#F25764"
+const diffColor = "#grey"
 const hotelColor = "#038C8C"
 const airbnbColor = "#F28D95"
 const hlColor = "rgb(255,78,87)"
@@ -65,7 +65,7 @@ function add_events() {
         if (!gridVis.allDiff[10]) {
             gridVis.updateDiffSingle(10)
         }
-        d3.select("#grid-10").style("fill", hlRed).attr("stroke", "#F25764")
+        d3.select("#grid-10").style("fill", hlRed).attr("stroke", "grey")
             .attr("stroke-width", 4)
         // d3.select("#hotel-bar-4").style("fill", hlGreen)
     })
@@ -81,7 +81,7 @@ function add_events() {
         if (gridVis.allDiff[6]) {
             gridVis.updateDiffSingle(6)
         }
-        d3.select("#grid-6").style("fill", hlRed).attr("stroke", "#F25764")
+        d3.select("#grid-6").style("fill", hlRed).attr("stroke", "grey")
             .attr("stroke-width", 4)
     })
     d3.select("#count-left-second").on("mouseout", function() {
@@ -91,7 +91,7 @@ function add_events() {
     })
     d3.select("#count-left-third").on("mouseover", function() {
         d3.select("#count-left-third").style("color", hlColor)
-        d3.selectAll(".grids").style("fill", hlRed).attr("stroke", "#F25764")
+        d3.selectAll(".grids").style("fill", hlRed).attr("stroke", "grey")
             .attr("stroke-width", 4)
         gridVis.updateTrue();
         gridVis.updateVis();

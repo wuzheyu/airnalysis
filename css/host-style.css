@@ -3,12 +3,13 @@
 }
 
 .host-text {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .host-hint {
     font-size: 15px;
     color: gray;
+    font-style: italic;
 }
 
 /*finding highlight hover*/
@@ -114,7 +115,8 @@ p.finding{
 }
 
 #multiples-title {
-    fill: #F28D95;
+    fill: whitesmoke;
+    font-size: 18px;
 }
 
 .bar-legend text {

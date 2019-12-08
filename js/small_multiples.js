@@ -180,6 +180,7 @@ SmallMultiples.prototype.initVis = function(){
         .attr('y', -90)
     vis.legend.append('text')
         .text("*Hover over map to switch borough")
+        .style("font-size", 10)
         .attr("fill", vis.airbnbColor)
         .attr("x", 210)
         .attr('y', -90)

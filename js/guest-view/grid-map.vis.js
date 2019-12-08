@@ -6,7 +6,7 @@ gridMapVis =  function(_parentElement, _data, _hotel_data, _air_rating, _hotel_r
     this.airbnbRating = _air_rating;
     this.hotelRating = _hotel_rating;
     this.diff = false;
-    this.diffColor = "#F25764"
+    this.diffColor = "grey"
     this.hotelColor = "#038C8C"
     this.airbnbColor = "#F28D95"
     const hlColor = "rgb(255,78,87)"
@@ -249,7 +249,7 @@ gridMapVis.prototype.renderGrid = function() {
                 return "black";
             }
             else {
-                return "white";
+                return "rgba(245, 245, 245, 0.8)";
             }
         })
         .attr("opacity", function(d) {

@@ -1,5 +1,5 @@
 var textTypeInterval = 40;
-var basePause = 1000;
+var basePause = 100;
 var slidesRun = {1: true, 2: true, 3: true, 4: true, 5: true, 6: true, 7: true, 8: true, 9: true, 10: true, 11: true, 12: true}
 var forcePlot;
 var timelinePlot;
@@ -40,7 +40,7 @@ $(document).ready(function() {
                             $('#airbnb-description').textillate({ in: { effect: 'fadeIn', delayScale: .7} });
                         })
                     }, timeDelay);
-                    timeDelay += 5500;
+                    timeDelay += 5000;
                     setTimeout(function(){
                         $(function () {
                             $('#company-choropleth').delay(timeDelay).css('visibility','visible');
@@ -49,7 +49,7 @@ $(document).ready(function() {
                         })
                     }, timeDelay);
 
-                    timeDelay += 1500
+                    timeDelay += 500
                     setTimeout(function(){
                         $(function () {
                             $('#timeline-event-box').delay(timeDelay).css('visibility','visible');
@@ -80,7 +80,7 @@ $(document).ready(function() {
                     setTimeout(function() {
                         moveItem('eric-emily-icon', 0, 50, 100)
                     }, timeDelay);
-                    timeDelay += 500;
+                    // timeDelay += 500;
 
                     setTimeout(function(){
                         $(function () {
@@ -89,23 +89,23 @@ $(document).ready(function() {
                         })
                     }, timeDelay);
 
-                    timeDelay += 3500;
+                    timeDelay += 2800;
                     setTimeout(function() {moveItem('boston-icon', 0, 50, 100)}, timeDelay);
-                    timeDelay += 500;
+                    // timeDelay += 500;
                     setTimeout(function(){
                         $(function () {
                             $('#eric-emily-p2').css('visibility','visible');
-                            $('#eric-emily-p2').textillate({ initialDelay: 500, in: { effect: 'fadeIn', delayScale: .7 } });
+                            $('#eric-emily-p2').textillate({ initialDelay: 200, in: { effect: 'fadeIn', delayScale: .7 } });
                         })
                     }, timeDelay);
 
-                    timeDelay += 5500;
+                    timeDelay += 4500;
                     setTimeout(function() {moveItem('question-icon', 0, 50, 100)}, timeDelay);
-                    timeDelay += 300;
+                    // timeDelay += 300;
                     setTimeout(function(){
                         $(function () {
                             $('#eric-emily-p3').css('visibility','visible');
-                            $('#eric-emily-p3').textillate({ initialDelay: 500, in: { effect: 'fadeIn', delayScale: .7 } });
+                            $('#eric-emily-p3').textillate({ initialDelay: 200, in: { effect: 'fadeIn', delayScale: .7 } });
                         })
                     }, timeDelay);
 
@@ -124,7 +124,7 @@ $(document).ready(function() {
                 if (slidesRun[currentIndex] == true) {
                     var timeDelay = basePause;
                     setTimeout(function() {moveItem('newyork-icon', 0, 50, 100)}, timeDelay);
-                    timeDelay += 500;
+                    // timeDelay += 500;
 
                     setTimeout(function(){
                         $(function () {
@@ -133,23 +133,23 @@ $(document).ready(function() {
                         })
                     }, timeDelay);
 
-                    timeDelay += 3500;
+                    timeDelay += 3000;
                     setTimeout(function() {moveItem('ee-house-icon', 0, 50, 100)}, timeDelay);
-                    timeDelay += 300;
+                    // timeDelay += 300;
                     setTimeout(function(){
                         $(function () {
                             $('#eric-emily-p5').css('visibility','visible');
-                            $('#eric-emily-p5').textillate({ initialDelay: 500, in: { effect: 'fadeIn', delayScale: .7 } });
+                            $('#eric-emily-p5').textillate({ initialDelay: 200, in: { effect: 'fadeIn', delayScale: .7 } });
                         })
                     }, timeDelay);
 
-                    timeDelay += 5000;
+                    timeDelay += 4500;
                     setTimeout(function() {moveItem('analytics-icon', 0, 50, 100)}, timeDelay);
-                    timeDelay += 300;
+                    // timeDelay += 300;
                     setTimeout(function(){
                         $(function () {
                             $('#eric-emily-p6').css('visibility','visible');
-                            $('#eric-emily-p6').textillate({ initialDelay: 500, in: { effect: 'fadeIn', delayScale: .7 } });
+                            $('#eric-emily-p6').textillate({ initialDelay: 200, in: { effect: 'fadeIn', delayScale: .7 } });
                         })
                     }, timeDelay);
 
@@ -176,7 +176,7 @@ $(document).ready(function() {
                         })
                     }, timeDelay);
 
-                    timeDelay += 4000;
+                    timeDelay += 3800;
                     setTimeout(function() {moveItem('hotel-icon', 0, 50, 100)}, timeDelay);
                     timeDelay += 500;
                     setTimeout(function(){
