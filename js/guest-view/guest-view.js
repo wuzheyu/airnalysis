@@ -71,7 +71,7 @@ function add_events() {
     })
     d3.select("#count-left-first").on("mouseout", function() {
         d3.select("#count-left-first").style("color", "white")
-        d3.select("#grid-10").style("fill", "rgba(245, 245, 245, 0.8)").attr("stroke", "rgba(245, 245, 245, 0.8)")
+        d3.select("#grid-10").style("fill", "white").attr("stroke", "white")
             .attr("stroke-width", 0)
         // d3.select("#airbnb-bar-4").style("fill", airbnbColor)
         // d3.select("#hotel-bar-4").style("fill", hotelColor)
@@ -86,7 +86,7 @@ function add_events() {
     })
     d3.select("#count-left-second").on("mouseout", function() {
         d3.select("#count-left-second").style("color", "white")
-        d3.select("#grid-6").style("fill", "rgba(245, 245, 245, 0.8)").attr("stroke", "rgba(245, 245, 245, 0.8)")
+        d3.select("#grid-6").style("fill", "white").attr("stroke", "white")
             .attr("stroke-width", 0)
     })
     d3.select("#count-left-third").on("mouseover", function() {
@@ -98,7 +98,7 @@ function add_events() {
     })
     d3.select("#count-left-third").on("mouseout", function() {
         d3.select("#count-left-third").style("color", "white")
-        d3.selectAll(".grids").style("fill", "rgba(245, 245, 245, 0.8)").attr("stroke", "rgba(245, 245, 245, 0.8)")
+        d3.selectAll(".grids").style("fill", "white").attr("stroke", "white")
             .attr("stroke-width", 0)
     })
     d3.select("#count-left-fourth").on("mouseover", function() {
