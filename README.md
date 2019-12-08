@@ -27,5 +27,10 @@ README - The README file must give an overview of what you are handing in: which
     * Other css files found in this repository are our code
   * analysis: Jupyter notebooks used for data cleaning
   * index.html: main page of the website
+  
+* URL for the website: https://wuzheyu.github.io/airnalysis/
+* URL for the video: 
+* Non-obvious features of the interace:
+  * 
       
   
