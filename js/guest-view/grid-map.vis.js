@@ -249,7 +249,7 @@ gridMapVis.prototype.renderGrid = function() {
                 return "black";
             }
             else {
-                return "rgba(245, 245, 245, 0.8)";
+                return "white";
             }
         })
         .attr("opacity", function(d) {
