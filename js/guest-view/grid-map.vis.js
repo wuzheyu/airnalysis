@@ -28,7 +28,7 @@ gridMapVis.prototype.initVis = function() {
     vis.grey_out = [0, 1, 3, 4, 13, 15]
     vis.areas = [];
 
-    vis.margin = {top: 20, right: 0, bottom: 100, left: 40};
+    vis.margin = {top: 20, right: 0, bottom: 100, left: 50};
 
     // vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
     vis.height = 300 - vis.margin.top - vis.margin.bottom;

@@ -21,7 +21,7 @@ RadarVis.prototype.initVis = function() {
     var vis = this;
     console.log(vis.hotel_rating)
 
-    vis.margin = {top: 20, right: 50, bottom: 120, left: 20};
+    vis.margin = {top: 20, right: 50, bottom: 120, left: 30};
 
     // vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
     vis.height = 350 - vis.margin.top - vis.margin.bottom;

@@ -12,7 +12,7 @@ queue()
 var countVis;
 var radarVis;
 var gridVis;
-const diffColor = "#grey"
+const diffColor = "#F25764"
 const hotelColor = "#038C8C"
 const airbnbColor = "#F28D95"
 const hlColor = "rgb(255,78,87)"
@@ -29,7 +29,7 @@ function createVisualization(error, bos_listing, bos_hotel_prices, bos_ratings, 
     console.log("end of ratings")
 
     /* multiple coordinated views */
-x
+
     // data cleaning for count-vis
     var listing_by_neighborhood = get_count_by_neighbor(bos_listing);
     var listing_by_neighborhood = reorg_to_array_by_neightbor(listing_by_neighborhood)
@@ -65,13 +65,13 @@ function add_events() {
         if (!gridVis.allDiff[10]) {
             gridVis.updateDiffSingle(10)
         }
-        d3.select("#grid-10").style("fill", hlRed).attr("stroke", "grey")
+        d3.select("#grid-10").style("fill", hlRed).attr("stroke", "#F25764")
             .attr("stroke-width", 4)
         // d3.select("#hotel-bar-4").style("fill", hlGreen)
     })
     d3.select("#count-left-first").on("mouseout", function() {
         d3.select("#count-left-first").style("color", "white")
-        d3.select("#grid-10").style("fill", "white").attr("stroke", "white")
+        d3.select("#grid-10").style("fill", "rgba(245, 245, 245, 0.8)").attr("stroke", "rgba(245, 245, 245, 0.8)")
             .attr("stroke-width", 0)
         // d3.select("#airbnb-bar-4").style("fill", airbnbColor)
         // d3.select("#hotel-bar-4").style("fill", hotelColor)
@@ -81,24 +81,24 @@ function add_events() {
         if (gridVis.allDiff[6]) {
             gridVis.updateDiffSingle(6)
         }
-        d3.select("#grid-6").style("fill", hlRed).attr("stroke", "grey")
+        d3.select("#grid-6").style("fill", hlRed).attr("stroke", "#F25764")
             .attr("stroke-width", 4)
     })
     d3.select("#count-left-second").on("mouseout", function() {
         d3.select("#count-left-second").style("color", "white")
-        d3.select("#grid-6").style("fill", "white").attr("stroke", "white")
+        d3.select("#grid-6").style("fill", "rgba(245, 245, 245, 0.8)").attr("stroke", "rgba(245, 245, 245, 0.8)")
             .attr("stroke-width", 0)
     })
     d3.select("#count-left-third").on("mouseover", function() {
         d3.select("#count-left-third").style("color", hlColor)
-        d3.selectAll(".grids").style("fill", hlRed).attr("stroke", "grey")
+        d3.selectAll(".grids").style("fill", hlRed).attr("stroke", "#F25764")
             .attr("stroke-width", 4)
         gridVis.updateTrue();
         gridVis.updateVis();
     })
     d3.select("#count-left-third").on("mouseout", function() {
         d3.select("#count-left-third").style("color", "white")
-        d3.selectAll(".grids").style("fill", "white").attr("stroke", "white")
+        d3.selectAll(".grids").style("fill", "rgba(245, 245, 245, 0.8)").attr("stroke", "rgba(245, 245, 245, 0.8)")
             .attr("stroke-width", 0)
     })
     d3.select("#count-left-fourth").on("mouseover", function() {
