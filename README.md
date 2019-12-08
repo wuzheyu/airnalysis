@@ -28,7 +28,7 @@
   * index.html: main page of the website
   
 * URL for the website: https://wuzheyu.github.io/airnalysis/
-* URL for the video: 
+* URL for the video: https://vimeo.com/378063147
 * Non-obvious features of the interace:
   * "Airbnb's Footprint"
     * Each marker on the map is clickable for its tool tip to pop up. The corresponding tool tip shows additional information of the marker.
