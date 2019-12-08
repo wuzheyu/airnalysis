@@ -31,6 +31,12 @@ README - The README file must give an overview of what you are handing in: which
 * URL for the website: https://wuzheyu.github.io/airnalysis/
 * URL for the video: 
 * Non-obvious features of the interace:
-  * 
+  * "Airbnb's Footprint"
+    * Each marker on the map is clickable for its tool tip to pop up. The corresponding tool tip shows additional information of the marker.
+  * "Travel to Boston"
+    * The content shown on the grid map will change as the mouse hovers over. By default, it shows the airbnb and hotel price comparison. When hovered on, it will show the difference. Hovering again will render the grid to show the comparison again. In addition, a small text box to the right of the grid map will reveal more details of the price. 
+    * Hovering on each sentence below the grid map will highlight the corresponding grid that relates to a specific sentence.
+    * There is a compass on the upper-left corner to show the direction.
+    
       
   
