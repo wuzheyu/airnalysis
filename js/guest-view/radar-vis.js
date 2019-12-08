@@ -80,7 +80,7 @@ RadarVis.prototype.initVis = function() {
     //     return {"x": 150 + x, "y": 150 - y};
     // }
 
-    vis.features = ["overall", "cleaness", "reply", "check-in", "accuracy", "location", "value"]
+    vis.features = ["overall", "cleanliness", "reply", "check-in", "accuracy", "location", "value"]
 
     for (var i = 0; i < vis.features.length; i++) {
         let ft_name = vis.features[i];

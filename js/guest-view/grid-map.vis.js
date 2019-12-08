@@ -325,8 +325,8 @@ gridMapVis.prototype.renderGrid = function() {
 
             d3.select("#tooltip1").text("Neighborhood: ")
             d3.select("#tooltip2").text("" + datum.neightborhood)
-            d3.select("#tooltip3").text("Airbnb Rating Total: " + vis.airbnbRating[vis.neigh_ind[index]].total)
-            d3.select("#tooltip4").text("Hotel Rating Total: " + vis.hotelRating[vis.neigh_ind[index]].total)
+            d3.select("#tooltip3").text("Airbnb Rating Total: " + vis.airbnbRating[vis.neigh_ind[index]]["overall"])
+            d3.select("#tooltip4").text("Hotel Rating Total: " + vis.hotelRating[vis.neigh_ind[index]]["overall"])
             d3.select("#tooltip5").text("")
             d3.select("#tooltip6").text("")
         })
@@ -566,18 +566,21 @@ gridMapVis.prototype.renderCover = function() {
                 d3.select("#tooltip1").text("Neighborhood: ")
                 d3.select("#tooltip2").text("" + datum.neightborhood)
                 d3.select("#tooltip3").text("Price Difference: " + (datum.hotel_price - datum.avg_price).toFixed(2))
-                d3.select("#tooltip4").text("Airbnb Rating Total: " + vis.airbnbRating[vis.neigh_ind[index]].total)
-                d3.select("#tooltip5").text("Hotel Rating Total: " + vis.hotelRating[vis.neigh_ind[index]].total)
+                d3.select("#tooltip4").text("Airbnb Rating Total: " + vis.airbnbRating[vis.neigh_ind[index]]["overall"])
+                d3.select("#tooltip5").text("Hotel Rating Total: " + vis.hotelRating[vis.neigh_ind[index]]["overall"])
                 d3.select("#tooltip6").text("")
 
             }
             else {
+                console.log("=========================")
+                console.log(vis.airbnbRating)
+                console.log(vis.neigh_ind[index])
                 d3.select("#tooltip1").text("Neighborhood: ")
                 d3.select("#tooltip2").text("" + datum.neightborhood)
                 d3.select("#tooltip3").text("Airbnb Price: " + datum.avg_price.toFixed(2))
                 d3.select("#tooltip4").text("Hotel Price: " + datum.hotel_price.toFixed(2))
-                d3.select("#tooltip5").text("Airbnb Rating Total: " + vis.airbnbRating[vis.neigh_ind[index]].total)
-                d3.select("#tooltip6").text("Hotel Rating Total"  + vis.hotelRating[vis.neigh_ind[index]].total)
+                d3.select("#tooltip5").text("Airbnb Rating Total: " + vis.airbnbRating[vis.neigh_ind[index]]["overall"])
+                d3.select("#tooltip6").text("Hotel Rating Total: "  + vis.hotelRating[vis.neigh_ind[index]]["overall"])
             }
         })
         .on("mouseout", function(d, index) {
