@@ -39,7 +39,7 @@ x
     var all_room_types = get_room_types(listing_by_neighborhood);
     var listing_by_neigh_types = listing_types(listing_by_neighborhood, all_room_types);
 
-    gridVis = new gridMapVis("grid-map-vis", listing_by_neighborhood, bos_hotel_prices_by_neighborhood);
+    gridVis = new gridMapVis("grid-map-vis", listing_by_neighborhood, bos_hotel_prices_by_neighborhood, bos_ratings, hotel_ratings);
     // countVis = new CountVis("count-vis", listing_by_neighborhood, bos_hotel_prices_by_neighborhood);
     radarVis = new RadarVis("radar-vis", bos_ratings, hotel_ratings);
 
@@ -103,10 +103,11 @@ function add_events() {
     })
     d3.select("#count-left-fourth").on("mouseover", function() {
         d3.select("#count-left-fourth").style("color", hlColor)
+        radarVis.highlight();
     })
     d3.select("#count-left-fourth").on("mouseout", function() {
         d3.select("#count-left-fourth").style("color", "white")
-
+        radarVis.deHighlight();
     })
 }
 

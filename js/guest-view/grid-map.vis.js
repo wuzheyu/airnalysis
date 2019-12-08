@@ -1,13 +1,17 @@
-gridMapVis =  function(_parentElement, _data, _hotel_data){
+gridMapVis =  function(_parentElement, _data, _hotel_data, _air_rating, _hotel_rating){
     this.parentElement = _parentElement;
     this.data = _data;
     // this.eventHandler = _eventHandler;
     this.hotel_data = _hotel_data;
+    this.airbnbRating = _air_rating;
+    this.hotelRating = _hotel_rating;
     this.diff = false;
     this.diffColor = "grey"
     this.hotelColor = "#038C8C"
     this.airbnbColor = "#F28D95"
+    const hlColor = "rgb(255,78,87)"
     this.started = 0;
+
 
     this.allDiff = [];
     for (var i = 0; i < 16; i++) {
@@ -20,6 +24,7 @@ gridMapVis =  function(_parentElement, _data, _hotel_data){
 
 gridMapVis.prototype.initVis = function() {
     var vis = this;
+
     vis.grey_out = [0, 1, 3, 4, 13, 15]
     vis.areas = [];
 
@@ -75,7 +80,7 @@ gridMapVis.prototype.renderLegend = function() {
 
     vis.svg.append("rect")
         .attr("x", 380)
-        .attr("y", 60)
+        .attr("y", 59)
         .attr("width", 15)
         .attr("height", 15)
         .attr("fill", vis.hotelColor)
@@ -110,11 +115,14 @@ gridMapVis.prototype.renderLegend = function() {
         .attr("class", "price-axis axis")
         // .attr("x", 420)
         // .attr("y", 200)
-        .attr("transform", "translate(10, 70)")
+        .attr("transform", "translate(10, 140)")
     vis.yAxis = d3.axisLeft()
         .scale(vis.yDis).ticks(4)
-    vis.svg.select(".price-axis").call(vis.yAxis).append("text").text("Price Scale (in USD)")
-        .attr("y", -10)
+    vis.svg.select(".price-axis").call(vis.yAxis).append("text").text("Price Scale")
+        .attr("y", -20)
+        .attr("text-anchor", "middle")
+    vis.svg.select(".price-axis").call(vis.yAxis).append("text").text("(in USD)")
+        .attr("y", -8)
         .attr("text-anchor", "middle")
 
     vis.svg.append("text")
@@ -137,6 +145,59 @@ gridMapVis.prototype.renderLegend = function() {
         .attr("id", "tooltip3")
         .text("")
         .attr("fill", "white")
+
+    vis.svg.append("text")
+        .attr("x", 380)
+        .attr("y", 180)
+        .attr("id", "tooltip4")
+        .text("")
+        .attr("fill", "white")
+
+    vis.svg.append("text")
+        .attr("x", 380)
+        .attr("y", 200)
+        .attr("id", "tooltip5")
+        .text("")
+        .attr("fill", "white")
+
+    vis.svg.append("text")
+        .attr("x", 380)
+        .attr("y", 220)
+        .attr("id", "tooltip6")
+        .text("")
+        .attr("fill", "white")
+
+    // direction sign
+    vis.svg.append("line")
+        .attr("x1", 0)
+        .attr("y1", 0)
+        .attr("x2", 0)
+        .attr("y2", 50)
+        .attr("fill", "white")
+        .attr("stroke", "white")
+        .attr("stroke-width", 2)
+    vis.svg.append("line")
+        .attr("x1", 0)
+        .attr("y1", 0)
+        .attr("x2", -5)
+        .attr("y2", 5)
+        .attr("fill", "white")
+        .attr("stroke", "white")
+        .attr("stroke-width", 2)
+    vis.svg.append("line")
+        .attr("x1", 0)
+        .attr("y1", 0)
+        .attr("x2", 5)
+        .attr("y2", 5)
+        .attr("fill", "white")
+        .attr("stroke", "white")
+        .attr("stroke-width", 2)
+    vis.svg.append("text")
+        .attr("x", 8)
+        .attr("y", 10)
+        .text("North")
+        .attr("fill", "white")
+        // .attr("stroke", "white")
 }
 
 gridMapVis.prototype.renderGrid = function() {
@@ -259,10 +320,25 @@ gridMapVis.prototype.renderGrid = function() {
         })
         .on("mouseover", function(d, index) {
             filter_radar(vis.neigh_ind[index]);
+            const datum = vis.displayData[vis.neigh_ind[index]]
             d3.select("#grid-text-" + index).style("fill", "white")
+
+            d3.select("#tooltip1").text("Neighborhood: ")
+            d3.select("#tooltip2").text("" + datum.neightborhood)
+            d3.select("#tooltip3").text("Airbnb Rating Total: " + vis.airbnbRating[vis.neigh_ind[index]].total)
+            d3.select("#tooltip4").text("Hotel Rating Total: " + vis.hotelRating[vis.neigh_ind[index]].total)
+            d3.select("#tooltip5").text("")
+            d3.select("#tooltip6").text("")
         })
         .on("mouseout", function(d, index) {
             d3.select("#grid-text-" + index).style("fill", vis.diffColor)
+
+            d3.select("#tooltip1").text("")
+            d3.select("#tooltip2").text("")
+            d3.select("#tooltip3").text("")
+            d3.select("#tooltip4").text("")
+            d3.select("#tooltip5").text("")
+            d3.select("#tooltip6").text("")
         })
     vis.grid_text.exit().remove();
 
@@ -446,6 +522,7 @@ gridMapVis.prototype.updateFalse = function() {
 
 gridMapVis.prototype.renderCover = function() {
     var vis = this;
+
     // grids
     vis.cover = vis.svg.selectAll(".cover")
         .data(d3.range(0, 16, 1))
@@ -486,14 +563,21 @@ gridMapVis.prototype.renderCover = function() {
             // tooltip
             const datum = vis.displayData[vis.neigh_ind[index]]
             if (!vis.allDiff[index]) {
-                d3.select("#tooltip1").text("Neighborhood: " + datum.neightborhood)
-                d3.select("#tooltip2").text("Price Difference: " + (datum.hotel_price - datum.avg_price).toFixed(2))
-                d3.select("#tooltip3").text("")
+                d3.select("#tooltip1").text("Neighborhood: ")
+                d3.select("#tooltip2").text("" + datum.neightborhood)
+                d3.select("#tooltip3").text("Price Difference: " + (datum.hotel_price - datum.avg_price).toFixed(2))
+                d3.select("#tooltip4").text("Airbnb Rating Total: " + vis.airbnbRating[vis.neigh_ind[index]].total)
+                d3.select("#tooltip5").text("Hotel Rating Total: " + vis.hotelRating[vis.neigh_ind[index]].total)
+                d3.select("#tooltip6").text("")
+
             }
             else {
-                d3.select("#tooltip1").text("Neighborhood: " + datum.neightborhood)
-                d3.select("#tooltip2").text("Airbnb Price: " + datum.avg_price.toFixed(2))
-                d3.select("#tooltip3").text("Hotel Price: " + datum.hotel_price.toFixed(2))
+                d3.select("#tooltip1").text("Neighborhood: ")
+                d3.select("#tooltip2").text("" + datum.neightborhood)
+                d3.select("#tooltip3").text("Airbnb Price: " + datum.avg_price.toFixed(2))
+                d3.select("#tooltip4").text("Hotel Price: " + datum.hotel_price.toFixed(2))
+                d3.select("#tooltip5").text("Airbnb Rating Total: " + vis.airbnbRating[vis.neigh_ind[index]].total)
+                d3.select("#tooltip6").text("Hotel Rating Total"  + vis.hotelRating[vis.neigh_ind[index]].total)
             }
         })
         .on("mouseout", function(d, index) {
@@ -501,6 +585,10 @@ gridMapVis.prototype.renderCover = function() {
             d3.select("#tooltip1").text("")
             d3.select("#tooltip2").text("")
             d3.select("#tooltip3").text("")
+            d3.select("#tooltip4").text("")
+            d3.select("#tooltip5").text("")
+            d3.select("#tooltip6").text("")
+
         })
     vis.cover.exit().remove()
 }

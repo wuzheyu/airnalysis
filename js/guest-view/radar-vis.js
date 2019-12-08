@@ -4,6 +4,7 @@ RadarVis = function(_parentElement, _rating, _hotel_rating){
     this.hotel_rating = _hotel_rating;
     this.hotelColor = "#038C8C"
     this.airbnbColor = "#F28D95"
+    this.hlColor = "rgb(255,78,87)"
 
     // this.clean_data();
     this.initVis();
@@ -16,12 +17,11 @@ RadarVis.prototype.angleToCoordinate = function(angle, value) {
     return {"x": 150 + x, "y": 150 - y};
 }
 
-
 RadarVis.prototype.initVis = function() {
     var vis = this;
     console.log(vis.hotel_rating)
 
-    vis.margin = {top: 20, right: 50, bottom: 120, left: 60};
+    vis.margin = {top: 20, right: 50, bottom: 120, left: 20};
 
     // vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,
     vis.height = 350 - vis.margin.top - vis.margin.bottom;
@@ -48,6 +48,7 @@ RadarVis.prototype.initVis = function() {
         vis.svg.append("circle")
             .attr("cx", 150)
             .attr("cy", 150)
+            .attr("class", "radar-back")
             .attr("fill", "white")
             .attr("stroke", "black")
             // .attr("stroke-width", 3)
@@ -171,9 +172,11 @@ RadarVis.prototype.updateVis = function(area) {
         .append("path")
         .merge(all_paths)
         .attr("d",vis.line)
+        .attr("class", "air-radar")
         .attr("class", "airbnbRadar")
-        .attr("stroke-width", 3)
+        // .attr("stroke-width", 3)
         .attr("fill", this.airbnbColor)
+        // .attr("stroke", this.hlColor)
         // .attr("stroke", function(d, index) {
         //     return vis.colors[index]
         // })
@@ -195,8 +198,9 @@ RadarVis.prototype.updateVis = function(area) {
         .append("path")
         .merge(all_paths_hotel)
         .attr("d",vis.line)
+        .attr("class", "hotel-radar")
         .attr("class", "hotelRadar")
-        .attr("stroke-width", 3)
+        // .attr("stroke-width", 3)
         .attr("fill", this.hotelColor)
         // .attr("stroke", function(d, index) {
         //     return vis.colors[index]
@@ -215,3 +219,15 @@ RadarVis.prototype.updateVis = function(area) {
         });
 }
 
+RadarVis.prototype.highlight = function() {
+    console.log("hey")
+    console.log(d3.selectAll(".radar-back"))
+    console.log("hey")
+    d3.selectAll(".radar-back").style("fill", "grey")
+    d3.selectAll(".airbnbRadar").style("fill", this.hlColor)
+}
+
+RadarVis.prototype.deHighlight = function() {
+    d3.selectAll(".radar-back").style("fill", "white")
+    d3.selectAll(".airbnbRadar").style("fill", this.airbnbColor)
+}
