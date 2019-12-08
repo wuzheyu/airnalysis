@@ -37,6 +37,15 @@ README - The README file must give an overview of what you are handing in: which
     * The content shown on the grid map will change as the mouse hovers over. By default, it shows the airbnb and hotel price comparison. When hovered on, it will show the difference. Hovering again will render the grid to show the comparison again. In addition, a small text box to the right of the grid map will reveal more details of the price. 
     * Hovering on each sentence below the grid map will highlight the corresponding grid that relates to a specific sentence.
     * There is a compass on the upper-left corner to show the direction.
+  * “Airbnb vs. Rental in New York City”
+    * Hovering on each sentence below the bar char will highlight the corresponding bar that relates to a specific sentence.
+    * Clicking ">> More rooms, larger price differences. (click to see animation)" will result the map to auto-loop through different room type.
+  * "Hosting Emily's own Airbnb"
+    * Hovering on each sentence will highlight the corresponding circles that relates to a specific sentence.
+  * "The Past, Present and Future of this battle"
+    * Hovering each stage (i.e. Past, Present or Future) will change the diagram on the right-hand side. A title and a description will also show up on the right-hand side.
+    
+
     
       
   
